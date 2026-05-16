@@ -1,0 +1,60 @@
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N"]
+ignore = [
+    "B008",  # function calls in default args (common in DRF/Django)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["nutriplan", "core", "apps"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main"]
+
+[[tool.mypy.overrides]]
+module = [
+    "celery.*",
+    "django_celery_beat.*",
+    "drf_spectacular.*",
+    "factory.*",
+    "corsheaders.*",
+    "environ.*",
+]
+ignore_missing_imports = true
+
+[tool.django-stubs]
+django_settings_module = "nutriplan.settings.development"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "nutriplan.settings.development"
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--cov=.",
+    "--cov-report=term-missing",
+    "-v",
+]
+
+[tool.coverage.run]
+omit = [
+    "*/migrations/*",
+    "*/tests/*",
+    "manage.py",
+    "nutriplan/settings/*",
+    "*conftest*",
+    ".venv/*",
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
