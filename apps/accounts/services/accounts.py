@@ -1,4 +1,8 @@
+import logging
+
 from apps.accounts.models import User
+
+logger = logging.getLogger(__name__)
 
 
 def register_or_get_user(firebase_uid: str, email: str, display_name: str) -> tuple[User, bool]:
@@ -7,7 +11,12 @@ def register_or_get_user(firebase_uid: str, email: str, display_name: str) -> tu
         firebase_uid=firebase_uid,
         defaults={"email": email, "display_name": display_name},
     )
-    if not created:
+    if created:
+        logger.info(
+            "user_created",
+            extra={"event": "user_created", "user_id": user.pk, "firebase_uid": firebase_uid},
+        )
+    else:
         changed = False
         if email and user.email != email:
             user.email = email

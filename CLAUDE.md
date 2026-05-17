@@ -300,7 +300,6 @@ nutriplan-backend/
 │   ├── wsgi.py
 │   └── celery.py
 ├── core/                 # shared, cross-app, NO models
-│   ├── authentication.py # PlaceholderAuthentication (M0) → FirebaseAuthentication (M1)
 │   ├── exceptions.py
 │   ├── pagination.py
 │   ├── permissions.py
@@ -375,15 +374,24 @@ apps/<name>/
   ```
 - All error codes registered in `core/exceptions.py` as constants, listed in the spec's `error_codes_registry`.
 
+**Model inheritance.**
+- Every concrete model inherits `TimestampedModel` first in the MRO: `class MyModel(TimestampedModel, ...)`. Do not redeclare `created_at`/`updated_at` inline.
+- For `AbstractBaseUser` subclasses the canonical form is `class User(TimestampedModel, AbstractBaseUser, PermissionsMixin)`.
+
 **Authentication.**
-- M0: `core.authentication.PlaceholderAuthentication` (no-op stub).
-- M1+: `apps.accounts.authentication.FirebaseAuthentication`. No alternatives, no fallback.
+- M1+: `apps.accounts.authentication.FirebaseAuthentication`. No alternatives, no fallback. (`core/authentication.py` deleted after M1 — stub is gone.)
 - `request.user` is the only source of identity. Treat `request.data["user_id"]` as user input that must be rejected if present.
 
 **Logging.**
 - `python-json-logger` in production, plain console in development.
-- Every service function logs entry/exit at `DEBUG` (no PII), errors at `ERROR` with stacktrace and request ID.
-- Structured fields: `event`, `user_id`, `module`, `duration_ms`, `error_code`.
+- Log at **INFO** for state-changing or security-relevant events (`user_created`, `token_verified`, `payment_processed`, etc.).
+- Log at **DEBUG** only for multi-step service flows where call tracing aids debugging. Trivial pass-through functions log nothing.
+- Log at **ERROR** on all exception paths with full context but **no PII** (no email, no token, no name).
+- Required structured fields on every log call: `event` (always), `user_id` (if available), `error_code` (on errors).
+
+**Exception handling.**
+- Exception handlers must catch **specific** exception types, never bare `except Exception`, unless immediately re-raising as a typed `AppException` from `core/exceptions.py`.
+- In `FirebaseAuthentication`: catch `ExpiredIdTokenError`, `RevokedIdTokenError`, `InvalidIdTokenError`, `FirebaseError` in that order; let genuinely unexpected exceptions propagate.
 
 **Database.**
 - Postgres only. Use `ArrayField` and `JSONField` where the spec asks (recipes' tags, micronutrients).
@@ -403,6 +411,7 @@ apps/<name>/
 - One factory per model in `tests/factories.py` (project-level) or `apps/<name>/tests/factories.py` (app-level).
 - Mock external services (Firebase, OpenAI, USDA) with `pytest` monkeypatch / fixtures. Never hit real endpoints in tests.
 - `random.seed(0)` in any test of the recommendation engine.
+- **Coverage scope:** ≥80% on each module's own services (`apps/<module>/services/`), measured per-module. Aggregate coverage is reported but is not a substitute for per-module gating.
 
 ---
 
@@ -419,7 +428,7 @@ If you would violate any of these, STOP and ask first. These are the most-violat
 - **No new libraries** beyond the spec's `tech_stack` without asking.
 - **Every dependency pinned** to exact version in `requirements/base.txt` (e.g., `Django==5.1.15`, not `Django>=5.0`).
 - **Secrets via env only** (django-environ). Update `.env.example` whenever a new env var is introduced. Never commit real secrets.
-- **Tests not optional.** ≥80% coverage on services. Every endpoint has at least one test.
+- **Tests not optional.** ≥80% coverage on each module's own `services/`. Every endpoint has at least one test.
 - **Migrations ship in the same commit as the model change.** No "I'll add the migration later."
 - **One module at a time.** Do not start M(n+1) before M(n) acceptance + context update is complete.
 
@@ -568,6 +577,8 @@ feat(M<n>): <module name> — <one-line summary>
 - 2026-05-17 — All test files (`apps.*.tests.*`, `tests.*`) have `ignore_errors = true` in mypy overrides — factory-boy has no stubs and strict type-checking of test code is not required. (M1)
 - 2026-05-17 — `ruff extend-exclude = ["*/migrations/*"]` added to `pyproject.toml` — generated migration files are not subject to line-length or other style checks. (M1)
 - 2026-05-17 — DB reset required when `AUTH_USER_MODEL` is first introduced mid-project (M1 onward). Run `make dbreset` and re-migrate. Document this in PROGRESS.md for any future reset. (M1)
+- 2026-05-17 — All forward-looking plans and retrospective reviews are written to disk in `docs/plans/` using the naming convention `docs/plans/M<n>_plan.md` (pre-build plans) and `docs/plans/M<n>_review.md` (post-build retrospectives). This directory is created in Task 2 of the project review session. Both agents read from these files to recover from session crashes or rate-limit interruptions; always write the file before beginning implementation. (meta)
+- 2026-05-17 — M1 review clarified four protocol ambiguities now codified in §7: (1) TimestampedModel is always first in MRO for all models including AbstractBaseUser subclasses; (2) logging granularity is INFO for state-change/security events, DEBUG for multi-step flows only, ERROR on all failure paths with no PII; (3) exception handlers must catch specific types, never bare Exception unless re-raising typed AppException; (4) coverage gate is per-module services (≥80% each), not aggregate. `core/authentication.py` (PlaceholderAuthentication) deleted — no longer exists. (M1 amendment)
 
 ---
 
