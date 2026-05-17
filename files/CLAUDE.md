@@ -84,14 +84,13 @@ This is the loop. Every module follows it. No exceptions.
 
 > **Update this section at Step 5 of every module.**
 
-- **Active module:** `M2_profiles`
-- **Last completed module:** `M1_accounts` (2026-05-17)
-- **Build order:** M0 ✅ → M1 ✅ → M2 → M3 → M4 → M5 → M6 → M7 → M8
-- **Repo path:** `nutri-app-backend/`
-- **Python version:** 3.12.13 (managed by `uv`, venv at `.venv/`)
-- **Package manager:** `uv` 0.11.2
-- **Django version:** 5.1.15
-- **firebase-admin version:** 7.4.0
+- **Active module:** `M0_bootstrap`
+- **Last completed module:** none
+- **Build order:** M0 → M1 → M2 → M3 → M4 → M5 → M6 → M7 → M8
+- **Repo path:** `nutriplan-backend/`
+- **Python version:** TBD (decide in M0 — recommend 3.11 or 3.12)
+- **Package manager:** TBD (decide in M0 — recommend `uv`)
+- **Django version:** 5.x (pin exact in M0)
 
 ---
 
@@ -100,20 +99,20 @@ This is the loop. Every module follows it. No exceptions.
 **Before starting any module, run the gate check for that module.** If anything is missing, STOP and ask the user. Do not silently substitute or stub past what the spec allows.
 
 ### M0 — Bootstrap
-- [x] Python 3.11+ installed (`python3 --version`) — 3.12.13 via uv
-- [x] Package manager available (`uv --version`) — uv 0.11.2
-- [x] PostgreSQL 16 running (`pg_isready -h localhost`) — installed via Homebrew
-- [x] Postgres user `nutriplan` and database `nutriplan` exist
-- [x] `DJANGO_SECRET_KEY` generated and in `.env`
-- [x] Git initialized in repo
+- [ ] Python 3.11+ installed (`python3 --version`)
+- [ ] Package manager available (`uv --version` or `pip --version`)
+- [ ] PostgreSQL 16 running (`pg_isready -h localhost`)
+- [ ] Postgres user `nutriplan` and database `nutriplan` exist
+- [ ] User has provided `DJANGO_SECRET_KEY` or you generated one and surfaced it
+- [ ] Git initialized in repo
 
 ### M1 — Accounts (Firebase)
-- [x] Firebase project created (see §5.1)
-- [x] Email/password + Google providers enabled in Firebase console
-- [x] Firebase Admin SDK service-account JSON downloaded
-- [x] File placed at `./secrets/firebase-admin.json`
-- [x] `secrets/` added to `.gitignore`
-- [x] `FIREBASE_CREDENTIALS_PATH` set in `.env`
+- [ ] Firebase project created (see §5.1)
+- [ ] Email/password + Google providers enabled in Firebase console
+- [ ] Firebase Admin SDK service-account JSON downloaded
+- [ ] File placed at `./secrets/firebase-admin.json`
+- [ ] `secrets/` added to `.gitignore`
+- [ ] `FIREBASE_CREDENTIALS_PATH` set in `.env`
 
 ### M2 — Profiles
 - [ ] M1 acceptance criteria met
@@ -273,7 +272,7 @@ redis-cli ping  # expect PONG
 
 ---
 
-## 7. Django architecture & coding standards (enforced)
+## 7. Django architecture & coding standards
 
 You will follow these. Every module. No drift.
 
@@ -283,6 +282,7 @@ You will follow these. Every module. No drift.
 nutriplan-backend/
 ├── manage.py
 ├── pyproject.toml
+├── pytest.ini
 ├── .env.example
 ├── .gitignore
 ├── requirements/
@@ -295,12 +295,10 @@ nutriplan-backend/
 │   │   ├── development.py
 │   │   └── production.py
 │   ├── urls.py
-│   ├── api_router.py     # /api/v1/ includes live here
 │   ├── asgi.py
 │   ├── wsgi.py
 │   └── celery.py
 ├── core/                 # shared, cross-app, NO models
-│   ├── authentication.py # PlaceholderAuthentication (M0) → FirebaseAuthentication (M1)
 │   ├── exceptions.py
 │   ├── pagination.py
 │   ├── permissions.py
@@ -359,8 +357,7 @@ apps/<name>/
 
 **URLs.**
 - All API endpoints under `/api/v1/`. Versioning is non-negotiable.
-- `nutriplan/urls.py` includes `nutriplan/api_router.py` at `/api/v1/`.
-- Each app's `urls.py` is included from `api_router.py`.
+- `nutriplan/urls.py` `include()`s each app's `urls.py`.
 - Each app's `urls.py` uses DRF routers where it makes sense; explicit `path()` otherwise.
 
 **Pagination.**
@@ -368,7 +365,7 @@ apps/<name>/
 - Configurable per-request via `?page_size=` up to a hard ceiling of 100.
 
 **Errors.**
-- One exception hierarchy in `core/exceptions.py`: `AppException` → `AppValidationError`, `NotFoundError`, `ConflictError`, `RateLimitError`, `ExternalServiceError`.
+- One exception hierarchy in `core/exceptions.py`: `AppException` → `ValidationError`, `NotFoundError`, `ConflictError`, `RateLimitError`, `ExternalServiceError`.
 - One DRF exception handler that returns the canonical envelope:
   ```json
   {"error": {"code": "...", "message": "...", "details": {}}}
@@ -376,8 +373,7 @@ apps/<name>/
 - All error codes registered in `core/exceptions.py` as constants, listed in the spec's `error_codes_registry`.
 
 **Authentication.**
-- M0: `core.authentication.PlaceholderAuthentication` (no-op stub).
-- M1+: `apps.accounts.authentication.FirebaseAuthentication`. No alternatives, no fallback.
+- One DRF auth class: `apps.accounts.authentication.FirebaseAuthentication`. No alternatives, no fallback.
 - `request.user` is the only source of identity. Treat `request.data["user_id"]` as user input that must be rejected if present.
 
 **Logging.**
@@ -417,7 +413,7 @@ If you would violate any of these, STOP and ask first. These are the most-violat
 - **Never trust GPT macros.** Always re-derive from USDA before storing or showing.
 - **No external API calls in `save()` or signals.** Always explicit service calls.
 - **No new libraries** beyond the spec's `tech_stack` without asking.
-- **Every dependency pinned** to exact version in `requirements/base.txt` (e.g., `Django==5.1.15`, not `Django>=5.0`).
+- **Every dependency pinned** to exact version in `requirements/base.txt` (e.g., `Django==5.1.2`, not `Django>=5.0`).
 - **Secrets via env only** (django-environ). Update `.env.example` whenever a new env var is introduced. Never commit real secrets.
 - **Tests not optional.** ≥80% coverage on services. Every endpoint has at least one test.
 - **Migrations ship in the same commit as the model change.** No "I'll add the migration later."
@@ -443,9 +439,11 @@ Configure all three in `pyproject.toml`. Make `make lint` run all three.
 
 ## 10. Standard commands
 
+These should exist by end of M0. If they don't, that's a bug — fix it.
+
 ```bash
 # Setup
-make install          # install deps via uv
+make install          # install deps via uv/pip
 make migrate          # apply migrations
 make seed             # seed recipe DB (after M3)
 make superuser        # createsuperuser
@@ -463,10 +461,10 @@ make beat
 
 # DB ops
 make dbreset          # drop+recreate (dev only, asks for confirmation)
-make shell            # python manage.py shell
+make shell            # python manage.py shell_plus if django-extensions, else shell
 ```
 
-Document every command and its purpose in `docs/RUNBOOK.md` (created in M0, maintained every module).
+Document every command and its purpose in `docs/RUNBOOK.md` (you create this in M0 and maintain it).
 
 ---
 
@@ -556,19 +554,11 @@ feat(M<n>): <module name> — <one-line summary>
 
 > Append here whenever you make a decision that wasn't already in the spec or Section 7. Future modules read this. Keep it short — one bullet per convention, with date.
 
-- 2026-05-16 — `core/authentication.py::PlaceholderAuthentication` is the M0 stub for `FirebaseAuthentication`. M1 replaces it and updates `REST_FRAMEWORK["DEFAULT_AUTHENTICATION_CLASSES"]` in `settings/base.py` to point to `apps.accounts.authentication.FirebaseAuthentication`. (M0)
-- 2026-05-16 — `nutriplan/api_router.py` is the single file that gathers all `/api/v1/` URL includes. Each new app adds one `include()` line here. `nutriplan/urls.py` does not change after M0. (M0)
-- 2026-05-16 — `django-environ` has no `py.typed` marker; it is added to `[[tool.mypy.overrides]] ignore_missing_imports` in `pyproject.toml`. Same pattern applies for any third-party package missing stubs. (M0)
-- 2026-05-16 — `mypy` is run as `mypy apps/ core/` (not the whole project). The django-stubs plugin pulls in the settings module automatically via `[tool.django-stubs] django_settings_module`. (M0)
-- 2026-05-16 — The spec names the base exception `AppException` which violates ruff rule N818. Suppress with `# noqa: N818` on the class definition — do not rename, the spec is authoritative. (M0)
-- 2026-05-16 — The spec's `AppException → ValidationError` hierarchy: our DRF-facing subclass is named `AppValidationError` (not `ValidationError`) to avoid shadowing `rest_framework.exceptions.ValidationError`. (M0)
-- 2026-05-17 — Error code constants live in `core/error_codes.py` (no DRF imports). `core/exceptions.py` re-exports them all with `# noqa: F401`. Any module loaded during DRF settings init (e.g. auth classes) must import error codes from `core.error_codes`, not `core.exceptions`, to avoid circular import. (M1)
-- 2026-05-17 — `FirebaseAuthentication.authenticate()` calls `register_or_get_user()` and stores `created: bool` in the decoded token dict as `decoded["_created"]`. Views read `request.auth["_created"]` to know if it was a first-time registration. (M1)
-- 2026-05-17 — `firebase_admin.*` added to `[[tool.mypy.overrides]] ignore_missing_imports` — no stubs available. (M1)
-- 2026-05-17 — All test files (`apps.*.tests.*`, `tests.*`) have `ignore_errors = true` in mypy overrides — factory-boy has no stubs and strict type-checking of test code is not required. (M1)
-- 2026-05-17 — `ruff extend-exclude = ["*/migrations/*"]` added to `pyproject.toml` — generated migration files are not subject to line-length or other style checks. (M1)
-- 2026-05-17 — DB reset required when `AUTH_USER_MODEL` is first introduced mid-project (M1 onward). Run `make dbreset` and re-migrate. Document this in PROGRESS.md for any future reset. (M1)
+<!-- example entries:
+- 2026-05-17 — Use `attrs` (not dataclass) for service-layer DTOs because we need `__slots__` and validators. (M0)
+- 2026-05-20 — Test factories live in `apps/<name>/tests/factories.py`, exported via `apps.<name>.tests.factories`. Cross-app factories in `tests/factories.py`. (M2)
+-->
 
 ---
 
-**To start work:** read `docs/PROJECT_SPEC.json` end to end, run the prerequisite gate for the active module (Section 4), propose the plan, and wait for confirmation.
+**To start work:** read `docs/PROJECT_SPEC.json` end to end, run the M0 prerequisite gate (Section 4), propose the M0 plan, and wait for confirmation.
