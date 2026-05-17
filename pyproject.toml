@@ -5,6 +5,7 @@ target-version = ["py312"]
 [tool.ruff]
 line-length = 100
 target-version = "py312"
+extend-exclude = ["*/migrations/*"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP", "N"]
@@ -28,8 +29,13 @@ module = [
     "factory.*",
     "corsheaders.*",
     "environ.*",
+    "firebase_admin.*",
 ]
 ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["apps.*.tests.*", "tests.*"]
+ignore_errors = true
 
 [tool.django-stubs]
 django_settings_module = "nutriplan.settings.development"

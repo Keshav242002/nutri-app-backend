@@ -38,7 +38,11 @@ THIRD_PARTY_APPS = [
     "django_celery_beat",
 ]
 
-LOCAL_APPS: list[str] = []
+LOCAL_APPS: list[str] = [
+    "apps.accounts",
+]
+
+AUTH_USER_MODEL = "accounts.User"
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -97,7 +101,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "core.authentication.PlaceholderAuthentication",
+        "apps.accounts.authentication.FirebaseAuthentication",
     ],
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",

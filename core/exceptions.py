@@ -12,25 +12,23 @@ from rest_framework.exceptions import (
 from rest_framework.response import Response
 from rest_framework.views import exception_handler as drf_exception_handler
 
-# ---------------------------------------------------------------------------
-# Error code constants
-# ---------------------------------------------------------------------------
-
-INVALID_TOKEN = "INVALID_TOKEN"
-TOKEN_EXPIRED = "TOKEN_EXPIRED"
-INVALID_AUTH_HEADER = "INVALID_AUTH_HEADER"
-NOT_AUTHENTICATED = "NOT_AUTHENTICATED"
-PROFILE_NOT_FOUND = "PROFILE_NOT_FOUND"
-VALIDATION_ERROR = "VALIDATION_ERROR"
-NO_SUITABLE_RECIPE = "NO_SUITABLE_RECIPE"
-REGENERATE_LIMIT = "REGENERATE_LIMIT"
-MEAL_PLAN_NOT_FOUND = "MEAL_PLAN_NOT_FOUND"
-RATE_LIMITED = "RATE_LIMITED"
-OPENAI_FAILURE = "OPENAI_FAILURE"
-USDA_FAILURE = "USDA_FAILURE"
-INTERNAL_ERROR = "INTERNAL_ERROR"
-NOT_FOUND = "NOT_FOUND"
-CONFLICT = "CONFLICT"
+from core.error_codes import (  # noqa: F401  # re-exported for backwards compatibility
+    CONFLICT,
+    INTERNAL_ERROR,
+    INVALID_AUTH_HEADER,
+    INVALID_TOKEN,
+    MEAL_PLAN_NOT_FOUND,
+    NO_SUITABLE_RECIPE,
+    NOT_AUTHENTICATED,
+    NOT_FOUND,
+    OPENAI_FAILURE,
+    PROFILE_NOT_FOUND,
+    RATE_LIMITED,
+    REGENERATE_LIMIT,
+    TOKEN_EXPIRED,
+    USDA_FAILURE,
+    VALIDATION_ERROR,
+)
 
 # ---------------------------------------------------------------------------
 # Exception hierarchy

@@ -1,0 +1,1148 @@
+﻿{
+  "$schema_version": "1.0",
+  "document_type": "ai_coding_agent_context",
+  "project_name": "NutriPlan",
+  "description": "Personalized nutrition mobile app with AI-powered meal planning, tracking, and recipe chatbot. Full-stack: Flutter mobile + Django REST backend + Firebase Auth + GPT-4o.",
+  "intended_use": "Feed this entire JSON document to an AI coding agent (Antigravity, Cursor, Claude Code, etc.) as the single source of truth for building the project. The agent should reference this document for every implementation decision.",
+  "primary_developer_constraints": {
+    "experience": "Developer is comfortable with Flutter but new to Django.",
+    "preferences_stated": [
+      "Wants Django specifically for ORM ergonomics",
+      "Wants production-grade Flutter (Riverpod, MVVM, reusable widgets, single ApiClient, exception handlers, deep linking)",
+      "Wants rule-based recommendation engine first, AI layered on top",
+      "Wants module-by-module build with clean, precise prompts to coding agent"
+    ]
+  },
+  "project_agenda": {
+    "summary": "NutriPlan personalizes daily meal plans (breakfast/lunch/dinner) based on a user's biometrics, dietary pattern, allergies, and cuisine preferences. It tracks adherence, auto-aggregates calorie and micronutrient intake, and provides an AI chatbot that turns 'what's in my fridge' into actual recipes with validated macros.",
+    "core_thesis": "Generic calorie counters are dumb logs. Recipe apps don't know your goals. NutriPlan combines a personalized daily plan + adherence tracking + AI improvisation into one loop.",
+    "primary_user_goals": [
+      "Tell the app about me once → get a meal plan tailored to my body, goals, and food preferences.",
+      "See today's meals with full recipes, then check off what I actually ate.",
+      "Track calories and macros automatically as I check things off.",
+      "When I have random ingredients in my kitchen, ask the AI what to cook."
+    ],
+    "v1_locked_features": [
+      "Firebase authentication (email/password + Google)",
+      "Onboarding questionnaire capturing DietaryProfile",
+      "Daily meal plan (breakfast/lunch/dinner)",
+      "Meal tracker with status: planned / ate / skipped / substituted",
+      "Auto nutrition logging and daily/weekly aggregation",
+      "AI chatbot: free chat mode + ingredient-to-recipe mode"
+    ],
+    "v1_explicit_non_goals": [
+      "FCM push notifications",
+      "Grocery list generation",
+      "Barcode scanner",
+      "Apple Health / Google Fit sync",
+      "Social / community features",
+      "Multi-language",
+      "Photo-based meal logging"
+    ]
+  },
+  "tech_stack": {
+    "mobile_client": {
+      "framework": "Flutter 3.x (Dart)",
+      "state_management": "Riverpod 2.x (flutter_riverpod)",
+      "routing": "go_router (with deep linking)",
+      "http_client": "Dio",
+      "local_cache": "Hive (offline meal plan & today's tracker)",
+      "models_serialization": "freezed + json_serializable",
+      "charts": "fl_chart",
+      "error_tracking": "sentry_flutter",
+      "lint": "very_good_analysis",
+      "auth_sdk": "firebase_auth (Flutter SDK)"
+    },
+    "backend": {
+      "framework": "Django 5.x",
+      "api": "Django REST Framework",
+      "api_docs": "drf-spectacular (Swagger at /api/docs/, Redoc at /api/redoc/)",
+      "database": "PostgreSQL 16",
+      "cache_and_broker": "Redis 7",
+      "async_tasks": "Celery 5 + django-celery-beat (DB-backed schedule)",
+      "config": "django-environ",
+      "auth_verification": "firebase-admin (Python SDK)",
+      "ai": "openai Python SDK v1.x (GPT-4o via Chat Completions with structured outputs)",
+      "nutrition_reference": "USDA FoodData Central API (free, requires api key)",
+      "rate_limiting": "django-ratelimit",
+      "filtering": "django-filter",
+      "cors": "django-cors-headers",
+      "testing": "pytest, pytest-django, factory-boy, pytest-cov",
+      "lint_format": "black (line length 100), ruff (E,F,I,B,UP,N), mypy --strict",
+      "error_tracking": "sentry-sdk[django] (guarded on SENTRY_DSN env)",
+      "structured_logging": "python-json-logger",
+      "wsgi_asgi": "gunicorn + uvicorn workers (ASGI required for streaming chat)"
+    },
+    "external_services": {
+      "firebase_auth": "Identity provider; issues ID tokens to Flutter; backend verifies via firebase-admin",
+      "openai_gpt_4o": "Chatbot, recipe generation, engine fallback",
+      "usda_fooddata_central": "Authoritative macro reference; validates GPT-returned recipe macros",
+      "sentry": "Error tracking (optional)",
+      "firebase_storage_or_s3": "Recipe image hosting"
+    },
+    "hosting_recommendation_v1": "Railway / Render / Fly.io for backend; move to AWS ECS or similar at scale",
+    "ci_cd": "GitHub Actions (lint, test, build APK, deploy backend)"
+  },
+  "system_architecture": {
+    "description": "Flutter app → HTTPS with Firebase ID token → Django REST API → Postgres + Redis. Backend verifies Firebase token via firebase-admin SDK. Celery workers handle daily meal plan generation, nutrition aggregation, and OpenAI calls. OpenAI and USDA are called from backend, never from client.",
+    "data_flow": [
+      "User signs in via Firebase Auth in Flutter → gets ID token.",
+      "Flutter ApiClient attaches Bearer token to every request.",
+      "Django FirebaseAuthentication class verifies token → loads/creates User.",
+      "Recommendation engine reads DietaryProfile + Recipe DB → produces MealPlan.",
+      "User logs meals → MealLog rows + DailyNutritionSummary updates.",
+      "Chat endpoint streams GPT-4o responses; macros validated against USDA before returning."
+    ]
+  },
+  "user_journey_flowchart": {
+    "format": "ordered nodes",
+    "nodes": [
+      {
+        "id": "launch",
+        "label": "App launches",
+        "next": "auth_check"
+      },
+      {
+        "id": "auth_check",
+        "label": "Logged in via Firebase?",
+        "branches": {
+          "yes": "profile_check",
+          "no": "login"
+        }
+      },
+      {
+        "id": "login",
+        "label": "Login/Signup screen (Firebase Auth)",
+        "next": "register_backend"
+      },
+      {
+        "id": "register_backend",
+        "label": "POST /auth/register — backend verifies ID token, gets or creates User",
+        "next": "profile_check"
+      },
+      {
+        "id": "profile_check",
+        "label": "GET /profiles/me — profile exists?",
+        "branches": {
+          "yes": "home",
+          "no": "onboarding"
+        }
+      },
+      {
+        "id": "onboarding",
+        "label": "6-step onboarding form (biometrics, goal, diet pattern, allergies, cuisines, cooking constraints)",
+        "next": "submit_profile"
+      },
+      {
+        "id": "submit_profile",
+        "label": "POST /profiles/onboarding — backend computes BMR + TDEE + macro targets",
+        "next": "home"
+      },
+      {
+        "id": "home",
+        "label": "Home Screen — GET /mealplans/today; if missing, engine generates and saves",
+        "branches_actions": [
+          "Tap meal card → recipe_detail",
+          "Tap 'Regenerate' → POST /mealplans/regenerate (rate limited 3/day)",
+          "Open Tracker tab → tracker_screen",
+          "Open Chat tab → chat_screen",
+          "Open Profile tab → profile_screen"
+        ]
+      },
+      {
+        "id": "recipe_detail",
+        "label": "GET /recipes/<slug>/ — shows ingredients, instructions, full macros + micros",
+        "actions": [
+          "Mark as eaten → POST /tracker/log {status: ate} → DailyNutritionSummary updates",
+          "Skipped → POST /tracker/log {status: skipped}",
+          "Substituted → opens search or chatbot to log substitute"
+        ]
+      },
+      {
+        "id": "tracker_screen",
+        "label": "GET /tracker/?date= and GET /nutrition/weekly — adherence + macro charts"
+      },
+      {
+        "id": "chat_screen",
+        "label": "Two modes: free chat or ingredient mode",
+        "modes": {
+          "free_chat": "POST /chat/sessions/<id>/messages {mode: chat} — Django builds context (profile, today's plan, recent logs), calls GPT-4o, streams back",
+          "ingredient_mode": "POST /chat/sessions/<id>/messages {mode: ingredient, ingredients: [...]} — GPT-4o returns recipes via JSON schema, USDA validates macros, returns 2-3 cards"
+        },
+        "actions": [
+          "Tap 'Log as meal' on returned recipe → POST /tracker/log"
+        ]
+      },
+      {
+        "id": "profile_screen",
+        "label": "PATCH /profiles/me — recomputes targets, invalidates today's MealPlan cache"
+      }
+    ],
+    "background_processes": [
+      "Celery beat hourly: generate today's & tomorrow's plans for users whose local time crossed 4am",
+      "Celery beat daily 02:00 UTC: recompute yesterday's DailyNutritionSummary as safety net",
+      "On-demand: GPT-4o calls (chat, ingredient mode, engine fallback)",
+      "On-demand: USDA API calls (cached in Redis 30 days)"
+    ]
+  },
+  "sprint_plan": {
+    "sprint_1": {
+      "title": "Foundations: Firebase auth + onboarding + UserProfile API",
+      "duration_weeks": 2,
+      "goal": "User can sign up, log in, complete onboarding; backend stores profile and computes targets.",
+      "backend_deliverables": [
+        "Django project bootstrap, accounts and profiles apps",
+        "Postgres, custom User model, Firebase Admin SDK integration",
+        "FirebaseAuthentication DRF class",
+        "Endpoints: /auth/register, /auth/me, /profiles/onboarding, /profiles/me",
+        "Target macros calculator service (Mifflin-St Jeor + activity + goal)",
+        "drf-spectacular OpenAPI docs",
+        "Tests: auth flow, profile creation, macro math",
+        "Deploy to Railway/Render with Postgres"
+      ],
+      "flutter_deliverables": [
+        "Project scaffold: Riverpod, GoRouter, Dio, Freezed, Sentry",
+        "ApiClient + auth/error interceptors",
+        "Auth feature (login/signup, Firebase integration)",
+        "6-step onboarding flow with validation",
+        "Profile view/edit",
+        "Theme, reusable widgets, error/loading states",
+        "Deep link configuration"
+      ]
+    },
+    "sprint_2": {
+      "title": "Recipe DB seeding + rule-based recommendation engine",
+      "duration_weeks": 2,
+      "goal": "When user opens app, see a personalized meal plan from rule-based engine.",
+      "backend_deliverables": [
+        "recipes app: Recipe + RecipeIngredient models, Django admin",
+        "Seed script: ~200 curated recipes across diets/cuisines/meal types with full nutrition",
+        "mealplans app: MealPlan model",
+        "Recommendation engine service (filter → score → select with variety penalty)",
+        "Endpoints: /recipes/, /recipes/<slug>/, /mealplans/today, /mealplans/regenerate",
+        "Tests: engine determinism, allergen exclusion, calorie windows, variety"
+      ],
+      "flutter_deliverables": [
+        "Recipe model (freezed) + repository",
+        "Internal debug screen for /recipes/"
+      ]
+    },
+    "sprint_3": {
+      "title": "Meal plan display + tracker UI + NutritionLog",
+      "duration_weeks": 2,
+      "goal": "User sees today's plan, taps recipes, logs meals, sees daily totals.",
+      "backend_deliverables": [
+        "tracker app: MealLog + DailyNutritionSummary (auto-derived)",
+        "Endpoints: /tracker/log, /tracker/, /nutrition/daily, /nutrition/weekly",
+        "Celery + Redis setup; beat task to pre-generate plans",
+        "Daily aggregation task"
+      ],
+      "flutter_deliverables": [
+        "Home screen with three meal cards + daily totals widget",
+        "Recipe detail screen (ingredients, steps, micronutrients)",
+        "Tracker screen (weekly adherence + macro charts via fl_chart)",
+        "Mark-as-eaten / skipped / substituted flows",
+        "Pull-to-refresh, offline cache via Hive"
+      ]
+    },
+    "sprint_4": {
+      "title": "GPT-4o integration + chatbot endpoint",
+      "duration_weeks": 2,
+      "goal": "User can chat to get recipes from ingredients; engine can fall back to GPT for rare combos.",
+      "backend_deliverables": [
+        "OpenAI client wrapper with structured outputs (JSON schema)",
+        "chat app: ChatSession, ChatMessage models",
+        "Endpoints: /chat/sessions, /chat/sessions/<id>/messages (with SSE streaming)",
+        "Prompt engineering: system prompt with profile context, ingredient mode prompt with recipe schema",
+        "USDA FoodData integration to validate GPT-returned macros",
+        "Engine fallback: if rule-pool < 3, generate via GPT, persist as Recipe(source=gpt)",
+        "Rate limiting per user (django-ratelimit)",
+        "Sentry for AI failures"
+      ],
+      "flutter_deliverables": [
+        "Chat screen with streaming UI (typing indicator, message bubbles)",
+        "Ingredient input chips",
+        "Recipe card rendering inside chat with 'Log as meal' CTA",
+        "Chat history persistence"
+      ]
+    }
+  },
+  "future_addons_backlog": [
+    "FCM push notifications (meal reminders, log nudges, weekly progress)",
+    "Grocery list (derived from week's plan)",
+    "Barcode scanner for packaged food logging",
+    "Apple Health / Google Fit sync (activity & weight)",
+    "Photo-based meal logging (vision model)",
+    "Restaurant menu mode",
+    "Social / friends / share plans",
+    "Pro tier (advanced analytics, priority GPT-4o, longer chat history)",
+    "Multi-language"
+  ],
+  "feature_requirements": {
+    "F1_authentication": {
+      "description": "Firebase-backed auth with email/password and Google sign-in.",
+      "user_stories": [
+        "As a new user, I can sign up with email + password.",
+        "As a returning user, I can log in and remain logged in.",
+        "As a user, I can sign in with Google.",
+        "As a user, I can reset my forgotten password."
+      ],
+      "acceptance_criteria": [
+        "Backend never trusts client-supplied user_id; always derives from verified Firebase token.",
+        "Token expiry triggers Flutter interceptor to force-refresh and retry once.",
+        "First successful auth creates a User row keyed by firebase_uid."
+      ]
+    },
+    "F2_onboarding_questionnaire": {
+      "description": "Multi-step form captures DietaryProfile; backend computes target macros.",
+      "steps": [
+        "Biometrics: age, sex, height (cm), weight (kg), activity level",
+        "Goal: lose / maintain / gain_muscle / general",
+        "Dietary pattern: omnivore / vegetarian / vegan / pescatarian / keto / mediterranean",
+        "Allergies & dislikes (multi-select + free text)",
+        "Cuisine preferences (ranked picks)",
+        "Cooking constraints: max prep time, skill level"
+      ],
+      "computed_outputs": [
+        "target_calories (Mifflin-St Jeor + activity multiplier + goal delta, floored at 1200)",
+        "target_protein_g, target_carbs_g, target_fat_g (per goal-specific macro split)",
+        "target_fiber_g (14g per 1000 kcal)"
+      ]
+    },
+    "F3_daily_meal_plan": {
+      "description": "Home screen shows today's breakfast, lunch, dinner.",
+      "behaviors": [
+        "Each meal card shows name, image, calories, macros, prep time.",
+        "Tap card → full recipe (ingredients with quantities, step-by-step, micronutrients).",
+        "Regenerate-this-meal button (rate limited 3/day).",
+        "Celery beat auto-generates plans at 4am local time for active users."
+      ]
+    },
+    "F4_meal_tracker": {
+      "description": "Per-meal status tracking.",
+      "states": [
+        "planned",
+        "ate",
+        "skipped",
+        "substituted"
+      ],
+      "behaviors": [
+        "Each meal card has status controls.",
+        "'Ate something else' opens substitution flow (search or chatbot).",
+        "Daily totals widget at top of Home.",
+        "Weekly view shows 7-day adherence + macro chart."
+      ]
+    },
+    "F5_nutrition_logging": {
+      "description": "Auto-derive nutrition consumption from MealLog status.",
+      "behaviors": [
+        "Every 'ate' or 'substituted' event scales recipe macros by servings_eaten.",
+        "DailyNutritionSummary upserted on every log change.",
+        "History screen with date picker; weekly endpoint averages."
+      ]
+    },
+    "F6_ai_chatbot": {
+      "description": "GPT-4o-powered chatbot with two modes.",
+      "modes": {
+        "ingredient_mode": "User lists ingredients → GPT-4o returns 2-3 recipes with steps. Macros validated against USDA before showing.",
+        "free_chat": "Questions like 'is X healthy for my goals?', 'swap chicken for paneer in lunch.' Streamed responses with full profile + today's plan context."
+      },
+      "behaviors": [
+        "Conversation persisted per user (ChatSession + ChatMessage).",
+        "Recipes returned in chat can be one-tap-logged into tracker.",
+        "Streaming SSE for free chat; full JSON for ingredient mode.",
+        "Per-user rate limit (default 30/hour)."
+      ]
+    }
+  },
+  "recommendation_engine": {
+    "philosophy": "Rules-as-policy, AI-as-creativity. Hard constraints (allergens, diet pattern, calorie window, prep time) enforced deterministically. Soft preferences (cuisine, variety, macro fit) scored numerically. GPT is a fallback for rare profile-constraint combos, never the primary engine.",
+    "rule_based_algorithm": {
+      "inputs": [
+        "DietaryProfile",
+        "meal_slot (breakfast|lunch|dinner)",
+        "plan_date",
+        "optional exclude_recipe_ids"
+      ],
+      "output": "single Recipe",
+      "steps": [
+        "1. HARD FILTER: meal_type matches, is_active=True, prep_time <= profile.max_prep_time_min.",
+        "2. DIET PATTERN HIERARCHY: vegan ⊂ vegetarian ⊂ pescatarian; omnivore = no restriction; keto and mediterranean strict.",
+        "3. ALLERGEN EXCLUSION: exclude recipes whose allergen_tags overlap profile.allergies (hard).",
+        "4. DISLIKES: exclude recipes whose ingredients match dislike text (case-insensitive regex).",
+        "5. CALORIE WINDOW: keep recipes within 75%-125% of slot_target (slot ratios: breakfast 0.25, lunch 0.40, dinner 0.35 of target_calories).",
+        "6. EXCLUSION: drop excluded recipe ids (used in regenerate).",
+        "7. VARIETY LOOKUP: find recipe ids used in this slot in last 7 days for this user.",
+        "8. SCORE each candidate: +30 cuisine match, +20*macro_match_score, -50 if in last_7_days, +seasonal_bonus (stub 0 in v1), + random tiebreaker 0..5.",
+        "9. Pick max-score candidate. Cap pool to 200 candidates for performance.",
+        "10. If pool empty after hard filters → raise NoSuitableRecipeError (M7 fallback hooks here)."
+      ],
+      "slot_calorie_ratios": {
+        "breakfast": 0.25,
+        "lunch": 0.4,
+        "dinner": 0.35
+      },
+      "variety_lookback_days": 7,
+      "diet_hierarchy": {
+        "vegan": [
+          "vegan"
+        ],
+        "vegetarian": [
+          "vegetarian",
+          "vegan"
+        ],
+        "pescatarian": [
+          "pescatarian",
+          "vegetarian",
+          "vegan"
+        ],
+        "omnivore": [],
+        "keto": [
+          "keto"
+        ],
+        "mediterranean": [
+          "mediterranean"
+        ]
+      }
+    },
+    "ai_layer": {
+      "when_used": [
+        "Reasoning fallback: rule pool returns < 3 candidates → GPT generates custom recipe respecting constraints, persists as Recipe(source='gpt').",
+        "Substitution chatbot: 'swap chicken with paneer in today's lunch' → GPT rewrites, USDA validates macros.",
+        "Ingredient → recipe: structured-output JSON schema, USDA validation before return."
+      ],
+      "critical_rule": "Never trust GPT macros. Always re-derive from ingredients × USDA before storing or showing.",
+      "structured_output_schema": {
+        "type": "object",
+        "required": [
+          "name",
+          "meal_type",
+          "ingredients",
+          "instructions",
+          "servings"
+        ],
+        "properties": {
+          "name": "string",
+          "meal_type": "enum [breakfast,lunch,dinner,snack]",
+          "cuisine": "string",
+          "diet_tags": "array of string",
+          "allergen_tags": "array of string",
+          "prep_time_min": "integer",
+          "cook_time_min": "integer",
+          "servings": "integer",
+          "ingredients": "array of {name, quantity, unit}",
+          "instructions": "array of string (one step per item)",
+          "estimated_calories": "integer (placeholder, overwritten by USDA)",
+          "estimated_protein_g": "number (placeholder)",
+          "estimated_carbs_g": "number (placeholder)",
+          "estimated_fat_g": "number (placeholder)"
+        }
+      }
+    }
+  },
+  "nutrition_math": {
+    "bmr_formula": "Mifflin-St Jeor: 10*weight_kg + 6.25*height_cm - 5*age; +5 if male, -161 if female, -78 if other.",
+    "activity_multipliers": {
+      "sedentary": 1.2,
+      "light": 1.375,
+      "moderate": 1.55,
+      "very": 1.725,
+      "athlete": 1.9
+    },
+    "goal_calorie_delta": {
+      "lose": -500,
+      "maintain": 0,
+      "gain_muscle": 300,
+      "general": 0
+    },
+    "calorie_floor": 1200,
+    "macro_splits_protein_carbs_fat": {
+      "lose": [
+        0.35,
+        0.4,
+        0.25
+      ],
+      "maintain": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "gain_muscle": [
+        0.3,
+        0.45,
+        0.25
+      ],
+      "general": [
+        0.25,
+        0.5,
+        0.25
+      ]
+    },
+    "kcal_per_gram": {
+      "protein": 4,
+      "carbs": 4,
+      "fat": 9
+    },
+    "fiber_target_rule": "14 g per 1000 kcal",
+    "unit_to_grams_approx": {
+      "g": 1.0,
+      "kg": 1000.0,
+      "ml": 1.0,
+      "l": 1000.0,
+      "cup": 240.0,
+      "tbsp": 15.0,
+      "tsp": 5.0,
+      "piece": "requires per-ingredient avg_piece_g",
+      "slice": "requires per-ingredient avg_piece_g"
+    }
+  },
+  "backend_build_specification": {
+    "intended_executor": "AI coding agent (Antigravity / Cursor / Claude Code)",
+    "build_mode": "Module-by-module, sequential. Do not skip ahead. Each module must pass acceptance before next starts.",
+    "operating_rules": [
+      "One module at a time. Complete fully (code + tests + migrations + acceptance) before next.",
+      "No speculative features. Only build what spec says.",
+      "Ask before deviating. Surface ambiguity; do not silently substitute.",
+      "Pin every dependency to an exact version in requirements/base.txt.",
+      "Tests not optional. ≥80% coverage on services. Every endpoint has at least one test.",
+      "Secrets via env only (django-environ). Provide .env.example.",
+      "Service layer enforced. Views thin (parse → service → serialize). Business logic in apps/<app>/services/.",
+      "Never trust client-supplied user identity. request.user is sole truth.",
+      "Idempotency: POST /tracker/log, /profiles/onboarding, /auth/register upsert on natural keys.",
+      "Structured JSON logs in prod. Service functions log entry/exit at DEBUG (no PII), errors at ERROR with stacktrace.",
+      "Every model change ships with migration in same commit.",
+      "Code style: black (line 100), ruff (E,F,I,B,UP,N), mypy --strict on apps/ and core/.",
+      "Commits: one per module. Format: feat(<module>): <summary> or test(<module>): ...",
+      "Do not use SQLite, even in tests. Tests run against Postgres.",
+      "Do not use Django default User. Use custom one from M1.",
+      "Do not write business logic in serializers or views.",
+      "Do not call OpenAI or USDA from model save() or signals. Always explicit service call.",
+      "Do not hand-roll JWT verification. Always firebase-admin.",
+      "Do not store API keys in models or settings literals."
+    ],
+    "project_structure": {
+      "root": "nutriplan-backend/",
+      "tree": [
+        ".env.example",
+        ".gitignore",
+        "pyproject.toml",
+        "pytest.ini",
+        "manage.py",
+        "requirements/{base,dev,prod}.txt",
+        "nutriplan/__init__.py",
+        "nutriplan/settings/{__init__,base,development,production}.py",
+        "nutriplan/{urls,asgi,wsgi,celery}.py",
+        "core/{__init__,exceptions,pagination,permissions,mixins,logging}.py",
+        "core/utils/{__init__,nutrition_math,slugs}.py",
+        "apps/{accounts,profiles,recipes,mealplans,tracker,chat}/",
+        "tests/{conftest,factories}.py",
+        "scripts/{seed_recipes,recompute_targets}.py"
+      ],
+      "per_app_structure": [
+        "__init__.py",
+        "apps.py (AppConfig with name='apps.<name>')",
+        "admin.py",
+        "models.py",
+        "serializers.py",
+        "views.py",
+        "urls.py",
+        "services/__init__.py + service files",
+        "tests/{__init__,test_models,test_services,test_views}.py",
+        "migrations/"
+      ]
+    },
+    "environment_variables": {
+      "django": {
+        "DJANGO_SECRET_KEY": "string",
+        "DJANGO_DEBUG": "True|False",
+        "DJANGO_ALLOWED_HOSTS": "comma-separated",
+        "DJANGO_SETTINGS_MODULE": "nutriplan.settings.development|production"
+      },
+      "database": {
+        "DATABASE_URL": "postgres://user:pass@host:5432/db"
+      },
+      "redis_celery": {
+        "REDIS_URL": "redis://localhost:6379/0",
+        "CELERY_BROKER_URL": "redis://localhost:6379/1",
+        "CELERY_RESULT_BACKEND": "redis://localhost:6379/2"
+      },
+      "firebase": {
+        "FIREBASE_CREDENTIALS_PATH": "./secrets/firebase-admin.json (local)",
+        "FIREBASE_CREDENTIALS_JSON": "raw JSON string (prod)"
+      },
+      "openai": {
+        "OPENAI_API_KEY": "sk-...",
+        "OPENAI_MODEL": "gpt-4o",
+        "OPENAI_TIMEOUT_SECONDS": "30"
+      },
+      "usda": {
+        "USDA_API_KEY": "from https://fdc.nal.usda.gov/api-key-signup.html",
+        "USDA_BASE_URL": "https://api.nal.usda.gov/fdc/v1"
+      },
+      "other": {
+        "CORS_ALLOWED_ORIGINS": "comma-separated",
+        "SENTRY_DSN": "optional",
+        "REGENERATE_RATE_LIMIT": "3/d",
+        "CHAT_RATE_LIMIT": "30/h"
+      }
+    },
+    "module_build_order": [
+      "M0 Bootstrap",
+      "M1 Accounts (Firebase Auth)",
+      "M2 Profiles",
+      "M3 Recipes (with seed)",
+      "M4 MealPlans + Recommendation Engine",
+      "M5 Tracker + Nutrition",
+      "M6 Celery + background jobs",
+      "M7 Chat + AI integration",
+      "M8 Hardening"
+    ],
+    "modules": {
+      "M0_bootstrap": {
+        "goal": "Runnable Django project connects to Postgres, exposes /healthz, has lint+test ready.",
+        "tasks": [
+          "Initialize project structure per spec.",
+          "Three settings files (base, development, production) reading from env via django-environ.",
+          "INSTALLED_APPS: Django defaults + rest_framework, corsheaders, django_filters, drf_spectacular, django_celery_beat. Add apps.* incrementally.",
+          "DRF defaults: FirebaseAuthentication (placeholder until M1), IsAuthenticated, AutoSchema, StandardCursorPagination, app_exception_handler.",
+          "core/exceptions.py: AppException tree (ValidationError, NotFoundError, ConflictError, RateLimitError, ExternalServiceError) + handler returning canonical envelope.",
+          "core/pagination.py: StandardCursorPagination(page_size=20, ordering='-created_at').",
+          "core/logging.py + LOGGING dict (console dev, JSON prod).",
+          "nutriplan/urls.py: /admin/, /api/schema/, /api/docs/, /api/redoc/, /healthz, /api/v1/.",
+          "asgi.py for M7 streaming.",
+          "pytest.ini with DJANGO_SETTINGS_MODULE, coverage args.",
+          "pyproject.toml: black 100, ruff rules, mypy strict.",
+          ".env.example and .gitignore."
+        ],
+        "acceptance": [
+          "python manage.py migrate succeeds against Postgres.",
+          "runserver starts.",
+          "/healthz returns {status:ok, db:ok}.",
+          "/api/docs/ renders Swagger.",
+          "pytest runs (0 tests, exit 0).",
+          "ruff + black --check + mypy all pass."
+        ]
+      },
+      "M1_accounts": {
+        "goal": "Custom User keyed by firebase_uid. DRF auth class verifies Firebase ID tokens. /auth/register and /auth/me.",
+        "model": {
+          "User": {
+            "firebase_uid": "CharField max 128, unique, indexed",
+            "email": "EmailField unique",
+            "display_name": "CharField max 120 blank",
+            "is_active": "BooleanField default True",
+            "is_staff": "BooleanField default False",
+            "created_at": "DateTimeField auto_now_add",
+            "updated_at": "DateTimeField auto_now",
+            "USERNAME_FIELD": "firebase_uid",
+            "REQUIRED_FIELDS": [
+              "email"
+            ]
+          }
+        },
+        "authentication_class": "apps/accounts/authentication.py::FirebaseAuthentication — verifies Bearer token via firebase-admin, creates User on first auth, returns (User, decoded_token). Handles: no header → None; malformed → invalid_auth_header; verification fail → invalid_token; expired → token_expired.",
+        "endpoints": {
+          "POST /api/v1/auth/register": {
+            "auth": "required",
+            "request": "{}",
+            "response_200": "{id, firebase_uid, email, display_name, has_profile, created}"
+          },
+          "GET /api/v1/auth/me": {
+            "auth": "required",
+            "response_200": "{id, firebase_uid, email, display_name, has_profile}"
+          }
+        },
+        "tests_minimum": [
+          "test_authentication_creates_user_on_first_token (mock verify_id_token)",
+          "test_authentication_rejects_expired_token",
+          "test_authentication_rejects_malformed_header",
+          "test_register_endpoint_idempotent",
+          "test_me_endpoint_requires_auth",
+          "test_me_returns_has_profile_false_when_no_profile"
+        ],
+        "fixtures": "firebase_token fixture in conftest.py monkeypatches verify_id_token to return fake decoded payload."
+      },
+      "M2_profiles": {
+        "goal": "DietaryProfile (one per user). Onboarding endpoint. Backend computes target macros.",
+        "model": "DietaryProfile with: age (13-100), sex (M/F/O), height_cm (100-250), weight_kg (30-300), activity_level enum, goal enum, diet_pattern enum, allergies ArrayField, dislikes ArrayField, cuisine_preferences ArrayField (each list max 50, items max 64 chars), max_prep_time_min (default 45), skill_level (beginner/intermediate/advanced). Computed: target_calories, target_protein_g, target_carbs_g, target_fat_g, target_fiber_g. save() always recomputes via core.utils.nutrition_math.compute_targets — never accepts client-supplied targets.",
+        "endpoints": {
+          "POST /api/v1/profiles/onboarding": "upsert, returns full profile with computed targets",
+          "GET /api/v1/profiles/me": "returns profile or 404 PROFILE_NOT_FOUND",
+          "PATCH /api/v1/profiles/me": "partial update, recomputes targets, invalidates today's MealPlan cache (TODO comment in M2)"
+        },
+        "tests_minimum": [
+          "test_bmr_male_known_value",
+          "test_bmr_female_known_value",
+          "test_tdee_multipliers_applied_correctly",
+          "test_target_calories_floors_at_1200_for_aggressive_lose",
+          "test_macro_grams_sum_close_to_calorie_total (within 5%)",
+          "test_onboarding_creates_profile_with_computed_targets",
+          "test_onboarding_is_idempotent",
+          "test_patch_recomputes_targets_when_weight_changes",
+          "test_get_me_404_when_no_profile",
+          "test_validation_rejects_age_out_of_range"
+        ]
+      },
+      "M3_recipes": {
+        "goal": "Recipe DB with full nutrition. ~200 seeded curated recipes. List + detail endpoints with filtering.",
+        "models": {
+          "Recipe": "name, slug (unique), meal_type (B/L/D/snack indexed), cuisine (indexed), diet_tags ArrayField with GIN index (controlled vocab), allergen_tags ArrayField with GIN index (controlled vocab), prep_time_min, cook_time_min, servings, instructions JSONField (list of steps), image_url, calories, protein_g, carbs_g, fat_g, fiber_g, micronutrients JSONField (iron_mg, calcium_mg, vit_c_mg, vit_d_iu, potassium_mg, sodium_mg, magnesium_mg, zinc_mg, vit_b12_ug, folate_ug, vit_a_iu), source (seed/gpt/user), is_active.",
+          "RecipeIngredient": "recipe FK, name, quantity, unit, fdc_id (USDA, nullable), order"
+        },
+        "controlled_vocab": {
+          "diet_tags": [
+            "vegan",
+            "vegetarian",
+            "pescatarian",
+            "gluten_free",
+            "dairy_free",
+            "nut_free",
+            "low_carb",
+            "keto",
+            "high_protein",
+            "mediterranean"
+          ],
+          "allergen_tags": [
+            "dairy",
+            "eggs",
+            "gluten",
+            "peanuts",
+            "tree_nuts",
+            "soy",
+            "shellfish",
+            "fish",
+            "sesame"
+          ]
+        },
+        "seed_strategy": {
+          "files": [
+            "apps/recipes/seed_data/ingredient_nutrition.json (~150 ingredients with per-100g macros + avg_piece_g for piece/slice units)",
+            "apps/recipes/seed_data/recipes.json (~200 curated recipes)"
+          ],
+          "distribution": {
+            "meal_types": {
+              "breakfast": 50,
+              "lunch": 75,
+              "dinner": 75
+            },
+            "diet_patterns_min_coverage": {
+              "vegan": 30,
+              "vegetarian": 50,
+              "omnivore": 100,
+              "pescatarian": 20,
+              "keto": 20,
+              "mediterranean": 30
+            },
+            "cuisines_min_each": 15
+          },
+          "computation": "Seed script computes per-serving nutrition by summing (ingredient_quantity_grams × per_gram_nutrition_from_map) / servings. Fail loudly on missing piece weights — never guess.",
+          "command": "python manage.py seed_recipes (idempotent, upserts by slug)"
+        },
+        "endpoints": {
+          "GET /api/v1/recipes/": {
+            "query_params": [
+              "meal_type",
+              "cuisine",
+              "diet_tags (comma, all-must-match via __contains)",
+              "exclude_allergens (comma, none-may-match)",
+              "max_prep_time",
+              "search (icontains on name)"
+            ],
+            "pagination": "cursor, page_size 20",
+            "response": "slim RecipeListSerializer (name, slug, image, kcal, macros, prep_time, tags)"
+          },
+          "GET /api/v1/recipes/<slug>/": "full RecipeDetailSerializer including ingredients, instructions, micronutrients"
+        },
+        "tests_minimum": [
+          "test_seed_idempotent",
+          "test_seed_computes_calories_from_ingredients (handcraft small recipe + ingredient map, assert)",
+          "test_recipe_list_filters_by_diet_tag",
+          "test_recipe_list_excludes_allergens",
+          "test_recipe_list_filters_by_max_prep_time",
+          "test_recipe_detail_returns_full_payload",
+          "test_recipe_list_pagination"
+        ]
+      },
+      "M4_mealplans": {
+        "goal": "Rule-based engine picks one recipe per slot for a date. Persist as MealPlan.",
+        "model": "MealPlan: user FK, plan_date (indexed), breakfast/lunch/dinner FKs to Recipe (nullable, SET_NULL), generated_by (rules/ai), generated_at, regeneration_count JSONField. unique_together (user, plan_date). Index (user, -plan_date).",
+        "engine_location": "apps/mealplans/services/recommendation.py — select_recipe(profile, slot, plan_date, exclude_recipe_ids=None) pure-ish function.",
+        "algorithm_constants": {
+          "SLOT_CALORIE_RATIO": {
+            "breakfast": 0.25,
+            "lunch": 0.4,
+            "dinner": 0.35
+          },
+          "VARIETY_LOOKBACK_DAYS": 7,
+          "DIET_HIERARCHY": "see recommendation_engine.rule_based_algorithm.diet_hierarchy",
+          "candidate_pool_cap": 200,
+          "score_weights": {
+            "cuisine_match": 30,
+            "macro_match_multiplier": 20,
+            "recent_penalty": -50,
+            "seasonal_max": 10,
+            "random_tiebreaker_max": 5
+          }
+        },
+        "errors": {
+          "NoSuitableRecipeError": "raised when pool empty after hard filters. View returns 422 NO_SUITABLE_RECIPE. M7 hooks AI fallback here."
+        },
+        "service_functions": [
+          "get_or_generate_plan(user, plan_date) — return existing or create new MealPlan with select_recipe for each slot, wrapped in transaction.atomic.",
+          "regenerate_slot(user, plan_date, slot) — increment regeneration_count[slot], raise REGENERATE_LIMIT if >3, select_recipe with exclude_recipe_ids=[current_id]."
+        ],
+        "endpoints": {
+          "GET /api/v1/mealplans/today": "lazy generate if missing; returns MealPlan with nested Recipe summaries.",
+          "GET /api/v1/mealplans/?from=&to=": "range list ordered by plan_date.",
+          "POST /api/v1/mealplans/regenerate": "{date, slot} → updated plan; 422 NO_SUITABLE_RECIPE or 429 REGENERATE_LIMIT.",
+          "POST /api/v1/mealplans/generate": "admin-only backfill {date, user_id}."
+        },
+        "tests_minimum": [
+          "test_engine_excludes_allergens",
+          "test_engine_respects_diet_pattern_hierarchy",
+          "test_engine_respects_calorie_window",
+          "test_engine_respects_max_prep_time",
+          "test_engine_variety_penalty_avoids_recent_recipes",
+          "test_engine_raises_when_no_match",
+          "test_get_or_generate_is_idempotent",
+          "test_regenerate_returns_different_recipe",
+          "test_regenerate_rate_limited_after_3"
+        ],
+        "test_determinism": "random.seed(0) in tests."
+      },
+      "M5_tracker": {
+        "goal": "Log what user ate; auto-derive nutrition; daily/weekly aggregates.",
+        "models": {
+          "MealLog": "user FK, log_date (indexed), slot, status (planned/ate/skipped/substituted), planned_recipe FK nullable SET_NULL, actual_recipe FK nullable SET_NULL, servings_eaten (default 1.0), notes (max 500), logged_at. unique_together (user, log_date, slot).",
+          "DailyNutritionSummary": "user FK, summary_date, calories, protein_g, carbs_g, fat_g, fiber_g, micronutrients JSONField, meals_eaten, meals_skipped, updated_at. unique_together (user, summary_date)."
+        },
+        "services": {
+          "upsert_meal_log": "upserts by (user, log_date, slot); calls recompute_daily_summary synchronously for the date.",
+          "recompute_daily_summary": "walks MealLogs for date, sums nutrition (actual_recipe if substituted else planned_recipe) × servings_eaten, merges micronutrients key-by-key, writes summary. Idempotent."
+        },
+        "endpoints": {
+          "POST /api/v1/tracker/log": "{log_date, slot, status, actual_recipe_id?, servings_eaten?, notes?}",
+          "GET /api/v1/tracker/?date=": "list for that date",
+          "GET /api/v1/tracker/range?from=&to=": "list in range",
+          "GET /api/v1/nutrition/daily?date=": "{date, totals, targets, percentage_of_target, meals_eaten, meals_skipped}",
+          "GET /api/v1/nutrition/weekly?from=&to=": "list of daily summaries with averages at top"
+        },
+        "tests_minimum": [
+          "test_log_upsert_idempotent",
+          "test_log_creates_summary",
+          "test_substituted_uses_actual_recipe_for_macros",
+          "test_skipped_contributes_zero_calories",
+          "test_servings_eaten_scales_macros",
+          "test_daily_endpoint_returns_targets_and_percentages",
+          "test_weekly_endpoint_includes_averages"
+        ]
+      },
+      "M6_celery": {
+        "goal": "Daily plan generation + nutrition summary safety net.",
+        "setup": [
+          "nutriplan/celery.py: app = Celery('nutriplan'); config_from_object('django.conf:settings', namespace='CELERY'); autodiscover_tasks().",
+          "Use django-celery-beat for DB-backed schedule.",
+          "Add timezone CharField (default 'UTC') to DietaryProfile; migrate."
+        ],
+        "tasks": {
+          "generate_plan_for_user(user_id, plan_date_iso)": "bind=True, max_retries=3, default_retry_delay=60.",
+          "generate_plans_for_all_users(target='today'|'tomorrow')": "group users by tz, run only when local time crosses window.",
+          "recompute_yesterday_summaries()": "safety net for all active users."
+        },
+        "beat_schedule": [
+          "generate_plans_for_all_users(target='today') — hourly (only acts on users in correct tz window)",
+          "recompute_yesterday_summaries — daily 02:00 UTC"
+        ],
+        "tests_minimum": [
+          "test_generate_plan_for_user_creates_plan (CELERY_TASK_ALWAYS_EAGER=True)",
+          "test_generate_plan_for_user_idempotent",
+          "test_generate_plans_skips_users_in_wrong_tz_window"
+        ]
+      },
+      "M7_chat": {
+        "goal": "Chatbot with free-chat + ingredient modes; all GPT macros validated via USDA.",
+        "models": {
+          "ChatSession": "user FK, title (blank), started_at, last_message_at",
+          "ChatMessage": "session FK, role (user/assistant/system), content TextField, metadata JSONField (for ingredient mode: {recipes: [...], validated: bool, model, tokens}), created_at"
+        },
+        "openai_client": {
+          "location": "apps/chat/services/openai_client.py",
+          "wraps": "openai.OpenAI(api_key=settings.OPENAI_API_KEY, timeout=settings.OPENAI_TIMEOUT_SECONDS)",
+          "functions": [
+            "chat_completion(messages, response_format=None, stream=False)",
+            "recipes_from_ingredients(ingredients, profile, count=3)"
+          ],
+          "retry": "max 2 on transient; hard failure raises ExternalServiceError(code=OPENAI_FAILURE)"
+        },
+        "prompt_builder": "apps/chat/services/prompt_builder.py::build_system_prompt(profile, today_plan) — includes targets, diet, allergies (CRITICAL: explicit 'never recommend foods containing X'), today's plan, recent adherence.",
+        "usda_validator": {
+          "location": "apps/chat/services/usda_validator.py",
+          "class": "USDAClient with search_food(query) and macros_per_100g(query) cached in Redis 30 days",
+          "validate_recipe_macros": "for each ingredient: quantity→grams via unit map (+ piece weights), USDA per-100g lookup, sum, /servings. Overwrites estimated_* fields. 'validated': true if ≥80% ingredients matched, else flagged."
+        },
+        "endpoints": {
+          "POST /api/v1/chat/sessions": "create session",
+          "GET /api/v1/chat/sessions": "paginated list newest first",
+          "GET /api/v1/chat/sessions/<id>/messages": "paginated oldest first",
+          "POST /api/v1/chat/sessions/<id>/messages": {
+            "request": "{content, mode: 'chat'|'ingredient', ingredients?: [str]}",
+            "response_negotiation": "text/event-stream (streaming) or application/json (full)",
+            "chat_mode": "load profile + today's plan → build system prompt → stream → save user+assistant messages",
+            "ingredient_mode": "recipes_from_ingredients → USDA validate each → return assistant message with metadata.recipes; content is human-readable summary",
+            "rate_limit": "CHAT_RATE_LIMIT (default 30/h per user)"
+          }
+        },
+        "engine_fallback_hook": "select_recipe_with_fallback in apps/mealplans/services/recommendation.py wraps select_recipe; on NoSuitableRecipeError → GPT generate → USDA validate → persist Recipe(source='gpt'). Switch views to use this only after M7 stable.",
+        "tests_minimum": [
+          "test_openai_client_retries_on_transient_error (mock)",
+          "test_recipes_from_ingredients_returns_schema_compliant (mock OpenAI)",
+          "test_usda_validator_replaces_estimated_macros (mock USDA)",
+          "test_usda_validator_flags_unvalidated_when_low_match",
+          "test_chat_message_persists_user_and_assistant",
+          "test_chat_respects_rate_limit",
+          "test_ingredient_mode_returns_recipes_in_metadata",
+          "test_chat_system_prompt_contains_allergens"
+        ],
+        "async_note": "Streaming endpoint uses Django async views (async def) + StreamingHttpResponse. Run via uvicorn workers."
+      },
+      "M8_hardening": {
+        "goal": "Production readiness.",
+        "tasks": [
+          "Sentry init in production.py guarded on SENTRY_DSN.",
+          "Rate limits via django-ratelimit: /auth/register 10/m per IP, /mealplans/regenerate 3/d per user, /chat/sessions/<id>/messages from CHAT_RATE_LIMIT.",
+          "CORS production allow-list from env.",
+          "Security: HSTS, secure cookies, SECURE_PROXY_SSL_HEADER for behind-LB.",
+          "OpenAPI polish: every serializer documented, every endpoint @extend_schema with examples.",
+          "Dockerfile + docker-compose.yml (web, worker, beat, postgres, redis).",
+          "GitHub Actions CI: lint + tests + coverage gate 80%.",
+          "DEPLOY.md for Railway/Render.",
+          "Admin polish: searchable user, profile, recipe, mealplan.",
+          "core/audit.py decorator logging key actions (profile create/update, plan regen, chat message) to structured logger."
+        ]
+      }
+    },
+    "cross_module_conventions": {
+      "error_envelope": "{\"error\": {\"code\": \"...\", \"message\": \"...\", \"details\": {...}}}",
+      "error_codes_registry": [
+        "INVALID_TOKEN",
+        "TOKEN_EXPIRED",
+        "INVALID_AUTH_HEADER",
+        "NOT_AUTHENTICATED",
+        "PROFILE_NOT_FOUND",
+        "VALIDATION_ERROR",
+        "NO_SUITABLE_RECIPE",
+        "REGENERATE_LIMIT",
+        "MEAL_PLAN_NOT_FOUND",
+        "RATE_LIMITED",
+        "OPENAI_FAILURE",
+        "USDA_FAILURE",
+        "INTERNAL_ERROR"
+      ],
+      "datetime": "Stored UTC always. plan_date and log_date are date objects in user tz (from M6). Serializers emit ISO 8601.",
+      "pagination": "StandardCursorPagination, page_size 20, configurable up to 100 via ?page_size=.",
+      "versioning": "All endpoints under /api/v1/. No v2 in this build.",
+      "idempotency": "POST /tracker/log, /profiles/onboarding, /auth/register upsert on natural keys."
+    },
+    "definition_of_done": [
+      "All 8 modules pass acceptance.",
+      "pytest ≥80% coverage on apps/ and core/.",
+      "ruff + black --check + mypy all pass.",
+      "OpenAPI schema at /api/schema/ complete; every endpoint documented.",
+      "docker compose up reaches healthy state from fresh clone.",
+      "README: setup, env vars, tests, seed, deploy.",
+      "POSTMAN_COLLECTION.json (or Bruno) committed covering every endpoint."
+    ],
+    "per_module_output_protocol": [
+      "Before code: short plan (5-10 bullets, files to create/modify, key functions, test list) + open questions.",
+      "Wait for user confirmation.",
+      "Code order: models → migration → services → serializers → views → urls → tests → run tests → fix → commit.",
+      "After module: status report (what built, test count, coverage, deviations + justification, what's next)."
+    ]
+  },
+  "flutter_build_specification": {
+    "architecture": "Feature-first folder structure + MVVM via Riverpod. View = dumb widget; ViewModel = Notifier/AsyncNotifier; Repository = data abstraction; DataSource = wraps ApiClient.",
+    "project_structure": {
+      "lib_root": "lib/",
+      "tree": [
+        "main.dart",
+        "app.dart (MaterialApp.router setup)",
+        "core/config/{env,flavors}.dart",
+        "core/network/{api_client,auth_interceptor,error_interceptor,api_exceptions}.dart",
+        "core/routing/{app_router,route_paths}.dart",
+        "core/theme/{app_theme,app_colors,app_typography}.dart",
+        "core/widgets/ (AppButton, AppTextField, AppCard, LoadingState, ErrorState)",
+        "core/utils/{validators,formatters,result}.dart",
+        "core/extensions/",
+        "features/auth/{data,domain,presentation}/...",
+        "features/onboarding/...",
+        "features/home/...",
+        "features/recipe_detail/...",
+        "features/tracker/...",
+        "features/nutrition/...",
+        "features/chat/...",
+        "features/profile/...",
+        "shared/models/"
+      ]
+    },
+    "per_feature_structure": [
+      "data/<feature>_repository.dart",
+      "data/<feature>_remote_datasource.dart",
+      "domain/models/*.dart (freezed)",
+      "presentation/viewmodels/<screen>_viewmodel.dart (Notifier/AsyncNotifier)",
+      "presentation/screens/<screen>.dart",
+      "presentation/widgets/",
+      "providers.dart (all Riverpod providers for this feature)"
+    ],
+    "api_client": {
+      "location": "core/network/api_client.dart",
+      "implementation": "Single Dio instance with BaseOptions(baseUrl=Env.apiBaseUrl, connectTimeout=15s, receiveTimeout=30s). Interceptors: AuthInterceptor, ErrorInterceptor, LogInterceptor in debug. Exposed as apiClientProvider.",
+      "auth_interceptor_behavior": "On request: attach Firebase ID token (use cached unless expiring). On 401: force-refresh token, retry once."
+    },
+    "exception_hierarchy": {
+      "base": "sealed class AppException",
+      "subclasses": [
+        "NetworkException",
+        "TimeoutException",
+        "UnauthorizedException",
+        "ValidationException (with fieldErrors)",
+        "ServerException",
+        "UnknownException"
+      ],
+      "mapping": "ErrorInterceptor maps DioException → AppException. ViewModels catch and translate to localized strings. ErrorState widget renders consistently."
+    },
+    "routing": {
+      "library": "go_router",
+      "structure": [
+        "/splash, /login, /signup, /onboarding (top-level)",
+        "ShellRoute with bottom nav for /home, /tracker, /chat, /profile",
+        "/recipe/:slug detail route"
+      ],
+      "guards": [
+        "Not logged in → /login",
+        "Logged in but not onboarded → /onboarding",
+        "All else → matched route"
+      ],
+      "deep_linking": "nutriplan://recipe/<slug> and https://nutriplan.app/recipe/<slug> configured in AndroidManifest.xml and Info.plist."
+    },
+    "production_essentials": [
+      "freezed + json_serializable for models",
+      "flutter_dotenv or --dart-define for env",
+      "logger package for client logs",
+      "sentry_flutter init in main",
+      "flutter_native_splash + flutter_launcher_icons",
+      "test/golden/ folder for golden tests",
+      "very_good_analysis as lint baseline",
+      "Hive offline cache for today's plan (offline-first: show stale, revalidate)"
+    ]
+  },
+  "developer_setup_prerequisites": {
+    "local_environment": [
+      "PostgreSQL 16 running locally (or via docker-compose) with empty DB named 'nutriplan' and user 'nutriplan'",
+      "Redis 7 running locally (or via docker-compose)",
+      "Python 3.11+ for Django",
+      "Flutter SDK 3.x for mobile",
+      "Firebase project created at console.firebase.google.com with Auth enabled (email + Google)",
+      "Firebase Admin service account JSON downloaded → place at ./secrets/firebase-admin.json",
+      "OpenAI API key from platform.openai.com",
+      "USDA API key from https://fdc.nal.usda.gov/api-key-signup.html"
+    ],
+    "developer_does_not_create": [
+      "Database tables — Django migrations handle all schema",
+      "JWT verification logic — firebase-admin SDK handles it",
+      "OpenAPI docs — drf-spectacular auto-generates",
+      "API contracts — derive from drf-spectacular schema"
+    ]
+  },
+  "risks_and_mitigations": [
+    {
+      "risk": "GPT-4o returns inaccurate macros",
+      "mitigation": "Always re-derive from USDA before storing or showing."
+    },
+    {
+      "risk": "Rule engine pool too small for niche diet+cuisine combos",
+      "mitigation": "GPT fallback (M7); grow seed DB over time."
+    },
+    {
+      "risk": "OpenAI API outages",
+      "mitigation": "Engine works fully without GPT; chatbot shows graceful 'AI unavailable'."
+    },
+    {
+      "risk": "Firebase token expiry mid-session",
+      "mitigation": "Auth interceptor force-refreshes on 401 once and retries."
+    },
+    {
+      "risk": "User changes profile mid-day → today's plan stale",
+      "mitigation": "On PATCH /profiles/me, invalidate today's MealPlan cache, re-run engine."
+    },
+    {
+      "risk": "GPT-4o cost at scale",
+      "mitigation": "Hard per-user rate limits; cache GPT recipes by (ingredients_hash, profile_signature)."
+    },
+    {
+      "risk": "Allergens accidentally recommended",
+      "mitigation": "Hard SQL-level filter + integration test with seeded allergic profile."
+    },
+    {
+      "risk": "USDA validation latency on chat",
+      "mitigation": "Cache aggressively in Redis 30d; for chat, validate after streaming human-readable response, not before."
+    }
+  ],
+  "design_decisions_and_rationale": [
+    {
+      "decision": "Rule-based engine first, AI as creativity layer (never primary)",
+      "rationale": "Deterministic, debuggable, testable, zero per-user cost, works offline, AI without rules drifts and hallucinates macros and ignores allergies."
+    },
+    {
+      "decision": "Firebase Auth + Django (not django-allauth or SimpleJWT)",
+      "rationale": "User stated preference; firebase-admin verifies tokens cleanly. Caveat: every backend write keys off firebase_uid not User.id for migration safety."
+    },
+    {
+      "decision": "USDA validates all GPT macros",
+      "rationale": "GPT is creative but unreliable on macros. USDA is authoritative. GPT for creativity, USDA for truth."
+    },
+    {
+      "decision": "Service layer enforced; views stay thin",
+      "rationale": "Business logic testable without HTTP; easy to refactor; aligns with Django best practice for non-trivial apps."
+    },
+    {
+      "decision": "Custom User keyed by firebase_uid as USERNAME_FIELD",
+      "rationale": "Backend never has password; Firebase owns credentials. Auth flow is verify-token → get-or-create-User."
+    },
+    {
+      "decision": "ASGI (uvicorn) for entire app instead of splitting sync/async",
+      "rationale": "M7 streaming requires it; splitting now is premature optimization. Revisit if sync-endpoint latency becomes an issue."
+    },
+    {
+      "decision": "Curated seed JSON instead of importing public dataset",
+      "rationale": "Faster v1 ship; quality control. Switch to public dataset import (RecipeNLG/Food.com) if scale demands."
+    }
+  ],
+  "things_to_explicitly_avoid": [
+    "Do not use SQLite anywhere, including tests.",
+    "Do not use Django's default User model.",
+    "Do not put business logic in serializers or views.",
+    "Do not call external APIs from model save() or signals.",
+    "Do not hand-roll JWT verification.",
+    "Do not commit secrets.",
+    "Do not skip migrations.",
+    "Do not trust client-supplied user_id.",
+    "Do not trust GPT-returned macros.",
+    "Do not silently substitute features the spec didn't ask for.",
+    "Do not add libraries beyond the stated tech_stack without asking.",
+    "Do not start a new module before previous module's acceptance criteria pass."
+  ],
+  "agent_usage_instructions": {
+    "how_to_use_this_document": [
+      "Treat this entire JSON as the single source of truth for the project.",
+      "Before each module, re-read backend_build_specification.modules.M<n>.",
+      "Follow per_module_output_protocol: plan → confirm → code → test → status.",
+      "Reference cross_module_conventions for every endpoint and every error.",
+      "When ambiguous, surface the question — never invent.",
+      "Stay within tech_stack. New library = ask first.",
+      "Test data flow against user_journey_flowchart before declaring a feature done."
+    ],
+    "build_sequence_summary": "Backend M0 → M1 → M2 → M3 (seed recipes) → M4 → M5 → M6 → M7 → M8. In parallel, Flutter Sprint 1 can start after backend M2. Sprint 2 Flutter is light; Sprint 3 Flutter ramps after backend M5; Sprint 4 Flutter after backend M7."
+  }
+}
+I want to make an flutter app , with login using firebase , the app will ask some questions about user's diet , preference then based on that system will suggest daily meals , breakfast lunch dinner with recipe details and tracker that did user made or had it or not , and can keep calories and micronutrients count , a dedicated chatbot(chatgpt key ) if user enters their ingredients then suggest the recipes of dishes and it's nutritional details, this needs to be a full stack project, so from frontend to backend, guide me throughout with the logic and the tech and improvements in all the features I would want to use django for better orm experience, how would I make the diet engine, mean recommendation engine which included tracking and all or all this can be made via integrating ai for the brain , help me creating this project, from scratchfirst we shall make the list of the features needed like a professional document , with the agenda of the project and the tech involved , Sprint 1: Firebase au… first we shall make the list of the features needed like a professional document , with the agenda of the project and the tech involved , Sprint 1: Firebase auth + onboarding flow + UserProfile API Sprint 2: Recipe DB seeding + basic recommendation engine (rule-based first, no AI) Sprint 3: Meal plan display in Flutter + tracker UI + NutritionLog Sprint 4: GPT-4o integration into engine + chatbot endpoint fcm push,grocery list, barcode scanner for now we shall lock these features other than them can be written as the add ons for future , the document should have frontend and backend requirements and basic structure of the services involved, the flutter code should be according to production industry standard using riverpod , with reusable codes , mvvm architecture , one class for api calls, exception handlers , deeplinking routes everything which is standard for today's application , i dont have idea of django but we will follow industry standard coding practises and tools , i would want a full user journey flow chart where user will use each feature in our application and based on them process involved on tech
+first i would want you to write guidelines and requirements for antigravity , the project requirements, the feature list , the feature requirements, the services needed to be build, first i will start by building the backend with django so considering everything discussed , ofc i woud want antigravity to write code module by module but the requirements given to it should be very clean and precise, what to use from where to get everything from where to get the data , the database connection, tables everything from where to seed the data , specially the nutrition engine , what endpoint will do what, everything for making this project work

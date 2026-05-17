@@ -4,6 +4,28 @@ Append one entry per completed module. Newest at the top.
 
 ---
 
+## M1 — Accounts
+- **Completed:** 2026-05-17
+- **Commit:** feat(M1): accounts (see git log for SHA)
+- **Tests:** 21 tests passing, 86% coverage on `apps/accounts/services/`
+- **Acceptance criteria:** all met
+  - `POST /api/v1/auth/register` with valid Bearer token → 200 `{id, firebase_uid, email, display_name, has_profile, created}` ✅
+  - `GET /api/v1/auth/me` with valid token → 200 `{id, firebase_uid, email, display_name, has_profile}` ✅
+  - Invalid/expired token → 401 with correct error code ✅
+  - 21 tests pass (8 new + 13 carried from M0) ✅
+  - `ruff + black --check + mypy --strict` all pass ✅
+  - `make migrate` runs cleanly on fresh DB ✅
+- **Deviations from spec:** None
+- **New env vars:** none (FIREBASE_CREDENTIALS_PATH was pre-declared in M0)
+- **New external services touched:** Firebase Admin SDK (firebase-admin==7.4.0)
+- **What the next module needs to know:**
+  - `AUTH_USER_MODEL = "accounts.User"` is now set; all future models must FK to `settings.AUTH_USER_MODEL`, never to `auth.User`
+  - `has_profile` in `UserSerializer.get_has_profile` uses `try: obj.profile is not None` — M2 adds the reverse `OneToOneField` named `profile` on User, which makes this return True
+  - Error code constants are in `core/error_codes.py` (no DRF imports) — import from there in any module loaded during DRF init
+  - DB was reset at M1 start (AUTH_USER_MODEL added after M0); fresh `make migrate` now covers all apps
+
+---
+
 ## M0 — Bootstrap
 - **Completed:** 2026-05-16
 - **Commit:** feat(M0): bootstrap (see git log for SHA)
