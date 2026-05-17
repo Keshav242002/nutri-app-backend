@@ -4,6 +4,19 @@ Append one entry per completed module. Newest at the top.
 
 ---
 
+### M1 amendment — 2026-05-17
+- Fixed `User` to inherit `TimestampedModel` (removed inline `created_at`/`updated_at`); Django detects no schema change — no migration required
+- Tightened Firebase exception handling: explicit `ExpiredIdTokenError`, `RevokedIdTokenError`, `InvalidIdTokenError`, `FirebaseError` catches; bare `except Exception` removed; genuine unknowns now propagate
+- Added new error codes `TOKEN_REVOKED` and `EXTERNAL_SERVICE_ERROR` to `core/error_codes.py`
+- Added structured logging (`event`, `user_id`, `firebase_uid`, `error_code`) to `FirebaseAuthentication` and `register_or_get_user`
+- Tightened `has_profile` sentinel from `except Exception` to `except AttributeError`
+- Deleted dead `core/authentication.py` (PlaceholderAuthentication — nothing imported it)
+- Resolved 4 protocol ambiguities in CLAUDE.md §7 (model inheritance MRO, logging granularity, exception specificity, per-module coverage)
+- New migration: none (TimestampedModel move is schema-neutral)
+- Tests: 23 passing (+2 new: TOKEN_REVOKED, INVALID_TOKEN explicit paths), 88% on `apps/accounts/services/`
+
+---
+
 ## M1 — Accounts
 - **Completed:** 2026-05-17
 - **Commit:** feat(M1): accounts (see git log for SHA)

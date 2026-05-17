@@ -40,6 +40,28 @@ class TestFirebaseAuthentication:
         assert response.status_code == 401
         assert response.json()["error"]["code"] == "TOKEN_EXPIRED"
 
+    def test_authentication_rejects_revoked_token(self, client: Client) -> None:
+        import firebase_admin.auth
+
+        with patch(
+            "firebase_admin.auth.verify_id_token",
+            side_effect=firebase_admin.auth.RevokedIdTokenError("revoked"),
+        ):
+            response = client.get(ME_URL, **_auth_header())
+        assert response.status_code == 401
+        assert response.json()["error"]["code"] == "TOKEN_REVOKED"
+
+    def test_authentication_rejects_invalid_token(self, client: Client) -> None:
+        import firebase_admin.auth
+
+        with patch(
+            "firebase_admin.auth.verify_id_token",
+            side_effect=firebase_admin.auth.InvalidIdTokenError("invalid"),
+        ):
+            response = client.get(ME_URL, **_auth_header())
+        assert response.status_code == 401
+        assert response.json()["error"]["code"] == "INVALID_TOKEN"
+
     def test_authentication_rejects_malformed_header(self, client: Client) -> None:
         response = client.get(ME_URL, HTTP_AUTHORIZATION="Token not-bearer-format")
         assert response.status_code == 401

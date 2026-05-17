@@ -14,6 +14,7 @@ from rest_framework.views import exception_handler as drf_exception_handler
 
 from core.error_codes import (  # noqa: F401  # re-exported for backwards compatibility
     CONFLICT,
+    EXTERNAL_SERVICE_ERROR,
     INTERNAL_ERROR,
     INVALID_AUTH_HEADER,
     INVALID_TOKEN,
@@ -26,6 +27,7 @@ from core.error_codes import (  # noqa: F401  # re-exported for backwards compat
     RATE_LIMITED,
     REGENERATE_LIMIT,
     TOKEN_EXPIRED,
+    TOKEN_REVOKED,
     USDA_FAILURE,
     VALIDATION_ERROR,
 )

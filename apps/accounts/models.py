@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
 
+from core.mixins import TimestampedModel
+
 
 class UserManager(BaseUserManager["User"]):
     def create_user(self, firebase_uid: str, email: str, **extra: object) -> "User":
@@ -15,14 +17,12 @@ class UserManager(BaseUserManager["User"]):
         return self.create_user(firebase_uid, email, **extra)
 
 
-class User(AbstractBaseUser, PermissionsMixin):
+class User(TimestampedModel, AbstractBaseUser, PermissionsMixin):
     firebase_uid = models.CharField(max_length=128, unique=True, db_index=True)
     email = models.EmailField(unique=True)
     display_name = models.CharField(max_length=120, blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     USERNAME_FIELD = "firebase_uid"
     REQUIRED_FIELDS = ["email"]
