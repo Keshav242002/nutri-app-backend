@@ -78,7 +78,7 @@ class FirebaseAuthentication(BaseAuthentication):
             display_name=str(decoded.get("name", "")),
         )
         decoded["_created"] = created
-        logger.debug(
+        logger.info(
             "token_verified",
             extra={"event": "token_verified", "user_id": user.pk, "firebase_uid": firebase_uid},
         )
