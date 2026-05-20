@@ -1,8 +1,8 @@
-﻿{
+{
   "$schema_version": "1.0",
   "document_type": "ai_coding_agent_context",
   "project_name": "NutriPlan",
-  "description": "Personalized nutrition mobile app with AI-powered meal planning, tracking, and recipe chatbot. Full-stack: Flutter mobile + Django REST backend + Firebase Auth + GPT-4o.",
+  "description": "Indian-first personalized nutrition app with budget-aware meal planning. Flutter mobile + Django REST backend + Firebase Auth + GPT-4o + USDA FoodData Central. Target market: Indian users who eat Indian home-cooked food and want realistic, affordable, culturally-appropriate meal plans.",
   "intended_use": "Feed this entire JSON document to an AI coding agent (Antigravity, Cursor, Claude Code, etc.) as the single source of truth for building the project. The agent should reference this document for every implementation decision.",
   "primary_developer_constraints": {
     "experience": "Developer is comfortable with Flutter but new to Django.",
@@ -15,7 +15,7 @@
   },
   "project_agenda": {
     "summary": "NutriPlan personalizes daily meal plans (breakfast/lunch/dinner) based on a user's biometrics, dietary pattern, allergies, and cuisine preferences. It tracks adherence, auto-aggregates calorie and micronutrient intake, and provides an AI chatbot that turns 'what's in my fridge' into actual recipes with validated macros.",
-    "core_thesis": "Generic calorie counters are dumb logs. Recipe apps don't know your goals. NutriPlan combines a personalized daily plan + adherence tracking + AI improvisation into one loop.",
+    "core_thesis": "Western calorie counters fail Indian users (wrong food database, wrong portions, no budget awareness, no cuisine fit). NutriPlan is Indian-first by design: ingredient database includes Indian foods with household unit conversions (1 katori, 2 rotis), recipes are Indian home-cooking, meal plans respect daily/weekly food budget in INR. Rule-based engine first, AI for personalization and substitutions.",
     "primary_user_goals": [
       "Tell the app about me once → get a meal plan tailored to my body, goals, and food preferences.",
       "See today's meals with full recipes, then check off what I actually ate.",
@@ -28,7 +28,11 @@
       "Daily meal plan (breakfast/lunch/dinner)",
       "Meal tracker with status: planned / ate / skipped / substituted",
       "Auto nutrition logging and daily/weekly aggregation",
-      "AI chatbot: free chat mode + ingredient-to-recipe mode"
+      "AI chatbot: free chat mode + ingredient-to-recipe mode",
+      "Indian-first ingredient database with USDA nutrition + household unit conversions (1 katori = Xg, 1 roti = Yg)",
+      "Budget-aware meal planning (₹/day, ₹/week constraints)",
+      "Ingredient-level nutrition (recipes have ingredient lists; macros computed, not stored)",
+      "Real-time meal substitution (swap one meal, same macros, same budget)"
     ],
     "v1_explicit_non_goals": [
       "FCM push notifications",
@@ -37,7 +41,14 @@
       "Apple Health / Google Fit sync",
       "Social / community features",
       "Multi-language",
-      "Photo-based meal logging"
+      "Photo-based meal logging",
+      "Adaptive learning from user adherence (post-v1)",
+      "Family/household diet synchronization (post-v1)",
+      "Habit intelligence / behavior pattern analysis (post-v1)",
+      "Grocery list generation (already non-goal; reaffirm)",
+      "Recovery-mode dieting (post-v1)",
+      "Hyper-protein-per-rupee optimization as a primary mode (post-v1; falls out naturally if data is structured right)",
+      "IFCT (Indian Food Composition Tables) integration as nutrition source (v2 quality upgrade; v1 uses USDA + manual Indian overlay)"
     ]
   },
   "tech_stack": {
@@ -76,7 +87,7 @@
     "external_services": {
       "firebase_auth": "Identity provider; issues ID tokens to Flutter; backend verifies via firebase-admin",
       "openai_gpt_4o": "Chatbot, recipe generation, engine fallback",
-      "usda_fooddata_central": "Authoritative macro reference; validates GPT-returned recipe macros",
+      "usda_fooddata_central": "Used at SEED TIME to populate Ingredient.per_100g_nutrition (we download Foundation Foods dataset and import a curated subset). NOT called at runtime in the v1 hot path. Runtime use is limited to validating AI-generated ingredient additions in M7.",
       "sentry": "Error tracking (optional)",
       "firebase_storage_or_s3": "Recipe image hosting"
     },
@@ -276,7 +287,14 @@
     "Restaurant menu mode",
     "Social / friends / share plans",
     "Pro tier (advanced analytics, priority GPT-4o, longer chat history)",
-    "Multi-language"
+    "Multi-language",
+    "Adaptive learning from user adherence — deferred post-v1; requires longitudinal log data and re-ranking model",
+    "Family/household diet synchronization — post-v1; needs multi-profile meal plan coordination",
+    "Habit intelligence / behavior pattern analysis — post-v1; requires adherence streak and substitution pattern tracking",
+    "Grocery list generation — already non-goal v1; trivially derived from week plan in v2",
+    "Recovery-mode dieting (post-v1) — refeeding protocol, diet breaks; out of scope for v1 engine",
+    "Hyper-protein-per-rupee optimization as primary mode — post-v1; falls out naturally from budget + macro scoring if data is structured right",
+    "IFCT integration as nutrition source — v2 quality upgrade; v1 uses USDA + manual Indian overlay; IFCT fills gaps for region-specific ingredients"
   ],
   "feature_requirements": {
     "F1_authentication": {
@@ -430,7 +448,7 @@
           "prep_time_min": "integer",
           "cook_time_min": "integer",
           "servings": "integer",
-          "ingredients": "array of {name, quantity, unit}",
+          "ingredients": "array of {ingredient_name (must match Ingredient.name in DB), quantity_grams (float), display_quantity (float, optional), display_unit_name (string, optional)}",
           "instructions": "array of string (one step per item)",
           "estimated_calories": "integer (placeholder, overwritten by USDA)",
           "estimated_protein_g": "number (placeholder)",
@@ -450,14 +468,15 @@
       "athlete": 1.9
     },
     "goal_calorie_delta": {
-      "lose": -500,
+      "lose_weight": -500,
       "maintain": 0,
       "gain_muscle": 300,
-      "general": 0
+      "gain_weight_healthy": 500,
+      "eat_healthier": 0
     },
     "calorie_floor": 1200,
     "macro_splits_protein_carbs_fat": {
-      "lose": [
+      "lose_weight": [
         0.35,
         0.4,
         0.25
@@ -472,7 +491,12 @@
         0.45,
         0.25
       ],
-      "general": [
+      "gain_weight_healthy": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "eat_healthier": [
         0.25,
         0.5,
         0.25
@@ -494,6 +518,10 @@
       "tsp": 5.0,
       "piece": "requires per-ingredient avg_piece_g",
       "slice": "requires per-ingredient avg_piece_g"
+    },
+    "fiber_target_per_1000_kcal": {
+      "default": 14,
+      "eat_healthier": 18
     }
   },
   "backend_build_specification": {
@@ -663,7 +691,7 @@
         "fixtures": "firebase_token fixture in conftest.py monkeypatches verify_id_token to return fake decoded payload."
       },
       "M2_profiles": {
-        "goal": "DietaryProfile (one per user). Onboarding endpoint. Backend computes target macros.",
+        "goal": "DietaryProfile (one per user). Onboarding endpoint. Backend computes target macros. Captures budget constraints and cooking habits for budget-aware meal planning.",
         "model": "DietaryProfile with: age (13-100), sex (M/F/O), height_cm (100-250), weight_kg (30-300), activity_level enum, goal enum, diet_pattern enum, allergies ArrayField, dislikes ArrayField, cuisine_preferences ArrayField (each list max 50, items max 64 chars), max_prep_time_min (default 45), skill_level (beginner/intermediate/advanced). Computed: target_calories, target_protein_g, target_carbs_g, target_fat_g, target_fiber_g. save() always recomputes via core.utils.nutrition_math.compute_targets — never accepts client-supplied targets.",
         "endpoints": {
           "POST /api/v1/profiles/onboarding": "upsert, returns full profile with computed targets",
@@ -680,14 +708,68 @@
           "test_onboarding_is_idempotent",
           "test_patch_recomputes_targets_when_weight_changes",
           "test_get_me_404_when_no_profile",
-          "test_validation_rejects_age_out_of_range"
-        ]
+          "test_validation_rejects_age_out_of_range",
+          "test_profile_requires_at_least_one_budget_field",
+          "test_profile_derives_missing_budget_from_other",
+          "test_profile_rejects_inconsistent_budgets",
+          "test_cuisine_preferences_validates_against_controlled_vocab"
+        ],
+        "additional_fields": {
+          "household_size": "PositiveSmallIntegerField(1-12, default=1) — informational v1; family-sync in v2",
+          "cooking_frequency": "CharField enum: daily | weekends_only | rarely — affects meal plan structure (rarely → batch-cookable recipes preferred)",
+          "cuisine_preferences": "ArrayField of controlled vocab multi-select (at least 1 required): ['north_indian','south_indian','east_indian','west_indian','punjabi','bengali','gujarati','maharashtrian','south_indian_tamil','south_indian_kerala','andhra','continental','chinese_indo','pan_asian']. Replaces old ranked-picks approach.",
+          "weekly_food_budget_inr": "DecimalField max_digits=8 decimal_places=2 null=True blank=True (range 300-20000)",
+          "daily_food_budget_inr": "DecimalField max_digits=8 decimal_places=2 null=True blank=True (range 50-3000)",
+          "budget_derivation_rule": "At least ONE of weekly_food_budget_inr / daily_food_budget_inr is required. Validated in service layer, not serializer. If only weekly given: daily = weekly/7. If only daily given: weekly = daily*7. If both given: weekly must equal daily*7 ±5%."
+        },
+        "onboarding_step_note": "Step 5 (formerly step 6) now combines 'Budget and cooking constraints': budget fields + household_size + cooking_frequency + max_prep_time_min + skill_level."
       },
       "M3_recipes": {
-        "goal": "Recipe DB with full nutrition. ~200 seeded curated recipes. List + detail endpoints with filtering.",
+        "goal": "Ingredient-level recipe database. ~150 ingredients (USDA-sourced + Indian overlay) + ~80 household unit conversions + ~100 curated Indian recipes. Recipes store ingredient lists; nutrition computed from ingredients.",
         "models": {
-          "Recipe": "name, slug (unique), meal_type (B/L/D/snack indexed), cuisine (indexed), diet_tags ArrayField with GIN index (controlled vocab), allergen_tags ArrayField with GIN index (controlled vocab), prep_time_min, cook_time_min, servings, instructions JSONField (list of steps), image_url, calories, protein_g, carbs_g, fat_g, fiber_g, micronutrients JSONField (iron_mg, calcium_mg, vit_c_mg, vit_d_iu, potassium_mg, sodium_mg, magnesium_mg, zinc_mg, vit_b12_ug, folate_ug, vit_a_iu), source (seed/gpt/user), is_active.",
-          "RecipeIngredient": "recipe FK, name, quantity, unit, fdc_id (USDA, nullable), order"
+          "Ingredient": {
+            "name": "CharField unique (English, e.g. 'paneer', 'basmati rice', 'toor dal')",
+            "name_hi": "CharField blank (Hindi, e.g. 'पनीर'; v1 optional)",
+            "category": "CharField enum: grain | pulse | vegetable | fruit | dairy | meat | fish | egg | oil_fat | spice | nut_seed | sweetener | beverage | processed",
+            "source": "CharField enum: usda | manual | ai_generated — provenance of nutrition data",
+            "usda_fdc_id": "IntegerField null=True (USDA Foundation Food ID if source=usda)",
+            "per_100g_nutrition": "JSONField — required keys: calories, protein_g, carbs_g, fat_g, fiber_g; optional micros: iron_mg, calcium_mg, vit_c_mg, vit_d_iu, potassium_mg, sodium_mg, magnesium_mg, zinc_mg, vit_b12_ug, folate_ug, vit_a_iu",
+            "approximate_price_inr_per_kg": "DecimalField max_digits=7 decimal_places=2 null=True (some like salt/spices have no useful per-kg price)",
+            "price_as_of_month": "CharField max_length=7 format YYYY-MM (e.g. '2026-05')",
+            "allergen_tags": "ArrayField of controlled vocab allergen choices",
+            "is_active": "BooleanField default True"
+          },
+          "HouseholdUnit": {
+            "name": "CharField (e.g. 'katori', 'roti', 'idli', 'dosa', 'cup', 'tbsp')",
+            "ingredient": "FK to Ingredient null=True — null = generic unit (cup, tbsp); set = ingredient-specific (1 katori dal ≠ 1 katori rice)",
+            "grams": "DecimalField max_digits=7 decimal_places=2 — weight in grams of 1 unit",
+            "unique_together": [
+              "name",
+              "ingredient"
+            ]
+          },
+          "Recipe": {
+            "unchanged_fields": "name, slug, meal_type, cuisine, diet_tags, allergen_tags, prep_time_min, cook_time_min, servings, instructions (JSONField list of steps), image_url, is_active",
+            "REMOVED": "calories, protein_g, carbs_g, fat_g, fiber_g, micronutrients — these are now COMPUTED",
+            "cached_nutrition": "JSONField — populated by compute_nutrition service; schema: {calories, protein_g, carbs_g, fat_g, fiber_g, micronutrients: {...}, computed_at: iso8601}",
+            "cached_cost_inr": "DecimalField max_digits=7 decimal_places=2 null=True — sum of ingredient prices × quantities",
+            "source": "CharField enum: seed | ai_generated | user_custom",
+            "cost_known": "BooleanField default False — set by compute_nutrition; True when ≥80% of total RecipeIngredient.quantity_grams maps to Ingredients with non-NULL price"
+          },
+          "RecipeIngredient": {
+            "recipe": "FK to Recipe",
+            "order": "PositiveSmallIntegerField",
+            "ingredient": "FK to Ingredient (NOT a name string — must reference real Ingredient row)",
+            "quantity_grams": "DecimalField max_digits=7 decimal_places=2 (canonical; stored in grams)",
+            "display_quantity": "DecimalField max_digits=6 decimal_places=2 (what to show, e.g. 1.5)",
+            "display_unit": "FK to HouseholdUnit null=True (e.g. 'katori'; null = grams)",
+            "notes": "CharField blank (e.g. 'finely chopped', 'soaked overnight')",
+            "validation": "quantity_grams is the canonical source of truth for nutrition computation. display_quantity and display_unit are for UI presentation only. Seed import and admin writes log a WARNING at INFO level if quantity_grams differs from display_quantity × display_unit.grams by more than 5%, but do NOT block the write. This allows HouseholdUnit.grams values to be updated over time without breaking previously-imported recipes."
+          }
+        },
+        "services": {
+          "compute_nutrition": "apps/recipes/services/recipes.py::compute_nutrition(recipe) -> dict: sums ingredient nutrition × quantities; updates Recipe.cached_nutrition and Recipe.cached_cost_inr; writes computed_at timestamp. Also sets Recipe.cost_known=True if ≥80% of total ingredient weight_grams has a non-NULL approximate_price_inr_per_kg on its Ingredient, else cost_known=False.",
+          "recompute_nutrition_for_ingredient_change": "recompute_nutrition_for_ingredient_change(ingredient_id): finds all recipes using this ingredient, recomputes each. Called when Ingredient.per_100g_nutrition or price changes."
         },
         "controlled_vocab": {
           "diet_tags": [
@@ -712,30 +794,45 @@
             "shellfish",
             "fish",
             "sesame"
+          ],
+          "cuisine_tags": [
+            "north_indian",
+            "south_indian",
+            "east_indian",
+            "west_indian",
+            "punjabi",
+            "bengali",
+            "gujarati",
+            "maharashtrian",
+            "south_indian_tamil",
+            "south_indian_kerala",
+            "andhra",
+            "continental",
+            "chinese_indo",
+            "pan_asian"
           ]
         },
         "seed_strategy": {
           "files": [
-            "apps/recipes/seed_data/ingredient_nutrition.json (~150 ingredients with per-100g macros + avg_piece_g for piece/slice units)",
-            "apps/recipes/seed_data/recipes.json (~200 curated recipes)"
+            "apps/recipes/seed_data/ingredients.json (~150 entries; columns: name, name_hi, category, source, usda_fdc_id, per_100g_nutrition (nested), approximate_price_inr_per_kg, price_as_of_month, allergen_tags)",
+            "apps/recipes/seed_data/household_units.json (~80 entries; columns: name, ingredient_name (or null), grams)",
+            "apps/recipes/seed_data/recipes.json (~100 entries; AI-generated candidates that user manually validates)"
+          ],
+          "recipe_generation_workflow": [
+            "User runs offline script (scripts/generate_seed_recipes.py — agent builds in M3) that prompts GPT-4o or Claude with recipe schema + batch of 10 dish names per request. Script returns JSON.",
+            "User manually reviews each recipe (ingredient quantities, cultural correctness, completeness). Reviewed recipes appended to recipes.json and committed to git.",
+            "M3 seed command (python manage.py seed_recipes) loads ingredients.json + household_units.json + recipes.json idempotently. LLM never writes to production DB directly.",
+            "Validation gate in seed_recipes: every Recipe's ingredients must reference an existing Ingredient row by name; fail loudly with missing ingredient name(s). Every quantity_grams must be positive. Every recipe must produce plausible kcal/serving (50 ≤ calories/serving ≤ 1200) — anything outside flags for manual review."
           ],
           "distribution": {
             "meal_types": {
-              "breakfast": 50,
-              "lunch": 75,
-              "dinner": 75
+              "breakfast": 30,
+              "lunch": 35,
+              "dinner": 35
             },
-            "diet_patterns_min_coverage": {
-              "vegan": 30,
-              "vegetarian": 50,
-              "omnivore": 100,
-              "pescatarian": 20,
-              "keto": 20,
-              "mediterranean": 30
-            },
-            "cuisines_min_each": 15
+            "cuisines_min_each": 8,
+            "budget_tiers": "30 recipes with cost/serving ≤ ₹30 (low), 50 with ≤ ₹60 (mid), 20 with > ₹60 (high)"
           },
-          "computation": "Seed script computes per-serving nutrition by summing (ingredient_quantity_grams × per_gram_nutrition_from_map) / servings. Fail loudly on missing piece weights — never guess.",
           "command": "python manage.py seed_recipes (idempotent, upserts by slug)"
         },
         "endpoints": {
@@ -746,21 +843,35 @@
               "diet_tags (comma, all-must-match via __contains)",
               "exclude_allergens (comma, none-may-match)",
               "max_prep_time",
-              "search (icontains on name)"
+              "search (icontains on name)",
+              "max_cost_per_serving_inr (filter by cached_cost_inr / servings)",
+              "includes_ingredients (comma list of ingredient names; recipe must use all)",
+              "excludes_ingredients (comma list; recipe must use none)"
             ],
             "pagination": "cursor, page_size 20",
-            "response": "slim RecipeListSerializer (name, slug, image, kcal, macros, prep_time, tags)"
+            "response": "slim RecipeListSerializer (name, slug, image, cached_nutrition summary, prep_time, tags, cached_cost_inr)"
           },
-          "GET /api/v1/recipes/<slug>/": "full RecipeDetailSerializer including ingredients, instructions, micronutrients"
+          "GET /api/v1/recipes/<slug>/": "full RecipeDetailSerializer including ingredient list (with HouseholdUnit display), instructions, cached_nutrition with micronutrients"
         },
         "tests_minimum": [
-          "test_seed_idempotent",
-          "test_seed_computes_calories_from_ingredients (handcraft small recipe + ingredient map, assert)",
+          "test_ingredient_seed_idempotent",
+          "test_household_unit_seed_idempotent",
+          "test_recipe_seed_validates_ingredient_references",
+          "test_compute_nutrition_sums_correctly (handcraft 2-ingredient recipe, assert)",
+          "test_compute_nutrition_handles_micronutrients",
+          "test_recompute_on_ingredient_change_updates_all_recipes",
+          "test_cached_cost_computed_from_ingredient_prices",
+          "test_recipe_filter_by_max_cost_per_serving",
+          "test_recipe_filter_by_includes_excludes_ingredients",
+          "test_seed_rejects_recipe_with_unknown_ingredient",
+          "test_seed_flags_recipe_outside_calorie_range",
           "test_recipe_list_filters_by_diet_tag",
           "test_recipe_list_excludes_allergens",
           "test_recipe_list_filters_by_max_prep_time",
           "test_recipe_detail_returns_full_payload",
-          "test_recipe_list_pagination"
+          "test_recipe_list_pagination",
+          "test_compute_nutrition_sets_cost_known_true_when_priced_ingredients_dominate",
+          "test_compute_nutrition_sets_cost_known_false_when_most_weight_unpriced"
         ]
       },
       "M4_mealplans": {
@@ -781,7 +892,19 @@
             "macro_match_multiplier": 20,
             "recent_penalty": -50,
             "seasonal_max": 10,
-            "random_tiebreaker_max": 5
+            "random_tiebreaker_max": 5,
+            "budget_fit": "25 (penalty applied if meal_cost > slot_budget; magnitude proportional to overshoot)"
+          },
+          "SLOT_BUDGET_RATIO": {
+            "breakfast": 0.25,
+            "lunch": 0.4,
+            "dinner": 0.35
+          },
+          "budget_step_note": "Step 5.5 BUDGET WINDOW (inserted after calorie window, before exclusion): keep recipes where (cached_cost_inr / servings) ≤ slot_budget_inr × 1.15 (15% grace). slot_budget_inr = profile.daily_food_budget_inr × SLOT_BUDGET_RATIO[slot]. If pool empty after this filter, log 'budget_too_tight' at INFO and relax to 1.40× as fallback.",
+          "null_price_handling": {
+            "policy": "Recipes have cost_known=true only if ≥80% of total ingredient weight has a non-NULL approximate_price_inr_per_kg. Recipes with cost_known=false are EXCLUDED from budget-strict scoring (step 5.5) when the budget filter is at 1.15× ratio. They are INCLUDED when the budget filter relaxes to 1.40× (fallback) so the pool is never empty.",
+            "field_addition_to_Recipe": "cost_known: BooleanField default False (set by compute_nutrition service based on the 80% weight threshold)",
+            "rationale": "Spices, salt, water, and small-quantity ingredients commonly have NULL prices. Recipes whose cost is dominated by priced ingredients (rice, dal, paneer, vegetables) remain budget-comparable; recipes where most of the weight is unpriced (e.g. mostly spice-based) shouldn't be filtered by an unreliable cost estimate."
           }
         },
         "errors": {
@@ -806,7 +929,11 @@
           "test_engine_raises_when_no_match",
           "test_get_or_generate_is_idempotent",
           "test_regenerate_returns_different_recipe",
-          "test_regenerate_rate_limited_after_3"
+          "test_regenerate_rate_limited_after_3",
+          "test_engine_respects_budget_window",
+          "test_engine_budget_grace_factor",
+          "test_engine_relaxes_budget_when_pool_empty",
+          "test_engine_budget_scoring_prefers_cheaper_when_macros_equal"
         ],
         "test_determinism": "random.seed(0) in tests."
       },
@@ -901,9 +1028,29 @@
           "test_chat_message_persists_user_and_assistant",
           "test_chat_respects_rate_limit",
           "test_ingredient_mode_returns_recipes_in_metadata",
-          "test_chat_system_prompt_contains_allergens"
+          "test_chat_system_prompt_contains_allergens",
+          "test_ai_recipe_rejected_when_unknown_ingredient",
+          "test_ai_recipe_rejected_when_implausible_calories",
+          "test_ai_recipe_persisted_with_correct_source_tag",
+          "test_ai_recipe_appears_in_next_meal_plan_pool"
         ],
-        "async_note": "Streaming endpoint uses Django async views (async def) + StreamingHttpResponse. Run via uvicorn workers."
+        "async_note": "Streaming endpoint uses Django async views (async def) + StreamingHttpResponse. Run via uvicorn workers.",
+        "ai_recipe_validator": {
+          "location": "apps/chat/services/ai_recipe_validator.py",
+          "function": "validate_and_persist_ai_recipe(recipe_json, user) -> Recipe",
+          "validation_steps": [
+            "Every ingredient_name MUST exist in Ingredient table; fail with VALIDATION_ERROR otherwise",
+            "quantity_grams in (1, 5000) range per ingredient",
+            "servings in (1, 12)",
+            "meal_type in valid enum",
+            "Compute nutrition via existing services/recipes/compute_nutrition (no USDA call needed; ingredients already have USDA data)",
+            "Computed calories/serving must be in (50, 1500)",
+            "Persist as Recipe with source='ai_generated', is_active=True",
+            "Return saved Recipe"
+          ],
+          "promotion_note": "AI-generated recipes that pass validation are FIRST-CLASS recipes in Layer 1 and can be selected by the engine in future meal plans."
+        },
+        "usda_usage_updated": "USDA is used at SEED TIME to populate Ingredient.per_100g_nutrition and for validating any LLM-generated ingredients that don't yet exist in our DB. It is NOT called at every recipe-generation request — GPT is constrained to only use existing Ingredient names, so nutrition is derived from our DB, not USDA at runtime."
       },
       "M8_hardening": {
         "goal": "Production readiness.",
@@ -1044,7 +1191,9 @@
       "Firebase project created at console.firebase.google.com with Auth enabled (email + Google)",
       "Firebase Admin service account JSON downloaded → place at ./secrets/firebase-admin.json",
       "OpenAI API key from platform.openai.com",
-      "USDA API key from https://fdc.nal.usda.gov/api-key-signup.html"
+      "USDA API key from https://fdc.nal.usda.gov/api-key-signup.html",
+      "USDA Foundation Foods CSV/JSON downloaded once from https://fdc.nal.usda.gov/download-datasets to ~/Downloads/ or similar; used by scripts/import_usda_subset.py (built in M3) to populate ingredients.json.",
+      "USDA API key (https://fdc.nal.usda.gov/api-key-signup.html) — only needed in M7 for validation; not required for M3 seed which uses offline Foundation Foods dataset."
     ],
     "developer_does_not_create": [
       "Database tables — Django migrations handle all schema",
@@ -1085,6 +1234,14 @@
     {
       "risk": "USDA validation latency on chat",
       "mitigation": "Cache aggressively in Redis 30d; for chat, validate after streaming human-readable response, not before."
+    },
+    {
+      "risk": "USDA Foundation Foods missing some Indian-specific ingredients (e.g., specific dal varieties, jaggery, regional rice cultivars)",
+      "mitigation": "Use closest USDA equivalent + manual override; tag source='manual' for those rows; document substitutions in apps/recipes/seed_data/USDA_SUBSTITUTIONS.md. IFCT integration in v2 fills these gaps properly."
+    },
+    {
+      "risk": "AI-generated recipes pollute the curated library with low-quality entries",
+      "mitigation": "Strict validation pipeline (M7 ai_recipe_validator); source='ai_generated' tag visible in admin; periodic manual cleanup; do NOT show ai_generated recipes in plans until they've been viewed/eaten by ≥3 users without complaints (v2 quality gate)."
     }
   ],
   "design_decisions_and_rationale": [
@@ -1115,6 +1272,10 @@
     {
       "decision": "Curated seed JSON instead of importing public dataset",
       "rationale": "Faster v1 ship; quality control. Switch to public dataset import (RecipeNLG/Food.com) if scale demands."
+    },
+    {
+      "decision": "Ingredient-level nutrition, not recipe-level (PERMANENT — v1 and forever)",
+      "rationale": "Recipes store ingredient lists with quantities. Nutrition is computed from Ingredient × quantity × per-100g macros, cached as a JSONB column on Recipe. This is the only architecture that supports substitution ('swap paneer for tofu' recomputes nutrition), portion scaling, budget-aware optimization (sum ingredient costs), and user-added custom recipes. Recipe-level storage (baked-in macros) makes all of these impossible and forces a painful migration later. Pay the M3 cost now."
     }
   ],
   "things_to_explicitly_avoid": [
@@ -1129,7 +1290,8 @@
     "Do not trust GPT-returned macros.",
     "Do not silently substitute features the spec didn't ask for.",
     "Do not add libraries beyond the stated tech_stack without asking.",
-    "Do not start a new module before previous module's acceptance criteria pass."
+    "Do not start a new module before previous module's acceptance criteria pass.",
+    "Do not store calories/protein/carbs/fat directly on Recipe as canonical fields. They live on Ingredient. Recipe has a cached_nutrition JSONB column populated by services/recipes/compute_nutrition.py, invalidated when ingredients change."
   ],
   "agent_usage_instructions": {
     "how_to_use_this_document": [
@@ -1142,7 +1304,24 @@
       "Test data flow against user_journey_flowchart before declaring a feature done."
     ],
     "build_sequence_summary": "Backend M0 → M1 → M2 → M3 (seed recipes) → M4 → M5 → M6 → M7 → M8. In parallel, Flutter Sprint 1 can start after backend M2. Sprint 2 Flutter is light; Sprint 3 Flutter ramps after backend M5; Sprint 4 Flutter after backend M7."
+  },
+  "recipe_data_architecture": {
+    "philosophy": "Three layers. Layer 1 is the curated foundation (data, built once, expanded slowly). Layer 2 is the algorithmic engine (fast, deterministic, no AI). Layer 3 is AI personalization (used sparingly, expensive, with validation). AI is never the primary engine.",
+    "layer_1_curated_library": {
+      "built_in_module": "M3",
+      "contents": "~150 ingredients (USDA-sourced nutrition + manual Indian name overlay + manual household unit conversions + approximate INR price per kg) + ~100 recipes (LLM-generated candidates, human-validated, ingredient list + portions + method)",
+      "source_of_truth_for": "all nutrition data — recipes do NOT store macros; macros are computed from ingredients"
+    },
+    "layer_2_engine": {
+      "built_in_module": "M4",
+      "contents": "Pure-Python service: generate_week(profile) and substitute_meal(recipe, profile). No LLM calls. Optimizes for macros AND budget. Runs in milliseconds per user. Used by the weekly Celery cron in M6.",
+      "fallback_behavior": "If no recipe in Layer 1 satisfies constraints, raise NoSuitableRecipeError; M7 may hook AI fallback here."
+    },
+    "layer_3_ai": {
+      "built_in_module": "M7",
+      "contents": "GPT-4o for chat, custom recipe generation (with USDA validation), smart substitutions with reasoning. Outputs that pass validation may be promoted into Layer 1 (recipes with source='ai_generated').",
+      "critical_rule": "Layer 3 is opt-in and per-request. The weekly meal plan cron (M6) NEVER calls Layer 3."
+    },
+    "weekly_cron_flow": "Every Sunday 8 PM IST (later configurable per user tz): Celery beat triggers generate_next_week_meal_plan for each active user. Task loads profile + last 2 weeks of plans, calls Layer 2 generate_week(profile, exclude_recent), stores MealPlan. NO LLM CALLS in this path. Pushable to thousands of users with one worker."
   }
 }
-I want to make an flutter app , with login using firebase , the app will ask some questions about user's diet , preference then based on that system will suggest daily meals , breakfast lunch dinner with recipe details and tracker that did user made or had it or not , and can keep calories and micronutrients count , a dedicated chatbot(chatgpt key ) if user enters their ingredients then suggest the recipes of dishes and it's nutritional details, this needs to be a full stack project, so from frontend to backend, guide me throughout with the logic and the tech and improvements in all the features I would want to use django for better orm experience, how would I make the diet engine, mean recommendation engine which included tracking and all or all this can be made via integrating ai for the brain , help me creating this project, from scratchfirst we shall make the list of the features needed like a professional document , with the agenda of the project and the tech involved , Sprint 1: Firebase au… first we shall make the list of the features needed like a professional document , with the agenda of the project and the tech involved , Sprint 1: Firebase auth + onboarding flow + UserProfile API Sprint 2: Recipe DB seeding + basic recommendation engine (rule-based first, no AI) Sprint 3: Meal plan display in Flutter + tracker UI + NutritionLog Sprint 4: GPT-4o integration into engine + chatbot endpoint fcm push,grocery list, barcode scanner for now we shall lock these features other than them can be written as the add ons for future , the document should have frontend and backend requirements and basic structure of the services involved, the flutter code should be according to production industry standard using riverpod , with reusable codes , mvvm architecture , one class for api calls, exception handlers , deeplinking routes everything which is standard for today's application , i dont have idea of django but we will follow industry standard coding practises and tools , i would want a full user journey flow chart where user will use each feature in our application and based on them process involved on tech
-first i would want you to write guidelines and requirements for antigravity , the project requirements, the feature list , the feature requirements, the services needed to be build, first i will start by building the backend with django so considering everything discussed , ofc i woud want antigravity to write code module by module but the requirements given to it should be very clean and precise, what to use from where to get everything from where to get the data , the database connection, tables everything from where to seed the data , specially the nutrition engine , what endpoint will do what, everything for making this project work

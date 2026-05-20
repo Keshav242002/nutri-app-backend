@@ -1,3 +1,4 @@
+import sys
 from pathlib import Path
 
 import environ
@@ -28,6 +29,7 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.postgres",
 ]
 
 THIRD_PARTY_APPS = [
@@ -40,6 +42,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS: list[str] = [
     "apps.accounts",
+    "apps.profiles",
 ]
 
 AUTH_USER_MODEL = "accounts.User"
@@ -142,3 +145,16 @@ USDA_BASE_URL: str = env("USDA_BASE_URL")
 
 REGENERATE_RATE_LIMIT: str = env("REGENERATE_RATE_LIMIT")
 CHAT_RATE_LIMIT: str = env("CHAT_RATE_LIMIT")
+
+# ── Dev-only auth bypass (M2 manual testing) ──────────────────────────────────
+# Allows requests with a known token to skip Firebase verification entirely.
+# All three conditions must be true: DEBUG=True, DEV_AUTH_BYPASS_ENABLED=True,
+# and the Authorization header must carry exactly DEV_AUTH_BYPASS_TOKEN.
+DEV_AUTH_BYPASS_ENABLED: bool = env.bool("DEV_AUTH_BYPASS_ENABLED", default=False)
+DEV_AUTH_BYPASS_TOKEN: str = env("DEV_AUTH_BYPASS_TOKEN", default="dev-bypass-token-do-not-ship")
+
+if DEBUG and DEV_AUTH_BYPASS_ENABLED:
+    sys.stderr.write(
+        "\n*** WARNING: DEV_AUTH_BYPASS_ENABLED is True. "
+        "This must NEVER be true in production. ***\n\n"
+    )

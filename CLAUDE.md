@@ -84,8 +84,8 @@ This is the loop. Every module follows it. No exceptions.
 
 > **Update this section at Step 5 of every module.**
 
-- **Active module:** `M2_profiles`
-- **Last completed module:** `M1_accounts` (2026-05-17)
+- **Active module:** `M3_recipes`
+- **Last completed module:** `M2_profiles` (2026-05-20)
 - **Build order:** M0 ✅ → M1 ✅ → M2 → M3 → M4 → M5 → M6 → M7 → M8
 - **Repo path:** `nutri-app-backend/`
 - **Python version:** 3.12.13 (managed by `uv`, venv at `.venv/`)
@@ -389,6 +389,11 @@ apps/<name>/
 - Log at **ERROR** on all exception paths with full context but **no PII** (no email, no token, no name).
 - Required structured fields on every log call: `event` (always), `user_id` (if available), `error_code` (on errors).
 
+**Model validation.**
+- Service-layer writes call `model.full_clean()` before `model.save()` so model-level validators (`MinValueValidator`, `MaxValueValidator`, `choices`, `ArrayField` constraints) fire. This prevents silent acceptance of out-of-range values.
+- `bulk_create` requires explicit per-instance `full_clean()` calls before the bulk insert.
+- Tests must assert validation behaviour at the **endpoint level** (POST returns 400 with error envelope) in addition to the service level. Endpoint tests catch missing `full_clean()` calls that pure service tests would miss.
+
 **Exception handling.**
 - Exception handlers must catch **specific** exception types, never bare `except Exception`, unless immediately re-raising as a typed `AppException` from `core/exceptions.py`.
 - In `FirebaseAuthentication`: catch `ExpiredIdTokenError`, `RevokedIdTokenError`, `InvalidIdTokenError`, `FirebaseError` in that order; let genuinely unexpected exceptions propagate.
@@ -579,6 +584,14 @@ feat(M<n>): <module name> — <one-line summary>
 - 2026-05-17 — DB reset required when `AUTH_USER_MODEL` is first introduced mid-project (M1 onward). Run `make dbreset` and re-migrate. Document this in PROGRESS.md for any future reset. (M1)
 - 2026-05-17 — All forward-looking plans and retrospective reviews are written to disk in `docs/plans/` using the naming convention `docs/plans/M<n>_plan.md` (pre-build plans) and `docs/plans/M<n>_review.md` (post-build retrospectives). This directory is created in Task 2 of the project review session. Both agents read from these files to recover from session crashes or rate-limit interruptions; always write the file before beginning implementation. (meta)
 - 2026-05-17 — M1 review clarified four protocol ambiguities now codified in §7: (1) TimestampedModel is always first in MRO for all models including AbstractBaseUser subclasses; (2) logging granularity is INFO for state-change/security events, DEBUG for multi-step flows only, ERROR on all failure paths with no PII; (3) exception handlers must catch specific types, never bare Exception unless re-raising typed AppException; (4) coverage gate is per-module services (≥80% each), not aggregate. `core/authentication.py` (PlaceholderAuthentication) deleted — no longer exists. (M1 amendment)
+- 2026-05-17 — Major v2 spec revision: Indian-first product positioning, ingredient-level nutrition architecture (permanent — recipes never store raw macros, only cached_nutrition JSONB), budget as first-class profile field (weekly_food_budget_inr / daily_food_budget_inr with derivation rules), three-layer recipe system (Layer 1: curated library / Layer 2: algorithmic engine / Layer 3: AI personalization), AI-generated recipes promoted to Layer 1 via strict validation pipeline (ai_recipe_validator). M2 adds budget + cooking fields; M3 rewritten around Ingredient + HouseholdUnit + compute_nutrition service; M4 adds budget scoring step 5.5 with grace/relaxation logic; M7 updated with validate_and_persist_ai_recipe. v1 spec preserved at docs/PROJECT_SPEC_v1.json. Seven post-v1 product ideas (adaptive learning, family sync, habit intelligence, grocery, recovery dieting, hyper-protein, IFCT) added to future_addons_backlog. (spec revision)
+- 2026-05-17 — Two spec patches after revision review: (1) quantity_grams consistency is soft warning, not validation error; quantity_grams is canonical truth, display_* is UI only — seed import logs WARNING at INFO if >5% deviation but does NOT block write; (2) Recipe.cost_known BooleanField added (set by compute_nutrition); recipes with <80% priced ingredient weight are excluded from strict budget filter (step 5.5 at 1.15×) but allowed in fallback pool (1.40×) so pool is never empty. (spec patch)
+- 2026-05-17 — M2 questionnaire finalised (6 steps): Step 1 biometrics uses date_of_birth (age computed live, never stored); sex enum adds prefer_not_to_say with averaged BMR formula; goal enum replaces old 4-value list with 5 values (lose_weight/maintain/gain_muscle/gain_weight_healthy/eat_healthier); diet_pattern adds eggetarian and jain (jain auto-sets no_onion_garlic=True); Step 3 splits cuisine into primary_cuisine_region (single required) + secondary_cuisine_preferences (multi optional) + spice_tolerance; budget fields (daily/weekly) are derived from each other in service layer; disclaimer_acknowledged is write-only (not stored). Old goal keys in nutrition_math spec (lose, general) superseded by new keys in M2_plan.md — implementation uses M2_plan.md as authoritative. (M2 plan)
+- 2026-05-17 — Spec patch: goal enum keys aligned with M2 plan (lose_weight, maintain, gain_muscle, gain_weight_healthy, eat_healthier). Fiber target now per-goal dict: default 14g/1000 kcal, eat_healthier 18g/1000 kcal. full_clean() before save() codified in §7 as mandatory for all service-layer writes. freezegun==1.5.1 added to requirements/dev.txt for date.today() mocking in year-boundary tests. (spec patch)
+- 2026-05-20 — Standard response envelope: `{"status": "success", "message": "...", "data": {...}}` for success, `{"status": "error", "message": "...", "error": {"code": "...", "details": {}}}` for errors. `message` is always top-level — never inside `error`. Success responses use `core/responses.py::success_response(data, message)`. Error responses are built by `core/exceptions.py::app_exception_handler`. All endpoints across all modules must use this shape. (M2)
+- 2026-05-20 — Static metadata endpoints (e.g. questionnaire): serve as a `dict[str, Any]` constant defined in `apps/<name>/services/<domain>.py`, returned via `success_response()` from a dedicated `APIView`. No DB queries, no serializer needed — the constant is the response data. (M2)
+- 2026-05-20 — `disclaimer_acknowledged` is write-only and never stored: declared as `BooleanField(write_only=True)` on the serializer, popped from `data` in the service via `data.pop("disclaimer_acknowledged", None)`. Tests that cross-check questionnaire field names against model fields must exclude it explicitly via a `not_model_fields` set. PATCH uses `ProfileUpdateSerializer` which removes the field entirely via `fields.pop()`. (M2)
+- 2026-05-20 — `upsert_profile()` returns `tuple[DietaryProfile, bool]` — callers must always unpack both values. The `bool` determines the response message ("created" vs "updated"). (M2)
 
 ---
 

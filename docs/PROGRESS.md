@@ -4,6 +4,31 @@ Append one entry per completed module. Newest at the top.
 
 ---
 
+## M2 — Profiles
+- **Completed:** 2026-05-20
+- **Commit:** feat(M2): profiles + response envelope + questions metadata (see git log for SHA)
+- **Tests:** 95 tests passing, 90% total coverage; profiles services 100% covered
+- **Acceptance criteria:** all met
+  - `POST /api/v1/profiles/onboarding` — idempotent create/update, returns computed targets ✅
+  - `GET /api/v1/profiles/me` — returns full profile with target macros and `age` ✅
+  - `PATCH /api/v1/profiles/me` — partial update, recomputes targets, no disclaimer required ✅
+  - `GET /api/v1/profiles/onboarding/questions` — 6-step questionnaire metadata (auth required) ✅
+  - Standard response envelope `{status, message, data}` / `{status, message, error}` across all endpoints ✅
+  - Budget derivation (daily↔weekly, ±5% consistency), Jain auto-rule, dislike normalisation ✅
+  - Disclaimer gate on POST only; PATCH explicitly bypasses it via `ProfileUpdateSerializer` ✅
+  - Validators fire via `full_clean()` before every `save()` ✅
+  - `ruff + black --check + mypy --strict` all pass ✅
+- **Deviations from spec:** None
+- **New env vars:** None
+- **New external services touched:** None
+- **What the next module needs to know:**
+  - `DietaryProfile.user` is a `OneToOneField` on `settings.AUTH_USER_MODEL` with `related_name="profile"` — `user.profile` works; `user.has_profile` (via `UserSerializer`) checks for it
+  - `core/responses.py::success_response(data, message)` is the only way to build a success response; import it everywhere
+  - `core/error_codes.py` must be the import source for error constants in any module loaded during DRF settings init — avoids circular import with `core.exceptions`
+  - Budget fields have new DB-level minimums (daily ≥100, weekly ≥700) enforced via migration `0002_budget_minimum_raise`; M3 seed data should respect this
+
+---
+
 ### M1 amendment — 2026-05-17
 - Fixed `User` to inherit `TimestampedModel` (removed inline `created_at`/`updated_at`); Django detects no schema change — no migration required
 - Tightened Firebase exception handling: explicit `ExpiredIdTokenError`, `RevokedIdTokenError`, `InvalidIdTokenError`, `FirebaseError` catches; bare `except Exception` removed; genuine unknowns now propagate

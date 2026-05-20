@@ -137,6 +137,12 @@ brew services start postgresql@16
 pg_isready -h localhost
 ```
 
+### Manual endpoint testing (M2+)
+
+A detailed manual test runbook with curl sequences for every endpoint is at
+`docs/MANUAL_TEST_RUNBOOK.md`. It covers the dev bypass flow, real Firebase token flow, DBeaver
+SQL queries, and common failure modes.
+
 ### Firebase token verification fails locally
 
 Ensure `secrets/firebase-admin.json` exists and `FIREBASE_CREDENTIALS_PATH=./secrets/firebase-admin.json` is set in `.env`. The `secrets/` directory is gitignored.
