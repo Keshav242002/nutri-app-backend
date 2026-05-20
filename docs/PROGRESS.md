@@ -6,7 +6,7 @@ Append one entry per completed module. Newest at the top.
 
 ## M2 — Profiles
 - **Completed:** 2026-05-20
-- **Commit:** feat(M2): profiles + response envelope + questions metadata (see git log for SHA)
+- **Commit:** e193f2f
 - **Tests:** 95 tests passing, 90% total coverage; profiles services 100% covered
 - **Acceptance criteria:** all met
   - `POST /api/v1/profiles/onboarding` — idempotent create/update, returns computed targets ✅
