@@ -22,7 +22,7 @@ def test_app_exception_handler_formats_envelope() -> None:
     assert response is not None
     assert response.status_code == status.HTTP_400_BAD_REQUEST
     assert response.data["error"]["code"] == "VALIDATION_ERROR"
-    assert response.data["error"]["message"] == "Bad input"
+    assert response.data["message"] == "Bad input"
     assert response.data["error"]["details"] == {"field": "name"}
 
 

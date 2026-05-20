@@ -1,6 +1,7 @@
 import logging
 from typing import Any
 
+from django.conf import settings
 from firebase_admin import auth as firebase_auth
 from firebase_admin import exceptions as firebase_exceptions
 from rest_framework.authentication import BaseAuthentication
@@ -35,6 +36,20 @@ class FirebaseAuthentication(BaseAuthentication):
             )
 
         token = parts[1]
+
+        # Dev-only bypass: requires DEBUG=True + DEV_AUTH_BYPASS_ENABLED=True + exact token.
+        # All three must hold; any failure falls through to normal Firebase verification.
+        if (
+            settings.DEBUG
+            and bool(getattr(settings, "DEV_AUTH_BYPASS_ENABLED", False))
+            and token == str(getattr(settings, "DEV_AUTH_BYPASS_TOKEN", ""))
+        ):
+            bypass_user, created = User.objects.get_or_create(
+                firebase_uid="dev-bypass-uid-001",
+                defaults={"email": "dev@nutriplan.test", "display_name": "Dev User"},
+            )
+            return bypass_user, {"_created": created, "_dev_bypass": True}
+
         try:
             decoded = firebase_auth.verify_id_token(token)
         except firebase_auth.ExpiredIdTokenError as exc:

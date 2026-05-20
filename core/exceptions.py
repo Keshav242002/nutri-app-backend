@@ -94,7 +94,11 @@ class ExternalServiceError(AppException):
 def _error_envelope(
     code: str, message: str, details: dict[str, Any] | None = None
 ) -> dict[str, Any]:
-    return {"error": {"code": code, "message": message, "details": details or {}}}
+    return {
+        "status": "error",
+        "message": message,
+        "error": {"code": code, "details": details or {}},
+    }
 
 
 def app_exception_handler(exc: Exception, context: dict[str, Any]) -> Response | None:

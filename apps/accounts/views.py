@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 
 from apps.accounts.models import User
 from apps.accounts.serializers import RegisterResponseSerializer, UserSerializer
+from core.responses import success_response
 
 
 class RegisterView(APIView):
@@ -19,7 +20,8 @@ class RegisterView(APIView):
         serializer = RegisterResponseSerializer(
             user, context={"created": created, "request": request}
         )
-        return Response(serializer.data)
+        message = "User registered successfully." if created else "User already registered."
+        return success_response(serializer.data, message)
 
 
 class MeView(APIView):
@@ -30,4 +32,4 @@ class MeView(APIView):
         user = request.user
         assert isinstance(user, User)
         serializer = UserSerializer(user, context={"request": request})
-        return Response(serializer.data)
+        return success_response(serializer.data, "User retrieved.")

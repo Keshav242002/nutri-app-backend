@@ -5,6 +5,9 @@ from .base import env
 
 DEBUG = False
 
+# Hard-coded False in production — overrides any env var to prevent accidental exposure.
+DEV_AUTH_BYPASS_ENABLED = False
+
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True

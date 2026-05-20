@@ -2,7 +2,7 @@ from typing import Any
 from unittest.mock import patch
 
 import pytest
-from django.test import Client
+from django.test import Client, override_settings
 
 REGISTER_URL = "/api/v1/auth/register"
 ME_URL = "/api/v1/auth/me"
@@ -24,7 +24,7 @@ class TestFirebaseAuthentication:
         with patch("firebase_admin.auth.verify_id_token", return_value=FAKE_TOKEN_PAYLOAD):
             response = client.post(REGISTER_URL, **_auth_header())
         assert response.status_code == 200
-        data = response.json()
+        data = response.json()["data"]
         assert data["firebase_uid"] == FAKE_TOKEN_PAYLOAD["uid"]
         assert data["email"] == FAKE_TOKEN_PAYLOAD["email"]
         assert data["created"] is True
@@ -80,9 +80,9 @@ class TestRegisterEndpoint:
             r2 = client.post(REGISTER_URL, **_auth_header())
         assert r1.status_code == 200
         assert r2.status_code == 200
-        assert r1.json()["created"] is True
-        assert r2.json()["created"] is False
-        assert r1.json()["firebase_uid"] == r2.json()["firebase_uid"]
+        assert r1.json()["data"]["created"] is True
+        assert r2.json()["data"]["created"] is False
+        assert r1.json()["data"]["firebase_uid"] == r2.json()["data"]["firebase_uid"]
 
 
 @pytest.mark.django_db
@@ -92,7 +92,7 @@ class TestMeEndpoint:
             client.post(REGISTER_URL, **_auth_header())
             response = client.get(ME_URL, **_auth_header())
         assert response.status_code == 200
-        data = response.json()
+        data = response.json()["data"]
         assert data["firebase_uid"] == FAKE_TOKEN_PAYLOAD["uid"]
         assert data["email"] == FAKE_TOKEN_PAYLOAD["email"]
 
@@ -101,4 +101,45 @@ class TestMeEndpoint:
             client.post(REGISTER_URL, **_auth_header())
             response = client.get(ME_URL, **_auth_header())
         assert response.status_code == 200
-        assert response.json()["has_profile"] is False
+        assert response.json()["data"]["has_profile"] is False
+
+
+_BYPASS_TOKEN = "test-bypass-token-abc123"
+_BYPASS_SETTINGS = {
+    "DEBUG": True,
+    "DEV_AUTH_BYPASS_ENABLED": True,
+    "DEV_AUTH_BYPASS_TOKEN": _BYPASS_TOKEN,
+}
+
+
+@pytest.mark.django_db
+class TestDevAuthBypass:
+    def test_bypass_authenticates_when_all_conditions_met(self, client: Client) -> None:
+        with override_settings(**_BYPASS_SETTINGS):
+            response = client.get(ME_URL, HTTP_AUTHORIZATION=f"Bearer {_BYPASS_TOKEN}")
+        assert response.status_code == 200
+        data = response.json()["data"]
+        assert data["firebase_uid"] == "dev-bypass-uid-001"
+        assert data["email"] == "dev@nutriplan.test"
+
+    def test_bypass_ignored_when_disabled(self, client: Client) -> None:
+        import firebase_admin.auth
+
+        with override_settings(**{**_BYPASS_SETTINGS, "DEV_AUTH_BYPASS_ENABLED": False}):
+            with patch(
+                "firebase_admin.auth.verify_id_token",
+                side_effect=firebase_admin.auth.InvalidIdTokenError("invalid"),
+            ):
+                response = client.get(ME_URL, HTTP_AUTHORIZATION=f"Bearer {_BYPASS_TOKEN}")
+        assert response.status_code == 401
+
+    def test_bypass_ignored_when_wrong_token(self, client: Client) -> None:
+        import firebase_admin.auth
+
+        with override_settings(**_BYPASS_SETTINGS):
+            with patch(
+                "firebase_admin.auth.verify_id_token",
+                side_effect=firebase_admin.auth.InvalidIdTokenError("invalid"),
+            ):
+                response = client.get(ME_URL, HTTP_AUTHORIZATION="Bearer totally-wrong-token")
+        assert response.status_code == 401
