@@ -404,6 +404,7 @@ apps/<name>/
 - Every model has `created_at` and `updated_at` via a `TimestampedModel` mixin in `core/mixins.py`.
 - Foreign keys use `on_delete` explicitly — pick `CASCADE`, `SET_NULL`, or `PROTECT` deliberately, not by reflex.
 - All migrations checked in. Never edit a migration after it's been applied to a shared environment.
+- Nutrition data storage: `Ingredient.per_100g_nutrition` is per-100g of the ingredient in the form declared by `Ingredient.form` (typically `'raw'` for cookable items). `Recipe.cached_nutrition_per_serving` is computed once at seed/save time by summing ingredient × quantity_grams. Storing per-100g-cooked nutrition is a hard rule violation; cooking yields are handled at display via `cooked_yield_ratio`.
 
 **Async tasks (Celery, from M6).**
 - Tasks live in `apps/<name>/tasks.py`.
@@ -592,6 +593,10 @@ feat(M<n>): <module name> — <one-line summary>
 - 2026-05-20 — Static metadata endpoints (e.g. questionnaire): serve as a `dict[str, Any]` constant defined in `apps/<name>/services/<domain>.py`, returned via `success_response()` from a dedicated `APIView`. No DB queries, no serializer needed — the constant is the response data. (M2)
 - 2026-05-20 — `disclaimer_acknowledged` is write-only and never stored: declared as `BooleanField(write_only=True)` on the serializer, popped from `data` in the service via `data.pop("disclaimer_acknowledged", None)`. Tests that cross-check questionnaire field names against model fields must exclude it explicitly via a `not_model_fields` set. PATCH uses `ProfileUpdateSerializer` which removes the field entirely via `fields.pop()`. (M2)
 - 2026-05-20 — `upsert_profile()` returns `tuple[DietaryProfile, bool]` — callers must always unpack both values. The `bool` determines the response message ("created" vs "updated"). (M2)
+- 2026-05-21 — Switched primary nutrition source to IFCT 2017 (NIN/ICMR), USDA as fallback. CSV vendored to `apps/recipes/seed_data/sources/ifct2017/index.csv`. IFCT MIT-licensed wrapper, Zenodo CC-BY 4.0 underlying data, attribution required in app About screen. (spec patch)
+- 2026-05-21 — Locked decision: raw-weight storage, cooked-portion display. `Ingredient.per_100g_nutrition` is per-100g-raw (for cookable items); Recipe `quantity_grams` is raw weight. `cached_nutrition_per_serving` computed once at seed. User-facing nutrition always shows cooked-portion totals via household units (katori, roti, tbsp). Added `form` + `cooked_yield_ratio` fields to Ingredient model. (spec patch)
+- 2026-05-21 — Locked M5 tracker UX: two log modes. (1) Mark planned/substituted recipe as eaten with fractional `servings_eaten` in 0.25 increments. (2) Custom entry with mandatory free-text description + mandatory calories + optional macros. `status` enum: `planned` / `ate_planned` / `ate_substituted` / `ate_custom` / `skipped`. (spec patch)
+- 2026-05-23 — Cuisine vocab unification: M3 recipe cuisine field uses same controlled vocab as M2 profile cuisine fields (north_indian, south_indian, east_indian, west_indian, punjabi, gujarati, maharashtrian, bengali, tamil, kerala, andhra, rajasthani, goan, sindhi, continental, chinese_indo, pan_asian). Old `south_indian_tamil` and `south_indian_kerala` values removed from spec — superseded by `tamil` and `kerala` in M2. (spec patch)
 
 ---
 

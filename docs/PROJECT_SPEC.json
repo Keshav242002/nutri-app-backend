@@ -26,13 +26,14 @@
       "Firebase authentication (email/password + Google)",
       "Onboarding questionnaire capturing DietaryProfile",
       "Daily meal plan (breakfast/lunch/dinner)",
-      "Meal tracker with status: planned / ate / skipped / substituted",
+      "Meal tracker with status: planned / ate_planned / ate_substituted / ate_custom / skipped",
       "Auto nutrition logging and daily/weekly aggregation",
       "AI chatbot: free chat mode + ingredient-to-recipe mode",
-      "Indian-first ingredient database with USDA nutrition + household unit conversions (1 katori = Xg, 1 roti = Yg)",
+      "Indian-first ingredient database with IFCT 2017 nutrition (USDA fallback) + household unit conversions (1 katori = Xg, 1 roti = Yg)",
       "Budget-aware meal planning (₹/day, ₹/week constraints)",
       "Ingredient-level nutrition (recipes have ingredient lists; macros computed, not stored)",
-      "Real-time meal substitution (swap one meal, same macros, same budget)"
+      "Real-time meal substitution (swap one meal, same macros, same budget)",
+      "Custom meal logging (free-text description + mandatory calories + optional macros)"
     ],
     "v1_explicit_non_goals": [
       "FCM push notifications",
@@ -47,8 +48,7 @@
       "Habit intelligence / behavior pattern analysis (post-v1)",
       "Grocery list generation (already non-goal; reaffirm)",
       "Recovery-mode dieting (post-v1)",
-      "Hyper-protein-per-rupee optimization as a primary mode (post-v1; falls out naturally if data is structured right)",
-      "IFCT (Indian Food Composition Tables) integration as nutrition source (v2 quality upgrade; v1 uses USDA + manual Indian overlay)"
+      "Hyper-protein-per-rupee optimization as a primary mode (post-v1; falls out naturally if data is structured right)"
     ]
   },
   "tech_stack": {
@@ -87,7 +87,8 @@
     "external_services": {
       "firebase_auth": "Identity provider; issues ID tokens to Flutter; backend verifies via firebase-admin",
       "openai_gpt_4o": "Chatbot, recipe generation, engine fallback",
-      "usda_fooddata_central": "Used at SEED TIME to populate Ingredient.per_100g_nutrition (we download Foundation Foods dataset and import a curated subset). NOT called at runtime in the v1 hot path. Runtime use is limited to validating AI-generated ingredient additions in M7.",
+      "ifct_2017": "Indian Food Composition Tables 2017, published by National Institute of Nutrition (NIN/ICMR). Distributed via npm package @ifct2017/compositions v2.0.9 (MIT-licensed wrapper) and Zenodo (CC-BY 4.0). CSV vendored into apps/recipes/seed_data/sources/ifct2017/ for deterministic seeds. 528 measured foods covering Indian pulses, cereals, millets, vegetables, fruits, spices, eggs, fish, meat. Primary nutrition source for v1.",
+      "usda_fooddata_central": "Fallback data source for ingredients not present in IFCT 2017 (Western imports, branded foods, refined sugars, dairy variants like curd/yoghurt/butter, B12 overlays). Used at seed time only, not in runtime hot path.",
       "sentry": "Error tracking (optional)",
       "firebase_storage_or_s3": "Recipe image hosting"
     },
@@ -294,7 +295,7 @@
     "Grocery list generation — already non-goal v1; trivially derived from week plan in v2",
     "Recovery-mode dieting (post-v1) — refeeding protocol, diet breaks; out of scope for v1 engine",
     "Hyper-protein-per-rupee optimization as primary mode — post-v1; falls out naturally from budget + macro scoring if data is structured right",
-    "IFCT integration as nutrition source — v2 quality upgrade; v1 uses USDA + manual Indian overlay; IFCT fills gaps for region-specific ingredients"
+    "IFCT integration as nutrition source — DONE: promoted to v1 primary in spec v3 patch"
   ],
   "feature_requirements": {
     "F1_authentication": {
@@ -340,13 +341,15 @@
       "description": "Per-meal status tracking.",
       "states": [
         "planned",
-        "ate",
-        "skipped",
-        "substituted"
+        "ate_planned",
+        "ate_substituted",
+        "ate_custom",
+        "skipped"
       ],
       "behaviors": [
         "Each meal card has status controls.",
         "'Ate something else' opens substitution flow (search or chatbot).",
+        "'Log custom meal' opens free-text entry with mandatory calories + optional macros.",
         "Daily totals widget at top of Home.",
         "Weekly view shows 7-day adherence + macro chart."
       ]
@@ -354,7 +357,9 @@
     "F5_nutrition_logging": {
       "description": "Auto-derive nutrition consumption from MealLog status.",
       "behaviors": [
-        "Every 'ate' or 'substituted' event scales recipe macros by servings_eaten.",
+        "Every 'ate_planned', 'ate_substituted', or 'ate_custom' event contributes to nutrition totals.",
+        "Recipe-based logs scale recipe macros by servings_eaten.",
+        "Custom logs contribute custom_calories + optional custom macro fields (null treated as 0).",
         "DailyNutritionSummary upserted on every log change.",
         "History screen with date picker; weekly endpoint averages."
       ]
@@ -717,7 +722,7 @@
         "additional_fields": {
           "household_size": "PositiveSmallIntegerField(1-12, default=1) — informational v1; family-sync in v2",
           "cooking_frequency": "CharField enum: daily | weekends_only | rarely — affects meal plan structure (rarely → batch-cookable recipes preferred)",
-          "cuisine_preferences": "ArrayField of controlled vocab multi-select (at least 1 required): ['north_indian','south_indian','east_indian','west_indian','punjabi','bengali','gujarati','maharashtrian','south_indian_tamil','south_indian_kerala','andhra','continental','chinese_indo','pan_asian']. Replaces old ranked-picks approach.",
+          "cuisine_preferences": "Split into primary_cuisine_region (CharField, single required: north_indian/south_indian/east_indian/west_indian) + secondary_cuisine_preferences (ArrayField, multi optional: punjabi/gujarati/maharashtrian/bengali/tamil/kerala/andhra/rajasthani/goan/sindhi/continental/chinese_indo/pan_asian). Union of both fields forms the full cuisine controlled vocab used by M3 recipe.cuisine and M4 engine scoring.",
           "weekly_food_budget_inr": "DecimalField max_digits=8 decimal_places=2 null=True blank=True (range 300-20000)",
           "daily_food_budget_inr": "DecimalField max_digits=8 decimal_places=2 null=True blank=True (range 50-3000)",
           "budget_derivation_rule": "At least ONE of weekly_food_budget_inr / daily_food_budget_inr is required. Validated in service layer, not serializer. If only weekly given: daily = weekly/7. If only daily given: weekly = daily*7. If both given: weekly must equal daily*7 ±5%."
@@ -725,19 +730,29 @@
         "onboarding_step_note": "Step 5 (formerly step 6) now combines 'Budget and cooking constraints': budget fields + household_size + cooking_frequency + max_prep_time_min + skill_level."
       },
       "M3_recipes": {
-        "goal": "Ingredient-level recipe database. ~150 ingredients (USDA-sourced + Indian overlay) + ~80 household unit conversions + ~100 curated Indian recipes. Recipes store ingredient lists; nutrition computed from ingredients.",
+        "goal": "Ingredient-level recipe database. ~150 ingredients (IFCT 2017 primary, USDA fallback) + ~80 household unit conversions + ~100 curated Indian recipes. Recipes store ingredient lists; nutrition computed from ingredients.",
         "models": {
           "Ingredient": {
             "name": "CharField unique (English, e.g. 'paneer', 'basmati rice', 'toor dal')",
             "name_hi": "CharField blank (Hindi, e.g. 'पनीर'; v1 optional)",
             "category": "CharField enum: grain | pulse | vegetable | fruit | dairy | meat | fish | egg | oil_fat | spice | nut_seed | sweetener | beverage | processed",
-            "source": "CharField enum: usda | manual | ai_generated — provenance of nutrition data",
-            "usda_fdc_id": "IntegerField null=True (USDA Foundation Food ID if source=usda)",
             "per_100g_nutrition": "JSONField — required keys: calories, protein_g, carbs_g, fat_g, fiber_g; optional micros: iron_mg, calcium_mg, vit_c_mg, vit_d_iu, potassium_mg, sodium_mg, magnesium_mg, zinc_mg, vit_b12_ug, folate_ug, vit_a_iu",
             "approximate_price_inr_per_kg": "DecimalField max_digits=7 decimal_places=2 null=True (some like salt/spices have no useful per-kg price)",
             "price_as_of_month": "CharField max_length=7 format YYYY-MM (e.g. '2026-05')",
             "allergen_tags": "ArrayField of controlled vocab allergen choices",
-            "is_active": "BooleanField default True"
+            "is_active": "BooleanField default True",
+            "form": "CharField enum: raw | cooked | as_eaten — declares what state the per_100g_nutrition reflects. Required. 'raw' for cookable items (rice, dal, atta, meats), 'as_eaten' for items eaten as-is (most fruits, raw vegetables, dairy). 'cooked' used only when nutrition data source measured the cooked form (rare in IFCT/USDA).",
+            "cooked_yield_ratio": "DecimalField max_digits=4 decimal_places=2 default=1.00 — raw-to-cooked weight ratio. Rice ~3.0, dal ~3.0, atta ~1.5, meats ~0.75. Used by household-unit display layer when converting cooked-portion display to raw-weight stored. Set to 1.00 for as_eaten items.",
+            "source": "CharField enum: ifct | usda | manual | composed — provenance of nutrition data",
+            "ifct_code": "CharField max_length=10 blank=True (populated only when source='ifct')",
+            "ifct_name": "CharField max_length=200 blank=True (the IFCT food name; populated only when source='ifct')",
+            "ifct_regn": "PositiveSmallIntegerField null=True (regional sample count 1-6; populated only when source='ifct')",
+            "usda_fdc_id": "IntegerField null=True (USDA Foundation Food ID if source='usda')",
+            "usda_description": "CharField max_length=200 blank=True (populated only when source='usda')",
+            "package_version": "CharField max_length=60 blank=True (e.g. '@ifct2017/compositions@2.0.9', for source='ifct')",
+            "extracted_at": "DateField null=True (when the seed value was extracted from source)",
+            "confidence": "CharField enum: exact | good | approximate | weak — how well the source entry matches this ingredient",
+            "overlays": "JSONField null=True blank=True (for B12-from-USDA-overlaid-on-IFCT cases)"
           },
           "HouseholdUnit": {
             "name": "CharField (e.g. 'katori', 'roti', 'idli', 'dosa', 'cup', 'tbsp')",
@@ -804,9 +819,12 @@
             "bengali",
             "gujarati",
             "maharashtrian",
-            "south_indian_tamil",
-            "south_indian_kerala",
+            "tamil",
+            "kerala",
             "andhra",
+            "rajasthani",
+            "goan",
+            "sindhi",
             "continental",
             "chinese_indo",
             "pan_asian"
@@ -938,17 +956,58 @@
         "test_determinism": "random.seed(0) in tests."
       },
       "M5_tracker": {
-        "goal": "Log what user ate; auto-derive nutrition; daily/weekly aggregates.",
+        "goal": "Log what user ate; auto-derive nutrition; daily/weekly aggregates. Two log modes: mark planned/substituted recipe as eaten with fractional servings, or log custom meal with free-text description + mandatory calories + optional macros.",
         "models": {
-          "MealLog": "user FK, log_date (indexed), slot, status (planned/ate/skipped/substituted), planned_recipe FK nullable SET_NULL, actual_recipe FK nullable SET_NULL, servings_eaten (default 1.0), notes (max 500), logged_at. unique_together (user, log_date, slot).",
-          "DailyNutritionSummary": "user FK, summary_date, calories, protein_g, carbs_g, fat_g, fiber_g, micronutrients JSONField, meals_eaten, meals_skipped, updated_at. unique_together (user, summary_date)."
+          "MealLog": {
+            "user": "FK to User, indexed",
+            "log_date": "DateField indexed",
+            "slot": "CharField enum: breakfast | lunch | dinner",
+            "status": "CharField enum: planned | ate_planned | ate_substituted | ate_custom | skipped",
+            "planned_recipe": "FK to Recipe nullable SET_NULL",
+            "actual_recipe": "FK to Recipe nullable SET_NULL (used when status=ate_substituted)",
+            "servings_eaten": "DecimalField max_digits=4 decimal_places=2 default=1.00 — allowed values constrained to 0.25 multiples (0.25, 0.50, 0.75, ..., max 6.00). Validation at service layer.",
+            "custom_description": "CharField max_length=200 blank=True null=True (used when status=ate_custom)",
+            "custom_calories": "PositiveIntegerField null=True blank=True (REQUIRED when status=ate_custom)",
+            "custom_protein_g": "DecimalField max_digits=6 decimal_places=2 null=True blank=True",
+            "custom_carbs_g": "DecimalField max_digits=6 decimal_places=2 null=True blank=True",
+            "custom_fat_g": "DecimalField max_digits=6 decimal_places=2 null=True blank=True",
+            "notes": "CharField max_length=500 blank=True",
+            "logged_at": "DateTimeField auto_now",
+            "unique_together": ["user", "log_date", "slot"],
+            "validation_rules": {
+              "ate_custom_requires": "custom_description and custom_calories must be non-null when status=ate_custom. Service-level validation, not just serializer.",
+              "non_custom_nulls": "custom_description, custom_calories, custom_protein_g, custom_carbs_g, custom_fat_g must all be null when status is NOT ate_custom.",
+              "servings_eaten_increments": "Must be a multiple of 0.25, minimum 0.25, maximum 6.00. Service-level validation."
+            }
+          },
+          "DailyNutritionSummary": {
+            "user": "FK to User",
+            "summary_date": "DateField",
+            "calories": "PositiveIntegerField",
+            "protein_g": "DecimalField",
+            "carbs_g": "DecimalField",
+            "fat_g": "DecimalField",
+            "fiber_g": "DecimalField",
+            "micronutrients": "JSONField",
+            "meals_eaten": "PositiveSmallIntegerField",
+            "meals_skipped": "PositiveSmallIntegerField",
+            "updated_at": "DateTimeField auto_now",
+            "unique_together": ["user", "summary_date"],
+            "computation_rules": {
+              "contributing_statuses": "ate_planned, ate_substituted, ate_custom contribute to totals. planned and skipped contribute zero.",
+              "recipe_based_logs": "For ate_planned: planned_recipe.cached_nutrition_per_serving × servings_eaten. For ate_substituted: actual_recipe.cached_nutrition_per_serving × servings_eaten.",
+              "custom_logs": "For ate_custom: custom_calories + custom_protein_g/custom_carbs_g/custom_fat_g (treat null macro fields as 0).",
+              "meals_eaten_count": "Count of logs with status in (ate_planned, ate_substituted, ate_custom).",
+              "meals_skipped_count": "Count of logs with status = skipped."
+            }
+          }
         },
         "services": {
-          "upsert_meal_log": "upserts by (user, log_date, slot); calls recompute_daily_summary synchronously for the date.",
-          "recompute_daily_summary": "walks MealLogs for date, sums nutrition (actual_recipe if substituted else planned_recipe) × servings_eaten, merges micronutrients key-by-key, writes summary. Idempotent."
+          "upsert_meal_log": "upserts by (user, log_date, slot); validates status-specific field requirements and servings_eaten constraints at service layer; calls recompute_daily_summary synchronously for the date.",
+          "recompute_daily_summary": "walks MealLogs for date, sums nutrition per computation_rules (recipe-based for ate_planned/ate_substituted, custom fields for ate_custom, zero for planned/skipped), merges micronutrients key-by-key, writes summary. Idempotent."
         },
         "endpoints": {
-          "POST /api/v1/tracker/log": "{log_date, slot, status, actual_recipe_id?, servings_eaten?, notes?}",
+          "POST /api/v1/tracker/log": "{log_date, slot, status, actual_recipe_id?, servings_eaten?, custom_description?, custom_calories?, custom_protein_g?, custom_carbs_g?, custom_fat_g?, notes?}",
           "GET /api/v1/tracker/?date=": "list for that date",
           "GET /api/v1/tracker/range?from=&to=": "list in range",
           "GET /api/v1/nutrition/daily?date=": "{date, totals, targets, percentage_of_target, meals_eaten, meals_skipped}",
@@ -957,11 +1016,21 @@
         "tests_minimum": [
           "test_log_upsert_idempotent",
           "test_log_creates_summary",
+          "test_ate_planned_uses_planned_recipe_for_macros",
           "test_substituted_uses_actual_recipe_for_macros",
           "test_skipped_contributes_zero_calories",
+          "test_planned_contributes_zero_calories",
           "test_servings_eaten_scales_macros",
+          "test_servings_eaten_rejects_non_quarter_increment",
+          "test_servings_eaten_rejects_above_6",
+          "test_servings_eaten_rejects_below_025",
+          "test_ate_custom_requires_description_and_calories",
+          "test_ate_custom_with_optional_macros",
+          "test_ate_custom_contributes_custom_fields_to_summary",
+          "test_non_custom_status_rejects_custom_fields",
           "test_daily_endpoint_returns_targets_and_percentages",
-          "test_weekly_endpoint_includes_averages"
+          "test_weekly_endpoint_includes_averages",
+          "test_summary_includes_ate_custom_in_meals_eaten_count"
         ]
       },
       "M6_celery": {
@@ -1090,6 +1159,35 @@
       "versioning": "All endpoints under /api/v1/. No v2 in this build.",
       "idempotency": "POST /tracker/log, /profiles/onboarding, /auth/register upsert on natural keys."
     },
+    "ifct_data_conventions": {
+      "unit_conversions_from_raw_ifct_csv": {
+        "energy": "IFCT 'enerc' field is in kJ. Convert to kcal by dividing by 4.184. Store as integer kcal.",
+        "minerals": "IFCT mineral fields (ca, fe, na, k, mg, zn, cu, p, se) are in GRAMS per 100g. Multiply by 1000 for mg display/storage.",
+        "fat_soluble_vitamins_and_folate": "IFCT fat-soluble vitamin (vita, retol, ergcal, chocal) and folate (folsum) fields are in GRAMS per 100g. Multiply by 1,000,000 for μg display/storage.",
+        "vitamin_c": "IFCT vitc field is in GRAMS per 100g. Multiply by 1000 for mg display/storage."
+      },
+      "ifct_known_gaps_v1": [
+        "No vitamin B12 measurements (anywhere in IFCT). Use USDA B12 overlay for animal products; treat plant items as 0 μg.",
+        "Vitamin D fields exist but most values are 0 — IFCT did not widely measure D. Do not surface D in MVP UI.",
+        "Dairy coverage limited to cow milk, buffalo milk, paneer, khoa. Use USDA for curd/dahi, butter, ghee variants, cheese, cream, condensed milk, toned milk, etc.",
+        "Sugars limited to jaggery and sugarcane juice. Use USDA for refined sugar, honey, brown sugar, palm jaggery.",
+        "No cooked-dish entries by design — IFCT measures ingredients, not preparations. Cooking losses (vitamin C destruction, oil absorption, water loss) NOT modeled in v1. cached_nutrition_per_serving is sum-of-raw-ingredients only.",
+        "Western vegetables (broccoli, zucchini, bell peppers, iceberg, asparagus, kale) absent. Use USDA fallback.",
+        "Cinnamon noted as absent from IFCT spice group during investigation. Use USDA fallback."
+      ],
+      "ifct_provenance_fields_stored_on_ingredient": [
+        "source (enum: 'ifct' | 'usda' | 'manual' | 'composed')",
+        "ifct_code (CharField, populated only when source='ifct')",
+        "ifct_name (CharField, the IFCT food name; populated only when source='ifct')",
+        "ifct_regn (PositiveSmallIntegerField, regional sample count 1-6; populated only when source='ifct')",
+        "usda_fdc_id (IntegerField, populated only when source='usda')",
+        "usda_description (CharField, populated only when source='usda')",
+        "package_version (CharField, e.g. '@ifct2017/compositions@2.0.9', for source='ifct')",
+        "extracted_at (DateField, when the seed value was extracted from source)",
+        "confidence (enum: 'exact' | 'good' | 'approximate' | 'weak')",
+        "overlays (JSONField, optional; for B12-from-USDA-overlaid-on-IFCT cases)"
+      ]
+    },
     "definition_of_done": [
       "All 8 modules pass acceptance.",
       "pytest ≥80% coverage on apps/ and core/.",
@@ -1192,8 +1290,9 @@
       "Firebase Admin service account JSON downloaded → place at ./secrets/firebase-admin.json",
       "OpenAI API key from platform.openai.com",
       "USDA API key from https://fdc.nal.usda.gov/api-key-signup.html",
-      "USDA Foundation Foods CSV/JSON downloaded once from https://fdc.nal.usda.gov/download-datasets to ~/Downloads/ or similar; used by scripts/import_usda_subset.py (built in M3) to populate ingredients.json.",
-      "USDA API key (https://fdc.nal.usda.gov/api-key-signup.html) — only needed in M7 for validation; not required for M3 seed which uses offline Foundation Foods dataset."
+      "USDA Foundation Foods CSV/JSON downloaded once from https://fdc.nal.usda.gov/download-datasets to ~/Downloads/ or similar; used by scripts/import_usda_subset.py (built in M3) to populate USDA-fallback ingredients.",
+      "USDA API key (https://fdc.nal.usda.gov/api-key-signup.html) — only needed in M7 for validation; not required for M3 seed which uses vendored IFCT CSV.",
+      "IFCT 2017 CSV vendoring: run 'npx @ifct2017/compositions' to extract CSV, copy to apps/recipes/seed_data/sources/ifct2017/index.csv, commit to git. No runtime npm dependency — CSV is the artifact, not the package."
     ],
     "developer_does_not_create": [
       "Database tables — Django migrations handle all schema",
@@ -1237,7 +1336,7 @@
     },
     {
       "risk": "USDA Foundation Foods missing some Indian-specific ingredients (e.g., specific dal varieties, jaggery, regional rice cultivars)",
-      "mitigation": "Use closest USDA equivalent + manual override; tag source='manual' for those rows; document substitutions in apps/recipes/seed_data/USDA_SUBSTITUTIONS.md. IFCT integration in v2 fills these gaps properly."
+      "mitigation": "IFCT 2017 is now the primary nutrition source for Indian ingredients (spec v3). USDA used as fallback for Western imports, dairy variants, B12 overlays, and refined sugars. source='ifct'/'usda' tag on each Ingredient row documents provenance."
     },
     {
       "risk": "AI-generated recipes pollute the curated library with low-quality entries",
@@ -1276,6 +1375,14 @@
     {
       "decision": "Ingredient-level nutrition, not recipe-level (PERMANENT — v1 and forever)",
       "rationale": "Recipes store ingredient lists with quantities. Nutrition is computed from Ingredient × quantity × per-100g macros, cached as a JSONB column on Recipe. This is the only architecture that supports substitution ('swap paneer for tofu' recomputes nutrition), portion scaling, budget-aware optimization (sum ingredient costs), and user-added custom recipes. Recipe-level storage (baked-in macros) makes all of these impossible and forces a painful migration later. Pay the M3 cost now."
+    },
+    {
+      "decision": "IFCT 2017 as primary nutrition source, USDA as fallback",
+      "rationale": "Indian Food Composition Tables 2017 (NIN/ICMR) provides measured per-100g-raw nutrition for 528 Indian foods — pulses, cereals, millets, vegetables, fruits, spices, eggs, fish, meat. IFCT measurements use Indian cultivars, Indian soil, Indian cooking ingredients. USDA Foundation Foods measures US cultivars, US fortification levels, US portion sizes. For an Indian-first app, IFCT data is more accurate for the core ingredient set. USDA fills known IFCT gaps: dairy beyond paneer/khoa, vitamin B12 (absent in IFCT entirely), refined sugar, Western vegetables (broccoli, zucchini, kale), and branded/processed foods. CSV vendored at apps/recipes/seed_data/sources/ifct2017/index.csv for deterministic seeds — no runtime npm dependency."
+    },
+    {
+      "decision": "Raw-weight storage, cooked-portion display (PERMANENT — v1 and forever)",
+      "rationale": "Nutrition data sources (IFCT, USDA) measure raw ingredients per 100g. Recipe ingredients store quantity_grams in RAW weight (atta 50g, ghee 8g, etc.). Recipe nutrition is computed once at seed time by summing (quantity_grams × per-100g-raw nutrition) and dividing by servings; result cached on Recipe.cached_nutrition_per_serving. Users never see raw weights or per-100g values. Every user-facing nutrition number (meal cards, recipe detail, daily totals) is the cooked, plated, ready-to-eat portion. Display units use household quantities (1 katori, 2 rotis, 1 tbsp); grams visible only on expanded ingredient view. This separation lets us use measured raw-ingredient nutrition data (the only reliable kind) while presenting the cooked-portion mental model users expect."
     }
   ],
   "things_to_explicitly_avoid": [
@@ -1291,7 +1398,8 @@
     "Do not silently substitute features the spec didn't ask for.",
     "Do not add libraries beyond the stated tech_stack without asking.",
     "Do not start a new module before previous module's acceptance criteria pass.",
-    "Do not store calories/protein/carbs/fat directly on Recipe as canonical fields. They live on Ingredient. Recipe has a cached_nutrition JSONB column populated by services/recipes/compute_nutrition.py, invalidated when ingredients change."
+    "Do not store calories/protein/carbs/fat directly on Recipe as canonical fields. They live on Ingredient. Recipe has a cached_nutrition JSONB column populated by services/recipes/compute_nutrition.py, invalidated when ingredients change.",
+    "Do not store nutrition values per-100g-COOKED in the Ingredient model. All Ingredient.per_100g_nutrition is per-100g of the form declared in Ingredient.form (typically 'raw' for cookable items, 'as_eaten' for raw-eaten items like fruits). Recipe ingredient quantity_grams is raw weight matched to ingredient.form. The household-unit display layer converts cooked-portion display weights back to raw via Ingredient.cooked_yield_ratio."
   ],
   "agent_usage_instructions": {
     "how_to_use_this_document": [
@@ -1309,7 +1417,7 @@
     "philosophy": "Three layers. Layer 1 is the curated foundation (data, built once, expanded slowly). Layer 2 is the algorithmic engine (fast, deterministic, no AI). Layer 3 is AI personalization (used sparingly, expensive, with validation). AI is never the primary engine.",
     "layer_1_curated_library": {
       "built_in_module": "M3",
-      "contents": "~150 ingredients (USDA-sourced nutrition + manual Indian name overlay + manual household unit conversions + approximate INR price per kg) + ~100 recipes (LLM-generated candidates, human-validated, ingredient list + portions + method)",
+      "contents": "~150 ingredients (IFCT 2017 primary + USDA fallback nutrition + manual household unit conversions + approximate INR price per kg) + ~100 recipes (LLM-generated candidates, human-validated, ingredient list + portions + method)",
       "source_of_truth_for": "all nutrition data — recipes do NOT store macros; macros are computed from ingredients"
     },
     "layer_2_engine": {
