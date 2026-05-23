@@ -85,13 +85,13 @@ These ingredients have `data_status=missing_no_usda_match` and need USDA fetch i
 | File | Size | SHA-256 |
 |------|------|---------|
 | household_units.json | 32,193 bytes (31.4 KB) | `c764b4ef77771f2b...` |
-| ingredients.json | 181,600 bytes (177.3 KB) | `7a81776356b9d3b8...` |
+| ingredients.json | 182,150 bytes (177.9 KB) | `4edad0bfa06bc15c...` |
 | recipes.json | 333,607 bytes (325.8 KB) | `d8c66675a8cfa3f5...` |
 
 ### Full SHA-256 hashes
 
 - `household_units.json`: `c764b4ef77771f2bb37f25837a9b020f815c7a321d1b7218a8d742d4a860adbd`
-- `ingredients.json`: `7a81776356b9d3b86a625a428461a5f97529da7c26fa368c642f649a10369323`
+- `ingredients.json`: `4edad0bfa06bc15c7f1ddec2e0a2cac5424cf7a93aa006f7c2f9efc7b9db84cf`
 - `recipes.json`: `d8c66675a8cfa3f539dfb5d70f981ae11a88d99bed8d577bb9830a62874b5c57`
 
 ---
@@ -109,3 +109,50 @@ These ingredients have `data_status=missing_no_usda_match` and need USDA fetch i
 - Pomfret (pomfret_raw) has ifct_code=S006 in ingredient_mapping.csv which 
   maps to Rohu in IFCT. The mapping_notes reference P057 (white pomfret). 
   This is a data discrepancy in the input CSV that should be corrected.
+
+---
+
+## Phase 6 — USDA Nutrition Fetch
+
+**Fetch date:** 2026-05-23
+**Script:** `scripts/fetch_usda_nutrition.py`
+
+### Fetch summary
+
+- Fetched live from API: 0
+- Served from cache: 18
+- Errors: 0
+- Total time: 0.0s
+
+### Per-ingredient results
+
+| app_id | FDC ID | kcal | B12 status |
+|--------|--------|------|------------|
+| watermelon_raw | 167765 | 30 | not in response |
+| curd_raw | 171284 | 61 | 0.37 μg |
+| butter_raw | 173410 | 717 | 0.17 μg |
+| fresh_cream_raw | 170859 | 340 | 0.16 μg |
+| buttermilk_raw | 170874 | 40 | 0.22 μg |
+| processed_cheese_raw | 170853 | 366 | 1.5 μg |
+| bay_leaf_raw | 170917 | 313 | not in response |
+| salt_raw | 173468 | 0 | not in response |
+| sugar_raw | 169655 | 387 | not in response |
+| fennel_seeds_raw | 171323 | 345 | not in response |
+| cinnamon_raw | 171320 | 247 | not in response |
+| black_salt_raw | 746775 | 0 | not in response |
+| honey_raw | 169640 | 304 | not in response |
+| brown_sugar_raw | 168833 | 380 | not in response |
+| instant_coffee_raw | 171893 | 353 | not in response |
+| sabudana_raw | 169717 | 358 | not in response |
+| bread_white_raw | 174924 | 266 | not in response |
+| rolled_oats_raw | 173904 | 379 | not in response |
+
+### Updated output file
+
+- `ingredients.json` SHA-256: `caa08be12d9b9711fe65036296b71ac41a3285899f1eb517ab0f1b540fb1be4d`
+
+### Notes
+
+- Vitamin A conversion: μg RAE × 3.33 ≈ IU (rough retinol-equivalent approximation; actual conversion depends on source being retinol vs β-carotene)
+- Missing USDA nutrients are set to 0.0 (not null)
+- Vitamin B12 from USDA is the primary reason these dairy/animal items use USDA as the data source (IFCT does not measure B12)
