@@ -7,7 +7,7 @@ MANAGE   := $(PYTHON) manage.py
 PG_BIN   := /opt/homebrew/opt/postgresql@16/bin
 export PATH := $(PG_BIN):$(PATH)
 
-.PHONY: install migrate seed superuser run run-asgi test lint format dbreset shell worker beat
+.PHONY: install migrate seed superuser run run-asgi test lint format dbreset shell worker beat fetch-usda build-seed
 
 ## Setup
 
@@ -62,3 +62,11 @@ dbreset:
 
 shell:
 	$(MANAGE) shell
+
+## Seed data
+
+build-seed:
+	uv run python scripts/build_seed_data.py
+
+fetch-usda:
+	uv run python scripts/fetch_usda_nutrition.py
