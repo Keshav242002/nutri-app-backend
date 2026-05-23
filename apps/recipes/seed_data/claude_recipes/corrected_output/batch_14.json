@@ -1,0 +1,614 @@
+{
+     "corrected_recipes":[
+      {
+         "name":"Gatte Ki Sabzi",
+         "name_alt":"Gram Flour Dumpling Curry",
+         "meal_type":"dinner",
+         "cuisine":"rajasthani",
+         "diet_tags":[
+            "vegetarian",
+            "gluten_free",
+            "nut_free"
+         ],
+         "allergen_tags":[
+            "dairy"
+         ],
+         "prep_time_min":20,
+         "cook_time_min":35,
+         "servings":4,
+         "estimated_difficulty":"advanced",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"besan_raw",
+               "quantity_grams":120.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"gram flour for gatte"
+            },
+            {
+               "ingredient_name":"curd_raw",
+               "quantity_grams":245.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"whisked smoothly for gravy"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":100.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"tomato_raw",
+               "quantity_grams":100.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":10.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"paste"
+            },
+            {
+               "ingredient_name":"garlic_raw",
+               "quantity_grams":10.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"paste"
+            },
+            {
+               "ingredient_name":"ajwain_raw",
+               "quantity_grams":2.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"crushed between palms"
+            },
+            {
+               "ingredient_name":"coriander_seeds_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"powdered"
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":3.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"divided use"
+            },
+            {
+               "ingredient_name":"red_chilli_powder_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.5,
+               "display_unit":"tsp",
+               "notes":"divided use"
+            },
+            {
+               "ingredient_name":"cumin_raw",
+               "quantity_grams":2.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"garam_masala_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"divided use"
+            },
+            {
+               "ingredient_name":"ghee_raw",
+               "quantity_grams":28.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":"divided use (for dough and gravy)"
+            },
+            {
+               "ingredient_name":"coriander_leaves_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"chopped"
+            }
+         ],
+         "instructions":[
+            "In a bowl, mix besan with ajwain, half the turmeric, half the red chilli powder, a pinch of salt, and 1 tablespoon of ghee. Add a little water to knead into a stiff dough.",
+            "Divide the dough into equal parts and roll them into long cylindrical logs (about half an inch thick).",
+            "Boil 3 cups of water in a wide pan. Drop the logs into the boiling water and cook for 10-12 minutes until they float and have small blisters on the surface.",
+            "Remove the logs from the water, let them cool, and cut them into 1-inch discs (gatte). Reserve the boiling water for the gravy.",
+            "In a separate pan, heat the remaining 1 tablespoon of ghee. Add cumin seeds and let them splutter.",
+            "Add finely chopped onions and saute until golden brown. Stir in ginger and garlic paste, cooking until the raw smell goes away.",
+            "Add the chopped tomatoes, remaining turmeric, red chilli powder, coriander powder, and salt. Cook until tomatoes are mushy and oil separates.",
+            "Lower the heat completely and whisk the curd into the masala continuously to prevent it from curdling. Cook for 3-4 minutes.",
+            "Pour the reserved boiling water into the gravy and bring to a simmer. Drop the gatte pieces in.",
+            "Simmer the curry for 8-10 minutes until the gravy thickens slightly. Garnish with garam masala and coriander leaves. Serve hot with roti."
+         ]
+      },
+      {
+         "name":"Panchmel Dal",
+         "name_alt":"Panchrati Dal",
+         "meal_type":"dinner",
+         "cuisine":"rajasthani",
+         "diet_tags":[
+            "vegetarian",
+            "gluten_free",
+            "nut_free",
+            "high_protein"
+         ],
+         "allergen_tags":[
+            "dairy"
+         ],
+         "prep_time_min":15,
+         "cook_time_min":30,
+         "servings":4,
+         "estimated_difficulty":"beginner",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"toor_dal_raw",
+               "quantity_grams":30.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"moong_dal_raw",
+               "quantity_grams":30.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"masoor_dal_raw",
+               "quantity_grams":30.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"urad_dal_raw",
+               "quantity_grams":30.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"chana_dal_raw",
+               "quantity_grams":30.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":100.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"tomato_raw",
+               "quantity_grams":100.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":10.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"minced"
+            },
+            {
+               "ingredient_name":"garlic_raw",
+               "quantity_grams":10.0,
+               "display_quantity":3.0,
+               "display_unit":"piece",
+               "notes":"minced cloves"
+            },
+            {
+               "ingredient_name":"ghee_raw",
+               "quantity_grams":28.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"cumin_raw",
+               "quantity_grams":2.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"cloves_raw",
+               "quantity_grams":0.5,
+               "display_quantity":2.0,
+               "display_unit":"piece",
+               "notes":""
+            },
+            {
+               "ingredient_name":"asafoetida_raw",
+               "quantity_grams":1.0,
+               "display_quantity":1.0,
+               "display_unit":"g",
+               "notes":"hing pinch"
+            },
+            {
+               "ingredient_name":"dried_red_chilli_raw",
+               "quantity_grams":4.0,
+               "display_quantity":2.0,
+               "display_unit":"piece",
+               "notes":""
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"red_chilli_powder_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            }
+         ],
+         "instructions":[
+            "Mix all five dals together, wash them thoroughly, and soak them in water for at least 30 minutes.",
+            "Pressure cook the soaked dals with 3 cups of water, turmeric powder, and salt for 4-5 whistles until completely soft. Whisk lightly.",
+            "Heat ghee in a heavy pan. Add cumin seeds, cloves, and dried red chillies. Let them sizzle.",
+            "Add asafoetida, followed by the minced ginger and garlic. Saute for a minute until aromatic.",
+            "Stir in the finely chopped onions and cook until they turn golden brown.",
+            "Add the finely chopped tomatoes and red chilli powder. Cook until the tomatoes become mushy and the ghee separates.",
+            "Pour the cooked dal into the tempering. Add a little warm water if the dal is too thick.",
+            "Simmer on low heat for 5-7 minutes to allow the flavors to blend. Serve hot with Baati or rice."
+         ]
+      },
+      {
+         "name":"Baked Baati",
+         "name_alt":"Rajasthani Wheat Rolls",
+         "meal_type":"dinner",
+         "cuisine":"rajasthani",
+         "diet_tags":[
+            "vegetarian",
+            "nut_free"
+         ],
+         "allergen_tags":[
+            "gluten",
+            "dairy"
+         ],
+         "prep_time_min":15,
+         "cook_time_min":40,
+         "servings":4,
+         "estimated_difficulty":"intermediate",
+         "spice_level":"mild",
+         "ingredients":[
+            {
+               "ingredient_name":"whole_wheat_flour_raw",
+               "quantity_grams":240.0,
+               "display_quantity":2.0,
+               "display_unit":"cup",
+               "notes":"atta"
+            },
+            {
+               "ingredient_name":"semolina_raw",
+               "quantity_grams":45.0,
+               "display_quantity":0.25,
+               "display_unit":"cup",
+               "notes":"sooji, for crispness"
+            },
+            {
+               "ingredient_name":"besan_raw",
+               "quantity_grams":30.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":"gram flour"
+            },
+            {
+               "ingredient_name":"ghee_raw",
+               "quantity_grams":60.0,
+               "display_quantity":4.0,
+               "display_unit":"tbsp",
+               "notes":"3 tbsp for dough, 1 tbsp for coating/serving"
+            },
+            {
+               "ingredient_name":"ajwain_raw",
+               "quantity_grams":2.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"carom seeds, crushed"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":4.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            }
+         ],
+         "instructions":[
+            "In a large mixing bowl, combine whole wheat flour, semolina, besan, crushed ajwain, and salt.",
+            "Add 3 tablespoons of melted ghee to the flour mixture. Rub the ghee into the flour using your fingertips until it resembles coarse breadcrumbs.",
+            "Gradually add warm water and knead into a stiff, tight dough (stiffer than roti dough). Let it rest for 15 minutes.",
+            "Preheat your oven to 180C (350F) or prepare a gas tandoor.",
+            "Divide the rested dough into equal lemon-sized balls. Roll them between your palms and flatten slightly, making a small indentation in the center with your thumb.",
+            "Place the baatis on a baking tray. Bake for 30-40 minutes, flipping them halfway, until they are golden brown and cooked from the inside with visible cracks.",
+            "Once baked, lightly crush each hot baati to open it up slightly.",
+            "Drizzle with the remaining ghee. Serve immediately with Panchmel Dal."
+         ]
+      },
+      {
+         "name":"Aloo Pyaz Ki Sabzi",
+         "name_alt":"Rajasthani Potato & Onion Curry",
+         "meal_type":"dinner",
+         "cuisine":"rajasthani",
+         "diet_tags":[
+            "vegan",
+            "vegetarian",
+            "dairy_free",
+            "gluten_free",
+            "nut_free"
+         ],
+         "allergen_tags":[
+            "mustard"
+         ],
+         "prep_time_min":15,
+         "cook_time_min":30,
+         "servings":4,
+         "estimated_difficulty":"beginner",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"potato_raw",
+               "quantity_grams":300.0,
+               "display_quantity":3.0,
+               "display_unit":"piece",
+               "notes":"peeled and cubed"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":250.0,
+               "display_quantity":4.0,
+               "display_unit":"piece",
+               "notes":"small baby onions left whole, or medium onions quartered"
+            },
+            {
+               "ingredient_name":"tomato_raw",
+               "quantity_grams":150.0,
+               "display_quantity":2.0,
+               "display_unit":"piece",
+               "notes":"pureed"
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":10.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"paste"
+            },
+            {
+               "ingredient_name":"garlic_raw",
+               "quantity_grams":10.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"paste"
+            },
+            {
+               "ingredient_name":"mustard_oil_raw",
+               "quantity_grams":28.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":"smoked before cooking"
+            },
+            {
+               "ingredient_name":"cumin_raw",
+               "quantity_grams":2.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"red_chilli_powder_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"coriander_seeds_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"powdered"
+            },
+            {
+               "ingredient_name":"amchur_powder_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"garam_masala_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"coriander_leaves_raw",
+               "quantity_grams":5.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":"chopped"
+            }
+         ],
+         "instructions":[
+            "Heat the mustard oil in a heavy kadai until it reaches smoking point. Turn down the heat slightly.",
+            "Carefully shallow fry the potato cubes in the oil until golden and half cooked. Remove and set aside.",
+            "In the same oil, shallow fry the whole baby onions (or quartered onions) for 2-3 minutes until they gain a light color. Remove and set aside.",
+            "In the remaining oil, add cumin seeds. When they splutter, add the ginger and garlic paste and saute for a minute.",
+            "Pour in the tomato puree along with turmeric, red chilli powder, coriander powder, and salt. Cook until oil separates from the masala.",
+            "Return the fried potatoes and onions to the pan. Mix well so the masala coats the vegetables.",
+            "Add 1 cup of warm water, cover the pan, and let it simmer for 10-12 minutes until the potatoes are completely tender.",
+            "Sprinkle amchur powder and garam masala. Mix gently to keep the onions intact.",
+            "Garnish with fresh coriander leaves and serve hot with phulkas."
+         ]
+      },
+      {
+         "name":"Papad Ki Sabzi",
+         "name_alt":"Papad Curry",
+         "meal_type":"dinner",
+         "cuisine":"rajasthani",
+         "diet_tags":[
+            "vegetarian",
+            "gluten_free",
+            "nut_free"
+         ],
+         "allergen_tags":[
+            "dairy"
+         ],
+         "prep_time_min":5,
+         "cook_time_min":15,
+         "servings":4,
+         "estimated_difficulty":"beginner",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"papad_raw",
+               "quantity_grams":48.0,
+               "display_quantity":4.0,
+               "display_unit":"piece",
+               "notes":"raw papads, typically moong or urad based"
+            },
+            {
+               "ingredient_name":"curd_raw",
+               "quantity_grams":150.0,
+               "display_quantity":0.75,
+               "display_unit":"cup",
+               "notes":"whisked until smooth"
+            },
+            {
+               "ingredient_name":"ghee_raw",
+               "quantity_grams":21.0,
+               "display_quantity":1.5,
+               "display_unit":"tbsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"cumin_raw",
+               "quantity_grams":2.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"grated"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"slit"
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"red_chilli_powder_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"coriander_seeds_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"powdered"
+            },
+            {
+               "ingredient_name":"kasuri_methi_raw",
+               "quantity_grams":0.5,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"crushed"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":3.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"use less salt as papad already contains salt"
+            },
+            {
+               "ingredient_name":"coriander_leaves_raw",
+               "quantity_grams":5.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":"chopped"
+            }
+         ],
+         "instructions":[
+            "Roast the raw papads over an open flame or on a tawa until they have small brown spots and turn crisp. Break them into medium-sized pieces and set aside.",
+            "In a small bowl, mix the whisked curd with turmeric powder, red chilli powder, and coriander powder to make a spice paste.",
+            "Heat ghee in a pan over medium heat. Add cumin seeds and let them splutter.",
+            "Add the grated ginger and slit green chilli. Saute for a few seconds.",
+            "Lower the flame completely. Pour the spiced curd mixture into the pan and stir continuously and vigorously until it comes to a boil to prevent curdling.",
+            "Add 1 cup of water and salt. Let the gravy simmer for 4-5 minutes.",
+            "Just before serving, drop the broken roasted papad pieces and crushed kasuri methi into the boiling gravy.",
+            "Turn off the heat immediately. Do not overcook as the papad will become soggy quickly.",
+            "Garnish with chopped coriander leaves and serve immediately with hot phulkas."
+         ]
+      }
+   ]
+}

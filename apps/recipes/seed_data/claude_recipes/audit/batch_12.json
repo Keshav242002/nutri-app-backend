@@ -1,0 +1,146 @@
+{
+   "batch_summary":{
+      "total_recipes":5,
+      "verdict_counts":{
+         "PASS":0,
+         "WARN":5,
+         "FAIL":0,
+         "REJECTED":0
+      },
+      "common_issues":[
+         "All ingredient names missing _raw suffix and underscores - auto-corrected",
+         "Disallowed display_units used: sprig, pinch, clove - converted to allowed units",
+         "'tamarind' substituted with 'tamarind_pulp_raw'"
+      ]
+   },
+   "audit":[
+      {
+         "recipe_name":"Maharashtrian Sadha Varan",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"ingredients[*].ingredient_name",
+               "problem":"Ingredient names missing _raw suffix and underscores (e.g. 'toor dal' should be 'toor_dal_raw', 'curry leaves' should be 'curry_leaves_raw')",
+               "suggested_fix":"Add _raw suffix and underscores for all ingredients"
+            },
+            {
+               "tier":5,
+               "severity":"minor",
+               "field":"ingredients[asafoetida].display_unit",
+               "problem":"'pinch' not in allowed unit list (katori|cup|tbsp|tsp|piece|glass|roti|g|ml)",
+               "suggested_fix":"Change display_unit to 'tsp' with display_quantity 0.25"
+            },
+            {
+               "tier":5,
+               "severity":"minor",
+               "field":"ingredients[curry leaves].display_unit",
+               "problem":"'sprig' not in allowed unit list",
+               "suggested_fix":"Change display_unit to 'g' with display_quantity 2"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Maharashtrian Pithla",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"ingredients[*].ingredient_name",
+               "problem":"Ingredient names missing _raw suffix and underscores ('besan' should be 'besan_raw', etc.)",
+               "suggested_fix":"Add _raw suffix and underscores"
+            },
+            {
+               "tier":5,
+               "severity":"minor",
+               "field":"ingredients[asafoetida].display_unit",
+               "problem":"'pinch' not in allowed unit list",
+               "suggested_fix":"Change display_unit to 'tsp' with display_quantity 0.25"
+            },
+            {
+               "tier":5,
+               "severity":"minor",
+               "field":"ingredients[garlic].display_unit",
+               "problem":"'clove' not in allowed unit list",
+               "suggested_fix":"Change display_unit to 'piece' (5 cloves = 5 pieces)"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Jowar Bhakri",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"ingredients[*].ingredient_name",
+               "problem":"'sorghum flour' should be 'sorghum_flour_raw'",
+               "suggested_fix":"Add _raw suffix and underscores"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Bharli Vangi",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"ingredients[*].ingredient_name",
+               "problem":"Ingredient names missing _raw suffix and underscores; 'tamarind' needs mapping to allowlist",
+               "suggested_fix":"Add _raw suffix; substitute 'tamarind' with 'tamarind_pulp_raw' (close match)"
+            },
+            {
+               "tier":5,
+               "severity":"minor",
+               "field":"ingredients[garlic].display_unit",
+               "problem":"'clove' not in allowed unit list",
+               "suggested_fix":"Change display_unit to 'piece'"
+            },
+            {
+               "tier":4,
+               "severity":"minor",
+               "field":"ingredients[garam_masala].notes",
+               "problem":"Authentic Bharli Vangi traditionally uses goda masala; garam masala is acknowledged as a substitute in notes which is acceptable",
+               "suggested_fix":"Keep substitution note as-is for transparency"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Matki Usal",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"ingredients[*].ingredient_name",
+               "problem":"Ingredient names missing _raw suffix and underscores",
+               "suggested_fix":"Add _raw suffix and underscores"
+            },
+            {
+               "tier":5,
+               "severity":"minor",
+               "field":"ingredients[asafoetida].display_unit",
+               "problem":"'pinch' not in allowed unit list",
+               "suggested_fix":"Change display_unit to 'tsp' with display_quantity 0.25"
+            },
+            {
+               "tier":5,
+               "severity":"minor",
+               "field":"ingredients[curry_leaves].display_unit",
+               "problem":"'sprig' not in allowed unit list",
+               "suggested_fix":"Change display_unit to 'g' with display_quantity 2"
+            },
+            {
+               "tier":5,
+               "severity":"minor",
+               "field":"ingredients[garlic].display_unit",
+               "problem":"'clove' not in allowed unit list",
+               "suggested_fix":"Change display_unit to 'piece'"
+            }
+         ]
+      }
+   ]
+}

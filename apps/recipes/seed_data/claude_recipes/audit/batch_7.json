@@ -1,0 +1,122 @@
+{
+   "batch_summary":{
+      "total_recipes":5,
+      "verdict_counts":{
+         "PASS":0,
+         "WARN":5,
+         "FAIL":0,
+         "REJECTED":0
+      },
+      "common_issues":[
+         "Ingredient names missing _raw suffix (curd, besan, green chilli, ginger, ghee, mustard seeds, cumin, fenugreek seeds, cloves, cinnamon, curry leaves, sugar, salt, coriander leaves, tomato, jaggery, peanut, sona masoori rice, moong dal, asafoetida, turmeric powder, brinjal, potato, sesame seeds, coriander seeds, garlic, groundnut oil, dried red chilli, red chilli powder, cabbage, green peas, sunflower oil)",
+         "display_unit 'inch' and 'sprig' and 'clove' not in allowed list — must be 'piece'",
+         "'lemon' not in allowlist — substitute with lemon_juice_raw",
+         "Salt portions at 5-6g for 4 servings = 1.25-1.5g/serving (within range, acceptable)"
+      ]
+   },
+   "audit":[
+      {
+         "recipe_name":"Gujarati Kadhi",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All ingredient names missing _raw suffix",
+               "suggested_fix":"Append _raw to each (curd_raw, besan_raw, etc.)"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'inch' and 'sprig' not in allowed unit list",
+               "suggested_fix":"Change to 'piece'"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Moong Dal Khichdi",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"Names missing _raw suffix; 'sona masoori rice' and 'moong dal' need underscores too",
+               "suggested_fix":"sona_masoori_rice_raw, moong_dal_raw, ghee_raw, cumin_raw, asafoetida_raw, turmeric_powder_raw, salt_raw"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Gujarati Dal",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"Names missing _raw suffix throughout"
+            },
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"'lemon' not in allowlist",
+               "suggested_fix":"Substitute with lemon_juice_raw (15g = 1 tbsp juice, display_unit tbsp)"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'inch' and 'sprig' not in allowed list",
+               "suggested_fix":"Change to 'piece'"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Bharela Ringan Batata",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All names missing _raw suffix"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'inch' and 'clove' not in allowed list",
+               "suggested_fix":"Change to 'piece'"
+            },
+            {
+               "tier":3,
+               "severity":"major",
+               "field":"diet_tags",
+               "problem":"Contains garlic — not jain-compatible, but jain not claimed, so no fix needed; however dish has potato so 'jain' would conflict if added. Tags are fine as-is."
+            }
+         ]
+      },
+      {
+         "recipe_name":"Cabbage Watana Shaak",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All names missing _raw suffix"
+            },
+            {
+               "tier":3,
+               "severity":"minor",
+               "field":"diet_tags",
+               "problem":"'low_carb' questionable with 300g cabbage + 100g peas for 4 servings; cabbage is low-carb but peas add starch",
+               "suggested_fix":"Acceptable to retain — net carbs per serving still moderate"
+            }
+         ]
+      }
+   ]
+}

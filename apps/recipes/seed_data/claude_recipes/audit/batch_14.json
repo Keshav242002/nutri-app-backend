@@ -1,0 +1,126 @@
+{
+   "batch_summary":{
+      "total_recipes":5,
+      "verdict_counts":{
+         "PASS":0,
+         "WARN":0,
+         "FAIL":5,
+         "REJECTED":0
+      },
+      "common_issues":[
+         "All ingredient_name values missing _raw suffix (besan, curd, onion, tomato, ginger, garlic, ghee, cumin, salt, coriander leaves, turmeric powder, red chilli powder, garam masala, ajwain, coriander seeds, mustard oil, asafoetida, cloves, dried red chilli, amchur powder, semolina, whole wheat flour, potato, papad, green chilli) — auto-corrected to allowlist form",
+         "'coriander seeds' used for coriander powder application — keeping as coriander_seeds_raw since allowlist has no separate powder entry",
+         "'dried fenugreek leaves' (kasuri methi) auto-corrected to kasuri_methi_raw",
+         "Allergen tags occasionally incomplete (mustard for mustard_oil_raw correctly captured in recipe 4)"
+      ]
+   },
+   "audit":[
+      {
+         "recipe_name":"Gatte Ki Sabzi",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All 15 ingredient names missing _raw suffix (besan, curd, onion, tomato, ginger, garlic, ajwain, coriander seeds, turmeric powder, red chilli powder, cumin, garam masala, salt, ghee, coriander leaves)",
+               "suggested_fix":"Append _raw to each name to match allowlist"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"ingredients[salt].quantity_grams",
+               "problem":"6g/4 servings = 1.5g/serving — within range but on lower side given gatte dough also salted",
+               "suggested_fix":"Acceptable as-is"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Panchmel Dal",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All 17 ingredient names missing _raw suffix",
+               "suggested_fix":"Append _raw to each name to match allowlist"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"ingredients[total dal]",
+               "problem":"150g dal for 4 servings = 37.5g/serving — within 25-50g pulses range",
+               "suggested_fix":"OK"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Baked Baati",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All 6 ingredient names missing _raw suffix (whole wheat flour, semolina, besan, ghee, ajwain, salt)",
+               "suggested_fix":"Append _raw to each name to match allowlist"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"ingredients[ghee].quantity_grams",
+               "problem":"70g ghee for 4 servings = 17.5g/serving, slightly exceeds 15g/serving limit",
+               "suggested_fix":"Reduce to 60g (15g/serving) — baati traditionally uses generous ghee but stay within range"
+            },
+            {
+               "tier":3,
+               "severity":"minor",
+               "field":"allergen_tags",
+               "problem":"semolina (wheat-based) and besan present — gluten tag already correctly included",
+               "suggested_fix":"OK as-is"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Aloo Pyaz Ki Sabzi",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All 14 ingredient names missing _raw suffix (potato, onion, tomato, ginger, garlic, mustard oil, cumin, turmeric powder, red chilli powder, coriander seeds, amchur powder, garam masala, salt, coriander leaves)",
+               "suggested_fix":"Append _raw to each name to match allowlist"
+            },
+            {
+               "tier":3,
+               "severity":"minor",
+               "field":"allergen_tags",
+               "problem":"mustard correctly included for mustard_oil_raw",
+               "suggested_fix":"OK"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Papad Ki Sabzi",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All 12 ingredient names missing _raw suffix; 'dried fenugreek leaves' must become kasuri_methi_raw",
+               "suggested_fix":"Append _raw to each; map dried fenugreek leaves → kasuri_methi_raw"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"ingredients[papad].quantity_grams",
+               "problem":"48g papad for 4 = 12g/serving — reasonable for accompaniment-style sabzi",
+               "suggested_fix":"OK"
+            }
+         ]
+      }
+   ]
+}

@@ -1,0 +1,156 @@
+{
+   "batch_summary":{
+      "total_recipes":5,
+      "verdict_counts":{
+         "PASS":0,
+         "WARN":5,
+         "FAIL":0,
+         "REJECTED":0
+      },
+      "common_issues":[
+         "All ingredient_names lack '_raw' suffix — auto-corrected",
+         "'tamarind' substituted with 'tamarind_pulp_raw' with mapping_note",
+         "'egg' substituted with 'egg_whole_raw'",
+         "display_unit values 'bundle', 'sprig', 'clove' not in allowed list — converted to 'piece' or 'g'",
+         "turmeric_powder quantity_grams inflated (0.5 tsp = ~1g, several recipes showed 2-3g)",
+         "Coriander seeds appear in instructions as 'coriander powder' — kept as coriander_seeds_raw (ground at home is standard)"
+      ]
+   },
+   "audit":[
+      {
+         "recipe_name":"Andhra Style Spinach Dal",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All names lack '_raw' suffix (toor dal, spinach, tomato, onion, green chilli, turmeric powder, tamarind, sunflower oil, mustard seeds, cumin, dried red chilli, garlic, salt)",
+               "suggested_fix":"Append '_raw' to each; 'tamarind' → 'tamarind_pulp_raw' (close substitute)"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"ingredients[].display_unit",
+               "problem":"'bundle' for spinach not in allowed unit list",
+               "suggested_fix":"Convert to 'g' with display_quantity 200"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"turmeric_powder.quantity_grams",
+               "problem":"0.5 tsp ≈ 1g, listed as 2g",
+               "suggested_fix":"Reduce to 1g"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Spicy Andhra Chicken Curry",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All names lack '_raw' suffix",
+               "suggested_fix":"Append '_raw' to each"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"curry_leaves.display_unit",
+               "problem":"'sprig' not in allowed unit list",
+               "suggested_fix":"Convert to 'g' with display_quantity 4"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"turmeric_powder.quantity_grams",
+               "problem":"0.5 tsp listed as 3g — should be ~1g",
+               "suggested_fix":"Reduce to 1g"
+            },
+            {
+               "tier":3,
+               "severity":"minor",
+               "field":"allergen_tags",
+               "problem":"No mustard seeds in this recipe, but also no mustard allergen needed — current empty allergen_tags is correct",
+               "suggested_fix":"No change needed"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Tamil Style Brinjal Curry (Ennai Kathirikai Kuzhambu)",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All names lack '_raw' suffix; 'tamarind' needs substitution",
+               "suggested_fix":"Append '_raw'; 'tamarind' → 'tamarind_pulp_raw'"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'sprig' (curry leaves) and 'clove' (garlic) not in allowed unit list",
+               "suggested_fix":"Convert curry_leaves to 'g'/4, garlic to 'g'/15"
+            },
+            {
+               "tier":4,
+               "severity":"minor",
+               "field":"estimated_difficulty",
+               "problem":"'advanced' is overrated for this dish; it's intermediate home cooking",
+               "suggested_fix":"Change to 'intermediate'"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Chettinad Egg Curry",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All names lack '_raw' suffix; 'egg' needs to be 'egg_whole_raw'",
+               "suggested_fix":"Append '_raw' to each; map 'egg' → 'egg_whole_raw'"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"curry_leaves.display_unit",
+               "problem":"'sprig' not in allowed unit list",
+               "suggested_fix":"Convert to 'g'/2"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"turmeric_powder.quantity_grams",
+               "problem":"0.5 tsp listed as 3g — should be ~1g",
+               "suggested_fix":"Reduce to 1g"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Andhra Tomato Stew (Tomato Pulusu)",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All names lack '_raw' suffix; 'tamarind' needs substitution",
+               "suggested_fix":"Append '_raw'; 'tamarind' → 'tamarind_pulp_raw'"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"curry_leaves.display_unit",
+               "problem":"'sprig' not in allowed unit list",
+               "suggested_fix":"Convert to 'g'/2"
+            }
+         ]
+      }
+   ]
+}

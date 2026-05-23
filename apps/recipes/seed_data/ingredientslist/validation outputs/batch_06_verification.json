@@ -1,0 +1,354 @@
+{
+  "batch_summary": {
+    "total_ingredients": 20,
+    "verdict_counts": {"PASS": 17, "WARN": 3, "FAIL": 0},
+    "common_issues": [
+      "Powdered spice tsp/tbsp weights are correctly computed at density ~0.5-0.6 g/ml (turmeric 3g/tsp, red chilli 2.5g/tsp, garam masala 2g/tsp). Whole-seed weights at ~0.4 g/ml are also correct for most entries (cumin, coriander, fennel, ajwain).",
+      "Asafoetida (hing) is correctly tagged with gluten — most commercial Indian hing brands (LG, Vandevi, Everest, MDH) use wheat flour as a binder, often 50%+ of the product. Good catch by GPT.",
+      "Mustard seeds tsp/tbsp are ~40% under standard references (USDA/McCormick ~3.3g/tsp whole; this entry has 2g/tsp). Bulk error.",
+      "'coriander' as a name creates collision with 'coriander leaves' in batch 2. Indian recipes routinely call for both (whole coriander seeds for sambar masala vs fresh leaves for garnish) and the ambiguity will confuse recipe authoring. Name should be 'coriander seeds'.",
+      "'green chilli' is a DUPLICATE — appears identically in this batch and in batch 2. Same situation as green peas duplicate between batches 1 and 2.",
+      "Allergen tagging is mostly clean: mustard seeds→mustard, asafoetida→gluten (correct for commercial Indian hing), curry powder→mustard (defensible for Madras-style blends). Garam masala correctly left empty under controlled vocab — though commercial brands occasionally include nutmeg/mace/cardamom (none of which are in the vocab).",
+      "Several canonical_form values use descriptive phrases ('turmeric powder', 'whole cumin seeds', 'dried bay leaf') that carry semantically meaningful preparation info. Same global concern as previous batches — needs normalisation."
+    ]
+  },
+  "per_ingredient": [
+    {
+      "name": "turmeric powder",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'turmeric powder' has no form token. Spices are 'raw' in the sense of unmodified at point of use.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "cumin",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "domain",
+          "severity": "minor",
+          "field": "name",
+          "problem": "Name 'cumin' is ambiguous — could mean cumin seeds (jeera, whole) or cumin powder (jeera powder). canonical_form clarifies 'whole cumin seeds' but the name itself should also disambiguate, especially since Indian recipes use both forms. Consider renaming to 'cumin seeds' and adding a separate 'cumin powder' entry.",
+          "suggested_fix": "Rename to 'cumin seeds'. Add a separate ingredient 'cumin powder' if the recipe DB will reference ground cumin separately."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'whole cumin seeds' should normalise to 'raw' with the 'whole' carried in typical_form_note.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "coriander",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "domain",
+          "severity": "major",
+          "field": "name",
+          "problem": "Name 'coriander' collides with 'coriander leaves' from batch 2. Indian recipes routinely reference both (whole coriander seeds for sambar/garam masala, fresh coriander leaves for chutney/garnish). The bare name 'coriander' is ambiguous and will cause recipe authors to pick the wrong ingredient. Note that in British English 'coriander' typically means the leaf (= American 'cilantro'), while in Indian recipes 'coriander' on a spice rack means the seed — the cross-cultural ambiguity makes the collision worse.",
+          "suggested_fix": "Rename to 'coriander seeds'. This makes it unambiguous against 'coriander leaves' and matches what Indian recipes actually say ('1 tbsp coriander seeds' vs '2 tbsp coriander leaves')."
+        },
+        {
+          "axis": "consistency",
+          "severity": "minor",
+          "field": "household_units[1].approximate_grams",
+          "problem": "1 tbsp coriander seeds = 5g is slightly low; USDA whole coriander seed = 5.4g/tbsp, but in practice 15ml × 0.4 g/ml = 6g.",
+          "suggested_fix": "Change to approximate_grams=6. Minor refinement."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'whole coriander seeds' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "red chilli powder",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'red chilli powder' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "garam masala",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'garam masala powder' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "mustard seeds",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "consistency",
+          "severity": "major",
+          "field": "household_units[0].approximate_grams",
+          "problem": "1 tsp mustard seeds = 2g is ~40% under standard references. USDA whole mustard seed = 3.3g/tsp; McCormick = 3.3g/tsp. Indian rai (smaller than yellow mustard) is similar by volume since the seeds pack densely. The bulk error affects pickle/tempering nutrition computations.",
+          "suggested_fix": "Change to approximate_grams=3.3. Reasoning: USDA/McCormick reference for whole mustard seed."
+        },
+        {
+          "axis": "consistency",
+          "severity": "major",
+          "field": "household_units[1].approximate_grams",
+          "problem": "1 tbsp mustard seeds = 6g is ~40% under. USDA = 11.2g/tbsp whole.",
+          "suggested_fix": "Change to approximate_grams=10. Reasoning: 3 tsp/tbsp × 3.3g/tsp = ~10g."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'whole mustard seeds' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "fenugreek seeds",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "consistency",
+          "severity": "minor",
+          "field": "household_units",
+          "problem": "tsp=3g, tbsp=9g are ~20% under standard (USDA fenugreek seed ~3.7g/tsp, ~11g/tbsp). Methi seeds are dense and hard-packing.",
+          "suggested_fix": "Borderline — current values are defensible (3g/tsp is within range for loose-fill). Change to 3.7g/tsp and 11g/tbsp for USDA alignment, or leave as-is. Pick whichever aligns with your reference convention."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'whole fenugreek seeds' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "asafoetida",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'asafoetida powder' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "bay leaf",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'dried bay leaf' should normalise to 'raw' with 'dried' in typical_form_note (already there).",
+          "suggested_fix": "canonical_form='raw'."
+        },
+        {
+          "axis": "domain",
+          "severity": "minor",
+          "field": "name",
+          "problem": "Indian 'bay leaf' (tej patta) is Cinnamomum tamala — a different species from Mediterranean bay (Laurus nobilis). Same name, different flavor profile and nutrition. If your nutrition DB hits a USDA 'bay leaf' reference (which is Mediterranean), nutrient values will be close but not identical. Not a critical fix but worth noting.",
+          "suggested_fix": "Optional: rename to 'Indian bay leaf' or 'tej patta' for precision. Leave as-is if the nutrition difference is negligible for your use case."
+        }
+      ]
+    },
+    {
+      "name": "dried red chilli",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'whole dried red chilli' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "black pepper",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'whole black pepper' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "ginger",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw ginger' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        },
+        {
+          "axis": "consistency",
+          "severity": "minor",
+          "field": "household_units[2].notes",
+          "problem": "'piece' = 20g 'small ginger root piece' is vague. 'piece' as a unit for ginger is hard to pin down (ginger roots branch unpredictably). Inch and tbsp grated are the usable units.",
+          "suggested_fix": "Borderline — leave or remove the 'piece' unit. If kept, tighten notes to 'small root knob, ~20g'."
+        }
+      ]
+    },
+    {
+      "name": "garlic",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw garlic' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        },
+        {
+          "axis": "consistency",
+          "severity": "minor",
+          "field": "household_units[2].approximate_grams",
+          "problem": "'piece' = 30g 'whole garlic bulb' — Indian garlic bulbs are typically 20-60g; 30g is medium. The unit 'piece' for a whole bulb when 'clove' is also listed could confuse recipe authors. Rename to 'bulb' for clarity.",
+          "suggested_fix": "Rename unit_name from 'piece' to 'bulb' to disambiguate from clove."
+        }
+      ]
+    },
+    {
+      "name": "green chilli",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "major",
+          "field": "name",
+          "problem": "DUPLICATE — this ingredient appeared identically in batch 2. Same name, same canonical_form, same household_units. Either an unintended duplicate in source data, or one batch should drop it. Same pattern as 'green peas' duplicate (batches 1 and 2).",
+          "suggested_fix": "Remove from one of the two batches before saving. Spices batch is arguably the right home since green chilli is more often classified as a spice in Indian recipe ontology than as a vegetable. If keeping here, drop from batch 2."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw green chilli' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "salt",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'table salt' should normalise to 'raw'. The 'table' qualifier vs 'rock salt'/'kala namak'/'sea salt' matters nutritionally for sodium/iodine, but those are separate ingredients if added.",
+          "suggested_fix": "canonical_form='raw'. Keep typical_form_note='measured as seasoning'."
+        }
+      ]
+    },
+    {
+      "name": "sugar",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'granulated sugar' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "dried fenugreek leaves",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'dried fenugreek leaves' should normalise to 'raw' with 'dried' in typical_form_note (already there).",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "ajwain",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'whole ajwain seeds' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "fennel seeds",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'whole fennel seeds' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "curry powder",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'curry powder' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        },
+        {
+          "axis": "domain",
+          "severity": "minor",
+          "field": "name",
+          "problem": "'Curry powder' is a British/colonial blend uncommon in Indian home cooking — Indian recipes typically call for specific masalas (garam masala, sambar masala, chaat masala, kitchen king, etc.) instead. The mustard allergen tag suggests this entry targets Madras-style curry powder. Consider whether this ingredient is genuinely used by your Indian-first recipe database, or whether it's better replaced by the specific masalas.",
+          "suggested_fix": "Optional: remove if not actually referenced by any planned recipes. Otherwise leave with current mustard allergen tag (correct for Madras blends)."
+        }
+      ]
+    }
+  ]
+}

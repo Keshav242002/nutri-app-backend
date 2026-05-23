@@ -1,0 +1,946 @@
+{
+     "corrected_recipes":[
+      {
+         "name":"Sona masoori rice idli",
+         "name_alt":"Arisi idli",
+         "meal_type":"breakfast",
+         "cuisine":"south_indian",
+         "diet_tags":[
+            "vegan",
+            "vegetarian",
+            "gluten_free",
+            "dairy_free",
+            "nut_free"
+         ],
+         "allergen_tags":[
+            
+         ],
+         "prep_time_min":600,
+         "cook_time_min":15,
+         "servings":4,
+         "estimated_difficulty":"advanced",
+         "spice_level":"mild",
+         "ingredients":[
+            {
+               "ingredient_name":"sona_masoori_rice_raw",
+               "quantity_grams":200.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"soaked for 5 hours"
+            },
+            {
+               "ingredient_name":"urad_dal_raw",
+               "quantity_grams":100.0,
+               "display_quantity":0.5,
+               "display_unit":"cup",
+               "notes":"soaked for 5 hours"
+            },
+            {
+               "ingredient_name":"fenugreek_seeds_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"soaked with urad dal"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":8.0,
+               "display_quantity":1.5,
+               "display_unit":"tsp",
+               "notes":"added after fermentation"
+            }
+         ],
+         "instructions":[
+            "Wash the sona masoori rice and urad dal separately in clean water.",
+            "Soak the washed rice in one bowl, and the urad dal with fenugreek seeds together in another bowl, for five hours.",
+            "Grind the soaked urad dal and fenugreek seeds with minimal cold water until the batter is thick, fluffy, and smooth.",
+            "Grind the soaked sona masoori rice separately with a little water to a slightly grainy consistency.",
+            "Combine the rice and dal batters thoroughly in a large deep container, leaving enough room for the batter to rise.",
+            "Cover the container and let the mixed batter ferment in a warm place for eight to ten hours until it has risen and smells pleasantly sour.",
+            "Add salt to the fermented batter and mix gently without deflating it.",
+            "Pour the batter into greased idli moulds and steam in an idli steamer on medium-high heat for twelve minutes until cooked through."
+         ]
+      },
+      {
+         "name":"Sona masoori rice dosa",
+         "name_alt":"Sada dosa",
+         "meal_type":"breakfast",
+         "cuisine":"south_indian",
+         "diet_tags":[
+            "vegan",
+            "vegetarian",
+            "gluten_free",
+            "dairy_free",
+            "nut_free"
+         ],
+         "allergen_tags":[
+            
+         ],
+         "prep_time_min":600,
+         "cook_time_min":15,
+         "servings":4,
+         "estimated_difficulty":"advanced",
+         "spice_level":"mild",
+         "ingredients":[
+            {
+               "ingredient_name":"sona_masoori_rice_raw",
+               "quantity_grams":200.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"soaked"
+            },
+            {
+               "ingredient_name":"urad_dal_raw",
+               "quantity_grams":100.0,
+               "display_quantity":0.5,
+               "display_unit":"cup",
+               "notes":"soaked"
+            },
+            {
+               "ingredient_name":"fenugreek_seeds_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"soaked with urad dal"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":8.0,
+               "display_quantity":1.5,
+               "display_unit":"tsp",
+               "notes":"added after fermentation"
+            },
+            {
+               "ingredient_name":"groundnut_oil_raw",
+               "quantity_grams":12.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"for cooking dosas"
+            }
+         ],
+         "instructions":[
+            "Rinse and soak the sona masoori rice in one container; soak the urad dal with fenugreek seeds in another for five hours.",
+            "Drain the urad dal and fenugreek and grind them into a perfectly fine, light, and bubbly batter using cold water.",
+            "Grind the soaked rice into a smooth paste using small splashes of cold water.",
+            "Combine both batters in a large container and mix until completely integrated.",
+            "Set the batter aside in a warm spot for eight to ten hours to ferment and rise.",
+            "Stir in the salt gently once the batter is fermented.",
+            "Heat a non-stick or cast-iron tawa over medium heat, lightly grease it with oil, and pour a ladle of batter in the centre.",
+            "Spread the batter in a wide circular motion, drizzle a little oil around the edges, and cook until the underside turns golden and crisp; fold and serve hot."
+         ]
+      },
+      {
+         "name":"Onion uttapam",
+         "name_alt":"Vengaya uthappam",
+         "meal_type":"breakfast",
+         "cuisine":"south_indian",
+         "diet_tags":[
+            "vegan",
+            "vegetarian",
+            "gluten_free",
+            "dairy_free",
+            "nut_free"
+         ],
+         "allergen_tags":[
+            
+         ],
+         "prep_time_min":600,
+         "cook_time_min":15,
+         "servings":4,
+         "estimated_difficulty":"advanced",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"sona_masoori_rice_raw",
+               "quantity_grams":200.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"for batter"
+            },
+            {
+               "ingredient_name":"urad_dal_raw",
+               "quantity_grams":100.0,
+               "display_quantity":0.5,
+               "display_unit":"cup",
+               "notes":"for batter"
+            },
+            {
+               "ingredient_name":"fenugreek_seeds_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"soaked with urad dal"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":150.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"finely chopped topping"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":10.0,
+               "display_quantity":2.0,
+               "display_unit":"piece",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"coriander_leaves_raw",
+               "quantity_grams":4.0,
+               "display_quantity":4.0,
+               "display_unit":"tbsp",
+               "notes":"chopped"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":8.0,
+               "display_quantity":1.5,
+               "display_unit":"tsp",
+               "notes":"in batter"
+            },
+            {
+               "ingredient_name":"groundnut_oil_raw",
+               "quantity_grams":12.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"for cooking"
+            }
+         ],
+         "instructions":[
+            "Soak the rice in one bowl and urad dal with fenugreek seeds in another for five hours, then grind and ferment to a thick uttapam batter for eight to ten hours.",
+            "Stir salt into the fermented batter gently.",
+            "Finely chop the onion, green chillies, and coriander leaves and mix them together in a bowl.",
+            "Heat a cast-iron or non-stick griddle over medium heat and grease lightly with oil.",
+            "Pour a thick ladleful of batter onto the tawa, spreading it only slightly to keep it thick like a pancake.",
+            "Immediately sprinkle a generous handful of the onion-chilli-coriander mixture evenly over the wet batter and press gently with a spatula.",
+            "Drizzle a little oil around the edges, cover the pan, and cook on medium heat until the base is golden and the toppings have softened.",
+            "Flip carefully, cook the topping side for a minute until the onions caramelize lightly, then remove and serve."
+         ]
+      },
+      {
+         "name":"Ven pongal",
+         "name_alt":"Khara pongal",
+         "meal_type":"breakfast",
+         "cuisine":"tamil",
+         "diet_tags":[
+            "vegetarian",
+            "gluten_free"
+         ],
+         "allergen_tags":[
+            "dairy",
+            "tree_nuts"
+         ],
+         "prep_time_min":10,
+         "cook_time_min":25,
+         "servings":2,
+         "estimated_difficulty":"intermediate",
+         "spice_level":"mild",
+         "ingredients":[
+            {
+               "ingredient_name":"sona_masoori_rice_raw",
+               "quantity_grams":128.0,
+               "display_quantity":1.0,
+               "display_unit":"katori",
+               "notes":"raw rice"
+            },
+            {
+               "ingredient_name":"moong_dal_raw",
+               "quantity_grams":64.0,
+               "display_quantity":0.5,
+               "display_unit":"katori",
+               "notes":"split yellow moong"
+            },
+            {
+               "ingredient_name":"curry_leaves_raw",
+               "quantity_grams":2.0,
+               "display_quantity":2.0,
+               "display_unit":"g",
+               "notes":"one sprig, fresh"
+            },
+            {
+               "ingredient_name":"ghee_raw",
+               "quantity_grams":20.0,
+               "display_quantity":4.0,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"cumin_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"black_pepper_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"coarsely crushed whole"
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"cashew_raw",
+               "quantity_grams":10.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"broken"
+            },
+            {
+               "ingredient_name":"asafoetida_raw",
+               "quantity_grams":0.5,
+               "display_quantity":0.25,
+               "display_unit":"tsp",
+               "notes":"hing"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":4.0,
+               "display_quantity":0.75,
+               "display_unit":"tsp",
+               "notes":"to taste"
+            }
+         ],
+         "instructions":[
+            "Dry-roast the moong dal in a pressure cooker on low flame for three minutes until lightly fragrant.",
+            "Add the sona masoori rice to the cooker and rinse both rice and dal together with water, then drain.",
+            "Add four and a half cups of fresh water and salt to the cooker.",
+            "Close the lid and pressure cook for four to five whistles until the rice and dal are completely soft and mushy.",
+            "Once the pressure releases, open the cooker and mash the mixture gently with a ladle.",
+            "Heat the ghee in a small pan, add the cashew pieces and fry until golden.",
+            "Add cumin, coarsely crushed black pepper, chopped ginger, asafoetida, and curry leaves to the ghee and let them splutter.",
+            "Pour the entire tempering over the cooked rice-dal mixture, stir to combine, and serve hot."
+         ]
+      },
+      {
+         "name":"Rava upma",
+         "name_alt":"Suji upma south style",
+         "meal_type":"breakfast",
+         "cuisine":"south_indian",
+         "diet_tags":[
+            "vegetarian"
+         ],
+         "allergen_tags":[
+            "gluten",
+            "dairy",
+            "tree_nuts"
+         ],
+         "prep_time_min":5,
+         "cook_time_min":15,
+         "servings":2,
+         "estimated_difficulty":"beginner",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"semolina_raw",
+               "quantity_grams":95.0,
+               "display_quantity":1.0,
+               "display_unit":"katori",
+               "notes":"dry rava"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":60.0,
+               "display_quantity":6.0,
+               "display_unit":"tbsp",
+               "notes":"chopped"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"slit vertically"
+            },
+            {
+               "ingredient_name":"curry_leaves_raw",
+               "quantity_grams":2.0,
+               "display_quantity":2.0,
+               "display_unit":"g",
+               "notes":"one sprig, fresh"
+            },
+            {
+               "ingredient_name":"ghee_raw",
+               "quantity_grams":12.0,
+               "display_quantity":2.5,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"mustard_seeds_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.25,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"urad_dal_raw",
+               "quantity_grams":3.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"chana_dal_raw",
+               "quantity_grams":3.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":3.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"grated"
+            },
+            {
+               "ingredient_name":"cashew_raw",
+               "quantity_grams":8.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"broken"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":4.0,
+               "display_quantity":0.75,
+               "display_unit":"tsp",
+               "notes":"to taste"
+            }
+         ],
+         "instructions":[
+            "Roast the semolina in a dry pan over medium-low flame until it becomes hot and fragrant, then transfer to a plate.",
+            "Heat ghee in the same pan and fry the cashews until light golden, then push to one side.",
+            "Add mustard seeds and let them crackle, then add urad dal and chana dal and saute until lightly golden.",
+            "Add curry leaves, grated ginger, slit green chilli, and chopped onion; saute until the onion turns translucent.",
+            "Pour in three katori of water, add salt, and bring it to a rolling boil.",
+            "Lower the heat and gradually add the roasted semolina while stirring constantly to prevent lumps.",
+            "Cover the pan and let it simmer for three minutes until all the water is absorbed.",
+            "Turn off the heat, fluff the upma gently, and serve hot."
+         ]
+      },
+      {
+         "name":"Tomato uttapam",
+         "name_alt":"Thakkali uthappam",
+         "meal_type":"breakfast",
+         "cuisine":"south_indian",
+         "diet_tags":[
+            "vegan",
+            "vegetarian",
+            "gluten_free",
+            "dairy_free",
+            "nut_free"
+         ],
+         "allergen_tags":[
+            
+         ],
+         "prep_time_min":600,
+         "cook_time_min":15,
+         "servings":4,
+         "estimated_difficulty":"advanced",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"sona_masoori_rice_raw",
+               "quantity_grams":200.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"for batter"
+            },
+            {
+               "ingredient_name":"urad_dal_raw",
+               "quantity_grams":100.0,
+               "display_quantity":0.5,
+               "display_unit":"cup",
+               "notes":"for batter"
+            },
+            {
+               "ingredient_name":"fenugreek_seeds_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"soaked with urad dal"
+            },
+            {
+               "ingredient_name":"tomato_raw",
+               "quantity_grams":180.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"coriander_leaves_raw",
+               "quantity_grams":2.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":"chopped"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":8.0,
+               "display_quantity":1.5,
+               "display_unit":"tsp",
+               "notes":"in batter"
+            },
+            {
+               "ingredient_name":"groundnut_oil_raw",
+               "quantity_grams":12.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"for cooking"
+            }
+         ],
+         "instructions":[
+            "Soak the rice in one bowl and the urad dal with fenugreek seeds in another for five hours, then grind and ferment to a thick uttapam batter for eight to ten hours.",
+            "Mix salt into the fermented batter gently.",
+            "Finely chop the tomatoes, green chilli, and coriander leaves and combine in a bowl.",
+            "Preheat a dosa tawa on medium flame and grease lightly with oil.",
+            "Pour a thick ladleful of batter onto the hot tawa without spreading it thin.",
+            "Spread a layer of the tomato mixture evenly on top and press lightly with a spatula.",
+            "Drizzle a little oil around the edges, cover the pan, and cook until the underside is golden brown.",
+            "Flip carefully, cook the topping side for a minute until tomatoes soften and caramelize, then remove and serve."
+         ]
+      },
+      {
+         "name":"Poha upma",
+         "name_alt":"Aval upma",
+         "meal_type":"breakfast",
+         "cuisine":"tamil",
+         "diet_tags":[
+            "vegetarian",
+            "gluten_free"
+         ],
+         "allergen_tags":[
+            "dairy"
+         ],
+         "prep_time_min":10,
+         "cook_time_min":10,
+         "servings":2,
+         "estimated_difficulty":"beginner",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"flattened_rice_raw",
+               "quantity_grams":110.0,
+               "display_quantity":2.0,
+               "display_unit":"cup",
+               "notes":"thick variety, washed and drained"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":75.0,
+               "display_quantity":0.5,
+               "display_unit":"cup",
+               "notes":"chopped"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"chopped"
+            },
+            {
+               "ingredient_name":"curry_leaves_raw",
+               "quantity_grams":2.0,
+               "display_quantity":2.0,
+               "display_unit":"g",
+               "notes":"one sprig, fresh"
+            },
+            {
+               "ingredient_name":"ghee_raw",
+               "quantity_grams":10.0,
+               "display_quantity":2.0,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"mustard_seeds_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.25,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"urad_dal_raw",
+               "quantity_grams":3.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"chana_dal_raw",
+               "quantity_grams":3.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":0.5,
+               "display_quantity":0.25,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":4.0,
+               "display_quantity":0.75,
+               "display_unit":"tsp",
+               "notes":"to taste"
+            }
+         ],
+         "instructions":[
+            "Place the flattened rice in a colander, rinse briefly under water, drain thoroughly, and set aside to soften.",
+            "Heat ghee in a pan and add mustard seeds; let them crackle.",
+            "Add urad dal and chana dal and saute until lightly golden.",
+            "Add curry leaves, chopped green chilli, and chopped onion; saute until the onion softens.",
+            "Stir in turmeric powder and salt.",
+            "Gently fluff the softened flattened rice with your fingers and add it to the pan, tossing carefully to combine without mashing.",
+            "Cover the pan and heat through on low flame for two to three minutes.",
+            "Remove the lid, stir gently, and serve immediately."
+         ]
+      },
+      {
+         "name":"Vegetable uttapam",
+         "name_alt":"Kari uthappam style",
+         "meal_type":"breakfast",
+         "cuisine":"south_indian",
+         "diet_tags":[
+            "vegan",
+            "vegetarian",
+            "gluten_free",
+            "dairy_free",
+            "nut_free"
+         ],
+         "allergen_tags":[
+            
+         ],
+         "prep_time_min":600,
+         "cook_time_min":15,
+         "servings":4,
+         "estimated_difficulty":"advanced",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"sona_masoori_rice_raw",
+               "quantity_grams":200.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"for batter"
+            },
+            {
+               "ingredient_name":"urad_dal_raw",
+               "quantity_grams":100.0,
+               "display_quantity":0.5,
+               "display_unit":"cup",
+               "notes":"for batter"
+            },
+            {
+               "ingredient_name":"fenugreek_seeds_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"soaked with urad dal"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":50.0,
+               "display_quantity":5.0,
+               "display_unit":"tbsp",
+               "notes":"chopped"
+            },
+            {
+               "ingredient_name":"carrot_raw",
+               "quantity_grams":64.0,
+               "display_quantity":0.5,
+               "display_unit":"cup",
+               "notes":"finely grated"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"chopped"
+            },
+            {
+               "ingredient_name":"coriander_leaves_raw",
+               "quantity_grams":2.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":"chopped"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":8.0,
+               "display_quantity":1.5,
+               "display_unit":"tsp",
+               "notes":"in batter"
+            },
+            {
+               "ingredient_name":"groundnut_oil_raw",
+               "quantity_grams":12.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"for cooking"
+            }
+         ],
+         "instructions":[
+            "Soak the rice in one bowl and the urad dal with fenugreek seeds in another for five hours, then grind and ferment to a thick uttapam batter for eight to ten hours.",
+            "Stir salt into the fermented batter gently.",
+            "Chop the onion, green chilli, and coriander leaves; grate the carrot finely.",
+            "Mix all the chopped and grated vegetables together in a bowl.",
+            "Heat a non-stick tawa over medium heat, grease it lightly, and ladle a generous amount of batter to form a thick disc.",
+            "Sprinkle the vegetable mixture generously across the top surface and press gently with a spatula to embed them into the batter.",
+            "Drizzle oil around the edges, cover the pan, and cook until the base turns golden brown.",
+            "Flip carefully, cook the vegetable side for a minute, then remove and serve."
+         ]
+      },
+      {
+         "name":"Millet upma",
+         "name_alt":"Kuthiraivali upma",
+         "meal_type":"breakfast",
+         "cuisine":"tamil",
+         "diet_tags":[
+            "vegetarian",
+            "gluten_free"
+         ],
+         "allergen_tags":[
+            "dairy",
+            "tree_nuts"
+         ],
+         "prep_time_min":10,
+         "cook_time_min":20,
+         "servings":2,
+         "estimated_difficulty":"intermediate",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"barnyard_millet_raw",
+               "quantity_grams":130.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"washed"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":75.0,
+               "display_quantity":0.5,
+               "display_unit":"cup",
+               "notes":"chopped"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"chopped"
+            },
+            {
+               "ingredient_name":"curry_leaves_raw",
+               "quantity_grams":2.0,
+               "display_quantity":2.0,
+               "display_unit":"g",
+               "notes":"one sprig, fresh"
+            },
+            {
+               "ingredient_name":"ghee_raw",
+               "quantity_grams":10.0,
+               "display_quantity":2.0,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"mustard_seeds_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.25,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"urad_dal_raw",
+               "quantity_grams":3.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"chana_dal_raw",
+               "quantity_grams":3.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":3.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"grated"
+            },
+            {
+               "ingredient_name":"cashew_raw",
+               "quantity_grams":6.0,
+               "display_quantity":2.0,
+               "display_unit":"tsp",
+               "notes":"broken"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":4.0,
+               "display_quantity":0.75,
+               "display_unit":"tsp",
+               "notes":"to taste"
+            }
+         ],
+         "instructions":[
+            "Rinse the barnyard millet thoroughly under running water and drain completely.",
+            "Heat the ghee in a saucepan and fry the cashews until light golden, then push to one side.",
+            "Add mustard seeds and let them crackle, then add urad dal and chana dal and saute until light golden.",
+            "Add curry leaves, grated ginger, chopped green chilli, and chopped onion; saute until the onion turns translucent.",
+            "Add the drained barnyard millet and stir for a minute.",
+            "Pour in two and a half cups of water, add salt, and bring to a rolling boil.",
+            "Turn the heat to low, cover the pan, and simmer for twelve to fifteen minutes until the water is absorbed and the millet is fluffy.",
+            "Remove from heat, let it sit covered for two minutes, then fluff and serve."
+         ]
+      },
+      {
+         "name":"Vegetable rava upma",
+         "name_alt":"Vegetable upma",
+         "meal_type":"breakfast",
+         "cuisine":"south_indian",
+         "diet_tags":[
+            "vegetarian"
+         ],
+         "allergen_tags":[
+            "gluten",
+            "dairy",
+            "tree_nuts"
+         ],
+         "prep_time_min":10,
+         "cook_time_min":15,
+         "servings":2,
+         "estimated_difficulty":"intermediate",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"semolina_raw",
+               "quantity_grams":95.0,
+               "display_quantity":1.0,
+               "display_unit":"katori",
+               "notes":"dry rava"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":50.0,
+               "display_quantity":5.0,
+               "display_unit":"tbsp",
+               "notes":"chopped"
+            },
+            {
+               "ingredient_name":"carrot_raw",
+               "quantity_grams":64.0,
+               "display_quantity":0.5,
+               "display_unit":"cup",
+               "notes":"chopped small"
+            },
+            {
+               "ingredient_name":"french_beans_raw",
+               "quantity_grams":50.0,
+               "display_quantity":0.5,
+               "display_unit":"cup",
+               "notes":"chopped fine"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"chopped"
+            },
+            {
+               "ingredient_name":"curry_leaves_raw",
+               "quantity_grams":2.0,
+               "display_quantity":2.0,
+               "display_unit":"g",
+               "notes":"one sprig, fresh"
+            },
+            {
+               "ingredient_name":"ghee_raw",
+               "quantity_grams":12.0,
+               "display_quantity":2.5,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"mustard_seeds_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.25,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"urad_dal_raw",
+               "quantity_grams":3.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"chana_dal_raw",
+               "quantity_grams":3.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":3.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"grated"
+            },
+            {
+               "ingredient_name":"cashew_raw",
+               "quantity_grams":8.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"broken"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":4.0,
+               "display_quantity":0.75,
+               "display_unit":"tsp",
+               "notes":"to taste"
+            }
+         ],
+         "instructions":[
+            "Dry-roast the semolina until lightly toasted and fragrant, then set aside on a plate.",
+            "Heat the ghee in the same pan and fry the cashews until golden, then push to one side.",
+            "Add mustard seeds and let them crackle, then add urad dal and chana dal and saute until lightly golden.",
+            "Add curry leaves, grated ginger, chopped green chilli, chopped onion, carrot, and french beans; saute on medium flame until the vegetables are slightly tender.",
+            "Pour in three katori of water, add salt, and bring it to a rolling boil.",
+            "Gradually pour in the roasted semolina while stirring quickly to prevent lumps from forming.",
+            "Reduce heat to low, cover with a lid, and cook for three to four minutes until the water is absorbed.",
+            "Uncover, fluff the upma gently from the bottom of the pan, and serve hot."
+         ]
+      }
+   ]
+}

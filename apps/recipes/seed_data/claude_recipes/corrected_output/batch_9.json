@@ -1,0 +1,618 @@
+{
+     "corrected_recipes":[
+      {
+         "name":"Dal Makhani",
+         "name_alt":"Punjabi Black Dal",
+         "meal_type":"lunch",
+         "cuisine":"punjabi",
+         "diet_tags":[
+            "vegetarian",
+            "gluten_free",
+            "high_protein"
+         ],
+         "allergen_tags":[
+            "dairy"
+         ],
+         "prep_time_min":480,
+         "cook_time_min":60,
+         "servings":4,
+         "estimated_difficulty":"advanced",
+         "spice_level":"mild",
+         "ingredients":[
+            {
+               "ingredient_name":"whole_urad_raw",
+               "quantity_grams":150.0,
+               "display_quantity":0.75,
+               "display_unit":"cup",
+               "notes":"soaked overnight"
+            },
+            {
+               "ingredient_name":"rajma_raw",
+               "quantity_grams":30.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":"soaked overnight"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":60.0,
+               "display_quantity":0.5,
+               "display_unit":"piece",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"tomato_raw",
+               "quantity_grams":180.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"pureed"
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":10.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"1 inch, grated or minced"
+            },
+            {
+               "ingredient_name":"garlic_raw",
+               "quantity_grams":10.0,
+               "display_quantity":3.0,
+               "display_unit":"piece",
+               "notes":"3 cloves, minced"
+            },
+            {
+               "ingredient_name":"butter_raw",
+               "quantity_grams":30.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"fresh_cream_raw",
+               "quantity_grams":30.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"cumin_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"red_chilli_powder_raw",
+               "quantity_grams":4.0,
+               "display_quantity":1.5,
+               "display_unit":"tsp",
+               "notes":"preferably Kashmiri"
+            },
+            {
+               "ingredient_name":"garam_masala_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"kasuri_methi_raw",
+               "quantity_grams":1.5,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"crushed"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            }
+         ],
+         "instructions":[
+            "Drain the soaked whole urad and rajma. Pressure cook with 4 cups of water and half a teaspoon of salt for 6-8 whistles until very soft and mushy.",
+            "Lightly mash the cooked lentils against the side of the cooker with a spoon.",
+            "Heat butter in a heavy-bottomed pot over medium heat.",
+            "Add cumin seeds and let them splutter. Add minced ginger and garlic, sautéing until aromatic.",
+            "Add finely chopped onions and cook until they turn golden brown.",
+            "Pour in the tomato puree along with red chilli powder. Cook until the butter separates from the masala.",
+            "Transfer the mashed dal along with its cooking liquid into the pot.",
+            "Mix well and let it simmer on low heat for at least 30 to 45 minutes. The longer it simmers, the creamier it gets. Add warm water if it thickens too much.",
+            "Stir in garam masala, crushed dried fenugreek leaves (kasuri methi), and fresh cream.",
+            "Simmer for another 5 minutes. Serve hot with naan or jeera rice."
+         ]
+      },
+      {
+         "name":"Kadai Paneer",
+         "name_alt":"Spicy Bell Pepper Paneer",
+         "meal_type":"lunch",
+         "cuisine":"punjabi",
+         "diet_tags":[
+            "vegetarian",
+            "gluten_free",
+            "high_protein",
+            "low_carb"
+         ],
+         "allergen_tags":[
+            "dairy"
+         ],
+         "prep_time_min":15,
+         "cook_time_min":25,
+         "servings":4,
+         "estimated_difficulty":"intermediate",
+         "spice_level":"hot",
+         "ingredients":[
+            {
+               "ingredient_name":"paneer_raw",
+               "quantity_grams":250.0,
+               "display_quantity":250.0,
+               "display_unit":"g",
+               "notes":"cut into thick cubes"
+            },
+            {
+               "ingredient_name":"capsicum_raw",
+               "quantity_grams":120.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"diced into large squares"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":110.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"diced, layers separated"
+            },
+            {
+               "ingredient_name":"tomato_raw",
+               "quantity_grams":180.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"pureed or very finely chopped"
+            },
+            {
+               "ingredient_name":"coriander_seeds_raw",
+               "quantity_grams":6.0,
+               "display_quantity":2.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"dried_red_chilli_raw",
+               "quantity_grams":3.0,
+               "display_quantity":3.0,
+               "display_unit":"piece",
+               "notes":""
+            },
+            {
+               "ingredient_name":"cumin_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":10.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"1 inch, julienned"
+            },
+            {
+               "ingredient_name":"garlic_raw",
+               "quantity_grams":10.0,
+               "display_quantity":3.0,
+               "display_unit":"piece",
+               "notes":"3 cloves, minced"
+            },
+            {
+               "ingredient_name":"sunflower_oil_raw",
+               "quantity_grams":30.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"garam_masala_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"kasuri_methi_raw",
+               "quantity_grams":1.5,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"crushed"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            }
+         ],
+         "instructions":[
+            "In a dry pan, roast coriander seeds, dried red chillies, and cumin until fragrant. Let them cool, then grind into a coarse powder (Kadai Masala).",
+            "Heat 1 tablespoon of oil in a pan or kadai. Add the diced onion and capsicum squares. Sauté on high heat for 3-4 minutes until they have slight blister marks but remain crunchy. Remove and set aside.",
+            "In the same pan, heat the remaining oil. Add minced garlic and ginger, sautéing for a minute.",
+            "Add the tomato puree and cook until the oil starts separating from the edges.",
+            "Mix in turmeric powder, salt, and 2 tablespoons of the freshly ground Kadai Masala. Cook for another 2 minutes.",
+            "Add half a cup of water to create a thick gravy base.",
+            "Gently slide in the paneer cubes, sautéed onions, and capsicum.",
+            "Toss well so the masala coats everything. Simmer for 3-4 minutes on low heat.",
+            "Sprinkle garam masala and crushed dried fenugreek leaves on top. Serve immediately with hot roti or paratha."
+         ]
+      },
+      {
+         "name":"Amritsari Chole",
+         "name_alt":"Punjabi Pindi Chana",
+         "meal_type":"lunch",
+         "cuisine":"punjabi",
+         "diet_tags":[
+            "vegan",
+            "vegetarian",
+            "gluten_free",
+            "high_protein"
+         ],
+         "allergen_tags":[
+            
+         ],
+         "prep_time_min":480,
+         "cook_time_min":40,
+         "servings":4,
+         "estimated_difficulty":"advanced",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"kabuli_chana_raw",
+               "quantity_grams":150.0,
+               "display_quantity":150.0,
+               "display_unit":"g",
+               "notes":"soaked overnight"
+            },
+            {
+               "ingredient_name":"tea_leaves_raw",
+               "quantity_grams":4.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"tied in a muslin cloth pouch"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":110.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"ground to a paste"
+            },
+            {
+               "ingredient_name":"tomato_raw",
+               "quantity_grams":180.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"pureed"
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":10.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"1 inch, paste"
+            },
+            {
+               "ingredient_name":"garlic_raw",
+               "quantity_grams":10.0,
+               "display_quantity":3.0,
+               "display_unit":"piece",
+               "notes":"3 cloves, paste"
+            },
+            {
+               "ingredient_name":"sunflower_oil_raw",
+               "quantity_grams":30.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"cumin_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"coriander_seeds_raw",
+               "quantity_grams":4.0,
+               "display_quantity":1.5,
+               "display_unit":"tsp",
+               "notes":"powdered"
+            },
+            {
+               "ingredient_name":"amchur_powder_raw",
+               "quantity_grams":4.0,
+               "display_quantity":1.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"red_chilli_powder_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"garam_masala_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            }
+         ],
+         "instructions":[
+            "In a pressure cooker, add soaked kabuli chana, salt, the tied tea leaves pouch, and 3 cups of water.",
+            "Pressure cook for 5-6 whistles until the chickpeas are very tender. Discard the tea pouch and reserve the dark water.",
+            "Heat oil in a heavy kadai. Add cumin seeds and let them crackle.",
+            "Add the onion paste and fry until it turns dark brown and oil separates.",
+            "Add ginger-garlic paste and sauté for another 2 minutes until the raw smell goes away.",
+            "Stir in the tomato puree and cook until the masala thickens and leaves oil on the sides.",
+            "Add coriander powder, red chilli powder, amchur powder, and garam masala. Mix well and roast the spices for a minute.",
+            "Add the boiled chickpeas along with the dark reserved water.",
+            "Simmer on medium-low heat for 15-20 minutes, lightly mashing some chickpeas against the pan to thicken the gravy.",
+            "Serve hot with bhatura, kulcha, or jeera rice."
+         ]
+      },
+      {
+         "name":"Punjabi Kadhi Pakora",
+         "name_alt":"Gram Flour Dumplings in Yogurt Curry",
+         "meal_type":"lunch",
+         "cuisine":"punjabi",
+         "diet_tags":[
+            "vegetarian",
+            "gluten_free"
+         ],
+         "allergen_tags":[
+            "dairy",
+            "mustard"
+         ],
+         "prep_time_min":20,
+         "cook_time_min":40,
+         "servings":4,
+         "estimated_difficulty":"advanced",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"curd_raw",
+               "quantity_grams":250.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"sour curd, whisked well"
+            },
+            {
+               "ingredient_name":"besan_raw",
+               "quantity_grams":90.0,
+               "display_quantity":0.75,
+               "display_unit":"cup",
+               "notes":"30g for kadhi, 60g for pakoras"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":60.0,
+               "display_quantity":0.5,
+               "display_unit":"piece",
+               "notes":"thinly sliced for pakoras"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"finely chopped for pakoras"
+            },
+            {
+               "ingredient_name":"mustard_oil_raw",
+               "quantity_grams":60.0,
+               "display_quantity":4.0,
+               "display_unit":"tbsp",
+               "notes":"for deep frying pakoras"
+            },
+            {
+               "ingredient_name":"ghee_raw",
+               "quantity_grams":15.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"red_chilli_powder_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"cumin_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"mustard_seeds_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"fenugreek_seeds_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.25,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"dried_red_chilli_raw",
+               "quantity_grams":2.0,
+               "display_quantity":2.0,
+               "display_unit":"piece",
+               "notes":"whole"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":7.0,
+               "display_quantity":1.5,
+               "display_unit":"tsp",
+               "notes":"divided"
+            }
+         ],
+         "instructions":[
+            "In a large bowl, whisk sour curd with 30g besan, turmeric powder, half the red chilli powder, and half the salt until smooth. Add 3-4 cups of water and mix well.",
+            "Pour the kadhi mixture into a heavy pot and bring it to a boil on medium heat, stirring continuously to prevent curdling.",
+            "Once boiling, lower the heat and let it simmer for 25-30 minutes, stirring occasionally until the raw taste of besan goes away.",
+            "To make pakoras, combine the remaining 60g besan with sliced onions, chopped green chilli, a pinch of salt, and a little water to make a thick dropping consistency batter.",
+            "Heat mustard oil in a small kadai until smoking. Drop small spoonfuls of the batter into the hot oil and fry until golden brown and crisp. Remove and drain.",
+            "Gently slide the fried pakoras into the simmering kadhi. Simmer for 5 more minutes so the pakoras soften slightly.",
+            "For the tempering, heat ghee in a small pan. Add mustard seeds, cumin seeds, and fenugreek seeds.",
+            "When they splutter, add the dried red chillies and the remaining red chilli powder. Immediately turn off the heat to avoid burning.",
+            "Pour the hot tempering over the kadhi pakora. Serve steaming hot with jeera rice."
+         ]
+      },
+      {
+         "name":"Aloo Paratha",
+         "name_alt":"Punjabi Stuffed Potato Flatbread",
+         "meal_type":"lunch",
+         "cuisine":"punjabi",
+         "diet_tags":[
+            "vegetarian"
+         ],
+         "allergen_tags":[
+            "gluten",
+            "dairy"
+         ],
+         "prep_time_min":20,
+         "cook_time_min":25,
+         "servings":4,
+         "estimated_difficulty":"intermediate",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"whole_wheat_flour_raw",
+               "quantity_grams":240.0,
+               "display_quantity":2.0,
+               "display_unit":"cup",
+               "notes":"plus extra for dusting"
+            },
+            {
+               "ingredient_name":"potato_raw",
+               "quantity_grams":300.0,
+               "display_quantity":2.0,
+               "display_unit":"piece",
+               "notes":"boiled, peeled, and completely cooled"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":60.0,
+               "display_quantity":0.5,
+               "display_unit":"piece",
+               "notes":"very finely chopped"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"finely minced"
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"1 inch, finely grated"
+            },
+            {
+               "ingredient_name":"coriander_leaves_raw",
+               "quantity_grams":10.0,
+               "display_quantity":3.0,
+               "display_unit":"tbsp",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"red_chilli_powder_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"garam_masala_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"amchur_powder_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"divided (for dough and filling)"
+            },
+            {
+               "ingredient_name":"ghee_raw",
+               "quantity_grams":30.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":"for roasting"
+            }
+         ],
+         "instructions":[
+            "In a large bowl, mix whole wheat flour with half a teaspoon of salt. Gradually add water to knead a soft, smooth dough. Cover and let it rest for 15 minutes.",
+            "Mash the boiled potatoes thoroughly so there are no lumps.",
+            "Mix the mashed potatoes with chopped onions, green chilli, ginger, coriander leaves, red chilli powder, garam masala, amchur powder, and the remaining salt.",
+            "Divide the rested dough into 4-6 equal balls.",
+            "Take a dough ball, dust with dry flour, and roll it out into a 4-inch circle.",
+            "Place a generous portion of the potato filling in the center.",
+            "Bring the edges of the dough together over the filling and pinch to seal completely.",
+            "Flatten slightly, dust with dry flour, and gently roll out into an 8-inch paratha, being careful not to let the filling spill out.",
+            "Heat a tawa (griddle) on medium heat. Place the rolled paratha on it.",
+            "Cook until slight brown spots appear on the bottom, then flip. Apply half a teaspoon of ghee over the surface.",
+            "Flip again, apply ghee to the other side, and press gently with a spatula until both sides are golden and crispy.",
+            "Serve hot with a dollop of white butter, pickle, and thick curd."
+         ]
+      }
+   ]
+}

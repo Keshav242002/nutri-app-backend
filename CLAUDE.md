@@ -84,9 +84,9 @@ This is the loop. Every module follows it. No exceptions.
 
 > **Update this section at Step 5 of every module.**
 
-- **Active module:** `M3_recipes`
-- **Last completed module:** `M2_profiles` (2026-05-20)
-- **Build order:** M0 ✅ → M1 ✅ → M2 → M3 → M4 → M5 → M6 → M7 → M8
+- **Active module:** `M4_mealplans`
+- **Last completed module:** `M3_recipes` (2026-05-24)
+- **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 → M5 → M6 → M7 → M8
 - **Repo path:** `nutri-app-backend/`
 - **Python version:** 3.12.13 (managed by `uv`, venv at `.venv/`)
 - **Package manager:** `uv` 0.11.2
@@ -598,6 +598,8 @@ feat(M<n>): <module name> — <one-line summary>
 - 2026-05-21 — Locked M5 tracker UX: two log modes. (1) Mark planned/substituted recipe as eaten with fractional `servings_eaten` in 0.25 increments. (2) Custom entry with mandatory free-text description + mandatory calories + optional macros. `status` enum: `planned` / `ate_planned` / `ate_substituted` / `ate_custom` / `skipped`. (spec patch)
 - 2026-05-23 — Cuisine vocab unification: M3 recipe cuisine field uses same controlled vocab as M2 profile cuisine fields (north_indian, south_indian, east_indian, west_indian, punjabi, gujarati, maharashtrian, bengali, tamil, kerala, andhra, rajasthani, goan, sindhi, continental, chinese_indo, pan_asian). Old `south_indian_tamil` and `south_indian_kerala` values removed from spec — superseded by `tamil` and `kerala` in M2. (spec patch)
 - 2026-05-23 — Phase 6 USDA fetch corrected 7 FDC IDs in ingredient_mapping.csv (the manual Phase 3 verification matched USDA descriptions but missed that several IDs pointed to wrong variants — e.g., skim yogurt vs whole milk yogurt). USDA fetch script is now authoritative for nutrition values; CSV is authoritative for provenance metadata. Discrepancies caught during fetch should be propagated back to CSV in the same commit. (process)
+- 2026-05-23 — M3 planning decisions (full plan: `docs/plans/M3_plan.md`): (1) `mustard` added to allergen controlled vocab in Ingredient, Recipe models and PROJECT_SPEC — regulated allergen in EU/Canada, present in seed data; (2) Recipe model gains 4 new fields: `name_alt` (alternate name, included in search), `estimated_difficulty` (beginner/intermediate/advanced, filterable), `spice_level` (mild/medium/hot/very_hot, filterable), `cached_calories_per_serving` (denormalized PositiveIntegerField with B-tree index for M4 engine SQL calorie window); (3) calorie fallback `protein×4 + carbs×4 + fat×9` applied at seed time for IFCT oils with 0 enerc (ghee→900 kcal); 12 weak USDA items stay at zero (trace ingredients); (4) `cost_known` set by `compute_recipe_nutrition()`; cost filter requires `cost_known=True`; (5) `diet_tags` not stored on Ingredient; (6) `cached_nutrition` as JSONField + denormalized `cached_calories_per_serving` both populated by same service call. (M3 plan)
+- 2026-05-24 — M3 (Recipes) committed: 4 models + seed services + `compute_recipe_nutrition` + 2 endpoints (list + detail). Antigravity review caught `full_clean()` ordering issue (fired after `update_or_create` save) and missing `recipe_uses_zero_nutrition_ingredient` log event, both fixed before push. All three seed functions now use get-or-build pattern: full_clean() → save(). `_SEED_ONLY_FIELDS` dead code deleted. 196 tests, seed services 92%, nutrition service 100%. (module complete)
 
 ---
 

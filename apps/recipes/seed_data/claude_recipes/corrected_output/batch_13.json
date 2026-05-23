@@ -1,0 +1,666 @@
+ {
+    "corrected_recipes":[
+      {
+         "name":"Andhra Style Spinach Dal",
+         "name_alt":"Palakura Pappu",
+         "meal_type":"dinner",
+         "cuisine":"andhra",
+         "diet_tags":[
+            "vegan",
+            "vegetarian",
+            "dairy_free",
+            "gluten_free",
+            "nut_free",
+            "high_protein"
+         ],
+         "allergen_tags":[
+            "mustard"
+         ],
+         "prep_time_min":15,
+         "cook_time_min":25,
+         "servings":4,
+         "estimated_difficulty":"beginner",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"toor_dal_raw",
+               "quantity_grams":150.0,
+               "display_quantity":0.75,
+               "display_unit":"cup",
+               "notes":"washed and soaked for 20 minutes"
+            },
+            {
+               "ingredient_name":"spinach_raw",
+               "quantity_grams":200.0,
+               "display_quantity":200.0,
+               "display_unit":"g",
+               "notes":"washed and roughly chopped (about 1 bundle)"
+            },
+            {
+               "ingredient_name":"tomato_raw",
+               "quantity_grams":100.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"chopped"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":50.0,
+               "display_quantity":0.5,
+               "display_unit":"piece",
+               "notes":"chopped"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":10.0,
+               "display_quantity":2.0,
+               "display_unit":"piece",
+               "notes":"slit"
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"tamarind_pulp_raw",
+               "quantity_grams":10.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"small lump soaked, mapped from raw tamarind to pulp"
+            },
+            {
+               "ingredient_name":"sunflower_oil_raw",
+               "quantity_grams":14.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"mustard_seeds_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"cumin_raw",
+               "quantity_grams":2.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"dried_red_chilli_raw",
+               "quantity_grams":4.0,
+               "display_quantity":2.0,
+               "display_unit":"piece",
+               "notes":"broken"
+            },
+            {
+               "ingredient_name":"garlic_raw",
+               "quantity_grams":10.0,
+               "display_quantity":10.0,
+               "display_unit":"g",
+               "notes":"3 cloves, crushed"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            }
+         ],
+         "instructions":[
+            "In a pressure cooker, add the soaked toor dal, chopped spinach, tomato, onion, green chillies, turmeric powder, and 2 cups of water.",
+            "Close the lid and pressure cook for 4 whistles on medium heat until the dal and greens are completely soft.",
+            "Let the pressure release naturally. Open the cooker and lightly mash the dal and spinach mixture.",
+            "Mix the tamarind pulp with a little warm water to dissolve, then add to the mashed dal along with salt.",
+            "Simmer the dal mixture on low heat for 5 minutes so the raw tamarind flavor cooks out.",
+            "For the tempering, heat sunflower oil in a small pan. Add mustard seeds and cumin. Let them splutter.",
+            "Add the crushed garlic and dried red chillies, frying for a few seconds until the garlic is fragrant and lightly browned.",
+            "Pour the hot tempering over the simmering dal, mix well, and serve hot with steamed rice."
+         ]
+      },
+      {
+         "name":"Spicy Andhra Chicken Curry",
+         "name_alt":"Kodi Kura",
+         "meal_type":"dinner",
+         "cuisine":"andhra",
+         "diet_tags":[
+            "dairy_free",
+            "gluten_free",
+            "nut_free",
+            "high_protein"
+         ],
+         "allergen_tags":[
+            
+         ],
+         "prep_time_min":15,
+         "cook_time_min":35,
+         "servings":4,
+         "estimated_difficulty":"intermediate",
+         "spice_level":"very_hot",
+         "ingredients":[
+            {
+               "ingredient_name":"chicken_thigh_raw",
+               "quantity_grams":500.0,
+               "display_quantity":500.0,
+               "display_unit":"g",
+               "notes":"bone-in, cut into small pieces"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":200.0,
+               "display_quantity":2.0,
+               "display_unit":"piece",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"tomato_raw",
+               "quantity_grams":100.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"pureed or finely chopped"
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":10.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"paste"
+            },
+            {
+               "ingredient_name":"garlic_raw",
+               "quantity_grams":10.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"paste"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":15.0,
+               "display_quantity":3.0,
+               "display_unit":"piece",
+               "notes":"slit"
+            },
+            {
+               "ingredient_name":"curry_leaves_raw",
+               "quantity_grams":4.0,
+               "display_quantity":4.0,
+               "display_unit":"g",
+               "notes":"2 sprigs"
+            },
+            {
+               "ingredient_name":"red_chilli_powder_raw",
+               "quantity_grams":8.0,
+               "display_quantity":2.0,
+               "display_unit":"tsp",
+               "notes":"Andhra style is very spicy"
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"coriander_seeds_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"roasted and powdered"
+            },
+            {
+               "ingredient_name":"garam_masala_raw",
+               "quantity_grams":4.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"sunflower_oil_raw",
+               "quantity_grams":40.0,
+               "display_quantity":3.0,
+               "display_unit":"tbsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"coriander_leaves_raw",
+               "quantity_grams":10.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":"chopped for garnish"
+            }
+         ],
+         "instructions":[
+            "Marinate the chicken pieces with turmeric powder, half the salt, and a teaspoon of ginger-garlic paste for 15 minutes.",
+            "Heat the sunflower oil in a heavy-bottomed kadai or pan over medium-high heat.",
+            "Add the curry leaves and slit green chillies, letting them crackle for a few seconds to release their heat.",
+            "Add the finely chopped onions and sauté patiently until they turn a deep golden brown.",
+            "Stir in the remaining ginger and garlic paste, cooking for 2 minutes until the raw smell vanishes.",
+            "Add the chopped tomatoes, red chilli powder, and coriander powder. Cook until the oil begins to separate from the masala.",
+            "Add the marinated chicken pieces and sauté on high heat for 5-7 minutes to seal the juices.",
+            "Pour in 1 cup of hot water, cover the pan, and simmer on medium-low heat for 20 minutes until the chicken is tender and fully cooked.",
+            "Stir in the garam masala and remaining salt, simmering for another 3 minutes until the gravy thickens.",
+            "Garnish generously with freshly chopped coriander leaves and serve with white rice or parotta."
+         ]
+      },
+      {
+         "name":"Tamil Style Brinjal Curry",
+         "name_alt":"Ennai Kathirikai Kuzhambu",
+         "meal_type":"dinner",
+         "cuisine":"tamil",
+         "diet_tags":[
+            "vegan",
+            "vegetarian",
+            "dairy_free",
+            "gluten_free",
+            "nut_free"
+         ],
+         "allergen_tags":[
+            "mustard",
+            "sesame"
+         ],
+         "prep_time_min":15,
+         "cook_time_min":30,
+         "servings":4,
+         "estimated_difficulty":"intermediate",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"brinjal_raw",
+               "quantity_grams":400.0,
+               "display_quantity":8.0,
+               "display_unit":"piece",
+               "notes":"small tender purple eggplants"
+            },
+            {
+               "ingredient_name":"tamarind_pulp_raw",
+               "quantity_grams":20.0,
+               "display_quantity":1.5,
+               "display_unit":"tbsp",
+               "notes":"lemon-sized ball mapped to pulp, soaked in 1.5 cups warm water"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":100.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"finely chopped (pearl onions preferred if available)"
+            },
+            {
+               "ingredient_name":"tomato_raw",
+               "quantity_grams":100.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"chopped"
+            },
+            {
+               "ingredient_name":"garlic_raw",
+               "quantity_grams":15.0,
+               "display_quantity":15.0,
+               "display_unit":"g",
+               "notes":"5 cloves, peeled and left whole"
+            },
+            {
+               "ingredient_name":"sesame_oil_raw",
+               "quantity_grams":40.0,
+               "display_quantity":3.0,
+               "display_unit":"tbsp",
+               "notes":"essential for authentic flavor"
+            },
+            {
+               "ingredient_name":"mustard_seeds_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"fenugreek_seeds_raw",
+               "quantity_grams":1.5,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"curry_leaves_raw",
+               "quantity_grams":4.0,
+               "display_quantity":4.0,
+               "display_unit":"g",
+               "notes":"2 sprigs"
+            },
+            {
+               "ingredient_name":"coriander_seeds_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"powdered"
+            },
+            {
+               "ingredient_name":"red_chilli_powder_raw",
+               "quantity_grams":4.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            }
+         ],
+         "instructions":[
+            "Wash the brinjals and make a cross slit from the base without cutting them fully. Soak in salt water to prevent discoloration.",
+            "Mix the tamarind pulp with 1.5 cups warm water to make a thin extract.",
+            "Heat 2 tablespoons of sesame oil in a heavy-bottomed pan. Add the slit brinjals and fry them until the skin blisters and they are half cooked. Remove and set aside.",
+            "In the same pan, add the remaining 1 tablespoon of sesame oil. Add mustard seeds and fenugreek seeds.",
+            "Once the mustard seeds splutter, add the whole garlic cloves and curry leaves, roasting until garlic turns slightly golden.",
+            "Add the finely chopped onions and sauté until translucent.",
+            "Stir in the chopped tomatoes, turmeric powder, red chilli powder, coriander powder, and salt. Cook until the tomatoes are completely mushy.",
+            "Pour the tamarind extract into the pan and bring to a rolling boil.",
+            "Gently drop the fried brinjals back into the boiling gravy. Lower the heat, cover, and simmer for 12-15 minutes.",
+            "Cook until the gravy thickens considerably, the brinjals are tender, and the sesame oil floats to the top. Serve hot with rice."
+         ]
+      },
+      {
+         "name":"Chettinad Egg Curry",
+         "name_alt":"Muttai Kuzhambu",
+         "meal_type":"dinner",
+         "cuisine":"tamil",
+         "diet_tags":[
+            "eggetarian",
+            "dairy_free",
+            "gluten_free",
+            "nut_free",
+            "high_protein"
+         ],
+         "allergen_tags":[
+            "eggs",
+            "mustard"
+         ],
+         "prep_time_min":15,
+         "cook_time_min":25,
+         "servings":4,
+         "estimated_difficulty":"intermediate",
+         "spice_level":"hot",
+         "ingredients":[
+            {
+               "ingredient_name":"egg_whole_raw",
+               "quantity_grams":200.0,
+               "display_quantity":4.0,
+               "display_unit":"piece",
+               "notes":"hard boiled and peeled"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":150.0,
+               "display_quantity":1.5,
+               "display_unit":"piece",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"tomato_raw",
+               "quantity_grams":100.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":10.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"paste"
+            },
+            {
+               "ingredient_name":"garlic_raw",
+               "quantity_grams":10.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"paste"
+            },
+            {
+               "ingredient_name":"fennel_seeds_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"cumin_raw",
+               "quantity_grams":2.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"mustard_seeds_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"black_pepper_raw",
+               "quantity_grams":4.0,
+               "display_quantity":1.5,
+               "display_unit":"tsp",
+               "notes":"freshly crushed"
+            },
+            {
+               "ingredient_name":"red_chilli_powder_raw",
+               "quantity_grams":4.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"coriander_seeds_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"powdered"
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"curry_leaves_raw",
+               "quantity_grams":2.0,
+               "display_quantity":2.0,
+               "display_unit":"g",
+               "notes":"1 sprig"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"sunflower_oil_raw",
+               "quantity_grams":28.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":""
+            }
+         ],
+         "instructions":[
+            "Make shallow vertical slits on the hard-boiled eggs so they can absorb the curry flavors. Set aside.",
+            "Heat the sunflower oil in a pan over medium heat. Add the mustard seeds, fennel seeds, and cumin. Let them splutter.",
+            "Add the curry leaves and finely chopped onions. Sauté until the onions turn golden brown.",
+            "Add the ginger and garlic paste, cooking for 2 minutes until the raw aroma completely disappears.",
+            "Stir in the finely chopped tomatoes and cook until they break down into a mushy paste.",
+            "Lower the heat and add the turmeric powder, red chilli powder, coriander powder, freshly crushed black pepper, and salt. Sauté for 2 minutes until oil separates.",
+            "Pour in 1.5 cups of water to adjust the consistency of the gravy, bringing it to a simmer.",
+            "Gently drop the boiled eggs into the simmering gravy. Cover and cook on low heat for 8-10 minutes so the spices infuse into the eggs.",
+            "Turn off the heat and serve the flavorful Chettinad egg curry with chapati or rice."
+         ]
+      },
+      {
+         "name":"Andhra Tomato Stew",
+         "name_alt":"Tomato Pulusu",
+         "meal_type":"dinner",
+         "cuisine":"andhra",
+         "diet_tags":[
+            "vegan",
+            "vegetarian",
+            "dairy_free",
+            "gluten_free",
+            "nut_free"
+         ],
+         "allergen_tags":[
+            "mustard"
+         ],
+         "prep_time_min":10,
+         "cook_time_min":20,
+         "servings":4,
+         "estimated_difficulty":"beginner",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"tomato_raw",
+               "quantity_grams":400.0,
+               "display_quantity":4.0,
+               "display_unit":"piece",
+               "notes":"roughly chopped"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":100.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"cut into thick slices"
+            },
+            {
+               "ingredient_name":"tamarind_pulp_raw",
+               "quantity_grams":15.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"gooseberry-size raw tamarind mapped to pulp, soaked"
+            },
+            {
+               "ingredient_name":"jaggery_raw",
+               "quantity_grams":15.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"crushed"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":10.0,
+               "display_quantity":2.0,
+               "display_unit":"piece",
+               "notes":"slit"
+            },
+            {
+               "ingredient_name":"mustard_seeds_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"cumin_raw",
+               "quantity_grams":2.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"fenugreek_seeds_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.25,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"dried_red_chilli_raw",
+               "quantity_grams":2.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"broken"
+            },
+            {
+               "ingredient_name":"curry_leaves_raw",
+               "quantity_grams":2.0,
+               "display_quantity":2.0,
+               "display_unit":"g",
+               "notes":"1 sprig"
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"red_chilli_powder_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"sunflower_oil_raw",
+               "quantity_grams":14.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"coriander_leaves_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"tbsp",
+               "notes":"chopped"
+            }
+         ],
+         "instructions":[
+            "Mix the tamarind pulp with 1 cup of water and stir well to make tamarind extract.",
+            "Heat the sunflower oil in a deep pot or kadai over medium heat.",
+            "Add mustard seeds, cumin, fenugreek seeds, and dried red chilli. Let them splutter.",
+            "Add the curry leaves, slit green chillies, and thick onion slices. Sauté for 2-3 minutes until the onions turn slightly pink but retain their crunch.",
+            "Add the chopped tomatoes, turmeric powder, red chilli powder, and salt. Cook until the tomatoes are fully soft and mushy.",
+            "Pour the tamarind extract along with an additional 1 cup of water into the pot.",
+            "Add the crushed jaggery and stir well to balance the tanginess.",
+            "Bring the pulusu to a rolling boil, then lower the heat and simmer for 10 minutes until it slightly thickens. Garnish with coriander leaves and serve with hot rice."
+         ]
+      }
+   ]
+}

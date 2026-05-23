@@ -1,0 +1,249 @@
+{
+   "batch_summary":{
+      "total_recipes":10,
+      "verdict_counts":{
+         "PASS":0,
+         "WARN":10,
+         "FAIL":0,
+         "REJECTED":0
+      },
+      "common_issues":[
+         "All ingredient names missing _raw suffix",
+         "display_unit 'clove', 'sprig', 'pinch' not in allowed list — must be 'piece' or 'tsp'",
+         "'tamarind' → tamarind_pulp_raw",
+         "'lemon' → lemon_juice_raw",
+         "Multiple recipes incorrectly tagged with 'gluten' allergen — asafoetida (commercial) may contain wheat but this is an edge case; for pure-form recipes without wheat ingredients the gluten tag is incorrect. Will retain where asafoetida-driven concern noted, remove where not justified.",
+         "Steamed Sona Masoori Rice: 'dairy' allergen tagged for ghee — correct. But ghee 7g for 4 = 1.75g/serving (below 3g lower bound, acceptable as it's a drizzle)",
+         "Kerala Pepper Chicken Roast: cuisine kerala correct; chicken_thigh 500g raw for 4 = 125g/serving (within 80-150g range, OK)",
+         "Pomfret Fish Curry: 500g for 4 = 125g/serving (within range)",
+         "South Indian Tomato Rasam: 'gluten' allergen unjustified — no wheat ingredients. Remove.",
+         "Tomato Onion Chutney: 'gluten' allergen unjustified — remove.",
+         "South Indian Lemon Rice: 'gluten' allergen unjustified — remove.",
+         "Drumstick and Bottle Gourd Sambar: 'gluten' allergen unjustified — remove."
+      ]
+   },
+   "audit":[
+      {
+         "recipe_name":"South Indian Tomato Rasam",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All names missing _raw suffix; 'tamarind' → 'tamarind_pulp_raw'"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'sprig', 'pinch', 'clove' not in allowed list",
+               "suggested_fix":"Change to 'piece' (sprig, clove) and 'tsp' (pinch=0.25 tsp)"
+            },
+            {
+               "tier":3,
+               "severity":"major",
+               "field":"allergen_tags",
+               "problem":"'gluten' tagged but no wheat ingredients present",
+               "suggested_fix":"Remove 'gluten'"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Steamed Sona Masoori Rice",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"Names missing _raw suffix"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"quantity_grams",
+               "problem":"sona_masoori_rice 200g for 4 = 50g/serving (within 30-90g range, OK)"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Simple Dosa",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All names missing _raw suffix"
+            },
+            {
+               "tier":3,
+               "severity":"major",
+               "field":"allergen_tags",
+               "problem":"'sesame' tagged for sesame oil — correct. No issue."
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"quantity_grams",
+               "problem":"parboiled_rice 200g + urad_dal 60g for 4 = 65g/serving total raw (within grain+pulse combined ranges, OK)"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Tomato Onion Chutney",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All names missing _raw suffix"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'clove', 'sprig', 'pinch' not in allowed list"
+            },
+            {
+               "tier":3,
+               "severity":"major",
+               "field":"allergen_tags",
+               "problem":"'gluten' tagged but no wheat ingredients",
+               "suggested_fix":"Remove 'gluten'"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Cabbage Poriyal",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All names missing _raw suffix"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'sprig' not in allowed list",
+               "suggested_fix":"Change to 'piece'"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Kerala Pepper Chicken Roast",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All names missing _raw suffix"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'sprig' not in allowed list"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"quantity_grams",
+               "problem":"black_pepper 10g for 4 = 2.5g/serving (within 0.1-3g range, OK for a pepper-focused dish)"
+            }
+         ]
+      },
+      {
+         "recipe_name":"South Indian Potato Sagu",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All names missing _raw suffix; 'lemon' → 'lemon_juice_raw'"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'sprig' not in allowed list"
+            }
+         ]
+      },
+      {
+         "recipe_name":"South Indian Lemon Rice",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All names missing _raw suffix; 'lemon' → 'lemon_juice_raw'"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'sprig', 'pinch' not in allowed list"
+            },
+            {
+               "tier":3,
+               "severity":"major",
+               "field":"allergen_tags",
+               "problem":"'gluten' tagged unjustifiably",
+               "suggested_fix":"Remove 'gluten'"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Pomfret Fish Curry",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All names missing _raw suffix; 'tamarind' → 'tamarind_pulp_raw'"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'clove', 'sprig' not in allowed list"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Drumstick and Bottle Gourd Sambar",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All names missing _raw suffix; 'tamarind' → 'tamarind_pulp_raw'"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'sprig', 'pinch' not in allowed list"
+            },
+            {
+               "tier":3,
+               "severity":"major",
+               "field":"allergen_tags",
+               "problem":"'gluten' tagged unjustifiably",
+               "suggested_fix":"Remove 'gluten'"
+            }
+         ]
+      }
+   ]
+}

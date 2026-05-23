@@ -1,0 +1,576 @@
+{
+     "corrected_recipes":[
+      {
+         "name":"Methi thepla",
+         "name_alt":"Fenugreek thepla",
+         "meal_type":"breakfast",
+         "cuisine":"gujarati",
+         "diet_tags":[
+            "vegetarian",
+            "nut_free"
+         ],
+         "allergen_tags":[
+            "gluten",
+            "dairy",
+            "sesame"
+         ],
+         "prep_time_min":15,
+         "cook_time_min":15,
+         "servings":2,
+         "estimated_difficulty":"intermediate",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"whole_wheat_flour_raw",
+               "quantity_grams":120.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"main dough base"
+            },
+            {
+               "ingredient_name":"besan_raw",
+               "quantity_grams":30.0,
+               "display_quantity":3.0,
+               "display_unit":"tbsp",
+               "notes":"binds and adds flavour"
+            },
+            {
+               "ingredient_name":"fenugreek_leaves_raw",
+               "quantity_grams":75.0,
+               "display_quantity":3.0,
+               "display_unit":"cup",
+               "notes":"fresh leaves finely chopped"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"pounded with ginger to paste"
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"grated"
+            },
+            {
+               "ingredient_name":"curd_raw",
+               "quantity_grams":60.0,
+               "display_quantity":4.0,
+               "display_unit":"tbsp",
+               "notes":"helps softness, slight tang"
+            },
+            {
+               "ingredient_name":"sesame_seeds_raw",
+               "quantity_grams":4.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"white til"
+            },
+            {
+               "ingredient_name":"jaggery_raw",
+               "quantity_grams":4.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"grated, gives signature Gujarati sweetness"
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"coriander_seeds_raw",
+               "quantity_grams":2.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"coarsely crushed"
+            },
+            {
+               "ingredient_name":"ajwain_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"groundnut_oil_raw",
+               "quantity_grams":12.0,
+               "display_quantity":2.5,
+               "display_unit":"tsp",
+               "notes":"8g in dough + 4g for cooking"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":4.0,
+               "display_quantity":0.75,
+               "display_unit":"tsp",
+               "notes":"to taste"
+            }
+         ],
+         "instructions":[
+            "Pick and wash the fresh fenugreek leaves thoroughly, then chop them very finely.",
+            "Pound the green chilli and ginger into a smooth paste using a mortar and pestle.",
+            "In a large mixing bowl, combine whole wheat flour, besan, chopped fenugreek leaves, chilli-ginger paste, sesame seeds, grated jaggery, turmeric, crushed coriander seeds, ajwain, and salt.",
+            "Rub the greens and spices into the dry flour with your fingers, then add the curd and 8g of oil and mix.",
+            "Gradually sprinkle small amounts of water and knead firmly into a smooth, soft, and slightly tacky dough; rest for ten minutes.",
+            "Divide the dough into four equal balls.",
+            "Roll each ball out thinly into a uniform circular flatbread using dry flour for dusting.",
+            "Place the thepla on a hot tawa, cook one side until small bubbles form, flip and drizzle a little oil; cook both sides until golden spots appear."
+         ]
+      },
+      {
+         "name":"Kanda poha maharashtrian",
+         "name_alt":"Onion flattened rice",
+         "meal_type":"breakfast",
+         "cuisine":"maharashtrian",
+         "diet_tags":[
+            "vegan",
+            "vegetarian",
+            "gluten_free",
+            "dairy_free"
+         ],
+         "allergen_tags":[
+            "peanuts"
+         ],
+         "prep_time_min":10,
+         "cook_time_min":10,
+         "servings":2,
+         "estimated_difficulty":"beginner",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"flattened_rice_raw",
+               "quantity_grams":110.0,
+               "display_quantity":2.0,
+               "display_unit":"cup",
+               "notes":"medium thickness poha"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":150.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"peeled and finely chopped"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"curry_leaves_raw",
+               "quantity_grams":2.0,
+               "display_quantity":2.0,
+               "display_unit":"g",
+               "notes":"one sprig, fresh"
+            },
+            {
+               "ingredient_name":"coriander_leaves_raw",
+               "quantity_grams":2.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":"finely chopped for garnish"
+            },
+            {
+               "ingredient_name":"groundnut_oil_raw",
+               "quantity_grams":10.0,
+               "display_quantity":2.0,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"mustard_seeds_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.25,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":0.5,
+               "display_quantity":0.25,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"peanut_raw",
+               "quantity_grams":15.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":"roasted, canonical to kanda poha"
+            },
+            {
+               "ingredient_name":"sugar_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"signature pinch"
+            },
+            {
+               "ingredient_name":"lemon_juice_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"to finish"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":4.0,
+               "display_quantity":0.75,
+               "display_unit":"tsp",
+               "notes":"to taste"
+            }
+         ],
+         "instructions":[
+            "Place the flattened rice into a colander, wash it gently under running water, drain completely, and leave to soften.",
+            "Heat groundnut oil in a pan and fry the peanuts until lightly browned and crisp, then push them to one side.",
+            "Add mustard seeds and let them crackle, then add curry leaves and chopped green chilli.",
+            "Add the chopped onion and saute on medium heat until translucent and soft.",
+            "Stir in the turmeric powder, salt, and sugar; cook for thirty seconds.",
+            "Gently fluff the softened flattened rice with your fingers and add it to the pan, tossing carefully from the bottom to coat without breaking the flakes.",
+            "Cover the pan with a tight lid and steam on low heat for three minutes.",
+            "Turn off the heat, finish with lemon juice and chopped coriander leaves, mix gently, and serve."
+         ]
+      },
+      {
+         "name":"Batata poha",
+         "name_alt":"Alu poha",
+         "meal_type":"breakfast",
+         "cuisine":"maharashtrian",
+         "diet_tags":[
+            "vegan",
+            "vegetarian",
+            "gluten_free",
+            "dairy_free"
+         ],
+         "allergen_tags":[
+            "peanuts"
+         ],
+         "prep_time_min":10,
+         "cook_time_min":12,
+         "servings":2,
+         "estimated_difficulty":"beginner",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"flattened_rice_raw",
+               "quantity_grams":110.0,
+               "display_quantity":2.0,
+               "display_unit":"cup",
+               "notes":"washed and drained"
+            },
+            {
+               "ingredient_name":"potato_raw",
+               "quantity_grams":150.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"peeled and diced very small"
+            },
+            {
+               "ingredient_name":"onion_raw",
+               "quantity_grams":75.0,
+               "display_quantity":0.5,
+               "display_unit":"cup",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"curry_leaves_raw",
+               "quantity_grams":2.0,
+               "display_quantity":2.0,
+               "display_unit":"g",
+               "notes":"one sprig, fresh"
+            },
+            {
+               "ingredient_name":"groundnut_oil_raw",
+               "quantity_grams":10.0,
+               "display_quantity":2.0,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"mustard_seeds_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.25,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":0.5,
+               "display_quantity":0.25,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"peanut_raw",
+               "quantity_grams":15.0,
+               "display_quantity":2.0,
+               "display_unit":"tbsp",
+               "notes":"roasted"
+            },
+            {
+               "ingredient_name":"sugar_raw",
+               "quantity_grams":2.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":"signature pinch"
+            },
+            {
+               "ingredient_name":"lemon_juice_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"to finish"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":4.0,
+               "display_quantity":0.75,
+               "display_unit":"tsp",
+               "notes":"to taste"
+            }
+         ],
+         "instructions":[
+            "Rinse the flattened rice in a sieve under running water, drain out all excess water, and set aside to puff up.",
+            "Peel the potato and cut it into very small uniform cubes.",
+            "Heat the oil in a pan and fry the peanuts until lightly browned and crisp, then push to one side.",
+            "Add mustard seeds and let them crackle; add curry leaves and chopped green chilli.",
+            "Add the diced potato cubes, cover and cook on low heat until fork-tender.",
+            "Add the chopped onion and saute until translucent.",
+            "Stir in turmeric powder, salt, and sugar; cook for thirty seconds.",
+            "Fluff the softened flattened rice and add to the pan; toss gently to combine, cover and steam on low for three minutes, then finish with lemon juice and serve."
+         ]
+      },
+      {
+         "name":"Suji dhokla",
+         "name_alt":"Rava dhokla",
+         "meal_type":"breakfast",
+         "cuisine":"gujarati",
+         "diet_tags":[
+            "vegetarian",
+            "nut_free"
+         ],
+         "allergen_tags":[
+            "gluten",
+            "dairy",
+            "sesame"
+         ],
+         "prep_time_min":20,
+         "cook_time_min":20,
+         "servings":3,
+         "estimated_difficulty":"intermediate",
+         "spice_level":"mild",
+         "ingredients":[
+            {
+               "ingredient_name":"semolina_raw",
+               "quantity_grams":160.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"fine rava/suji"
+            },
+            {
+               "ingredient_name":"curd_raw",
+               "quantity_grams":180.0,
+               "display_quantity":0.75,
+               "display_unit":"cup",
+               "notes":"slightly sour, for batter"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":10.0,
+               "display_quantity":2.0,
+               "display_unit":"piece",
+               "notes":"5g crushed into batter paste, 5g slit for tempering"
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"crushed into batter paste"
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"lemon_juice_raw",
+               "quantity_grams":8.0,
+               "display_quantity":1.5,
+               "display_unit":"tsp",
+               "notes":"in batter"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"to taste"
+            },
+            {
+               "ingredient_name":"curry_leaves_raw",
+               "quantity_grams":2.0,
+               "display_quantity":2.0,
+               "display_unit":"g",
+               "notes":"one sprig for tempering"
+            },
+            {
+               "ingredient_name":"groundnut_oil_raw",
+               "quantity_grams":12.0,
+               "display_quantity":2.5,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"mustard_seeds_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.25,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"sesame_seeds_raw",
+               "quantity_grams":3.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"for tempering"
+            },
+            {
+               "ingredient_name":"sugar_raw",
+               "quantity_grams":6.0,
+               "display_quantity":1.5,
+               "display_unit":"tsp",
+               "notes":"dissolved in 3 tbsp warm water for drizzle"
+            }
+         ],
+         "instructions":[
+            "In a deep bowl, whisk the semolina with curd and 60ml water into a smooth, thick yet pourable batter.",
+            "Pound the ginger and 5g of the green chilli into a smooth paste and stir into the batter with turmeric, salt, and lemon juice.",
+            "Cover the bowl and let the batter rest for fifteen minutes so the semolina absorbs the moisture.",
+            "Set up a steamer with water and bring to a boil over medium-high heat.",
+            "Stir the rested batter gently, then pour it into a lightly greased shallow steel steaming plate.",
+            "Place the plate inside the steamer, cover securely, and steam on high heat for twelve to fifteen minutes until a toothpick comes out clean.",
+            "Remove the plate, cool slightly, and cut into squares.",
+            "Heat the groundnut oil in a small pan, splutter mustard seeds, add sesame seeds, slit green chilli, and curry leaves; pour the hot tempering over the dhoklas and drizzle the sugar-water syrup evenly on top before serving."
+         ]
+      },
+      {
+         "name":"Methi paratha west style",
+         "name_alt":"Gujarati methi paratha",
+         "meal_type":"breakfast",
+         "cuisine":"gujarati",
+         "diet_tags":[
+            "vegetarian",
+            "nut_free"
+         ],
+         "allergen_tags":[
+            "gluten",
+            "dairy"
+         ],
+         "prep_time_min":15,
+         "cook_time_min":15,
+         "servings":2,
+         "estimated_difficulty":"intermediate",
+         "spice_level":"medium",
+         "ingredients":[
+            {
+               "ingredient_name":"whole_wheat_flour_raw",
+               "quantity_grams":120.0,
+               "display_quantity":1.0,
+               "display_unit":"cup",
+               "notes":"for dough"
+            },
+            {
+               "ingredient_name":"besan_raw",
+               "quantity_grams":30.0,
+               "display_quantity":3.0,
+               "display_unit":"tbsp",
+               "notes":"Gujarati signature"
+            },
+            {
+               "ingredient_name":"fenugreek_leaves_raw",
+               "quantity_grams":100.0,
+               "display_quantity":4.0,
+               "display_unit":"cup",
+               "notes":"freshly chopped leaves"
+            },
+            {
+               "ingredient_name":"green_chilli_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"piece",
+               "notes":"finely chopped"
+            },
+            {
+               "ingredient_name":"ginger_raw",
+               "quantity_grams":5.0,
+               "display_quantity":1.0,
+               "display_unit":"tsp",
+               "notes":"grated"
+            },
+            {
+               "ingredient_name":"curd_raw",
+               "quantity_grams":40.0,
+               "display_quantity":2.5,
+               "display_unit":"tbsp",
+               "notes":"for soft dough"
+            },
+            {
+               "ingredient_name":"ajwain_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"turmeric_powder_raw",
+               "quantity_grams":1.0,
+               "display_quantity":0.5,
+               "display_unit":"tsp",
+               "notes":""
+            },
+            {
+               "ingredient_name":"groundnut_oil_raw",
+               "quantity_grams":14.0,
+               "display_quantity":3.0,
+               "display_unit":"tsp",
+               "notes":"6g in dough + 8g for cooking"
+            },
+            {
+               "ingredient_name":"salt_raw",
+               "quantity_grams":4.0,
+               "display_quantity":0.75,
+               "display_unit":"tsp",
+               "notes":"to taste"
+            }
+         ],
+         "instructions":[
+            "Clean the fenugreek leaves carefully, wash thoroughly to remove grit, drain, and chop fine.",
+            "Finely chop the green chilli and grate the ginger.",
+            "In a large bowl, combine whole wheat flour, besan, chopped fenugreek leaves, green chilli, grated ginger, ajwain, turmeric, and salt.",
+            "Rub the greens and spices into the flour, then add curd and 6g of oil and mix well.",
+            "Gradually add water and knead into a firm, smooth, slightly tacky dough; rest for ten minutes.",
+            "Divide the dough into two equal balls and roll each out into an even round flatbread using dry flour for dusting.",
+            "Heat a tawa over medium-high heat and place the rolled paratha on it.",
+            "Cook until small bubbles appear, flip and drizzle a little oil around the edges; cook both sides until well browned with golden spots."
+         ]
+      }
+   ]
+}

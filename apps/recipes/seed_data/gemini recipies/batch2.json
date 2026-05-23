@@ -1,0 +1,295 @@
+{
+"recipes": [
+{
+"name": "Sona masoori rice idli",
+"name_alt": "Arisi idli",
+"meal_type": "breakfast",
+"cuisine": "south_indian",
+"diet_tags": ["vegan", "vegetarian", "gluten_free", "dairy_free", "nut_free"],
+"allergen_tags": [],
+"prep_time_min": 600,
+"cook_time_min": 15,
+"servings": 4,
+"estimated_difficulty": "advanced",
+"spice_level": "mild",
+"ingredients": [
+{"ingredient_name": "sona masoori rice", "quantity_grams": 200.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "soaked for 5 hours"},
+{"ingredient_name": "urad dal", "quantity_grams": 100.0, "display_quantity": 0.5, "display_unit": "cup", "notes": "soaked for 5 hours"}
+],
+"instructions": [
+"Wash the sona masoori rice and urad dal separately in clean water.",
+"Soak the washed rice and urad dal in separate bowls of water for five hours.",
+"Grind the soaked urad dal with minimal water until it forms a thick, fluffy, smooth batter.",
+"Grind the soaked sona masoori rice separately with a little water to a slightly grainy consistency.",
+"Combine the rice batter and dal batter thoroughly in a large deep container.",
+"Cover the container and let the mixed batter ferment in a warm place overnight for eight to ten hours.",
+"Gently mix the fermented batter, pour it carefully into greased idli mold cavities.",
+"Steam the idlis in an idli steamer or cooker on medium-high heat for twelve minutes until cooked through."
+]
+},
+{
+"name": "Sona masoori rice dosa",
+"name_alt": "Sada dosa",
+"meal_type": "breakfast",
+"cuisine": "south_indian",
+"diet_tags": ["vegan", "vegetarian", "gluten_free", "dairy_free", "nut_free"],
+"allergen_tags": [],
+"prep_time_min": 600,
+"cook_time_min": 15,
+"servings": 4,
+"estimated_difficulty": "advanced",
+"spice_level": "mild",
+"ingredients": [
+{"ingredient_name": "sona masoori rice", "quantity_grams": 200.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "soaked"},
+{"ingredient_name": "urad dal", "quantity_grams": 100.0, "display_quantity": 0.5, "display_unit": "cup", "notes": "soaked"}
+],
+"instructions": [
+"Rinse and soak the sona masoori rice and urad dal in separate containers for five hours.",
+"Drain the water and grind the urad dal into a perfectly fine, light, and bubbly batter.",
+"Grind the rice into a completely smooth paste using small splashes of cold water.",
+"Mix both prepared batters together in a large container until completely integrated.",
+"Set the batter aside in a warm corner for eight hours to ferment and rise.",
+"Heat a non-stick tawa over medium heat and lightly splash it with water to cool the surface.",
+"Pour a ladle of the fermented batter in the center and spread it in a wide circular motion.",
+"Cook until the edges lift, the underside turns golden-brown, then fold and serve hot."
+]
+},
+{
+"name": "Onion uttapam",
+"name_alt": "Vengaya uthappam",
+"meal_type": "breakfast",
+"cuisine": "south_indian",
+"diet_tags": ["vegan", "vegetarian", "gluten_free", "dairy_free", "nut_free"],
+"allergen_tags": [],
+"prep_time_min": 600,
+"cook_time_min": 15,
+"servings": 4,
+"estimated_difficulty": "advanced",
+"spice_level": "medium",
+"ingredients": [
+{"ingredient_name": "sona masoori rice", "quantity_grams": 200.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "for batter"},
+{"ingredient_name": "urad dal", "quantity_grams": 100.0, "display_quantity": 0.5, "display_unit": "cup", "notes": "for batter"},
+{"ingredient_name": "onion", "quantity_grams": 150.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "finely chopped topping"},
+{"ingredient_name": "green chilli", "quantity_grams": 10.0, "display_quantity": 2.0, "display_unit": "piece", "notes": "finely chopped"},
+{"ingredient_name": "coriander leaves", "quantity_grams": 4.0, "display_quantity": 4.0, "display_unit": "tbsp", "notes": "chopped"}
+],
+"instructions": [
+"Soak, grind, and ferment the sona masoori rice and urad dal to prepare a thick dosa batter.",
+"Finely chop the onion, green chillies, and coriander leaves, mixing them together in a bowl.",
+"Heat a cast-iron or non-stick griddle over medium heat.",
+"Pour a thick ladleful of batter onto the tawa, spreading it out very slightly to keep it thick.",
+"Immediately sprinkle a generous handful of the onion-chilli-coriander mixture evenly over the wet batter.",
+"Gently press the toppings down with a spatula so they stick to the batter.",
+"Flip the uttapam when the base is cooked, and cook the onion side until the onions turn golden.",
+"Flip back to check readiness, and remove from the griddle to serve."
+]
+},
+{
+"name": "Ven pongal",
+"name_alt": "Khara pongal",
+"meal_type": "breakfast",
+"cuisine": "south_indian",
+"diet_tags": ["vegan", "vegetarian", "gluten_free", "dairy_free", "nut_free"],
+"allergen_tags": [],
+"prep_time_min": 10,
+"cook_time_min": 25,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "mild",
+"ingredients": [
+{"ingredient_name": "sona masoori rice", "quantity_grams": 128.0, "display_quantity": 1.0, "display_unit": "katori", "notes": "raw rice"},
+{"ingredient_name": "moong dal", "quantity_grams": 64.0, "display_quantity": 0.5, "display_unit": "katori", "notes": "split yellow moong"},
+{"ingredient_name": "curry leaves", "quantity_grams": 2.0, "display_quantity": 1.0, "display_unit": "sprig", "notes": "fresh leaves"}
+],
+"instructions": [
+"Dry-roast the moong dal in a pressure cooker on low flame for three minutes until lightly fragrant.",
+"Add the sona masoori rice to the cooker and rinse both the rice and dal together with water.",
+"Drain the water completely, then pour four and a half cups of fresh water into the cooker.",
+"Close the lid and pressure cook the mixture for four to five whistles until completely soft and mushy.",
+"Once the pressure drops, open the lid and mash the rice and dal combination gently with a ladle.",
+"In a small pan, dry-sauté the fresh curry leaves for a few seconds to release flavor.",
+"Pour the toasted curry leaves directly into the cooked, mashed rice and dal mixture.",
+"Stir the pongal thoroughly to distribute the flavor evenly before serving hot."
+]
+},
+{
+"name": "Rava upma",
+"name_alt": "Suji upma south style",
+"meal_type": "breakfast",
+"cuisine": "south_indian",
+"diet_tags": ["vegan", "vegetarian", "dairy_free", "nut_free"],
+"allergen_tags": ["gluten"],
+"prep_time_min": 5,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "beginner",
+"spice_level": "medium",
+"ingredients": [
+{"ingredient_name": "semolina", "quantity_grams": 95.0, "display_quantity": 1.0, "display_unit": "katori", "notes": "dry rava"},
+{"ingredient_name": "onion", "quantity_grams": 60.0, "display_quantity": 6.0, "display_unit": "tbsp", "notes": "chopped"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "slit vertically"},
+{"ingredient_name": "curry leaves", "quantity_grams": 2.0, "display_quantity": 1.0, "display_unit": "sprig", "notes": "fresh"}
+],
+"instructions": [
+"Roast the semolina in a dry pan over a medium-low flame until it becomes hot and fragrant.",
+"Chop the onion finely and slit the green chilli lengthwise.",
+"In another pan, dry-sauté the chopped onions and curry leaves until the onions turn translucent.",
+"Add the slit green chilli to the pan and stir for thirty seconds.",
+"Pour three katori of water into the pan and bring it to a boil over medium heat.",
+"Lower the heat to low and gradually add the roasted semolina while stirring constantly with the other hand.",
+"Cover the pan tightly and let it simmer for three minutes until all the water is completely absorbed.",
+"Turn off the heat, mix gently to fluff the upma, and serve hot."
+]
+},
+{
+"name": "Tomato uttapam",
+"name_alt": "Thakkali uthappam",
+"meal_type": "breakfast",
+"cuisine": "south_indian",
+"diet_tags": ["vegan", "vegetarian", "gluten_free", "dairy_free", "nut_free"],
+"allergen_tags": [],
+"prep_time_min": 600,
+"cook_time_min": 15,
+"servings": 4,
+"estimated_difficulty": "advanced",
+"spice_level": "medium",
+"ingredients": [
+{"ingredient_name": "sona masoori rice", "quantity_grams": 200.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "for batter"},
+{"ingredient_name": "urad dal", "quantity_grams": 100.0, "display_quantity": 0.5, "display_unit": "cup", "notes": "for batter"},
+{"ingredient_name": "tomato", "quantity_grams": 180.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "finely chopped"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "finely chopped"},
+{"ingredient_name": "coriander leaves", "quantity_grams": 2.0, "display_quantity": 2.0, "display_unit": "tbsp", "notes": "chopped"}
+],
+"instructions": [
+"Prepare a well-fermented thick batter using soaked sona masoori rice and urad dal.",
+"Finely chop the tomatoes, green chilli, and fresh coriander leaves.",
+"Combine the chopped tomato pieces, green chilli, and coriander leaves in a bowl.",
+"Preheat a dosa tawa on a medium flame and grease it lightly.",
+"Pour a ladle of batter onto the hot tawa without spreading it out too thin.",
+"Spread a layer of the chopped tomato mixture evenly on top of the pancake.",
+"Press down lightly with a spatula, flip, and cook until the tomatoes are slightly softened and caramelized.",
+"Flip back to ensure the base is cooked completely, then lift from the pan."
+]
+},
+{
+"name": "Poha upma",
+"name_alt": "Aval upma",
+"meal_type": "breakfast",
+"cuisine": "south_indian",
+"diet_tags": ["vegan", "vegetarian", "gluten_free", "dairy_free", "nut_free"],
+"allergen_tags": [],
+"prep_time_min": 10,
+"cook_time_min": 10,
+"servings": 2,
+"estimated_difficulty": "beginner",
+"spice_level": "medium",
+"ingredients": [
+{"ingredient_name": "flattened rice", "quantity_grams": 110.0, "display_quantity": 2.0, "display_unit": "cup", "notes": "washed and drained"},
+{"ingredient_name": "onion", "quantity_grams": 75.0, "display_quantity": 0.5, "display_unit": "cup", "notes": "chopped"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "chopped"},
+{"ingredient_name": "curry leaves", "quantity_grams": 2.0, "display_quantity": 1.0, "display_unit": "sprig", "notes": "fresh"}
+],
+"instructions": [
+"Place the flattened rice in a colander, rinse it briefly under water, drain thoroughly, and keep aside to soften.",
+"Finely chop the onion and green chilli.",
+"In a skillet, dry-sauté the chopped onions and curry leaves on medium heat until the onions soften.",
+"Add the chopped green chillies to the pan and sauté for another minute.",
+"Gently fluff the damp, softened flattened rice with your fingers.",
+"Add the flattened rice to the skillet, mixing it gently with the sautéed onions.",
+"Cover the skillet and allow it to heat through on low flame for two to three minutes.",
+"Remove the lid, stir gently one last time, and serve immediately."
+]
+},
+{
+"name": "Vegetable uttapam",
+"name_alt": "Kari uthappam style",
+"meal_type": "breakfast",
+"cuisine": "south_indian",
+"diet_tags": ["vegan", "vegetarian", "gluten_free", "dairy_free", "nut_free"],
+"allergen_tags": [],
+"prep_time_min": 600,
+"cook_time_min": 15,
+"servings": 4,
+"estimated_difficulty": "advanced",
+"spice_level": "medium",
+"ingredients": [
+{"ingredient_name": "sona masoori rice", "quantity_grams": 200.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "for batter"},
+{"ingredient_name": "urad dal", "quantity_grams": 100.0, "display_quantity": 0.5, "display_unit": "cup", "notes": "for batter"},
+{"ingredient_name": "onion", "quantity_grams": 50.0, "display_quantity": 5.0, "display_unit": "tbsp", "notes": "chopped"},
+{"ingredient_name": "carrot", "quantity_grams": 64.0, "display_quantity": 0.5, "display_unit": "cup", "notes": "finely grated"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "chopped"},
+{"ingredient_name": "coriander leaves", "quantity_grams": 2.0, "display_quantity": 2.0, "display_unit": "tbsp", "notes": "chopped"}
+],
+"instructions": [
+"Prepare the standard idli-dosa batter using sona masoori rice and urad dal and ferment it fully.",
+"Chop the onion, green chilli, and coriander leaves, and grate the carrot finely.",
+"Mix all the chopped and grated vegetables together in a bowl.",
+"Heat a non-stick tawa over medium heat and ladle a good amount of batter to form a thick disc.",
+"Sprinkle the vegetable mixture generously across the top surface of the pancake.",
+"Gently press the vegetables with a flat spatula to embed them into the batter.",
+"Flip it over when the bottom turns golden-brown and cook the vegetable side for two minutes.",
+"Flip back to confirm it is completely cooked through, then move to a plate."
+]
+},
+{
+"name": "Millet upma",
+"name_alt": "Samai upma",
+"meal_type": "breakfast",
+"cuisine": "south_indian",
+"diet_tags": ["vegan", "vegetarian", "gluten_free", "dairy_free", "nut_free"],
+"allergen_tags": [],
+"prep_time_min": 10,
+"cook_time_min": 20,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"ingredients": [
+{"ingredient_name": "barnyard millet", "quantity_grams": 130.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "washed"},
+{"ingredient_name": "onion", "quantity_grams": 75.0, "display_quantity": 0.5, "display_unit": "cup", "notes": "chopped"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "chopped"},
+{"ingredient_name": "curry leaves", "quantity_grams": 2.0, "display_quantity": 1.0, "display_unit": "sprig", "notes": "fresh"}
+],
+"instructions": [
+"Rinse the barnyard millet thoroughly under running water and drain completely.",
+"Finely chop the onion and green chilli.",
+"In a saucepan, dry-sauté the chopped onions and curry leaves until they become light brown.",
+"Add the chopped green chilli and the drained barnyard millet to the pan, stirring for a minute.",
+"Pour two and a half cups of water into the pan and bring it to a rolling boil.",
+"Turn the heat down to low, cover the pan with a lid, and let it cook undisturbed.",
+"Simmer for twelve to fifteen minutes until all the water is completely absorbed and the millet is fluffy.",
+"Remove from heat and let it sit covered for two minutes before serving."
+]
+},
+{
+"name": "Vegetable rava upma",
+"name_alt": "Kharabath style",
+"meal_type": "breakfast",
+"cuisine": "south_indian",
+"diet_tags": ["vegan", "vegetarian", "nut_free"],
+"allergen_tags": ["gluten"],
+"prep_time_min": 10,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"ingredients": [
+{"ingredient_name": "semolina", "quantity_grams": 95.0, "display_quantity": 1.0, "display_unit": "katori", "notes": "dry rava"},
+{"ingredient_name": "onion", "quantity_grams": 50.0, "display_quantity": 5.0, "display_unit": "tbsp", "notes": "chopped"},
+{"ingredient_name": "carrot", "quantity_grams": 64.0, "display_quantity": 0.5, "display_unit": "cup", "notes": "chopped small"},
+{"ingredient_name": "french beans", "quantity_grams": 50.0, "display_quantity": 0.5, "display_unit": "cup", "notes": "chopped fine"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "chopped"},
+{"ingredient_name": "curry leaves", "quantity_grams": 2.0, "display_quantity": 1.0, "display_unit": "sprig", "notes": "fresh"}
+],
+"instructions": [
+"Dry-roast the semolina until lightly toasted and fragrant, then set aside on a plate.",
+"Chop the onion, carrot, french beans, and green chilli into small, uniform pieces.",
+"Dry-sauté the chopped onions, carrots, and french beans in a pan along with the curry leaves.",
+"Continue cooking the vegetables on medium flame until they become slightly tender.",
+"Add the chopped green chilli and add three katori of water to the pan, bringing it to a boil.",
+"Gradually pour in the roasted semolina while whisking or stirring quickly to prevent any lumps from forming.",
+"Reduce heat to the lowest setting, cover with a lid, and cook for three to four minutes.",
+"Uncover, fluff the upma gently from the bottom of the pan, and serve."
+]
+}
+]
+}

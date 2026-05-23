@@ -1,0 +1,228 @@
+{
+   "batch_summary":{
+      "total_recipes":5,
+      "verdict_counts":{
+         "PASS":0,
+         "WARN":0,
+         "FAIL":5,
+         "REJECTED":0
+      },
+      "common_issues":[
+         "All ingredient names missing _raw suffix - blocker fix across batch",
+         "Salt completely absent from all 5 recipes - universal addition needed",
+         "Mustard oil tempering (paanch phoron, kalo jeera) missing from Bengali dishes - cultural inauthenticity",
+         "Vegan tag retained where traditional Bengali cooking uses ghee/mustard oil - applying canonical ingredient rule, dropping vegan where appropriate",
+         "Khichuri missing turmeric, ginger, ghee tempering - fundamentally incomplete recipe",
+         "Niramish aloor dum missing core spices (cumin, ginger, turmeric, asafoetida) - blocker for dish authenticity",
+         "Several recipes are too ingredient-sparse to constitute real meals (just potato + chilli + water)",
+         "Per-serving calorie counts severely under-target for breakfast (250-500 kcal range)"
+      ]
+   },
+   "audit":[
+      {
+         "recipe_name":"Bengali aloo chachchari",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"potato and green chilli missing _raw suffix",
+               "suggested_fix":"potato_raw, green_chilli_raw"
+            },
+            {
+               "tier":4,
+               "severity":"blocker",
+               "field":"ingredients",
+               "problem":"Authentic chachchari requires mustard oil tempering with panch phoron (or at minimum kalonji/nigella substitute); recipe is just boiled potato in water which is not chachchari",
+               "suggested_fix":"Add mustard_oil_raw 10g, cumin_raw 1g, fenugreek_seeds_raw 0.5g, fennel_seeds_raw 0.5g, turmeric_powder_raw 1g"
+            },
+            {
+               "tier":2,
+               "severity":"blocker",
+               "field":"ingredients[salt]",
+               "problem":"No salt - universal addition needed",
+               "suggested_fix":"Add salt_raw 3g"
+            },
+            {
+               "tier":2,
+               "severity":"major",
+               "field":"kcal_per_serving",
+               "problem":"300g potato + chilli for 2 servings ≈ 115 kcal/serving, far below breakfast 250-500 target",
+               "suggested_fix":"Oil + spice additions raise it; still on low end but acceptable as side dish style"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"instructions",
+               "problem":"Instructions describe boiled potatoes, not Bengali chachchari technique (tempering + dry stir-fry)",
+               "suggested_fix":"Rewrite to start with mustard oil heating, panch phoron crackling, then potatoes"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Bengali Niramish aloor dum",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All four ingredients missing _raw suffix",
+               "suggested_fix":"potato_raw, tomato_raw, green_chilli_raw, coriander_leaves_raw"
+            },
+            {
+               "tier":4,
+               "severity":"blocker",
+               "field":"ingredients",
+               "problem":"Niramish aloor dum requires asafoetida, ginger, cumin, turmeric, red chilli powder, bay leaf, mustard oil/ghee - none present. The 'niramish' (no onion/garlic) version specifically depends on these spices for flavour",
+               "suggested_fix":"Add mustard_oil_raw 10g, asafoetida_raw 0.5g, ginger_raw 8g, cumin_raw 1g, bay_leaf_raw 0.3g, turmeric_powder_raw 1g, red_chilli_powder_raw 1g, garam_masala_raw 0.5g"
+            },
+            {
+               "tier":2,
+               "severity":"blocker",
+               "field":"ingredients[salt]",
+               "problem":"No salt",
+               "suggested_fix":"Add salt_raw 3g"
+            },
+            {
+               "tier":2,
+               "severity":"major",
+               "field":"kcal_per_serving",
+               "problem":"≈ 80 kcal/serving without oil/spices",
+               "suggested_fix":"Mustard oil addition raises to ≈ 130 kcal; still light but acceptable for breakfast side"
+            },
+            {
+               "tier":3,
+               "severity":"minor",
+               "field":"diet_tags",
+               "problem":"Adding mustard oil keeps vegan valid; jain tag could be added since niramish excludes onion/garlic",
+               "suggested_fix":"Add 'jain' to diet_tags (note: still contains potato so jain may be debated - leave off to be safe)"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Sada aloo chorchori",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"potato and green chilli missing _raw suffix",
+               "suggested_fix":"potato_raw, green_chilli_raw"
+            },
+            {
+               "tier":4,
+               "severity":"blocker",
+               "field":"ingredients",
+               "problem":"Chorchori is a Bengali tempered vegetable dish; mustard oil + panch phoron (or nigella seeds) is essential. Plain boiled potato in water is not chorchori",
+               "suggested_fix":"Add mustard_oil_raw 10g, cumin_raw 1g, fennel_seeds_raw 0.5g, fenugreek_seeds_raw 0.5g, turmeric_powder_raw 1g"
+            },
+            {
+               "tier":2,
+               "severity":"blocker",
+               "field":"ingredients[salt]",
+               "problem":"No salt",
+               "suggested_fix":"Add salt_raw 3g"
+            },
+            {
+               "tier":5,
+               "severity":"major",
+               "field":"display_quantity/display_unit",
+               "problem":"250g potato shown as '1.6 cup' is awkward and inconsistent with other recipes using 'piece' for whole potatoes",
+               "suggested_fix":"Change to display_quantity 2.0, display_unit 'piece'"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"instructions",
+               "problem":"Method describes water-poaching, not the dry-sauté tempering technique chorchori demands",
+               "suggested_fix":"Rewrite with mustard oil heating, spice tempering, then potato strips stir-fried"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Moong dal khichuri",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"basmati rice, moong dal, potato missing _raw suffix",
+               "suggested_fix":"basmati_rice_raw, moong_dal_raw, potato_raw"
+            },
+            {
+               "tier":4,
+               "severity":"blocker",
+               "field":"ingredients",
+               "problem":"Bhaja moong dal khichuri without turmeric, ginger, bay leaf, cumin, green cardamom, cloves, cinnamon, and ghee tempering is not khichuri - it is plain rice-dal porridge. Bengali bhuni khichuri specifically uses ghee",
+               "suggested_fix":"Add ghee_raw 15g, turmeric_powder_raw 2g, ginger_raw 8g, cumin_raw 1g, bay_leaf_raw 0.5g, green_cardamom_raw 0.5g, cloves_raw 0.3g, cinnamon_raw 0.5g, dried_red_chilli_raw 1g, green_chilli_raw 5g"
+            },
+            {
+               "tier":2,
+               "severity":"blocker",
+               "field":"ingredients[salt]",
+               "problem":"No salt",
+               "suggested_fix":"Add salt_raw 4g"
+            },
+            {
+               "tier":3,
+               "severity":"blocker",
+               "field":"diet_tags",
+               "problem":"Authentic khichuri uses ghee; per protocol, use canonical ingredient and drop vegan/dairy_free tags",
+               "suggested_fix":"Remove 'vegan' and 'dairy_free' from diet_tags; allergen_tags add 'dairy'"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"kcal_per_serving",
+               "problem":"Currently 90g rice + 50g dal + 150g potato for 2 ≈ 380 kcal/serving without fat; ghee addition brings to ≈ 450 kcal, fits breakfast band well",
+               "suggested_fix":"No change needed once ghee added"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Aloo bhate bhat",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All four ingredients missing _raw suffix",
+               "suggested_fix":"basmati_rice_raw, potato_raw, onion_raw, green_chilli_raw"
+            },
+            {
+               "tier":4,
+               "severity":"blocker",
+               "field":"ingredients",
+               "problem":"Aloo bhate (Bengali boiled-potato mash) traditionally includes mustard oil drizzle - this is the defining flavour element. Without it, the dish is incomplete",
+               "suggested_fix":"Add mustard_oil_raw 10g (drizzled raw over mash)"
+            },
+            {
+               "tier":2,
+               "severity":"blocker",
+               "field":"ingredients[salt]",
+               "problem":"No salt",
+               "suggested_fix":"Add salt_raw 3g"
+            },
+            {
+               "tier":3,
+               "severity":"major",
+               "field":"diet_tags",
+               "problem":"Recipe contains onion - jain tag would not apply (already not listed, fine); vegan retained correctly with mustard oil",
+               "suggested_fix":"No tag change needed; vegan/dairy_free preserved with mustard oil (not ghee here, as aloo bhate is traditionally mustard oil)"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"kcal_per_serving",
+               "problem":"120g rice + 150g potato + oil for 2 ≈ 380 kcal/serving - fits breakfast range",
+               "suggested_fix":"No change"
+            }
+         ]
+      }
+   ]
+}
