@@ -1,0 +1,415 @@
+{
+  "batch_summary": {
+    "total_ingredients": 25,
+    "verdict_counts": {
+      "PASS": 15,
+      "WARN": 9,
+      "FAIL": 1
+    },
+    "common_issues": [
+      "canonical_form values still written as full phrases ('raw onion', 'raw tomato', 'fresh coriander leaves') instead of normalised tokens ('raw', 'cooked', or possibly 'fresh' as a third). Same pattern as batch 1 \u2014 needs a global normalisation pass.",
+      "'green peas' appears in this batch identically to batch 1. Either there's an unintended duplicate in the source data, or this entry should be removed from one batch. Worth checking the source before saving.",
+      "Several ingredients have a 'piece' unit that is technically correct in grams but useless for recipes \u2014 french beans piece=5g (recipes never spec individual beans), green chilli cup=75g (no recipe uses a cup of chillies), curry leaves cup=20g (used by sprig, not cup). These units may invite mis-entry by recipe authors.",
+      "Radish piece=100g looks like a small/young radish; Indian mooli at 'medium' is typically 250-300g. Worth a domain reconsideration.",
+      "Capsicum cup=90g is consistent with USDA 'sliced' (92g) but the notes say 'chopped' (USDA: 149g). Notes-value mismatch.",
+      "Allergen tagging is clean across the entire batch \u2014 all correctly empty."
+    ]
+  },
+  "per_ingredient": [
+    {
+      "name": "onion",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw onion' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "tomato",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw tomato' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "potato",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "consistency",
+          "severity": "minor",
+          "field": "household_units[1].approximate_grams",
+          "problem": "1 cup cubed raw potato = 140g is slightly low; USDA reference is ~150g/cup.",
+          "suggested_fix": "Change to approximate_grams=150."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw potato' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "brinjal",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw brinjal' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        },
+        {
+          "axis": "domain",
+          "severity": "minor",
+          "field": "household_units[0].notes",
+          "problem": "Indian brinjals span a huge range \u2014 small purple/round (~80-100g), striped (~120-150g), large globe (~250g+). A single 'medium=120g' piece value will be wrong for many recipe contexts. Consider noting which variety this targets, or splitting into 'brinjal small' and 'brinjal large'.",
+          "suggested_fix": "Update notes to '1 medium striped/long Indian brinjal; small varieties ~80g, large globe ~250g'. Or split entry."
+        }
+      ]
+    },
+    {
+      "name": "okra",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw okra' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "cauliflower",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw cauliflower' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        },
+        {
+          "axis": "domain",
+          "severity": "minor",
+          "field": "household_units[0].approximate_grams",
+          "problem": "1 medium whole cauliflower = 600g is on the small side. Indian markets typically sell 700-1000g heads as 'medium'. Not a critical fix but consider 750g.",
+          "suggested_fix": "Change to approximate_grams=750. Range note: small ~500g, medium ~750g, large ~1000g."
+        }
+      ]
+    },
+    {
+      "name": "cabbage",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw cabbage' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "green peas",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "major",
+          "field": "name",
+          "problem": "DUPLICATE \u2014 this ingredient appeared identically in batch 1. Same name, same canonical_form, same household_units. Either an unintended duplicate in source data, or one batch should drop it. If left as-is you'll have two database entries for the same thing.",
+          "suggested_fix": "Remove from one of the two batches before saving. If keeping here (vegetables batch is arguably the more natural home), drop the entry from batch 1."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "Value 'green peas' doesn't resolve to a raw/cooked token.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "french beans",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "domain",
+          "severity": "major",
+          "field": "household_units[1]",
+          "problem": "Piece unit = 5g (one bean) is technically correct but practically useless \u2014 no Indian recipe says 'add 6 french beans'. Authors will mis-use this (interpret 'piece' as 'handful'). Cup or tbsp is the right unit here.",
+          "suggested_fix": "Remove the 'piece' unit, or replace with 'handful' (~30g) which is closer to how Indian cooks actually measure beans for a stir-fry."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw french beans' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "capsicum",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "consistency",
+          "severity": "minor",
+          "field": "household_units[1]",
+          "problem": "1 cup = 90g with notes='chopped' \u2014 but USDA chopped green bell pepper is 149g/cup. 90g matches USDA *sliced* (92g/cup). Notes and value disagree on which preparation is referenced.",
+          "suggested_fix": "Either change value to 149 (if 'chopped') or change notes to 'sliced capsicum'. Pick whichever matches your recipe authoring convention; 'chopped' is more common in Indian cooking so probably value\u2192149."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw capsicum' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "green chilli",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "domain",
+          "severity": "major",
+          "field": "household_units[2]",
+          "problem": "Cup unit = 75g for chopped chillies. No Indian recipe uses a cup of chillies; this is roughly 15 medium chillies \u2014 a quantity that would only appear in pickle/chilli-paste recipes, not in normal cooking. The unit invites accidental mis-entry.",
+          "suggested_fix": "Remove the 'cup' unit. Keep 'piece' and 'tbsp' (tbsp is appropriate for chilli paste recipes). If a chilli-paste use case is needed, handle in that recipe directly."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw green chilli' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "carrot",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "consistency",
+          "severity": "minor",
+          "field": "household_units[1].approximate_grams",
+          "problem": "1 cup chopped carrot = 110g is slightly low; USDA chopped raw carrot is ~128g/cup.",
+          "suggested_fix": "Change to approximate_grams=128."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw carrot' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "beetroot",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw beetroot' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "radish",
+      "verdict": "FAIL",
+      "issues": [
+        {
+          "axis": "domain",
+          "severity": "blocker",
+          "field": "household_units[0].approximate_grams",
+          "problem": "1 medium white radish (mooli) = 100g is wrong for Indian context. Indian mooli at medium size is 250-300g per piece (long white variety, ~12-15 inches). 100g is closer to a small/young radish or a single European red radish. For a mooli paratha calling for '1 radish grated', a user-facing 100g value would under-report by ~3x.",
+          "suggested_fix": "Change to approximate_grams=275 (range 250-300g for medium mooli). Update notes to '1 medium Indian white radish (mooli), ~12-15 inches long'. If you want a separate small/red radish entry, create one \u2014 but the default Indian mooli should be ~275g."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw radish' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "sweet potato",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw sweet potato' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "bottle gourd",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw bottle gourd' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "ridge gourd",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw ridge gourd' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "bitter gourd",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw bitter gourd' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "ash gourd",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw ash gourd' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "pumpkin",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw pumpkin' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "drumstick",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw drumstick' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "spinach",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw spinach' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "fenugreek leaves",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw fenugreek leaves' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "coriander leaves",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'fresh coriander leaves' uses a third token ('fresh') that isn't in the schema implied vocab. Normalise to 'raw' for consistency; the typical_form_note already conveys freshness.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "curry leaves",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "domain",
+          "severity": "major",
+          "field": "household_units[2]",
+          "problem": "Cup unit = 20g for curry leaves. Curry leaves are used by sprig (in tempering) or by tbsp (occasionally for chutney). A cup of curry leaves is ~50 sprigs and appears in no normal recipe.",
+          "suggested_fix": "Remove the 'cup' unit. Keep 'sprig' and 'tbsp' as the realistic Indian-kitchen units."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'fresh curry leaves' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    }
+  ]
+}

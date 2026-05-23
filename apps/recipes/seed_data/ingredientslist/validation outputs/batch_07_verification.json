@@ -1,0 +1,269 @@
+{
+  "batch_summary": {
+    "total_ingredients": 18,
+    "verdict_counts": {"PASS": 17, "WARN": 1, "FAIL": 0},
+    "common_issues": [
+      "Allergen tagging across nuts/seeds is exemplary — cashew/almond/walnut/pistachio all correctly tagged tree_nuts; peanut correctly tagged peanuts (NOT tree_nuts — a common confusion); sesame correctly tagged sesame; poppy seeds and melon seeds correctly empty under the controlled vocab.",
+      "Spice and nut weights are well-calibrated against USDA references throughout: cashew 130g/cup vs USDA 137, almond 140g/cup vs USDA 143, walnut halves 100g/cup vs USDA 100, pistachio 120g/cup vs USDA 123. Sesame 3g/tsp and 9g/tbsp match USDA exactly.",
+      "Cinnamon entry mixes 'stick' (piece=2g) with 'powder' (tsp/tbsp) in the same ingredient — these have different bulk densities and culinary uses and should arguably be separate entries.",
+      "Same canonical_form normalisation backlog as previous batches — full descriptive phrases instead of {raw, cooked} tokens."
+    ]
+  },
+  "per_ingredient": [
+    {
+      "name": "green cardamom",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'whole green cardamom' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "black cardamom",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'whole black cardamom' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "cloves",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "consistency",
+          "severity": "minor",
+          "field": "household_units[0].approximate_grams",
+          "problem": "1 whole clove = 0.2g is on the high side. USDA reference indicates ~0.07-0.1g per clove (~30 cloves per tsp). 0.2g is plausible for large Indian cloves but at the upper end.",
+          "suggested_fix": "Borderline — leave as 0.2g for large Indian cloves, or change to 0.1g for standard. Either is defensible."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'whole cloves' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "cinnamon",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "consistency",
+          "severity": "major",
+          "field": "household_units",
+          "problem": "The entry mixes two forms in one ingredient: piece=2g refers to a cinnamon stick (whole bark), while tsp=2.5g and tbsp=7g refer to cinnamon powder (notes explicitly say 'cinnamon powder'). canonical_form says 'cinnamon stick'. A cinnamon stick and cinnamon powder have different bulk densities, different culinary uses (sticks for biryani/garam masala simmering, powder for desserts/baking), and recipes call for them by different names. Recipe authors will be confused about which form they're specifying.",
+          "suggested_fix": "Split into two ingredients: 'cinnamon stick' (with piece unit only) and 'cinnamon powder' (with tsp/tbsp units). Alternative: keep as one entry but rename to 'cinnamon' (no form) and clarify each unit's form in the notes. Splitting is cleaner."
+        },
+        {
+          "axis": "domain",
+          "severity": "minor",
+          "field": "name",
+          "problem": "Indian 'cinnamon' (dalchini) is typically cassia (Cinnamomum cassia), not true Ceylon cinnamon (Cinnamomum verum). Nutritionally similar; coumarin content differs. Worth noting if your DB cares.",
+          "suggested_fix": "Optional: clarify in typical_form_note as 'Indian cassia cinnamon'."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'cinnamon stick' should normalise to 'raw' (after splitting per the major fix above).",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "star anise",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'whole star anise' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "nutmeg",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'whole nutmeg' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "mace",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'dried mace' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "saffron",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'saffron strands' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "black salt",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'black salt' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "amchur powder",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'amchur powder' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "cashew",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw cashew' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "almond",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw almond' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "peanut",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw peanut' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "sesame seeds",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'whole sesame seeds' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "poppy seeds",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'whole poppy seeds' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "melon seeds",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'melon seeds' has no form token.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "walnut",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw walnut' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "pistachio",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw pistachio' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,402 @@
+{
+   "batch_summary":{
+      "total_recipes":10,
+      "verdict_counts":{
+         "PASS":0,
+         "WARN":0,
+         "FAIL":10,
+         "REJECTED":0
+      },
+      "common_issues":[
+         "All ingredient_name values missing _raw suffix (auto-corrected)",
+         "Salt omitted from every recipe — universal in Indian cooking, added 2g/serving",
+         "All parathas missing cooking fat (ghee/oil) — added groundnut_oil 5g/serving",
+         "All poha/upma missing tempering oil and mustard_seeds — defining technique, added",
+         "display_unit 'sprig' for curry leaves not in allowed enum — converted to 'g'",
+         "Turmeric/cumin frequently missing from base masala — added where canonical",
+         "'Onion poha' tagged gluten_free correctly but real kanda poha is Maharashtrian, not north_indian — cuisine corrected to maharashtrian",
+         "Aloo/gobi/methi etc. parathas: once ghee is added, vegan tag must drop; if groundnut_oil used instead, vegan retained — used oil to preserve vegan tag where it was claimed",
+         "Mooli paratha difficulty 'advanced' downgraded to 'intermediate'"
+      ]
+   },
+   "audit":[
+      {
+         "recipe_name":"Aloo paratha",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All five ingredient names missing _raw suffix (whole wheat flour, potato, onion, green chilli, coriander leaves)",
+               "suggested_fix":"Append _raw and convert spaces to underscores: whole_wheat_flour_raw, potato_raw, onion_raw, green_chilli_raw, coriander_leaves_raw"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients",
+               "problem":"Salt completely absent — universal in Indian cooking",
+               "suggested_fix":"Add salt_raw 4g (2g/serving)"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients + instructions",
+               "problem":"No cooking fat for stuffed paratha — parathas are pan-cooked with ghee or oil; instructions also say nothing about adding fat to tawa",
+               "suggested_fix":"Add groundnut_oil_raw 10g (5g/serving) to preserve vegan tag; update instructions to drizzle oil while cooking"
+            },
+            {
+               "tier":4,
+               "severity":"minor",
+               "field":"ingredients",
+               "problem":"No turmeric/cumin/red chilli in potato stuffing — bland by Indian standards but defensible",
+               "suggested_fix":"Add cumin_raw 1g and red_chilli_powder_raw 1g to stuffing"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Mooli paratha",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All four ingredient names missing _raw suffix",
+               "suggested_fix":"whole_wheat_flour_raw, radish_raw, green_chilli_raw, coriander_leaves_raw"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"estimated_difficulty",
+               "problem":"Marked 'advanced' — mooli paratha is at most intermediate (slightly tricky because of moisture, but not advanced)",
+               "suggested_fix":"Set to intermediate"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients",
+               "problem":"Salt and cooking fat missing",
+               "suggested_fix":"Add salt_raw 4g and groundnut_oil_raw 10g"
+            },
+            {
+               "tier":4,
+               "severity":"minor",
+               "field":"ingredients",
+               "problem":"Ajwain typically added to mooli paratha stuffing to aid digestion",
+               "suggested_fix":"Add ajwain_raw 1g (optional but canonical)"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Gobi paratha",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All five names missing _raw suffix",
+               "suggested_fix":"whole_wheat_flour_raw, cauliflower_raw, onion_raw, green_chilli_raw, coriander_leaves_raw"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients",
+               "problem":"Salt and cooking fat missing",
+               "suggested_fix":"Add salt_raw 4g and groundnut_oil_raw 10g"
+            },
+            {
+               "tier":4,
+               "severity":"minor",
+               "field":"ingredients",
+               "problem":"Cumin/ajwain typically in gobi stuffing",
+               "suggested_fix":"Add cumin_raw 1g"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Onion poha",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All six names missing _raw suffix",
+               "suggested_fix":"flattened_rice_raw, onion_raw, potato_raw, green_chilli_raw, coriander_leaves_raw, curry_leaves_raw"
+            },
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].display_unit",
+               "problem":"'sprig' not in allowed enum (katori | cup | tbsp | tsp | piece | glass | roti | g | ml)",
+               "suggested_fix":"Change curry_leaves display_unit to 'g'"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients + instructions",
+               "problem":"Kanda poha is defined by mustard-seed tempering in oil — recipe has no oil and no mustard seeds; 'dry-saute' approach is not authentic",
+               "suggested_fix":"Add groundnut_oil_raw 10g, mustard_seeds_raw 1g, turmeric_powder_raw 0.5g; rewrite first cooking step as a tempering"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients",
+               "problem":"Salt absent",
+               "suggested_fix":"Add salt_raw 4g"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients",
+               "problem":"Sugar (small pinch) and lemon juice canonical to kanda poha",
+               "suggested_fix":"Add sugar_raw 2g and lemon_juice_raw 5g"
+            },
+            {
+               "tier":4,
+               "severity":"minor",
+               "field":"cuisine",
+               "problem":"Kanda poha is Maharashtrian, not north_indian",
+               "suggested_fix":"Set cuisine to maharashtrian"
+            },
+            {
+               "tier":4,
+               "severity":"minor",
+               "field":"ingredients",
+               "problem":"Peanuts traditional garnish in kanda poha",
+               "suggested_fix":"Add peanut_raw 10g (optional, will require nut_free tag removal and peanuts allergen tag)"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Matar poha",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All six names missing _raw suffix",
+               "suggested_fix":"flattened_rice_raw, green_peas_raw, onion_raw, green_chilli_raw, coriander_leaves_raw, curry_leaves_raw"
+            },
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"display_unit",
+               "problem":"'sprig' not allowed",
+               "suggested_fix":"Change to 'g'"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients + instructions",
+               "problem":"No tempering oil or mustard seeds — poha requires it",
+               "suggested_fix":"Add groundnut_oil_raw 10g, mustard_seeds_raw 1g, turmeric_powder_raw 0.5g"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients",
+               "problem":"Salt absent",
+               "suggested_fix":"Add salt_raw 4g"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"green_peas portion",
+               "problem":"145g for 2 servings = 72.5g/serving — within mixed-veg range, fine"
+            },
+            {
+               "tier":4,
+               "severity":"minor",
+               "field":"ingredients",
+               "problem":"Lemon juice common finishing touch",
+               "suggested_fix":"Add lemon_juice_raw 5g"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Vegetable upma",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All six names missing _raw suffix",
+               "suggested_fix":"semolina_raw, onion_raw, carrot_raw, green_peas_raw, green_chilli_raw, curry_leaves_raw"
+            },
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"display_unit",
+               "problem":"'sprig' not allowed",
+               "suggested_fix":"Change to 'g'"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients + instructions",
+               "problem":"Upma requires tadka with oil/ghee, mustard seeds, urad dal, chana dal — recipe has none; 'dry-saute' is not authentic upma",
+               "suggested_fix":"Add groundnut_oil_raw 12g, mustard_seeds_raw 1g, urad_dal_raw 3g, chana_dal_raw 3g, ginger_raw 3g"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients",
+               "problem":"Salt absent",
+               "suggested_fix":"Add salt_raw 4g"
+            },
+            {
+               "tier":3,
+               "severity":"minor",
+               "field":"allergen_tags",
+               "problem":"Adding urad/chana dal does not add a new allergen; semolina already covers gluten — no change needed"
+            },
+            {
+               "tier":4,
+               "severity":"minor",
+               "field":"cuisine",
+               "problem":"Rava upma is South Indian in origin (Tamil/Karnataka); fine as north_indian if recipe is the simpler northern version, but more accurately south_indian",
+               "suggested_fix":"Set cuisine to south_indian"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Palak paratha",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All four names missing _raw suffix",
+               "suggested_fix":"whole_wheat_flour_raw, spinach_raw, green_chilli_raw, onion_raw"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients",
+               "problem":"Salt and cooking fat missing",
+               "suggested_fix":"Add salt_raw 4g and groundnut_oil_raw 10g"
+            },
+            {
+               "tier":4,
+               "severity":"minor",
+               "field":"ingredients",
+               "problem":"Garlic/ginger/cumin typical in palak paratha dough",
+               "suggested_fix":"Add cumin_raw 1g, ginger_raw 3g, garlic_raw 3g (optional)"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"spinach portion",
+               "problem":"120g/2 = 60g/serving spinach — at lower end but acceptable for paratha where spinach is bound into dough"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Methi paratha",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All four names missing _raw suffix",
+               "suggested_fix":"whole_wheat_flour_raw, fenugreek_leaves_raw, onion_raw, green_chilli_raw"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients",
+               "problem":"Salt and cooking fat missing",
+               "suggested_fix":"Add salt_raw 4g and groundnut_oil_raw 10g"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"fenugreek_leaves portion",
+               "problem":"125g/2 = 62.5g/serving fresh methi — high but methi shrinks dramatically; acceptable"
+            },
+            {
+               "tier":4,
+               "severity":"minor",
+               "field":"ingredients",
+               "problem":"Ajwain/cumin/turmeric common in methi paratha",
+               "suggested_fix":"Add ajwain_raw 1g and turmeric_powder_raw 1g"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Dalia upma",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All six names missing _raw suffix",
+               "suggested_fix":"broken_wheat_raw, onion_raw, carrot_raw, french_beans_raw, green_chilli_raw, curry_leaves_raw"
+            },
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"display_unit",
+               "problem":"'sprig' not allowed",
+               "suggested_fix":"Change to 'g'"
+            },
+            {
+               "tier":2,
+               "severity":"major",
+               "field":"broken_wheat portion",
+               "problem":"150g for 2 servings = 75g/serving — within 30-90g grain range, but on the high side for breakfast; pair with the no-oil reality this is heavy. Acceptable but borderline",
+               "suggested_fix":"Optional: reduce to 120g (60g/serving)"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients + instructions",
+               "problem":"Dalia upma requires tadka (oil + mustard/cumin)",
+               "suggested_fix":"Add groundnut_oil_raw 10g, cumin_raw 1g, mustard_seeds_raw 0.5g, turmeric_powder_raw 1g, ginger_raw 3g"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients",
+               "problem":"Salt absent",
+               "suggested_fix":"Add salt_raw 4g"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Vegetable mix paratha",
+         "verdict":"FAIL",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredients[].ingredient_name",
+               "problem":"All seven names missing _raw suffix",
+               "suggested_fix":"whole_wheat_flour_raw, potato_raw, carrot_raw, cauliflower_raw, onion_raw, green_chilli_raw, coriander_leaves_raw"
+            },
+            {
+               "tier":4,
+               "severity":"major",
+               "field":"ingredients",
+               "problem":"Salt and cooking fat missing",
+               "suggested_fix":"Add salt_raw 4g and groundnut_oil_raw 10g"
+            },
+            {
+               "tier":4,
+               "severity":"minor",
+               "field":"ingredients",
+               "problem":"Garam masala/cumin typical in mixed-veg stuffing",
+               "suggested_fix":"Add cumin_raw 1g and garam_masala_raw 1g"
+            }
+         ]
+      }
+   ]
+}

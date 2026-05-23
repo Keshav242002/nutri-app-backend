@@ -7,7 +7,7 @@ MANAGE   := $(PYTHON) manage.py
 PG_BIN   := /opt/homebrew/opt/postgresql@16/bin
 export PATH := $(PG_BIN):$(PATH)
 
-.PHONY: install migrate seed superuser run run-asgi test lint format dbreset shell worker beat fetch-usda build-seed
+.PHONY: install migrate seed recompute-nutrition superuser run run-asgi test lint format dbreset shell worker beat fetch-usda build-seed
 
 ## Setup
 
@@ -19,6 +19,9 @@ migrate:
 
 seed:
 	$(MANAGE) seed_recipes
+
+recompute-nutrition:
+	$(MANAGE) recompute_nutrition
 
 superuser:
 	$(MANAGE) createsuperuser

@@ -62,7 +62,8 @@ psql -U nutriplan -d nutriplan -h localhost -c "SELECT 1;"
 | `make superuser` | Create Django superuser |
 | `make shell` | Open Django shell |
 | `make dbreset` | Drop + recreate DB (dev only, asks for confirmation) |
-| `make seed` | Seed recipe data (available after M3) |
+| `make seed` | Seed all recipe data (ingredients → units → recipes) via `seed_recipes` management command |
+| `make recompute-nutrition` | Recompute cached nutrition on all active recipes (use after bulk ingredient price updates) |
 | `make worker` | Start Celery worker (available after M6) |
 | `make beat` | Start Celery beat scheduler (available after M6) |
 

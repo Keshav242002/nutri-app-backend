@@ -1,0 +1,558 @@
+{
+"recipes": [
+{
+"name": "Rohu Machher Jhol",
+"name_alt": "Bengali Fish Curry",
+"meal_type": "lunch",
+"cuisine": "bengali",
+"diet_tags": [
+"pescatarian",
+"gluten_free",
+"dairy_free",
+"high_protein"
+],
+"allergen_tags": [
+"fish",
+"mustard"
+],
+"prep_time_min": 15,
+"cook_time_min": 25,
+"servings": 4,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"ingredients": [
+{
+"ingredient_name": "rohu",
+"quantity_grams": 400.0,
+"display_quantity": 4.0,
+"display_unit": "piece",
+"notes": "cleaned fish pieces"
+},
+{
+"ingredient_name": "potato",
+"quantity_grams": 150.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "cut into long wedges"
+},
+{
+"ingredient_name": "mustard oil",
+"quantity_grams": 30.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_name": "cumin",
+"quantity_grams": 3.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "tomato",
+"quantity_grams": 90.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "chopped"
+},
+{
+"ingredient_name": "ginger",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "inch",
+"notes": "grated"
+},
+{
+"ingredient_name": "turmeric powder",
+"quantity_grams": 3.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "red chilli powder",
+"quantity_grams": 3.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "coriander seeds",
+"quantity_grams": 4.0,
+"display_quantity": 1.5,
+"display_unit": "tsp",
+"notes": "powdered"
+},
+{
+"ingredient_name": "green chilli",
+"quantity_grams": 5.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": "slit"
+},
+{
+"ingredient_name": "salt",
+"quantity_grams": 6.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Marinate the rohu fish pieces with half of the turmeric powder and a pinch of salt. Let it rest for 10 minutes.",
+"Heat mustard oil in a heavy pan until it reaches smoking point, then reduce the heat to medium.",
+"Fry the fish pieces until they are golden brown on both sides. Remove and set aside.",
+"In the same oil, fry the potato wedges until lightly golden, then remove and set aside.",
+"Add cumin seeds to the remaining hot oil and allow them to crackle.",
+"Add grated ginger and slit green chillies, sautéing for a few seconds.",
+"Add the chopped tomato, remaining turmeric, red chilli powder, and coriander powder. Cook until the tomatoes become mushy and oil separates.",
+"Pour in 2 cups of water and bring the gravy to a rolling boil.",
+"Add the fried potatoes and salt, cover the pan, and cook for 8-10 minutes until the potatoes are tender.",
+"Gently slide in the fried fish pieces and simmer for 5 minutes so the fish absorbs the flavors.",
+"Turn off the heat and serve the machher jhol hot with steamed white rice."
+]
+},
+{
+"name": "Cholar Dal",
+"name_alt": "Bengali Chana Dal",
+"meal_type": "lunch",
+"cuisine": "bengali",
+"diet_tags": [
+"vegetarian",
+"gluten_free",
+"high_protein"
+],
+"allergen_tags": [
+"dairy"
+],
+"prep_time_min": 20,
+"cook_time_min": 25,
+"servings": 4,
+"estimated_difficulty": "beginner",
+"spice_level": "mild",
+"ingredients": [
+{
+"ingredient_name": "chana dal",
+"quantity_grams": 150.0,
+"display_quantity": 0.75,
+"display_unit": "cup",
+"notes": "washed and soaked for 30 minutes"
+},
+{
+"ingredient_name": "ghee",
+"quantity_grams": 20.0,
+"display_quantity": 1.5,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_name": "cumin",
+"quantity_grams": 3.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "bay leaf",
+"quantity_grams": 1.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_name": "dried red chilli",
+"quantity_grams": 2.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": "whole"
+},
+{
+"ingredient_name": "ginger",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "inch",
+"notes": "grated"
+},
+{
+"ingredient_name": "turmeric powder",
+"quantity_grams": 3.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "green chilli",
+"quantity_grams": 5.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": "slit"
+},
+{
+"ingredient_name": "sugar",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "salt",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "garam masala",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Pressure cook the soaked chana dal with 2.5 cups of water, turmeric powder, and a pinch of salt for 4-5 whistles until cooked soft but holding its shape.",
+"In a kadai or deep pan, heat the ghee over medium heat.",
+"Add the bay leaf, dried red chillies, and cumin seeds. Let the cumin seeds splutter.",
+"Add the grated ginger and slit green chillies, sautéing for about a minute until fragrant.",
+"Pour the cooked dal into the pan. If the dal is too thick, add half a cup of warm water.",
+"Add sugar and the remaining salt. Mix well (Bengali cholar dal is traditionally a little sweet).",
+"Bring the dal to a gentle simmer and let it cook for 5-6 minutes to blend the flavors.",
+"Sprinkle the garam masala powder over the dal and stir well.",
+"Turn off the heat and serve hot with luchi, puri, or steamed rice."
+]
+},
+{
+"name": "Aloo Posto",
+"name_alt": "Potatoes in Poppy Seed Paste",
+"meal_type": "lunch",
+"cuisine": "bengali",
+"diet_tags": [
+"vegan",
+"vegetarian",
+"gluten_free"
+],
+"allergen_tags": [
+"mustard"
+],
+"prep_time_min": 30,
+"cook_time_min": 20,
+"servings": 4,
+"estimated_difficulty": "beginner",
+"spice_level": "medium",
+"ingredients": [
+{
+"ingredient_name": "potato",
+"quantity_grams": 400.0,
+"display_quantity": 3.0,
+"display_unit": "piece",
+"notes": "peeled and cut into small cubes"
+},
+{
+"ingredient_name": "poppy seeds",
+"quantity_grams": 40.0,
+"display_quantity": 4.0,
+"display_unit": "tbsp",
+"notes": "posto, soaked in warm water for 30 minutes"
+},
+{
+"ingredient_name": "mustard oil",
+"quantity_grams": 20.0,
+"display_quantity": 1.5,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_name": "green chilli",
+"quantity_grams": 10.0,
+"display_quantity": 3.0,
+"display_unit": "piece",
+"notes": "2 for grinding, 1 for tempering"
+},
+{
+"ingredient_name": "sugar",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "salt",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Drain the soaked poppy seeds (posto) and grind them into a smooth, thick paste along with two green chillies and a tiny splash of water.",
+"Heat mustard oil in a heavy-bottomed pan until it reaches smoking point, then lower the heat.",
+"Add one slit green chilli to the oil and sauté for a few seconds.",
+"Add the potato cubes and fry on medium heat for 5-6 minutes until they get a light golden crust.",
+"Add salt, sugar, and half a cup of water. Cover the pan and cook until the potatoes are 80% tender.",
+"Remove the lid, pour the prepared poppy seed paste into the pan, and mix gently to coat the potatoes.",
+"Cook uncovered on low heat for 5-7 minutes, stirring occasionally, until the raw smell of the poppy seeds disappears and the dish looks relatively dry.",
+"Drizzle a few drops of raw mustard oil on top for an authentic pungent kick (optional) and turn off the heat.",
+"Serve warm with steamed rice and musur dal."
+]
+},
+{
+"name": "Shukto",
+"name_alt": "Bengali Mixed Vegetable Stew",
+"meal_type": "lunch",
+"cuisine": "bengali",
+"diet_tags": [
+"vegetarian",
+"gluten_free"
+],
+"allergen_tags": [
+"dairy",
+"mustard"
+],
+"prep_time_min": 20,
+"cook_time_min": 30,
+"servings": 4,
+"estimated_difficulty": "advanced",
+"spice_level": "mild",
+"ingredients": [
+{
+"ingredient_name": "bitter gourd",
+"quantity_grams": 80.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "karela, cut into thick batons"
+},
+{
+"ingredient_name": "sweet potato",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "cut into thick batons"
+},
+{
+"ingredient_name": "potato",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "cut into thick batons"
+},
+{
+"ingredient_name": "brinjal",
+"quantity_grams": 80.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "cut into thick batons"
+},
+{
+"ingredient_name": "drumstick",
+"quantity_grams": 50.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "cut into 2-inch pieces"
+},
+{
+"ingredient_name": "mustard seeds",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "half for paste, half for tempering"
+},
+{
+"ingredient_name": "ginger",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "inch",
+"notes": "for paste"
+},
+{
+"ingredient_name": "mustard oil",
+"quantity_grams": 30.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_name": "milk",
+"quantity_grams": 60.0,
+"display_quantity": 0.25,
+"display_unit": "cup",
+"notes": ""
+},
+{
+"ingredient_name": "ghee",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "sugar",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "salt",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Grind half of the mustard seeds and the ginger into a fine paste using a little water.",
+"Heat mustard oil in a heavy-bottomed pan until it smokes, then lower the heat.",
+"Fry the bitter gourd pieces until they are crisp and brown. Remove and set aside.",
+"In the same oil, lightly fry the brinjal pieces for 2 minutes, then remove and set aside.",
+"To the remaining hot oil, add the rest of the mustard seeds and let them splutter.",
+"Add the sweet potato, potato, and drumstick pieces. Sauté for 3-4 minutes.",
+"Stir in the prepared mustard-ginger paste and salt, cooking for another 2 minutes.",
+"Add 1.5 cups of water, cover the pan, and simmer until the vegetables are almost tender.",
+"Return the fried bitter gourd and brinjal to the pan, add milk and sugar, and stir gently.",
+"Simmer for 3-4 minutes until the gravy thickens slightly.",
+"Turn off the heat, drizzle ghee on top, and serve as the traditional first course of a Bengali meal with rice."
+]
+},
+{
+"name": "Bandhakopir Ghonto",
+"name_alt": "Bengali Cabbage Curry",
+"meal_type": "lunch",
+"cuisine": "bengali",
+"diet_tags": [
+"vegetarian",
+"gluten_free",
+"low_carb"
+],
+"allergen_tags": [
+"dairy",
+"mustard"
+],
+"prep_time_min": 15,
+"cook_time_min": 35,
+"servings": 4,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"ingredients": [
+{
+"ingredient_name": "cabbage",
+"quantity_grams": 400.0,
+"display_quantity": 4.0,
+"display_unit": "cup",
+"notes": "finely shredded"
+},
+{
+"ingredient_name": "potato",
+"quantity_grams": 150.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "cut into small cubes"
+},
+{
+"ingredient_name": "green peas",
+"quantity_grams": 80.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": "fresh or frozen"
+},
+{
+"ingredient_name": "mustard oil",
+"quantity_grams": 20.0,
+"display_quantity": 1.5,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_name": "ghee",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "cumin",
+"quantity_grams": 3.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "bay leaf",
+"quantity_grams": 1.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_name": "ginger",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "inch",
+"notes": "grated"
+},
+{
+"ingredient_name": "green chilli",
+"quantity_grams": 5.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": "slit"
+},
+{
+"ingredient_name": "turmeric powder",
+"quantity_grams": 3.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "red chilli powder",
+"quantity_grams": 3.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "coriander seeds",
+"quantity_grams": 4.0,
+"display_quantity": 1.5,
+"display_unit": "tsp",
+"notes": "powdered"
+},
+{
+"ingredient_name": "garam masala",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "sugar",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "salt",
+"quantity_grams": 6.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Heat mustard oil in a large pan until it smokes, then reduce the heat.",
+"Add the potato cubes, fry until golden brown, and set them aside.",
+"In the remaining oil, add bay leaf and cumin seeds. Allow them to splutter.",
+"Add grated ginger and slit green chillies, sautéing until aromatic.",
+"Add the shredded cabbage along with turmeric, red chilli powder, coriander powder, and salt. Mix well.",
+"Cover the pan and cook on medium-low heat for about 10 minutes until the cabbage releases its water and shrinks.",
+"Add the fried potatoes and green peas, mixing everything thoroughly.",
+"Cover again and cook for another 10-15 minutes until the vegetables are completely tender and the moisture evaporates.",
+"Add sugar and ghee, stir-frying on medium heat for 2-3 minutes.",
+"Sprinkle garam masala, mix well, and turn off the heat.",
+"Serve hot with luchi, paratha, or rice."
+]
+}
+]
+}

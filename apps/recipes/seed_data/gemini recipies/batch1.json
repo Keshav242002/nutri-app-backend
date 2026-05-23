@@ -1,0 +1,307 @@
+{
+"recipes": [
+{
+"name": "Aloo paratha",
+"name_alt": "Alu paratha",
+"meal_type": "breakfast",
+"cuisine": "north_indian",
+"diet_tags": ["vegan", "vegetarian", "dairy_free", "nut_free"],
+"allergen_tags": ["gluten"],
+"prep_time_min": 15,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"ingredients": [
+{"ingredient_name": "whole wheat flour", "quantity_grams": 120.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "for dough"},
+{"ingredient_name": "potato", "quantity_grams": 150.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "boiled and mashed"},
+{"ingredient_name": "onion", "quantity_grams": 40.0, "display_quantity": 4.0, "display_unit": "tbsp", "notes": "finely chopped"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "finely chopped"},
+{"ingredient_name": "coriander leaves", "quantity_grams": 4.0, "display_quantity": 4.0, "display_unit": "tbsp", "notes": "chopped"}
+],
+"instructions": [
+"Boil the potato until soft, then peel and mash it completely in a mixing bowl.",
+"Add finely chopped onion, green chilli, and coriander leaves to the mashed potato and mix well.",
+"In a separate bowl, add whole wheat flour and gradually mix with water to knead into a smooth, soft dough.",
+"Divide the dough and the potato stuffing into two equal portions.",
+"Roll out a portion of dough into a small circle, place the potato stuffing in the center, and fold the edges to seal it.",
+"Flatten the stuffed dough ball and gently roll it out into a thick circular paratha.",
+"Heat a tawa or griddle over medium heat and place the rolled paratha on it.",
+"Cook both sides on the tawa until golden-brown spots appear, pressing gently with a spatula."
+]
+},
+{
+"name": "Mooli paratha",
+"name_alt": "Radish paratha",
+"meal_type": "breakfast",
+"cuisine": "north_indian",
+"diet_tags": ["vegan", "vegetarian", "dairy_free", "nut_free"],
+"allergen_tags": ["gluten"],
+"prep_time_min": 15,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "advanced",
+"spice_level": "medium",
+"ingredients": [
+{"ingredient_name": "whole wheat flour", "quantity_grams": 120.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "for dough"},
+{"ingredient_name": "radish", "quantity_grams": 230.0, "display_quantity": 2.0, "display_unit": "cup", "notes": "grated and squeezed dry"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "finely chopped"},
+{"ingredient_name": "coriander leaves", "quantity_grams": 4.0, "display_quantity": 4.0, "display_unit": "tbsp", "notes": "chopped"}
+],
+"instructions": [
+"Grate the radish finely using a grater and place it in a large bowl.",
+"Squeeze the grated radish firmly between your palms to extract and discard the excess water completely.",
+"Mix the squeezed radish with finely chopped green chilli and coriander leaves in a bowl to make the filling.",
+"Mix whole wheat flour with water in a separate bowl and knead into a pliable dough.",
+"Divide the dough and the radish filling into two equal portions.",
+"Take one dough ball, roll it slightly, place the radish filling in the center, and pleat the edges to cover the filling.",
+"Dust with flour and roll carefully into a round paratha without tearing.",
+"Place the paratha on a hot griddle and cook both sides until evenly browned and cooked through."
+]
+},
+{
+"name": "Gobi paratha",
+"name_alt": "Cauliflower paratha",
+"meal_type": "breakfast",
+"cuisine": "north_indian",
+"diet_tags": ["vegan", "vegetarian", "dairy_free", "nut_free"],
+"allergen_tags": ["gluten"],
+"prep_time_min": 15,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"ingredients": [
+{"ingredient_name": "whole wheat flour", "quantity_grams": 120.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "for dough"},
+{"ingredient_name": "cauliflower", "quantity_grams": 200.0, "display_quantity": 2.0, "display_unit": "cup", "notes": "grated florets"},
+{"ingredient_name": "onion", "quantity_grams": 30.0, "display_quantity": 3.0, "display_unit": "tbsp", "notes": "finely chopped"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "finely chopped"},
+{"ingredient_name": "coriander leaves", "quantity_grams": 4.0, "display_quantity": 4.0, "display_unit": "tbsp", "notes": "chopped"}
+],
+"instructions": [
+"Grate the cauliflower florets finely and finely chop the onion, green chilli, and coriander leaves.",
+"Combine the grated cauliflower, onion, green chilli, and coriander leaves in a mixing bowl for the stuffing.",
+"Combine whole wheat flour with water and knead it into a soft dough, then let it rest for five minutes.",
+"Divide the dough into two equal balls and roll each ball into a small thick disc.",
+"Place half of the cauliflower mixture in the center of a disc, bring the edges together, and pinch to seal.",
+"Gently roll the stuffed ball into a flat circular paratha using dry flour for dusting.",
+"Place the paratha on a preheated tawa and cook on medium flame.",
+"Flip and cook the other side until both surfaces have distinct golden spots and are thoroughly cooked."
+]
+},
+{
+"name": "Onion poha",
+"name_alt": "Kanda poha",
+"meal_type": "breakfast",
+"cuisine": "north_indian",
+"diet_tags": ["vegan", "vegetarian", "gluten_free", "dairy_free", "nut_free"],
+"allergen_tags": [],
+"prep_time_min": 10,
+"cook_time_min": 10,
+"servings": 2,
+"estimated_difficulty": "beginner",
+"spice_level": "medium",
+"ingredients": [
+{"ingredient_name": "flattened rice", "quantity_grams": 110.0, "display_quantity": 2.0, "display_unit": "cup", "notes": "rinsed"},
+{"ingredient_name": "onion", "quantity_grams": 150.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "chopped"},
+{"ingredient_name": "potato", "quantity_grams": 75.0, "display_quantity": 0.5, "display_unit": "piece", "notes": "diced small"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "finely chopped"},
+{"ingredient_name": "coriander leaves", "quantity_grams": 2.0, "display_quantity": 2.0, "display_unit": "tbsp", "notes": "chopped"},
+{"ingredient_name": "curry leaves", "quantity_grams": 2.0, "display_quantity": 1.0, "display_unit": "sprig", "notes": "fresh"}
+],
+"instructions": [
+"Place the flattened rice in a colander, rinse it gently under running water, drain completely, and set aside to soften.",
+"Finely chop the onion, green chilli, and coriander leaves, and dice the potato into very small cubes.",
+"Heat a non-stick pan, add the diced potatoes, cover and cook on low heat until they are tender and lightly browned.",
+"Add the chopped onions and curry leaves to the pan with the potatoes and sauté until the onions turn translucent.",
+"Add the chopped green chillies and stir for a minute to release their flavor.",
+"Add the rinsed and softened flattened rice to the pan and toss gently to combine all ingredients without mashing.",
+"Cover the pan with a lid and let it steam on low heat for two to three minutes.",
+"Turn off the heat, garnish with fresh coriander leaves, and mix gently before serving."
+]
+},
+{
+"name": "Matar poha",
+"name_alt": "Peas poha",
+"meal_type": "breakfast",
+"cuisine": "north_indian",
+"diet_tags": ["vegan", "vegetarian", "gluten_free", "dairy_free", "nut_free"],
+"allergen_tags": [],
+"prep_time_min": 10,
+"cook_time_min": 10,
+"servings": 2,
+"estimated_difficulty": "beginner",
+"spice_level": "medium",
+"ingredients": [
+{"ingredient_name": "flattened rice", "quantity_grams": 110.0, "display_quantity": 2.0, "display_unit": "cup", "notes": "rinsed"},
+{"ingredient_name": "green peas", "quantity_grams": 145.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "fresh shelled peas"},
+{"ingredient_name": "onion", "quantity_grams": 60.0, "display_quantity": 6.0, "display_unit": "tbsp", "notes": "chopped"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "chopped"},
+{"ingredient_name": "coriander leaves", "quantity_grams": 2.0, "display_quantity": 2.0, "display_unit": "tbsp", "notes": "chopped"},
+{"ingredient_name": "curry leaves", "quantity_grams": 2.0, "display_quantity": 1.0, "display_unit": "sprig", "notes": "fresh"}
+],
+"instructions": [
+"Rinse the flattened rice thoroughly in a sieve, drain all water, and let it rest to become soft.",
+"Finely chop the onion and green chilli, and chop the coriander leaves for garnish.",
+"In a pan, steam or dry-sauté the green peas and chopped onions until the onions are soft and peas are tender.",
+"Add the chopped green chillies and curry leaves to the pan and sauté for another minute.",
+"Gently add the softened flattened rice to the pan, blending it carefully with the vegetables.",
+"Cover the pan and let the poha cook in its own steam on low heat for three minutes.",
+"Uncover the pan and give it a final gentle stir to ensure uniform mixing.",
+"Garnish with chopped coriander leaves and serve warm."
+]
+},
+{
+"name": "Vegetable upma",
+"name_alt": "Suji upma",
+"meal_type": "breakfast",
+"cuisine": "north_indian",
+"diet_tags": ["vegan", "vegetarian", "dairy_free", "nut_free"],
+"allergen_tags": ["gluten"],
+"prep_time_min": 10,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "mild",
+"ingredients": [
+{"ingredient_name": "semolina", "quantity_grams": 95.0, "display_quantity": 1.0, "display_unit": "katori", "notes": "dry rava"},
+{"ingredient_name": "onion", "quantity_grams": 50.0, "display_quantity": 5.0, "display_unit": "tbsp", "notes": "chopped"},
+{"ingredient_name": "carrot", "quantity_grams": 64.0, "display_quantity": 0.5, "display_unit": "cup", "notes": "chopped"},
+{"ingredient_name": "green peas", "quantity_grams": 72.5, "display_quantity": 0.5, "display_unit": "cup", "notes": "fresh"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "chopped"},
+{"ingredient_name": "curry leaves", "quantity_grams": 2.0, "display_quantity": 1.0, "display_unit": "sprig", "notes": "fresh"}
+],
+"instructions": [
+"Add semolina to a dry pan and roast it over medium heat until it becomes fragrant and lightly golden, then transfer to a plate.",
+"Finely chop the onion, carrot, and green chilli.",
+"In the same pan, add the chopped onions, carrots, green peas, and curry leaves, and dry-sauté until they begin to soften.",
+"Add the chopped green chilli and pour two and a half cups of water into the pan, bringing it to a rolling boil.",
+"Once the water boils, lower the heat and slowly add the roasted semolina while stirring continuously to prevent lumps.",
+"Keep stirring as the semolina absorbs the water and thickens into a uniform consistency.",
+"Cover the pan with a lid and let the upma simmer on low heat for two to three minutes.",
+"Turn off the heat and let it rest covered for a minute before fluffing and serving."
+]
+},
+{
+"name": "Palak paratha",
+"name_alt": "Spinach paratha",
+"meal_type": "breakfast",
+"cuisine": "north_indian",
+"diet_tags": ["vegan", "vegetarian", "dairy_free", "nut_free"],
+"allergen_tags": ["gluten"],
+"prep_time_min": 15,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "mild",
+"ingredients": [
+{"ingredient_name": "whole wheat flour", "quantity_grams": 120.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "for dough"},
+{"ingredient_name": "spinach", "quantity_grams": 120.0, "display_quantity": 4.0, "display_unit": "cup", "notes": "leaves"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "chopped"},
+{"ingredient_name": "onion", "quantity_grams": 40.0, "display_quantity": 4.0, "display_unit": "tbsp", "notes": "finely chopped"}
+],
+"instructions": [
+"Wash the spinach leaves thoroughly, blanch them in boiling water for two minutes, and drain completely.",
+"Purée the blanched spinach leaves along with the green chilli in a blender until smooth.",
+"Finely chop the onion.",
+"In a large bowl, mix whole wheat flour, chopped onion, and the prepared spinach purée.",
+"Knead the mixture into a soft, smooth dough, adding a little water if necessary.",
+"Divide the dough into two equal portions and roll each portion into a smooth ball.",
+"Roll out each ball into a circular flatbread of even thickness using dry flour for dusting.",
+"Place the paratha on a hot tawa, cook both sides until dark green patches appear and it is thoroughly baked."
+]
+},
+{
+"name": "Methi paratha",
+"name_alt": "Fenugreek paratha",
+"meal_type": "breakfast",
+"cuisine": "north_indian",
+"diet_tags": ["vegan", "vegetarian", "dairy_free", "nut_free"],
+"allergen_tags": ["gluten"],
+"prep_time_min": 15,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"ingredients": [
+{"ingredient_name": "whole wheat flour", "quantity_grams": 120.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "for dough"},
+{"ingredient_name": "fenugreek leaves", "quantity_grams": 125.0, "display_quantity": 5.0, "display_unit": "cup", "notes": "chopped leaves"},
+{"ingredient_name": "onion", "quantity_grams": 40.0, "display_quantity": 4.0, "display_unit": "tbsp", "notes": "finely chopped"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "finely chopped"}
+],
+"instructions": [
+"Wash the fenugreek leaves thoroughly, drain completely, and chop them very finely.",
+"Finely chop the onion and green chilli.",
+"Combine the whole wheat flour, chopped fenugreek leaves, chopped onion, and green chilli in a large mixing bowl.",
+"Mix the ingredients well and gradually add water to knead into a firm yet soft dough.",
+"Divide the kneaded dough into two equal portions and shape them into round balls.",
+"Roll out each dough ball into a round paratha using a rolling pin and a lightly floured surface.",
+"Pre-heat a griddle and place the rolled paratha onto it, cooking on medium heat.",
+"Flip the paratha and cook the other side, pressing gently with a clean cloth or spatula until fully cooked."
+]
+},
+{
+"name": "Dalia upma",
+"name_alt": "Broken wheat upma",
+"meal_type": "breakfast",
+"cuisine": "north_indian",
+"diet_tags": ["vegan", "vegetarian", "dairy_free", "nut_free"],
+"allergen_tags": ["gluten"],
+"prep_time_min": 10,
+"cook_time_min": 20,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"ingredients": [
+{"ingredient_name": "broken wheat", "quantity_grams": 150.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "dry dalia"},
+{"ingredient_name": "onion", "quantity_grams": 50.0, "display_quantity": 5.0, "display_unit": "tbsp", "notes": "chopped"},
+{"ingredient_name": "carrot", "quantity_grams": 64.0, "display_quantity": 0.5, "display_unit": "cup", "notes": "chopped"},
+{"ingredient_name": "french beans", "quantity_grams": 50.0, "display_quantity": 0.5, "display_unit": "cup", "notes": "chopped"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "chopped"},
+{"ingredient_name": "curry leaves", "quantity_grams": 2.0, "display_quantity": 1.0, "display_unit": "sprig", "notes": "fresh"}
+],
+"instructions": [
+"Dry-roast the broken wheat in a pan over medium flame for four to five minutes until it turns aromatic.",
+"Finely chop the onion, carrot, french beans, and green chilli.",
+"In a pan or pressure cooker, dry-sauté the chopped onions, carrots, and french beans along with curry leaves until slightly tender.",
+"Add the chopped green chilli and the roasted broken wheat to the pan, stirring to combine.",
+"Pour three cups of water into the mixture and bring it to a boil.",
+"Lower the heat, cover the pan tightly with a lid, and let it simmer for twelve to fifteen minutes until the dalia is cooked and water is absorbed.",
+"Turn off the heat and keep the pan covered for an additional two minutes to let it finish steaming.",
+"Uncover, fluff the dalia upma gently with a fork, and serve hot."
+]
+},
+{
+"name": "Vegetable mix paratha",
+"name_alt": "Mix veg paratha",
+"meal_type": "breakfast",
+"cuisine": "north_indian",
+"diet_tags": ["vegan", "vegetarian", "dairy_free", "nut_free"],
+"allergen_tags": ["gluten"],
+"prep_time_min": 20,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"ingredients": [
+{"ingredient_name": "whole wheat flour", "quantity_grams": 120.0, "display_quantity": 1.0, "display_unit": "cup", "notes": "for dough"},
+{"ingredient_name": "potato", "quantity_grams": 75.0, "display_quantity": 0.5, "display_unit": "piece", "notes": "boiled"},
+{"ingredient_name": "carrot", "quantity_grams": 32.0, "display_quantity": 0.25, "display_unit": "cup", "notes": "boiled"},
+{"ingredient_name": "cauliflower", "quantity_grams": 50.0, "display_quantity": 0.5, "display_unit": "cup", "notes": "grated florets"},
+{"ingredient_name": "onion", "quantity_grams": 20.0, "display_quantity": 2.0, "display_unit": "tbsp", "notes": "chopped"},
+{"ingredient_name": "green chilli", "quantity_grams": 5.0, "display_quantity": 1.0, "display_unit": "piece", "notes": "chopped"},
+{"ingredient_name": "coriander leaves", "quantity_grams": 2.0, "display_quantity": 2.0, "display_unit": "tbsp", "notes": "chopped"}
+],
+"instructions": [
+"Boil the potato and carrot until soft, then peel and mash them thoroughly in a bowl.",
+"Finely grate the cauliflower florets and finely chop the onion, green chilli, and coriander leaves.",
+"Combine the mashed potato, carrot, grated cauliflower, chopped onion, green chilli, and coriander leaves to make the vegetable filling.",
+"Mix whole wheat flour with water and knead it into a smooth pliable dough.",
+"Divide the dough into two equal parts and shape them into neat balls.",
+"Roll a dough ball slightly, place half of the mixed vegetable filling inside, and pinch the edges together to seal well.",
+"Flatten the stuffed ball and roll it out gently into a round paratha, ensuring the filling does not leak.",
+"Cook the paratha on a hot griddle on both sides until even golden-brown spots form and the flatbread is completely cooked."
+]
+}
+]
+}

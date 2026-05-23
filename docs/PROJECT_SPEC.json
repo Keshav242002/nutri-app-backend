@@ -766,7 +766,11 @@
           "Recipe": {
             "unchanged_fields": "name, slug, meal_type, cuisine, diet_tags, allergen_tags, prep_time_min, cook_time_min, servings, instructions (JSONField list of steps), image_url, is_active",
             "REMOVED": "calories, protein_g, carbs_g, fat_g, fiber_g, micronutrients — these are now COMPUTED",
+            "name_alt": "CharField max_length=200 blank=True default='' — alternate/English name for regional recipe names (e.g. 'Mashed potato rice' for 'Aloo bhate bhat'). Included in search filter.",
+            "estimated_difficulty": "CharField enum: beginner | intermediate | advanced, default='intermediate' — filterable in list endpoint",
+            "spice_level": "CharField enum: mild | medium | hot | very_hot, default='medium' — filterable in list endpoint",
             "cached_nutrition": "JSONField — populated by compute_nutrition service; schema: {calories, protein_g, carbs_g, fat_g, fiber_g, micronutrients: {...}, computed_at: iso8601}",
+            "cached_calories_per_serving": "PositiveIntegerField null=True — denormalized from cached_nutrition.calories for SQL filtering in M4 engine calorie window. B-tree indexed. Populated by compute_nutrition alongside cached_nutrition.",
             "cached_cost_inr": "DecimalField max_digits=7 decimal_places=2 null=True — sum of ingredient prices × quantities",
             "source": "CharField enum: seed | ai_generated | user_custom",
             "cost_known": "BooleanField default False — set by compute_nutrition; True when ≥80% of total RecipeIngredient.quantity_grams maps to Ingredients with non-NULL price"
@@ -808,7 +812,8 @@
             "soy",
             "shellfish",
             "fish",
-            "sesame"
+            "sesame",
+            "mustard"
           ],
           "cuisine_tags": [
             "north_indian",
@@ -861,13 +866,15 @@
               "diet_tags (comma, all-must-match via __contains)",
               "exclude_allergens (comma, none-may-match)",
               "max_prep_time",
-              "search (icontains on name)",
+              "estimated_difficulty (exact match: beginner | intermediate | advanced)",
+              "spice_level (exact match: mild | medium | hot | very_hot)",
+              "search (icontains on name OR name_alt)",
               "max_cost_per_serving_inr (filter by cached_cost_inr / servings)",
               "includes_ingredients (comma list of ingredient names; recipe must use all)",
               "excludes_ingredients (comma list; recipe must use none)"
             ],
             "pagination": "cursor, page_size 20",
-            "response": "slim RecipeListSerializer (name, slug, image, cached_nutrition summary, prep_time, tags, cached_cost_inr)"
+            "response": "slim RecipeListSerializer (name, name_alt, slug, image, cached_nutrition summary, prep_time, estimated_difficulty, spice_level, tags, cached_cost_inr)"
           },
           "GET /api/v1/recipes/<slug>/": "full RecipeDetailSerializer including ingredient list (with HouseholdUnit display), instructions, cached_nutrition with micronutrients"
         },

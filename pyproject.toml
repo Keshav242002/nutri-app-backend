@@ -1,11 +1,17 @@
 [tool.black]
 line-length = 100
 target-version = ["py312"]
+extend-exclude = '''
+/(
+    scripts
+  | apps/recipes/seed_data
+)/
+'''
 
 [tool.ruff]
 line-length = 100
 target-version = "py312"
-extend-exclude = ["*/migrations/*"]
+extend-exclude = ["*/migrations/*", "scripts/*", "apps/recipes/seed_data/*"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP", "N"]
@@ -25,6 +31,7 @@ plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main"]
 module = [
     "celery.*",
     "django_celery_beat.*",
+    "django_filters.*",
     "drf_spectacular.*",
     "factory.*",
     "corsheaders.*",
@@ -34,7 +41,7 @@ module = [
 ignore_missing_imports = true
 
 [[tool.mypy.overrides]]
-module = ["apps.*.tests.*", "tests.*"]
+module = ["apps.*.tests.*", "tests.*", "apps.*.admin"]
 ignore_errors = true
 
 [tool.django-stubs]

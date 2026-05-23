@@ -1,0 +1,1061 @@
+{
+"recipes": [
+{
+"name": "Toor Dal Tadka",
+"name_alt": "Yellow Dal Fry",
+"meal_type": "dinner",
+"cuisine": "north_indian",
+"diet_tags": [
+"vegetarian",
+"gluten_free",
+"nut_free",
+"high_protein"
+],
+"allergen_tags": [
+"dairy"
+],
+"prep_time_min": 10,
+"cook_time_min": 25,
+"servings": 4,
+"estimated_difficulty": "beginner",
+"spice_level": "medium",
+"ingredients": [
+{
+"ingredient_name": "toor dal",
+"quantity_grams": 150.0,
+"display_quantity": 0.75,
+"display_unit": "cup",
+"notes": "washed and soaked for 20 mins"
+},
+{
+"ingredient_name": "onion",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_name": "tomato",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_name": "green chilli",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "slit lengthwise"
+},
+{
+"ingredient_name": "ginger",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "finely grated"
+},
+{
+"ingredient_name": "garlic",
+"quantity_grams": 10.0,
+"display_quantity": 3.0,
+"display_unit": "clove",
+"notes": "minced"
+},
+{
+"ingredient_name": "cumin",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "turmeric powder",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "red chilli powder",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "ghee",
+"quantity_grams": 14.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "for tempering"
+},
+{
+"ingredient_name": "salt",
+"quantity_grams": 6.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "to taste"
+},
+{
+"ingredient_name": "coriander leaves",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "chopped for garnish"
+}
+],
+"instructions": [
+"In a pressure cooker, add the washed toor dal, turmeric powder, half the salt, and 2.5 cups of water.",
+"Cook for 3-4 whistles on medium heat until the dal is completely soft and mushy.",
+"Let the pressure release naturally, then whisk the dal lightly to smooth it out. Set aside.",
+"In a separate small pan, heat the ghee over medium heat for the tempering (tadka).",
+"Add the cumin seeds and let them splutter for a few seconds.",
+"Add the minced garlic, grated ginger, and slit green chilli. Sauté for 30 seconds until aromatic.",
+"Add the finely chopped onion and cook until they turn translucent and slightly golden.",
+"Stir in the chopped tomatoes and red chilli powder. Cook for 3-4 minutes until the tomatoes soften.",
+"Pour this hot tempering over the cooked dal and mix well. Simmer for 2 minutes so flavors meld.",
+"Garnish with freshly chopped coriander leaves and serve hot with rice or roti."
+]
+},
+{
+"name": "Whole Wheat Phulka",
+"name_alt": "Roti / Chapati",
+"meal_type": "dinner",
+"cuisine": "north_indian",
+"diet_tags": [
+"vegetarian",
+"nut_free"
+],
+"allergen_tags": [
+"gluten",
+"dairy"
+],
+"prep_time_min": 15,
+"cook_time_min": 15,
+"servings": 4,
+"estimated_difficulty": "intermediate",
+"spice_level": "mild",
+"ingredients": [
+{
+"ingredient_name": "whole wheat flour",
+"quantity_grams": 240.0,
+"display_quantity": 2.0,
+"display_unit": "cup",
+"notes": "extra for dusting"
+},
+{
+"ingredient_name": "salt",
+"quantity_grams": 2.0,
+"display_quantity": 0.25,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "ghee",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": "for brushing on cooked phulkas"
+}
+],
+"instructions": [
+"In a large mixing bowl, combine the whole wheat flour and salt.",
+"Gradually add warm water, mixing continuously, until the dough begins to come together.",
+"Knead the dough for 5-8 minutes until it is smooth, soft, and pliable.",
+"Cover the dough with a damp cloth and let it rest for at least 15 minutes.",
+"Divide the rested dough into equal lemon-sized balls and flatten them slightly.",
+"Dust a dough ball with dry flour and roll it out into a thin, even circle using a rolling pin.",
+"Heat a tawa (griddle) over medium-high heat. Place the rolled dough circle on it.",
+"When small bubbles appear, flip it over and cook the other side for a few more seconds.",
+"Carefully move the roti directly to an open flame using tongs; it will puff up immediately.",
+"Remove from heat, brush lightly with ghee, and keep covered in a cloth to retain softness."
+]
+},
+{
+"name": "Jeera Rice",
+"name_alt": "Cumin Rice",
+"meal_type": "dinner",
+"cuisine": "north_indian",
+"diet_tags": [
+"vegetarian",
+"gluten_free",
+"nut_free"
+],
+"allergen_tags": [
+"dairy"
+],
+"prep_time_min": 15,
+"cook_time_min": 15,
+"servings": 4,
+"estimated_difficulty": "beginner",
+"spice_level": "mild",
+"ingredients": [
+{
+"ingredient_name": "basmati rice",
+"quantity_grams": 200.0,
+"display_quantity": 1.0,
+"display_unit": "cup",
+"notes": "washed and soaked for 20 mins"
+},
+{
+"ingredient_name": "cumin",
+"quantity_grams": 4.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "ghee",
+"quantity_grams": 14.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_name": "salt",
+"quantity_grams": 4.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": "to taste"
+},
+{
+"ingredient_name": "coriander leaves",
+"quantity_grams": 3.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "for garnish"
+}
+],
+"instructions": [
+"Wash the basmati rice gently under running water and soak it for 20 minutes, then drain completely.",
+"Heat ghee in a deep pan or pot over medium heat.",
+"Add cumin seeds to the hot ghee. Wait until they splutter and turn a slightly dark brown color to release maximum flavor.",
+"Add the drained basmati rice to the pan and gently sauté for 1-2 minutes until the grains are coated with ghee.",
+"Pour in 2 cups of water and add the salt. Stir gently.",
+"Bring the water to a rolling boil, then lower the heat to a gentle simmer.",
+"Cover the pan with a tight-fitting lid and cook undisturbed for 10-12 minutes.",
+"Turn off the heat and let the rice rest covered for another 5 minutes.",
+"Fluff the rice gently with a fork.",
+"Garnish with chopped coriander leaves and serve hot."
+]
+},
+{
+"name": "Dhaba Style Aloo Gobi",
+"name_alt": "Potato and Cauliflower Curry",
+"meal_type": "dinner",
+"cuisine": "punjabi",
+"diet_tags": [
+"vegan",
+"vegetarian",
+"dairy_free",
+"gluten_free",
+"nut_free"
+],
+"allergen_tags": [
+"mustard"
+],
+"prep_time_min": 15,
+"cook_time_min": 25,
+"servings": 4,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"ingredients": [
+{
+"ingredient_name": "cauliflower",
+"quantity_grams": 300.0,
+"display_quantity": 3.0,
+"display_unit": "cup",
+"notes": "cut into medium florets"
+},
+{
+"ingredient_name": "potato",
+"quantity_grams": 200.0,
+"display_quantity": 1.5,
+"display_unit": "cup",
+"notes": "peeled and cubed"
+},
+{
+"ingredient_name": "onion",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_name": "tomato",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "chopped"
+},
+{
+"ingredient_name": "green chilli",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "slit"
+},
+{
+"ingredient_name": "ginger",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "julienned"
+},
+{
+"ingredient_name": "cumin",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "turmeric powder",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "red chilli powder",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "garam masala",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "mustard oil",
+"quantity_grams": 20.0,
+"display_quantity": 1.5,
+"display_unit": "tbsp",
+"notes": "smoked before using"
+},
+{
+"ingredient_name": "salt",
+"quantity_grams": 6.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "coriander leaves",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "for garnish"
+}
+],
+"instructions": [
+"Heat the mustard oil in a heavy bottomed pan until it reaches smoking point, then lower the heat slightly.",
+"Add the cubed potatoes and cauliflower florets to the pan. Fry them for 5-7 minutes until lightly golden. Remove and set aside.",
+"In the same remaining oil, add cumin seeds and let them splutter.",
+"Add finely chopped onion and sauté until golden brown.",
+"Stir in the julienned ginger and slit green chilli, cooking for another minute.",
+"Add the chopped tomatoes, turmeric, and red chilli powder. Cook until the tomatoes are mushy and oil starts separating from the masala.",
+"Return the fried potatoes and cauliflower to the pan. Add salt and mix well so the vegetables are coated in the masala.",
+"Cover the pan with a lid and cook on low heat for 10-12 minutes, stirring occasionally, until vegetables are fully tender.",
+"Sprinkle garam masala and chopped coriander leaves over the top. Mix gently to avoid mashing the vegetables.",
+"Serve hot with rotis or parathas."
+]
+},
+{
+"name": "Paneer Bhurji",
+"name_alt": "Scrambled Indian Cottage Cheese",
+"meal_type": "dinner",
+"cuisine": "north_indian",
+"diet_tags": [
+"vegetarian",
+"gluten_free",
+"high_protein",
+"nut_free"
+],
+"allergen_tags": [
+"dairy"
+],
+"prep_time_min": 10,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "beginner",
+"spice_level": "medium",
+"ingredients": [
+{
+"ingredient_name": "paneer",
+"quantity_grams": 200.0,
+"display_quantity": 1.5,
+"display_unit": "cup",
+"notes": "crumbled"
+},
+{
+"ingredient_name": "onion",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_name": "tomato",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_name": "green chilli",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_name": "ginger",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "grated"
+},
+{
+"ingredient_name": "cumin",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "turmeric powder",
+"quantity_grams": 2.0,
+"display_quantity": 0.25,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "red chilli powder",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "sunflower oil",
+"quantity_grams": 14.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_name": "salt",
+"quantity_grams": 4.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": "to taste"
+},
+{
+"ingredient_name": "coriander leaves",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "chopped"
+}
+],
+"instructions": [
+"Crumble the fresh paneer with your hands and keep it aside.",
+"Heat sunflower oil in a pan over medium heat.",
+"Add cumin seeds and let them splutter.",
+"Add finely chopped onion, ginger, and green chilli. Sauté until the onions are translucent and light pink.",
+"Add the finely chopped tomatoes along with turmeric powder, red chilli powder, and salt.",
+"Cook until the tomatoes turn soft and mushy, and the oil starts to release from the sides.",
+"Add the crumbled paneer into the pan and mix well with the onion-tomato masala.",
+"Cook for just 2-3 minutes. Do not overcook, as the paneer will turn hard and rubbery.",
+"Turn off the heat, garnish with fresh coriander leaves, and serve immediately with hot rotis or bread."
+]
+},
+{
+"name": "Bhindi Masala",
+"name_alt": "Dry Okra Curry",
+"meal_type": "dinner",
+"cuisine": "north_indian",
+"diet_tags": [
+"vegan",
+"vegetarian",
+"dairy_free",
+"gluten_free",
+"nut_free"
+],
+"allergen_tags": [
+"mustard"
+],
+"prep_time_min": 10,
+"cook_time_min": 20,
+"servings": 4,
+"estimated_difficulty": "beginner",
+"spice_level": "medium",
+"ingredients": [
+{
+"ingredient_name": "okra",
+"quantity_grams": 300.0,
+"display_quantity": 3.0,
+"display_unit": "cup",
+"notes": "washed, completely dried, and cut into 1-inch pieces"
+},
+{
+"ingredient_name": "onion",
+"quantity_grams": 150.0,
+"display_quantity": 1.5,
+"display_unit": "piece",
+"notes": "sliced"
+},
+{
+"ingredient_name": "tomato",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "chopped"
+},
+{
+"ingredient_name": "mustard oil",
+"quantity_grams": 20.0,
+"display_quantity": 1.5,
+"display_unit": "tbsp",
+"notes": "smoked"
+},
+{
+"ingredient_name": "cumin",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "turmeric powder",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "red chilli powder",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "amchur powder",
+"quantity_grams": 3.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "dry mango powder"
+},
+{
+"ingredient_name": "garam masala",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "salt",
+"quantity_grams": 6.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Rinse the okra and pat them completely dry with a kitchen towel before chopping to prevent sliminess.",
+"Heat the mustard oil in a pan until it smokes, then lower the heat.",
+"Add cumin seeds and let them splutter.",
+"Add the sliced onions and sauté until they start to turn golden brown.",
+"Add the chopped okra pieces to the pan. Cook on medium heat for 7-8 minutes, stirring occasionally without covering the pan.",
+"Once the okra loses its stickiness and is almost cooked, add the turmeric and red chilli powder.",
+"Stir in the chopped tomatoes and cook for another 3-4 minutes until they soften slightly.",
+"Finally, add the salt, garam masala, and amchur powder. Mix gently.",
+"Cook for 2 more minutes to let the flavors blend. Remove from heat and serve hot with phulkas."
+]
+},
+{
+"name": "Moong Dal Khichdi",
+"name_alt": "Lentil and Rice Porridge",
+"meal_type": "dinner",
+"cuisine": "north_indian",
+"diet_tags": [
+"vegetarian",
+"nut_free"
+],
+"allergen_tags": [
+"dairy",
+"gluten"
+],
+"prep_time_min": 15,
+"cook_time_min": 25,
+"servings": 4,
+"estimated_difficulty": "beginner",
+"spice_level": "mild",
+"ingredients": [
+{
+"ingredient_name": "basmati rice",
+"quantity_grams": 100.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": "washed and soaked"
+},
+{
+"ingredient_name": "moong dal",
+"quantity_grams": 100.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": "yellow split moong, washed and soaked"
+},
+{
+"ingredient_name": "onion",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_name": "tomato",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_name": "ghee",
+"quantity_grams": 14.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_name": "cumin",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "asafoetida",
+"quantity_grams": 1.0,
+"display_quantity": 1.0,
+"display_unit": "pinch",
+"notes": "hing"
+},
+{
+"ingredient_name": "turmeric powder",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "salt",
+"quantity_grams": 6.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Wash the rice and moong dal together and soak them in water for about 20 minutes.",
+"Heat ghee in a pressure cooker over medium heat.",
+"Add cumin seeds and let them crackle. Then add a pinch of asafoetida.",
+"Add the finely chopped onion and sauté until translucent.",
+"Stir in the chopped tomatoes, turmeric powder, and salt. Cook for 2 minutes until tomatoes soften slightly.",
+"Drain the soaked rice and dal, and add them to the cooker. Sauté for a minute.",
+"Add 3.5 to 4 cups of water depending on the consistency you prefer (more water for a porridge-like consistency).",
+"Close the pressure cooker lid and cook for 4 whistles on medium heat.",
+"Let the pressure release naturally. Open and stir well. Serve hot with a dollop of extra ghee and papad."
+]
+},
+{
+"name": "Rajma Masala",
+"name_alt": "Punjabi Red Kidney Bean Curry",
+"meal_type": "dinner",
+"cuisine": "punjabi",
+"diet_tags": [
+"vegan",
+"vegetarian",
+"dairy_free",
+"gluten_free",
+"nut_free",
+"high_protein"
+],
+"allergen_tags": [],
+"prep_time_min": 10,
+"cook_time_min": 45,
+"servings": 4,
+"estimated_difficulty": "advanced",
+"spice_level": "medium",
+"ingredients": [
+{
+"ingredient_name": "rajma",
+"quantity_grams": 200.0,
+"display_quantity": 1.0,
+"display_unit": "cup",
+"notes": "soaked overnight"
+},
+{
+"ingredient_name": "onion",
+"quantity_grams": 150.0,
+"display_quantity": 1.5,
+"display_unit": "piece",
+"notes": "finely chopped or pureed"
+},
+{
+"ingredient_name": "tomato",
+"quantity_grams": 150.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": "pureed"
+},
+{
+"ingredient_name": "ginger",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "ginger garlic paste combined"
+},
+{
+"ingredient_name": "garlic",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "ginger garlic paste combined"
+},
+{
+"ingredient_name": "bay leaf",
+"quantity_grams": 1.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_name": "cumin",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "turmeric powder",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "red chilli powder",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "garam masala",
+"quantity_grams": 3.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "sunflower oil",
+"quantity_grams": 20.0,
+"display_quantity": 1.5,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_name": "salt",
+"quantity_grams": 8.0,
+"display_quantity": 1.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "coriander leaves",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "for garnish"
+}
+],
+"instructions": [
+"Drain the soaked rajma, rinse well, and pressure cook with 3 cups of water and half the salt for 5-6 whistles until completely soft and easily mashable.",
+"In a heavy-bottomed pan, heat the sunflower oil. Add the bay leaf and cumin seeds.",
+"Once cumin splutters, add the finely chopped onions. Sauté patiently on medium heat until they turn a deep golden brown.",
+"Add the ginger and garlic paste. Cook for 1-2 minutes until the raw smell disappears.",
+"Pour in the tomato puree, along with turmeric, red chilli powder, and the remaining salt.",
+"Cook the masala until it thickens, leaves the sides of the pan, and the oil separates on top.",
+"Add the boiled rajma along with its cooking liquid to the pan. Mix well.",
+"Simmer on low heat for 15-20 minutes, lightly mashing a few rajma beans against the side of the pan to thicken the gravy.",
+"Sprinkle garam masala and stir well. Garnish with chopped coriander leaves.",
+"Serve hot with steamed basmati rice (Rajma Chawal)."
+]
+},
+{
+"name": "Palak Paneer",
+"name_alt": "Spinach and Cottage Cheese Curry",
+"meal_type": "dinner",
+"cuisine": "north_indian",
+"diet_tags": [
+"vegetarian",
+"gluten_free",
+"nut_free",
+"high_protein"
+],
+"allergen_tags": [
+"dairy"
+],
+"prep_time_min": 15,
+"cook_time_min": 25,
+"servings": 4,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"ingredients": [
+{
+"ingredient_name": "spinach",
+"quantity_grams": 300.0,
+"display_quantity": 1.0,
+"display_unit": "bundle",
+"notes": "washed and roughly chopped"
+},
+{
+"ingredient_name": "paneer",
+"quantity_grams": 200.0,
+"display_quantity": 1.5,
+"display_unit": "cup",
+"notes": "cut into cubes"
+},
+{
+"ingredient_name": "onion",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_name": "tomato",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_name": "garlic",
+"quantity_grams": 10.0,
+"display_quantity": 3.0,
+"display_unit": "clove",
+"notes": "minced"
+},
+{
+"ingredient_name": "ginger",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "grated"
+},
+{
+"ingredient_name": "green chilli",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_name": "cumin",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "garam masala",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "butter",
+"quantity_grams": 15.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_name": "fresh cream",
+"quantity_grams": 30.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_name": "salt",
+"quantity_grams": 6.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Blanch the spinach leaves in boiling water for 2-3 minutes, then immediately transfer them to ice-cold water to retain their bright green color.",
+"Blend the blanched spinach along with the green chilli into a smooth puree.",
+"Heat butter in a pan over medium heat. Add cumin seeds and let them sizzle.",
+"Add the minced garlic and grated ginger, sautéing until fragrant.",
+"Add the finely chopped onions and cook until they turn translucent and lightly golden.",
+"Stir in the finely chopped tomatoes and salt. Cook until tomatoes are completely soft.",
+"Pour the spinach puree into the pan and mix well. Simmer for 3-5 minutes.",
+"Add the paneer cubes and garam masala. Gently stir to coat the paneer in the sauce.",
+"Simmer for another 2 minutes. Do not overcook or the spinach will lose its color.",
+"Turn off the heat, stir in the fresh cream, and serve hot with naan or roti."
+]
+},
+{
+"name": "Homestyle Chicken Curry",
+"name_alt": "Tariwala Murgh",
+"meal_type": "dinner",
+"cuisine": "north_indian",
+"diet_tags": [
+"high_protein",
+"gluten_free",
+"dairy_free",
+"nut_free"
+],
+"allergen_tags": [
+"mustard"
+],
+"prep_time_min": 20,
+"cook_time_min": 40,
+"servings": 4,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"ingredients": [
+{
+"ingredient_name": "chicken thigh",
+"quantity_grams": 500.0,
+"display_quantity": 500.0,
+"display_unit": "g",
+"notes": "bone-in, curry cut pieces"
+},
+{
+"ingredient_name": "onion",
+"quantity_grams": 200.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_name": "tomato",
+"quantity_grams": 150.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": "pureed"
+},
+{
+"ingredient_name": "ginger",
+"quantity_grams": 15.0,
+"display_quantity": 1.5,
+"display_unit": "tbsp",
+"notes": "paste"
+},
+{
+"ingredient_name": "garlic",
+"quantity_grams": 15.0,
+"display_quantity": 1.5,
+"display_unit": "tbsp",
+"notes": "paste"
+},
+{
+"ingredient_name": "mustard oil",
+"quantity_grams": 30.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": "smoked"
+},
+{
+"ingredient_name": "bay leaf",
+"quantity_grams": 1.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_name": "cinnamon",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "stick"
+},
+{
+"ingredient_name": "cumin",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "turmeric powder",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "red chilli powder",
+"quantity_grams": 5.0,
+"display_quantity": 1.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "coriander seeds",
+"quantity_grams": 4.0,
+"display_quantity": 1.5,
+"display_unit": "tsp",
+"notes": "powdered/ground"
+},
+{
+"ingredient_name": "garam masala",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "salt",
+"quantity_grams": 8.0,
+"display_quantity": 1.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_name": "coriander leaves",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": "chopped for garnish"
+}
+],
+"instructions": [
+"Heat mustard oil in a heavy-bottomed pot until it smokes, then turn down the heat.",
+"Add bay leaf, cinnamon stick, and cumin seeds. Let them crackle for a few seconds.",
+"Add the finely chopped onions and sauté patiently until they turn dark golden brown.",
+"Stir in the ginger and garlic paste and cook for 2 minutes until the raw smell is gone.",
+"Add the tomato puree along with turmeric, red chilli powder, ground coriander seeds, and salt.",
+"Cook this masala on medium heat until the oil separates from the edges.",
+"Add the chicken pieces and fry them in the masala on high heat for 5-7 minutes to seal the juices.",
+"Add 1.5 cups of warm water, mix well, and bring to a boil.",
+"Cover the pot, lower the heat, and simmer for 20-25 minutes until the chicken is tender and cooked through.",
+"Sprinkle garam masala and garnish with fresh coriander leaves. Serve hot with roti or rice."
+]
+}
+]
+}

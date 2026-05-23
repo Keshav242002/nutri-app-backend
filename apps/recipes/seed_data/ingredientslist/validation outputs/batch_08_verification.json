@@ -1,0 +1,152 @@
+{
+  "batch_summary": {
+    "total_ingredients": 9,
+    "verdict_counts": {"PASS": 7, "WARN": 2, "FAIL": 0},
+    "common_issues": [
+      "'sugar' is a DUPLICATE — appeared identically in batch 6 (entry was tsp=4g, tbsp=12g, no cup). This batch's entry adds a cup unit but is otherwise the same ingredient. Worth deduping before merging.",
+      "Sweetener weights are well-calibrated: honey 21g/tbsp (USDA 21g) and 340g/cup (USDA 339g), jaggery 180g/cup grated, brown sugar 220g/cup packed (USDA 220g). Tea leaves and instant coffee weights match standard references.",
+      "Tamarind cup=240g labeled 'diluted tamarind pulp' is ambiguous — diluted pulp is mostly water, while undiluted soaked pulp is much denser. Two very different ingredients with different nutrition.",
+      "canonical_form normalisation backlog continues — same pattern as previous batches."
+    ]
+  },
+  "per_ingredient": [
+    {
+      "name": "sugar",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "major",
+          "field": "name",
+          "problem": "DUPLICATE — 'sugar' appeared identically in batch 6 with tsp=4g and tbsp=12g. This batch's entry has the same tsp/tbsp values plus an additional cup=200g unit. Either the entries should be merged (keep this one with the cup unit, drop batch 6's), or one batch should drop the entry.",
+          "suggested_fix": "Keep this entry (has more complete unit coverage) and drop the batch 6 entry. Or merge: append the cup unit to the batch 6 entry and remove this one."
+        },
+        {
+          "axis": "consistency",
+          "severity": "minor",
+          "field": "household_units[2].approximate_grams",
+          "problem": "1 cup granulated sugar = 200g matches USDA (200g/cup). ✓",
+          "suggested_fix": "No change."
+        }
+      ]
+    },
+    {
+      "name": "jaggery",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'solid jaggery' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "honey",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'honey' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "brown sugar",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'brown sugar' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "tea leaves",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'black tea leaves' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "instant coffee",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'instant coffee powder' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "lemon",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw lemon' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        },
+        {
+          "axis": "domain",
+          "severity": "minor",
+          "field": "household_units[0].approximate_grams",
+          "problem": "Indian 'lemon' typically refers to nimbu (small key lime / Citrus aurantiifolia), not the larger yellow Eureka lemon. Indian nimbu is 30-50g per piece; 60g is at the upper end or implies a hybrid lemon. Not a clear error.",
+          "suggested_fix": "Borderline. Either leave 60g (covers larger nimbu / hybrid) or change to 45g (typical Indian nimbu). Optionally clarify in notes: '1 medium Indian nimbu'."
+        }
+      ]
+    },
+    {
+      "name": "tamarind",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "domain",
+          "severity": "major",
+          "field": "household_units[2]",
+          "problem": "1 cup 'diluted tamarind pulp' = 240g — but 'diluted pulp' (water-thinned, like tamarind water for sambar/rasam) and 'undiluted soaked pulp' are nutritionally very different. Diluted pulp is ~95% water; undiluted soaked pulp is ~30-40% water. The piece (20g) and tbsp (15g) units appear to refer to concentrated pulp/lump, while the cup refers to diluted — same entry mixes two forms. typical_form_note says 'soaked pulp' which is also ambiguous.",
+          "suggested_fix": "Either: (a) make all units refer to the same form (concentrated pulp: cup would be ~250g of thick paste, calories proportionally higher); or (b) split into 'tamarind pulp' (concentrated) and 'tamarind water' (diluted) as separate ingredients. Recipes call for both forms by name (puli, imli paste vs imli pani/tamarind extract)."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'seedless tamarind pulp' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "rose water",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'rose water' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+   "batch_summary":{
+      "total_recipes":5,
+      "verdict_counts":{
+         "PASS":0,
+         "WARN":5,
+         "FAIL":0,
+         "REJECTED":0
+      },
+      "common_issues":[
+         "All ingredient names missing _raw suffix",
+         "display_unit 'inch' and 'clove' not in allowed list — must be 'piece'",
+         "'whole urad' → whole_urad_raw; 'dried fenugreek leaves' → kasuri_methi_raw",
+         "prep_time_min of 480 (8 hours) for overnight soaking is unusual but technically accurate; acceptable",
+         "Dal Makhani: missing onion/garlic? Has both — correctly listed",
+         "Amritsari Chole: traditional pindi chana does NOT contain onion (it's the differentiator from regular chole). Recipe says onion paste fried dark — this is closer to Punjabi chole than authentic Pindi/Amritsari style. Acceptable simplification."
+      ]
+   },
+   "audit":[
+      {
+         "recipe_name":"Dal Makhani",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All ingredient names missing _raw suffix; 'whole urad' → 'whole_urad_raw'; 'fresh cream' → 'fresh_cream_raw'; 'dried fenugreek leaves' → 'kasuri_methi_raw'"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'inch' and 'clove' not in allowed list",
+               "suggested_fix":"Change to 'piece'"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"quantity_grams",
+               "problem":"whole_urad 150g + rajma 30g = 180g pulses for 4 = 45g/serving (within 25-50g, OK); butter 30g for 4 = 7.5g/serving (within 3-15g range, OK)"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Kadai Paneer",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All names missing _raw suffix; 'dried fenugreek leaves' → 'kasuri_methi_raw'"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'inch' and 'clove' not in allowed list"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"quantity_grams",
+               "problem":"paneer 250g for 4 = 62.5g/serving (within 30-80g range, OK)"
+            }
+         ]
+      },
+      {
+         "recipe_name":"Amritsari Chole",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All names missing _raw suffix; 'kabuli chana' → 'kabuli_chana_raw'; 'tea leaves' → 'tea_leaves_raw'; 'amchur powder' → 'amchur_powder_raw'"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'inch' and 'clove' not in allowed list"
+            },
+            {
+               "tier":4,
+               "severity":"minor",
+               "field":"name",
+               "problem":"Authentic Pindi Chana traditionally has no onion/tomato — this recipe is closer to Punjabi-style chole with the Pindi label. Acceptable variant."
+            }
+         ]
+      },
+      {
+         "recipe_name":"Punjabi Kadhi Pakora",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All names missing _raw suffix"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"quantity_grams",
+               "problem":"mustard_oil 60g for deep-frying for 4 servings = 15g/serving (at upper limit but pakora frying retains less; acceptable). Most oil is discarded after frying."
+            }
+         ]
+      },
+      {
+         "recipe_name":"Aloo Paratha",
+         "verdict":"WARN",
+         "issues":[
+            {
+               "tier":1,
+               "severity":"blocker",
+               "field":"ingredient_name",
+               "problem":"All names missing _raw suffix; 'whole wheat flour' → 'whole_wheat_flour_raw'"
+            },
+            {
+               "tier":1,
+               "severity":"major",
+               "field":"display_unit",
+               "problem":"'inch' not in allowed list"
+            },
+            {
+               "tier":2,
+               "severity":"minor",
+               "field":"quantity_grams",
+               "problem":"whole_wheat_flour 240g for 4 = 60g/serving (within 30-90g grains range, OK); ghee 30g for 4 = 7.5g/serving (within 3-15g, OK)"
+            }
+         ]
+      }
+   ]
+}

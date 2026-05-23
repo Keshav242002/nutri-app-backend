@@ -43,6 +43,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS: list[str] = [
     "apps.accounts",
     "apps.profiles",
+    "apps.recipes",
 ]
 
 AUTH_USER_MODEL = "accounts.User"

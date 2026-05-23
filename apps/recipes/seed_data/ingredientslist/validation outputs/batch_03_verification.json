@@ -1,0 +1,147 @@
+{
+  "batch_summary": {
+    "total_ingredients": 8,
+    "verdict_counts": {"PASS": 5, "WARN": 3, "FAIL": 0},
+    "common_issues": [
+      "canonical_form values continue to use full phrases ('ripe banana', 'raw apple', 'fresh pomegranate arils') instead of normalised tokens. New twist in this batch: 'ripe' appears as a third token alongside 'raw'/'cooked'. For fruits this is semantically meaningful (kacche aam vs ripe aam are nutritionally different), but it violates the controlled vocab {raw, cooked}. Either extend the schema to handle ripeness as a separate axis, or normalise to 'raw' and put ripeness in typical_form_note.",
+      "Cup weights across the batch are excellent — all align with USDA references for chopped/cubed/sliced fruit (banana 150g, apple 125g, papaya 145g, mango 165g, watermelon 152g, pomegranate arils 174g, guava 165g). GPT clearly used a reliable reference here.",
+      "Piece weights for fruit show some Indian-context drift: sweet lime piece 100g is low (mosambi edible portion typically 120-145g), mango 200g is high (USDA medium ~165g), guava 100g is at the low end (allahabadi safed ~150g). All minor but worth tightening.",
+      "Allergens correctly empty across the batch — no false positives. (Latex-fruit cross-reactivity exists for banana/papaya/mango but latex isn't in the controlled vocab and food allergen flagging is correct.)",
+      "Nice Indian-context addition: 'glass' unit for sweet lime juice (mosambi juice is a common fresh-juice order)."
+    ]
+  },
+  "per_ingredient": [
+    {
+      "name": "banana",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'ripe banana' uses 'ripe' as a token outside the controlled vocab {raw, cooked}. Bananas are nearly always eaten ripe so the distinction is implicit; consider normalising to 'raw'.",
+          "suggested_fix": "canonical_form='raw'. Keep typical_form_note='measured as edible ripe fruit' to retain the semantic info."
+        }
+      ]
+    },
+    {
+      "name": "apple",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw apple' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "sweet lime",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "domain",
+          "severity": "minor",
+          "field": "household_units[0].approximate_grams",
+          "problem": "1 medium sweet lime edible portion = 100g is low for Indian mosambi. Whole mosambi is 180-220g; edible portion (segments without peel/pith) is ~65-70% = 120-145g.",
+          "suggested_fix": "Change to approximate_grams=130. Reasoning: 200g whole mosambi × 65% edible yield."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw sweet lime' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "papaya",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'ripe papaya' uses 'ripe' as a token outside controlled vocab. Note: kachi papita (raw green papaya) is a distinct ingredient used in Thai/NE Indian salads and Bengali cooking. If you plan to support both, consider a separate 'raw papaya' entry.",
+          "suggested_fix": "canonical_form='raw' for this ripe entry; keep typical_form_note='measured ripe and ready to eat'. Optionally add a separate 'green papaya' ingredient later."
+        },
+        {
+          "axis": "domain",
+          "severity": "minor",
+          "field": "household_units[1].notes",
+          "problem": "'1 medium wedge' is vague — wedge size varies by how the papaya is cut. At 300g this implies a roughly 1/3 wedge of a 1kg papaya. Consider specifying.",
+          "suggested_fix": "Update notes to '1 medium wedge, roughly 1/3 of a ~1kg whole papaya'."
+        }
+      ]
+    },
+    {
+      "name": "mango",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "domain",
+          "severity": "minor",
+          "field": "household_units[0].approximate_grams",
+          "problem": "1 medium mango edible portion = 200g is on the high side. USDA medium mango is ~165g flesh. Common Indian varieties: alphonso/dasheri ~120-150g flesh, langra/totapuri ~150-200g flesh. 200g implies a large mango.",
+          "suggested_fix": "Change to approximate_grams=165. Reasoning: USDA standard; matches most common Indian table varieties. If targeting large varieties specifically, leave at 200g but update notes to '1 large mango'."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'ripe mango' uses 'ripe' outside controlled vocab. Especially important for mango since unripe mango (kacche aam) is a distinct ingredient — used for aam panna, raw mango chutney, dal with mango. Treat ripe/unripe as separate ingredients.",
+          "suggested_fix": "canonical_form='raw' for this ripe entry. Strongly recommend adding a separate 'raw mango' or 'green mango' ingredient entry for kacche aam use cases."
+        }
+      ]
+    },
+    {
+      "name": "watermelon",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw watermelon' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    },
+    {
+      "name": "pomegranate",
+      "verdict": "PASS",
+      "issues": [
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'fresh pomegranate arils' uses 'fresh' as a third token. Normalise to 'raw' for consistency.",
+          "suggested_fix": "canonical_form='raw'. Keep typical_form_note='measured as edible seeds'."
+        }
+      ]
+    },
+    {
+      "name": "guava",
+      "verdict": "WARN",
+      "issues": [
+        {
+          "axis": "domain",
+          "severity": "minor",
+          "field": "household_units[0].approximate_grams",
+          "problem": "1 medium guava = 100g is on the low side. Indian allahabadi safed guava (the most common urban variety) is 150-200g per piece. Pink-fleshed/small varieties run 80-120g, so 100g is correct for those but low for the default.",
+          "suggested_fix": "Change to approximate_grams=150. Reasoning: standard market allahabadi guava. If targeting pink/small varieties, leave at 100g but specify variety in notes."
+        },
+        {
+          "axis": "schema",
+          "severity": "minor",
+          "field": "canonical_form",
+          "problem": "'raw guava' should normalise to 'raw'.",
+          "suggested_fix": "canonical_form='raw'."
+        }
+      ]
+    }
+  ]
+}

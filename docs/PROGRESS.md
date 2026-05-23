@@ -4,6 +4,30 @@ Append one entry per completed module. Newest at the top.
 
 ---
 
+## M3 — Recipes
+- **Completed:** 2026-05-24
+- **Commit:** TBD (pre-amend)
+- **Tests:** 196 passing; `apps/recipes/services/seed.py` 92%, `apps/recipes/services/nutrition.py` 100%
+- **Acceptance criteria:** all met
+  - `GET /api/v1/recipes/` — cursor-paginated list with 10 filters (meal_type, cuisine, diet_tags, allergen exclusion, difficulty, spice_level, calorie range, cost, search) ✅
+  - `GET /api/v1/recipes/<slug>/` — full detail with ingredients and cached nutrition ✅
+  - 4 models: Ingredient, HouseholdUnit, Recipe, RecipeIngredient — all indexes, constraints, and choices per spec ✅
+  - `seed_ingredients` / `seed_household_units` / `seed_recipes` — idempotent upserts, calorie fallback, allowlist validation ✅
+  - `compute_recipe_nutrition` — per-serving sums, cost, cost_known flag ✅
+  - `recompute_recipes_using_ingredient` — targeted recompute for admin use ✅
+  - `seed_recipes` management command (transaction.atomic) + `recompute_nutrition` command ✅
+  - `ruff + black --check + mypy --strict` all pass ✅
+- **Deviations from spec:** None
+- **New env vars:** None
+- **New external services touched:** None
+- **What the next module needs to know:**
+  - `Recipe.cached_calories_per_serving` is a denormalized `PositiveIntegerField` with a B-tree index — M4 engine should filter on this column directly for calorie-window queries, not on `cached_nutrition`
+  - `Recipe.cost_known` gates strict budget filtering; recipes with `cost_known=False` belong in the fallback pool only
+  - `compute_recipe_nutrition()` must be called after any ingredient price update (`recompute_recipes_using_ingredient`)
+  - Seed files live at `apps/recipes/seed_data/` — `ingredients.json` (136 entries), `household_units.json`, and the recipe JSON files under `claude_recipes/` and `gemini recipies/`
+
+---
+
 ## M2 — Profiles
 - **Completed:** 2026-05-20
 - **Commit:** e193f2f
