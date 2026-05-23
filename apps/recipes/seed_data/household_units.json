@@ -1,0 +1,1657 @@
+[
+  {
+    "unit_name": "pinch",
+    "ingredient_app_id": "ajwain_raw",
+    "grams": 0.3
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "ajwain_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "almond_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "piece",
+    "ingredient_app_id": "almond_raw",
+    "grams": 1.2
+  },
+  {
+    "unit_name": "tbsp_slivered",
+    "ingredient_app_id": "almond_raw",
+    "grams": 7.0
+  },
+  {
+    "unit_name": "pinch",
+    "ingredient_app_id": "amchur_powder_raw",
+    "grams": 0.3
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "amchur_powder_raw",
+    "grams": 9.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "amchur_powder_raw",
+    "grams": 3.0
+  },
+  {
+    "unit_name": "cup_sliced",
+    "ingredient_app_id": "apple_raw",
+    "grams": 110.0
+  },
+  {
+    "unit_name": "large",
+    "ingredient_app_id": "apple_raw",
+    "grams": 220.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "apple_raw",
+    "grams": 180.0
+  },
+  {
+    "unit_name": "small",
+    "ingredient_app_id": "apple_raw",
+    "grams": 130.0
+  },
+  {
+    "unit_name": "pinch",
+    "ingredient_app_id": "asafoetida_raw",
+    "grams": 0.3
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "asafoetida_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "cup_chopped",
+    "ingredient_app_id": "ash_gourd_raw",
+    "grams": 130.0
+  },
+  {
+    "unit_name": "large",
+    "ingredient_app_id": "banana_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "banana_raw",
+    "grams": 120.0
+  },
+  {
+    "unit_name": "small",
+    "ingredient_app_id": "banana_raw",
+    "grams": 80.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "barnyard_millet_raw",
+    "grams": 180.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "barnyard_millet_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "cup_cooked",
+    "ingredient_app_id": "basmati_rice_raw",
+    "grams": 175.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "basmati_rice_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "basmati_rice_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "leaf",
+    "ingredient_app_id": "bay_leaf_raw",
+    "grams": 0.5
+  },
+  {
+    "unit_name": "tsp_crushed",
+    "ingredient_app_id": "bay_leaf_raw",
+    "grams": 0.6
+  },
+  {
+    "unit_name": "cup_chopped",
+    "ingredient_app_id": "beetroot_raw",
+    "grams": 135.0
+  },
+  {
+    "unit_name": "cup_grated",
+    "ingredient_app_id": "beetroot_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "beetroot_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "besan_raw",
+    "grams": 120.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "besan_raw",
+    "grams": 80.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "besan_raw",
+    "grams": 8.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "besan_raw",
+    "grams": 3.0
+  },
+  {
+    "unit_name": "cup_sliced",
+    "ingredient_app_id": "bitter_gourd_raw",
+    "grams": 95.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "bitter_gourd_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "pod",
+    "ingredient_app_id": "black_cardamom_raw",
+    "grams": 1.0
+  },
+  {
+    "unit_name": "tsp_seeds",
+    "ingredient_app_id": "black_cardamom_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "pinch",
+    "ingredient_app_id": "black_pepper_raw",
+    "grams": 0.3
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "black_pepper_raw",
+    "grams": 9.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "black_pepper_raw",
+    "grams": 3.0
+  },
+  {
+    "unit_name": "pinch",
+    "ingredient_app_id": "black_salt_raw",
+    "grams": 0.4
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "black_salt_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "cup_chopped",
+    "ingredient_app_id": "bottle_gourd_raw",
+    "grams": 145.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "bottle_gourd_raw",
+    "grams": 500.0
+  },
+  {
+    "unit_name": "pav_bun",
+    "ingredient_app_id": "bread_white_raw",
+    "grams": 50.0
+  },
+  {
+    "unit_name": "slice",
+    "ingredient_app_id": "bread_white_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "cup_diced",
+    "ingredient_app_id": "brinjal_raw",
+    "grams": 160.0
+  },
+  {
+    "unit_name": "large",
+    "ingredient_app_id": "brinjal_raw",
+    "grams": 250.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "brinjal_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "broken_wheat_raw",
+    "grams": 180.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "broken_wheat_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "brown_sugar_raw",
+    "grams": 220.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "brown_sugar_raw",
+    "grams": 12.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "brown_sugar_raw",
+    "grams": 4.0
+  },
+  {
+    "unit_name": "pat",
+    "ingredient_app_id": "butter_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "butter_raw",
+    "grams": 14.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "butter_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "buttermilk_raw",
+    "grams": 240.0
+  },
+  {
+    "unit_name": "glass",
+    "ingredient_app_id": "buttermilk_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "cup_shredded",
+    "ingredient_app_id": "cabbage_raw",
+    "grams": 90.0
+  },
+  {
+    "unit_name": "medium_head",
+    "ingredient_app_id": "cabbage_raw",
+    "grams": 900.0
+  },
+  {
+    "unit_name": "cup_chopped",
+    "ingredient_app_id": "capsicum_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "capsicum_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "cup_chopped",
+    "ingredient_app_id": "carrot_raw",
+    "grams": 130.0
+  },
+  {
+    "unit_name": "cup_grated",
+    "ingredient_app_id": "carrot_raw",
+    "grams": 110.0
+  },
+  {
+    "unit_name": "large",
+    "ingredient_app_id": "carrot_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "carrot_raw",
+    "grams": 60.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "cashew_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "piece",
+    "ingredient_app_id": "cashew_raw",
+    "grams": 1.5
+  },
+  {
+    "unit_name": "tbsp_chopped",
+    "ingredient_app_id": "cashew_raw",
+    "grams": 8.0
+  },
+  {
+    "unit_name": "piece",
+    "ingredient_app_id": "catla_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "serving",
+    "ingredient_app_id": "catla_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "cup_florets",
+    "ingredient_app_id": "cauliflower_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "medium_head",
+    "ingredient_app_id": "cauliflower_raw",
+    "grams": 600.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "chana_dal_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "chana_dal_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "piece_medium",
+    "ingredient_app_id": "chicken_breast_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "piece_small",
+    "ingredient_app_id": "chicken_breast_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "piece",
+    "ingredient_app_id": "chicken_thigh_raw",
+    "grams": 120.0
+  },
+  {
+    "unit_name": "stick_inch",
+    "ingredient_app_id": "cinnamon_raw",
+    "grams": 0.5
+  },
+  {
+    "unit_name": "tbsp_ground",
+    "ingredient_app_id": "cinnamon_raw",
+    "grams": 6.0
+  },
+  {
+    "unit_name": "tsp_ground",
+    "ingredient_app_id": "cinnamon_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "piece",
+    "ingredient_app_id": "cloves_raw",
+    "grams": 0.07
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "cloves_raw",
+    "grams": 6.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "cloves_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "coconut_oil_raw",
+    "grams": 218.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "coconut_oil_raw",
+    "grams": 14.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "coconut_oil_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "bunch",
+    "ingredient_app_id": "coriander_leaves_raw",
+    "grams": 50.0
+  },
+  {
+    "unit_name": "cup_chopped",
+    "ingredient_app_id": "coriander_leaves_raw",
+    "grams": 16.0
+  },
+  {
+    "unit_name": "tbsp_chopped",
+    "ingredient_app_id": "coriander_leaves_raw",
+    "grams": 4.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "coriander_seeds_raw",
+    "grams": 6.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "coriander_seeds_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "bowl",
+    "ingredient_app_id": "corn_flakes_raw",
+    "grams": 40.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "corn_flakes_raw",
+    "grams": 28.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "corn_flakes_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "cumin_raw",
+    "grams": 6.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "cumin_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "curd_raw",
+    "grams": 245.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "curd_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "curd_raw",
+    "grams": 15.0
+  },
+  {
+    "unit_name": "leaf",
+    "ingredient_app_id": "curry_leaves_raw",
+    "grams": 0.2
+  },
+  {
+    "unit_name": "sprig",
+    "ingredient_app_id": "curry_leaves_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "tbsp_chopped",
+    "ingredient_app_id": "curry_leaves_raw",
+    "grams": 3.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "curry_powder_raw",
+    "grams": 6.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "curry_powder_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "whole_medium",
+    "ingredient_app_id": "dried_red_chilli_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "whole_small",
+    "ingredient_app_id": "dried_red_chilli_raw",
+    "grams": 1.0
+  },
+  {
+    "unit_name": "cup_chopped",
+    "ingredient_app_id": "drumstick_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "medium_pod",
+    "ingredient_app_id": "drumstick_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "egg_large",
+    "ingredient_app_id": "egg_whole_raw",
+    "grams": 60.0
+  },
+  {
+    "unit_name": "egg_medium",
+    "ingredient_app_id": "egg_whole_raw",
+    "grams": 50.0
+  },
+  {
+    "unit_name": "egg_small",
+    "ingredient_app_id": "egg_whole_raw",
+    "grams": 40.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "fennel_seeds_raw",
+    "grams": 6.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "fennel_seeds_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "bunch",
+    "ingredient_app_id": "fenugreek_leaves_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "cup_chopped",
+    "ingredient_app_id": "fenugreek_leaves_raw",
+    "grams": 60.0
+  },
+  {
+    "unit_name": "pinch",
+    "ingredient_app_id": "fenugreek_seeds_raw",
+    "grams": 0.3
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "fenugreek_seeds_raw",
+    "grams": 12.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "fenugreek_seeds_raw",
+    "grams": 4.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "finger_millet_flour_raw",
+    "grams": 120.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "finger_millet_flour_raw",
+    "grams": 8.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "flattened_rice_raw",
+    "grams": 80.0
+  },
+  {
+    "unit_name": "katori_raw",
+    "ingredient_app_id": "flattened_rice_raw",
+    "grams": 50.0
+  },
+  {
+    "unit_name": "cup_chopped",
+    "ingredient_app_id": "french_beans_raw",
+    "grams": 110.0
+  },
+  {
+    "unit_name": "handful",
+    "ingredient_app_id": "french_beans_raw",
+    "grams": 50.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "fresh_cream_raw",
+    "grams": 240.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "fresh_cream_raw",
+    "grams": 15.0
+  },
+  {
+    "unit_name": "pinch",
+    "ingredient_app_id": "garam_masala_raw",
+    "grams": 0.3
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "garam_masala_raw",
+    "grams": 6.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "garam_masala_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "clove",
+    "ingredient_app_id": "garlic_raw",
+    "grams": 3.0
+  },
+  {
+    "unit_name": "tbsp_minced",
+    "ingredient_app_id": "garlic_raw",
+    "grams": 15.0
+  },
+  {
+    "unit_name": "tsp_minced",
+    "ingredient_app_id": "garlic_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "ghee_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "ghee_raw",
+    "grams": 14.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "ghee_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "inch_piece",
+    "ingredient_app_id": "ginger_raw",
+    "grams": 10.0
+  },
+  {
+    "unit_name": "tbsp_grated",
+    "ingredient_app_id": "ginger_raw",
+    "grams": 15.0
+  },
+  {
+    "unit_name": "tsp_grated",
+    "ingredient_app_id": "ginger_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "pod",
+    "ingredient_app_id": "green_cardamom_raw",
+    "grams": 0.3
+  },
+  {
+    "unit_name": "tsp_seeds",
+    "ingredient_app_id": "green_cardamom_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "tsp_chopped",
+    "ingredient_app_id": "green_chilli_raw",
+    "grams": 3.0
+  },
+  {
+    "unit_name": "whole_medium",
+    "ingredient_app_id": "green_chilli_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "whole_small",
+    "ingredient_app_id": "green_chilli_raw",
+    "grams": 3.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "green_peas_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "green_peas_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "groundnut_oil_raw",
+    "grams": 216.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "groundnut_oil_raw",
+    "grams": 14.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "groundnut_oil_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "cup_chopped",
+    "ingredient_app_id": "guava_raw",
+    "grams": 165.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "guava_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "honey_raw",
+    "grams": 21.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "honey_raw",
+    "grams": 7.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "horse_gram_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "horse_gram_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "idli_rava_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "idli_rava_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "cup_brewed",
+    "ingredient_app_id": "instant_coffee_raw",
+    "grams": 240.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "instant_coffee_raw",
+    "grams": 6.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "instant_coffee_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "piece_small",
+    "ingredient_app_id": "jaggery_raw",
+    "grams": 15.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "jaggery_raw",
+    "grams": 12.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "jaggery_raw",
+    "grams": 4.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "kabuli_chana_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "kabuli_chana_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "kala_chana_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "kala_chana_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "tbsp_crushed",
+    "ingredient_app_id": "kasuri_methi_raw",
+    "grams": 3.0
+  },
+  {
+    "unit_name": "tsp_crushed",
+    "ingredient_app_id": "kasuri_methi_raw",
+    "grams": 1.0
+  },
+  {
+    "unit_name": "lemon_juice_of_1",
+    "ingredient_app_id": "lemon_juice_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "lemon_juice_raw",
+    "grams": 15.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "lemon_juice_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "lobia_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "lobia_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "blade",
+    "ingredient_app_id": "mace_raw",
+    "grams": 0.2
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "mace_raw",
+    "grams": 1.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "maida_raw",
+    "grams": 120.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "maida_raw",
+    "grams": 8.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "maida_raw",
+    "grams": 3.0
+  },
+  {
+    "unit_name": "cup_sliced",
+    "ingredient_app_id": "mango_raw",
+    "grams": 165.0
+  },
+  {
+    "unit_name": "large",
+    "ingredient_app_id": "mango_raw",
+    "grams": 300.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "mango_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "masoor_dal_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "masoor_dal_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "matki_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "matki_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "melon_seeds_raw",
+    "grams": 9.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "melon_seeds_raw",
+    "grams": 3.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "milk_cow_whole",
+    "grams": 250.0
+  },
+  {
+    "unit_name": "glass",
+    "ingredient_app_id": "milk_cow_whole",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "milk_cow_whole",
+    "grams": 15.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "moong_dal_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "moong_dal_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "moong_sprouts_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "moong_sprouts_raw",
+    "grams": 80.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "mustard_oil_raw",
+    "grams": 220.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "mustard_oil_raw",
+    "grams": 14.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "mustard_oil_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "pinch",
+    "ingredient_app_id": "mustard_seeds_raw",
+    "grams": 0.3
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "mustard_seeds_raw",
+    "grams": 9.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "mustard_seeds_raw",
+    "grams": 3.0
+  },
+  {
+    "unit_name": "piece_curry",
+    "ingredient_app_id": "mutton_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "serving",
+    "ingredient_app_id": "mutton_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "pinch",
+    "ingredient_app_id": "nutmeg_raw",
+    "grams": 0.3
+  },
+  {
+    "unit_name": "tsp_grated",
+    "ingredient_app_id": "nutmeg_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "whole",
+    "ingredient_app_id": "nutmeg_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "cup_chopped",
+    "ingredient_app_id": "okra_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "okra_raw",
+    "grams": 10.0
+  },
+  {
+    "unit_name": "cup_chopped",
+    "ingredient_app_id": "onion_raw",
+    "grams": 160.0
+  },
+  {
+    "unit_name": "large",
+    "ingredient_app_id": "onion_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "onion_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "tbsp_chopped",
+    "ingredient_app_id": "onion_raw",
+    "grams": 10.0
+  },
+  {
+    "unit_name": "cube_medium",
+    "ingredient_app_id": "paneer_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "cube_small",
+    "ingredient_app_id": "paneer_raw",
+    "grams": 20.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "paneer_raw",
+    "grams": 80.0
+  },
+  {
+    "unit_name": "piece",
+    "ingredient_app_id": "papad_raw",
+    "grams": 8.0
+  },
+  {
+    "unit_name": "cup_cubed",
+    "ingredient_app_id": "papaya_raw",
+    "grams": 145.0
+  },
+  {
+    "unit_name": "medium_whole",
+    "ingredient_app_id": "papaya_raw",
+    "grams": 500.0
+  },
+  {
+    "unit_name": "small_whole",
+    "ingredient_app_id": "papaya_raw",
+    "grams": 300.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "parboiled_rice_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "parboiled_rice_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "peanut_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "palmful",
+    "ingredient_app_id": "peanut_raw",
+    "grams": 15.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "peanut_raw",
+    "grams": 9.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "pearl_millet_flour_raw",
+    "grams": 120.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "pearl_millet_flour_raw",
+    "grams": 8.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "pistachio_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "piece",
+    "ingredient_app_id": "pistachio_raw",
+    "grams": 0.7
+  },
+  {
+    "unit_name": "tbsp_chopped",
+    "ingredient_app_id": "pistachio_raw",
+    "grams": 8.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "poha_raw",
+    "grams": 50.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "poha_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "cup_arils",
+    "ingredient_app_id": "pomegranate_raw",
+    "grams": 174.0
+  },
+  {
+    "unit_name": "medium_whole",
+    "ingredient_app_id": "pomegranate_raw",
+    "grams": 280.0
+  },
+  {
+    "unit_name": "piece",
+    "ingredient_app_id": "pomfret_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "poppy_seeds_raw",
+    "grams": 9.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "poppy_seeds_raw",
+    "grams": 3.0
+  },
+  {
+    "unit_name": "cup_diced",
+    "ingredient_app_id": "potato_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "large",
+    "ingredient_app_id": "potato_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "potato_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "piece_medium",
+    "ingredient_app_id": "prawns_raw",
+    "grams": 15.0
+  },
+  {
+    "unit_name": "serving",
+    "ingredient_app_id": "prawns_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "cube",
+    "ingredient_app_id": "processed_cheese_raw",
+    "grams": 15.0
+  },
+  {
+    "unit_name": "slice",
+    "ingredient_app_id": "processed_cheese_raw",
+    "grams": 20.0
+  },
+  {
+    "unit_name": "cup_cubed",
+    "ingredient_app_id": "pumpkin_raw",
+    "grams": 116.0
+  },
+  {
+    "unit_name": "cup_mashed",
+    "ingredient_app_id": "pumpkin_raw",
+    "grams": 245.0
+  },
+  {
+    "unit_name": "cup_sliced",
+    "ingredient_app_id": "radish_raw",
+    "grams": 115.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "radish_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "rajma_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "rajma_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "pinch",
+    "ingredient_app_id": "red_chilli_powder_raw",
+    "grams": 0.3
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "red_chilli_powder_raw",
+    "grams": 9.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "red_chilli_powder_raw",
+    "grams": 3.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "refined_wheat_flour_raw",
+    "grams": 125.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "refined_wheat_flour_raw",
+    "grams": 8.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "rice_sevai_raw",
+    "grams": 56.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "rice_sevai_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "cup_chopped",
+    "ingredient_app_id": "ridge_gourd_raw",
+    "grams": 95.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "ridge_gourd_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "piece",
+    "ingredient_app_id": "rohu_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "serving",
+    "ingredient_app_id": "rohu_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "rolled_oats_raw",
+    "grams": 81.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "rolled_oats_raw",
+    "grams": 40.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "rolled_oats_raw",
+    "grams": 6.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "rose_water_raw",
+    "grams": 15.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "rose_water_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "sabudana_raw",
+    "grams": 152.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "sabudana_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "pinch",
+    "ingredient_app_id": "saffron_raw",
+    "grams": 0.06
+  },
+  {
+    "unit_name": "strands_few",
+    "ingredient_app_id": "saffron_raw",
+    "grams": 0.03
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "saffron_raw",
+    "grams": 0.7
+  },
+  {
+    "unit_name": "pinch",
+    "ingredient_app_id": "salt_raw",
+    "grams": 0.4
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "salt_raw",
+    "grams": 6.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "semolina_raw",
+    "grams": 170.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "semolina_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "semolina_raw",
+    "grams": 12.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "semolina_raw",
+    "grams": 4.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "sesame_oil_raw",
+    "grams": 218.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "sesame_oil_raw",
+    "grams": 14.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "sesame_oil_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "sesame_seeds_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "sesame_seeds_raw",
+    "grams": 9.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "sesame_seeds_raw",
+    "grams": 3.0
+  },
+  {
+    "unit_name": "cup_cooked",
+    "ingredient_app_id": "sona_masoori_rice_raw",
+    "grams": 175.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "sona_masoori_rice_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "sona_masoori_rice_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "sorghum_flour_raw",
+    "grams": 120.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "sorghum_flour_raw",
+    "grams": 8.0
+  },
+  {
+    "unit_name": "bunch",
+    "ingredient_app_id": "spinach_raw",
+    "grams": 340.0
+  },
+  {
+    "unit_name": "cup_chopped_raw",
+    "ingredient_app_id": "spinach_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "cup_cooked",
+    "ingredient_app_id": "spinach_raw",
+    "grams": 180.0
+  },
+  {
+    "unit_name": "tsp_ground",
+    "ingredient_app_id": "star_anise_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "whole",
+    "ingredient_app_id": "star_anise_raw",
+    "grams": 1.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "sugar_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "sugar_raw",
+    "grams": 12.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "sugar_raw",
+    "grams": 4.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "sunflower_oil_raw",
+    "grams": 218.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "sunflower_oil_raw",
+    "grams": 14.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "sunflower_oil_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "cup_segments",
+    "ingredient_app_id": "sweet_lime_raw",
+    "grams": 165.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "sweet_lime_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "cup_cubed",
+    "ingredient_app_id": "sweet_potato_raw",
+    "grams": 130.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "sweet_potato_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "ball_lemon_sized",
+    "ingredient_app_id": "tamarind_pulp_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "tbsp_paste",
+    "ingredient_app_id": "tamarind_pulp_raw",
+    "grams": 15.0
+  },
+  {
+    "unit_name": "tsp_paste",
+    "ingredient_app_id": "tamarind_pulp_raw",
+    "grams": 5.0
+  },
+  {
+    "unit_name": "cup_brewed",
+    "ingredient_app_id": "tea_leaves_raw",
+    "grams": 240.0
+  },
+  {
+    "unit_name": "tbsp_dry",
+    "ingredient_app_id": "tea_leaves_raw",
+    "grams": 6.0
+  },
+  {
+    "unit_name": "tsp_dry",
+    "ingredient_app_id": "tea_leaves_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "cup_chopped",
+    "ingredient_app_id": "tomato_raw",
+    "grams": 180.0
+  },
+  {
+    "unit_name": "large",
+    "ingredient_app_id": "tomato_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "medium",
+    "ingredient_app_id": "tomato_raw",
+    "grams": 100.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "toor_dal_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "toor_dal_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "pinch",
+    "ingredient_app_id": "turmeric_powder_raw",
+    "grams": 0.3
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "turmeric_powder_raw",
+    "grams": 9.0
+  },
+  {
+    "unit_name": "tsp",
+    "ingredient_app_id": "turmeric_powder_raw",
+    "grams": 3.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "urad_dal_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "urad_dal_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "vermicelli_wheat_raw",
+    "grams": 60.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "vermicelli_wheat_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "half",
+    "ingredient_app_id": "walnut_raw",
+    "grams": 2.0
+  },
+  {
+    "unit_name": "katori",
+    "ingredient_app_id": "walnut_raw",
+    "grams": 30.0
+  },
+  {
+    "unit_name": "tbsp_chopped",
+    "ingredient_app_id": "walnut_raw",
+    "grams": 8.0
+  },
+  {
+    "unit_name": "cup_diced",
+    "ingredient_app_id": "watermelon_raw",
+    "grams": 152.0
+  },
+  {
+    "unit_name": "wedge",
+    "ingredient_app_id": "watermelon_raw",
+    "grams": 286.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "whole_moong_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "whole_moong_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "cup_raw",
+    "ingredient_app_id": "whole_urad_raw",
+    "grams": 200.0
+  },
+  {
+    "unit_name": "katori_cooked",
+    "ingredient_app_id": "whole_urad_raw",
+    "grams": 150.0
+  },
+  {
+    "unit_name": "cup",
+    "ingredient_app_id": "whole_wheat_flour_raw",
+    "grams": 120.0
+  },
+  {
+    "unit_name": "tbsp",
+    "ingredient_app_id": "whole_wheat_flour_raw",
+    "grams": 8.0
+  }
+]

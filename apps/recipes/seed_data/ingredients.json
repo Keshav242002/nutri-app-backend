@@ -1,0 +1,7429 @@
+[
+  {
+    "app_id": "ajwain_raw",
+    "name": "Ajwain",
+    "aliases": [
+      "ajwain",
+      "carom seeds",
+      "bishop's weed",
+      "omum",
+      "ajwan"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 357,
+      "protein_g": 15.89,
+      "carbs_g": 24.53,
+      "fat_g": 21.11,
+      "fiber_g": 20.58,
+      "micronutrients": {
+        "iron_mg": 13.65,
+        "calcium_mg": 1034.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1692.0,
+        "sodium_mg": 28.58,
+        "magnesium_mg": 273.0,
+        "zinc_mg": 5.67,
+        "vit_a_iu": 1331.61,
+        "folate_ug": 51.79,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 2,
+      "pinch": 0.3
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G029",
+      "ifct_name": "Omum",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT G029 'Omum' is the same as ajwain/carom seeds (Trachyspermum ammi). Omum is the South Indian / IFCT preferred name. regn=6.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "almond_raw",
+    "name": "Almond",
+    "aliases": [
+      "almond",
+      "badam",
+      "vadumai",
+      "badam pappu"
+    ],
+    "category": "nut_seed",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 609,
+      "protein_g": 18.41,
+      "carbs_g": 3.04,
+      "fat_g": 58.49,
+      "fiber_g": 13.06,
+      "micronutrients": {
+        "iron_mg": 4.59,
+        "calcium_mg": 228.0,
+        "vit_c_mg": 0.74,
+        "potassium_mg": 699.0,
+        "sodium_mg": 1.5,
+        "magnesium_mg": 318.0,
+        "zinc_mg": 3.5,
+        "vit_a_iu": 0.0,
+        "folate_ug": 36.46,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "piece": 1.2,
+      "katori": 30,
+      "tbsp_slivered": 7
+    },
+    "allergen_tags": [
+      "tree_nuts"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "H001",
+      "ifct_name": "Almond",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "amchur_powder_raw",
+    "name": "Amchur powder",
+    "aliases": [
+      "amchur",
+      "amchoor",
+      "dried mango powder",
+      "aam chur"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 376,
+      "protein_g": 4.86,
+      "carbs_g": 73.62,
+      "fat_g": 4.95,
+      "fiber_g": 16.92,
+      "micronutrients": {
+        "iron_mg": 4.59,
+        "calcium_mg": 141.93,
+        "vit_c_mg": 296.73,
+        "potassium_mg": 1296.0,
+        "sodium_mg": 12.06,
+        "magnesium_mg": 120.15,
+        "zinc_mg": 1.08,
+        "vit_a_iu": 17595.92,
+        "folate_ug": 738.45,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 3,
+      "tbsp": 9,
+      "pinch": 0.3
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "composed",
+      "ifct_code": "E036",
+      "ifct_name": "Mango, ripe, banganapalli",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "approximate",
+      "extracted_at": "2026-05-23",
+      "notes": "Composed ingredient. Compute per-100g nutrition by taking E036 values and multiplying every nutrient by 9.0 (moisture ratio: fresh ~80% water to dried ~10% water). ETL script must apply this multiplier when building ingredients.json.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "apple_raw",
+    "name": "Apple (raw)",
+    "aliases": [
+      "seb",
+      "aapal",
+      "apple big"
+    ],
+    "category": "fruit",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 62,
+      "protein_g": 0.29,
+      "carbs_g": 13.11,
+      "fat_g": 0.64,
+      "fiber_g": 2.59,
+      "micronutrients": {
+        "iron_mg": 0.26,
+        "calcium_mg": 13.68,
+        "vit_c_mg": 3.57,
+        "potassium_mg": 116.0,
+        "sodium_mg": 1.43,
+        "magnesium_mg": 8.09,
+        "zinc_mg": 0.09,
+        "vit_a_iu": 4.02,
+        "folate_ug": 3.04,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 180,
+      "small": 130,
+      "large": 220,
+      "cup_sliced": 110
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "E001",
+      "ifct_name": "Apple, big",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "E001 (apple big, 6 regions) is the default. E002 (green/Granny Smith), E003 (small, 6 regn), E004 (small Kashmir, 1 regn) exist for specific varieties.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "asafoetida_raw",
+    "name": "Asafoetida",
+    "aliases": [
+      "asafoetida",
+      "hing",
+      "perungayam",
+      "kayam"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 332,
+      "protein_g": 6.34,
+      "carbs_g": 71.95,
+      "fat_g": 1.26,
+      "fiber_g": 5.13,
+      "micronutrients": {
+        "iron_mg": 15.68,
+        "calcium_mg": 266.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 245.0,
+        "sodium_mg": 16.04,
+        "magnesium_mg": 96.4,
+        "zinc_mg": 0.98,
+        "vit_a_iu": 10.72,
+        "folate_ug": 26.28,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "pinch": 0.3,
+      "tsp": 2
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G019",
+      "ifct_name": "Asafoetida",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6. Note: commercial hing is usually compounded with wheat flour starch (gluten); IFCT entry is pure resin. Add gluten allergen if you stock compounded hing.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "ash_gourd_raw",
+    "name": "Ash gourd (raw)",
+    "aliases": [
+      "petha",
+      "safed kaddu",
+      "kushmanda",
+      "boodida gummadi",
+      "winter melon"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 17,
+      "protein_g": 0.79,
+      "carbs_g": 2.84,
+      "fat_g": 0.14,
+      "fiber_g": 3.37,
+      "micronutrients": {
+        "iron_mg": 0.47,
+        "calcium_mg": 19.39,
+        "vit_c_mg": 11.41,
+        "potassium_mg": 372.0,
+        "sodium_mg": 0.77,
+        "magnesium_mg": 19.95,
+        "zinc_mg": 0.13,
+        "vit_a_iu": 0.0,
+        "folate_ug": 14.11,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_chopped": 130
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "D001",
+      "ifct_name": "Ash gourd",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "banana_raw",
+    "name": "Banana (ripe)",
+    "aliases": [
+      "kela",
+      "vazhaipazham",
+      "arati pandu",
+      "cavendish banana"
+    ],
+    "category": "fruit",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 105,
+      "protein_g": 1.23,
+      "carbs_g": 23.63,
+      "fat_g": 0.33,
+      "fiber_g": 1.94,
+      "micronutrients": {
+        "iron_mg": 0.28,
+        "calcium_mg": 5.07,
+        "vit_c_mg": 4.76,
+        "potassium_mg": 306.0,
+        "sodium_mg": 0.85,
+        "magnesium_mg": 34.98,
+        "zinc_mg": 0.14,
+        "vit_a_iu": 100.78,
+        "folate_ug": 16.81,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 120,
+      "small": 80,
+      "large": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "E012",
+      "ifct_name": "Banana, ripe, robusta",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT has five named banana varieties (montham/poovam/red/robusta/+more). E012 (robusta, 6 regions) wins on regn and matches the dominant Indian cavendish-type yellow banana. For specific varieties (red, nendran/montham, poovam) use E009-E011.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "barnyard_millet_raw",
+    "name": "Barnyard millet",
+    "aliases": [
+      "samai",
+      "sanwa",
+      "jhangora",
+      "kuthiraivali",
+      "oodalu"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 346,
+      "protein_g": 10.13,
+      "carbs_g": 65.55,
+      "fat_g": 3.89,
+      "fiber_g": 7.72,
+      "micronutrients": {
+        "iron_mg": 1.26,
+        "calcium_mg": 16.06,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 105.0,
+        "sodium_mg": 4.77,
+        "magnesium_mg": 91.41,
+        "zinc_mg": 1.82,
+        "vit_a_iu": 3.19,
+        "folate_ug": 36.2,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 180,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A016",
+      "ifct_name": "Samai",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "Samai is the Tamil name for barnyard millet (Echinochloa frumentacea).",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "basmati_rice_raw",
+    "name": "Basmati rice (raw)",
+    "aliases": [
+      "basmati",
+      "long grain rice"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 356,
+      "protein_g": 7.94,
+      "carbs_g": 78.24,
+      "fat_g": 0.52,
+      "fiber_g": 2.81,
+      "micronutrients": {
+        "iron_mg": 0.65,
+        "calcium_mg": 7.49,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 108.0,
+        "sodium_mg": 2.34,
+        "magnesium_mg": 19.3,
+        "zinc_mg": 1.21,
+        "vit_a_iu": 0.0,
+        "folate_ug": 9.32,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150,
+      "cup_cooked": 175
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A015",
+      "ifct_name": "Rice, raw, milled",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT does not break out basmati varietal; A015 (raw milled white rice) is the closest measured match. Sona masoori uses same code.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "bay_leaf_raw",
+    "name": "Bay leaf",
+    "aliases": [
+      "bay leaf",
+      "tej patta",
+      "tejpatta",
+      "biryani leaf"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "leaf": 0.5,
+      "tsp_crushed": 0.6
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 170917,
+      "usda_description": "Spices, bay leaf",
+      "confidence": "approximate",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT has no bay leaf entry (note: Indian tej patta is Cinnamomum tamala, not true Mediterranean Laurus nobilis; FDC 170917 is true bay. Nutritionally close enough for v1, but flag for v2 review.). User verify."
+    }
+  },
+  {
+    "app_id": "beetroot_raw",
+    "name": "Beetroot (raw)",
+    "aliases": [
+      "chukandar",
+      "beet",
+      "chuqandar"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 36,
+      "protein_g": 1.95,
+      "carbs_g": 6.18,
+      "fat_g": 0.14,
+      "fiber_g": 3.31,
+      "micronutrients": {
+        "iron_mg": 0.76,
+        "calcium_mg": 17.28,
+        "vit_c_mg": 5.26,
+        "potassium_mg": 306.0,
+        "sodium_mg": 69.44,
+        "magnesium_mg": 33.21,
+        "zinc_mg": 0.3,
+        "vit_a_iu": 16.93,
+        "folate_ug": 97.37,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 150,
+      "cup_chopped": 135,
+      "cup_grated": 100
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "F001",
+      "ifct_name": "Beet root",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "besan_raw",
+    "name": "Besan",
+    "aliases": [
+      "besan",
+      "gram flour",
+      "chickpea flour",
+      "chana atta",
+      "kadalai maavu",
+      "senagapindi"
+    ],
+    "category": "pulse",
+    "form": "raw",
+    "cooked_yield_ratio": 1.5,
+    "per_100g_nutrition": {
+      "calories": 329,
+      "protein_g": 21.55,
+      "carbs_g": 46.72,
+      "fat_g": 5.31,
+      "fiber_g": 15.15,
+      "micronutrients": {
+        "iron_mg": 6.08,
+        "calcium_mg": 46.32,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 957.0,
+        "sodium_mg": 20.83,
+        "magnesium_mg": 118.0,
+        "zinc_mg": 3.65,
+        "vit_a_iu": 275.55,
+        "folate_ug": 182.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 3,
+      "tbsp": 8,
+      "cup": 120,
+      "katori": 80
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "B001",
+      "ifct_name": "Bengal gram, dal",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "Besan = finely milled bengal gram dal. No separate IFCT entry for the flour; B001 (regn=6) is the underlying grain — nutrition per 100g is identical (grinding is mass-conserving, no significant moisture change). Categorized as pulse since the protein/fiber profile is pulse-like. cooked_yield_ratio=1.50 since besan is typically used in batters that cook with modest expansion (pakora, dhokla, kadhi).",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "bitter_gourd_raw",
+    "name": "Bitter gourd (raw)",
+    "aliases": [
+      "karela",
+      "pavakkai",
+      "haagalakaayi",
+      "kakarakaya"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 21,
+      "protein_g": 1.44,
+      "carbs_g": 2.82,
+      "fat_g": 0.24,
+      "fiber_g": 3.78,
+      "micronutrients": {
+        "iron_mg": 1.15,
+        "calcium_mg": 21.36,
+        "vit_c_mg": 46.53,
+        "potassium_mg": 326.0,
+        "sodium_mg": 13.09,
+        "magnesium_mg": 32.14,
+        "zinc_mg": 0.31,
+        "vit_a_iu": 203.74,
+        "folate_ug": 60.28,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 100,
+      "cup_sliced": 95
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "D004",
+      "ifct_name": "Bitter gourd, jagged, teeth ridges, elongate",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "Multiple IFCT bitter gourd entries. D004 (jagged teeth ridges, elongate, 6 regions) wins on regn over D005 (jagged teeth, short, 4 regn) and D006 (smooth ridges, 1 regn). The common Indian elongated karela.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "black_cardamom_raw",
+    "name": "Black cardamom",
+    "aliases": [
+      "black cardamom",
+      "badi elaichi",
+      "kali elaichi",
+      "moti elaichi"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 271,
+      "protein_g": 6.69,
+      "carbs_g": 52.53,
+      "fat_g": 2.8,
+      "fiber_g": 23.46,
+      "micronutrients": {
+        "iron_mg": 7.94,
+        "calcium_mg": 312.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1331.0,
+        "sodium_mg": 16.25,
+        "magnesium_mg": 286.0,
+        "zinc_mg": 4.75,
+        "vit_a_iu": 129.39,
+        "folate_ug": 4.96,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "pod": 1,
+      "tsp_seeds": 2
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G021",
+      "ifct_name": "Cardamom, black",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=4 (lower regn but only black cardamom entry).",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "black_pepper_raw",
+    "name": "Black pepper",
+    "aliases": [
+      "black pepper",
+      "kali mirch",
+      "milagu",
+      "pepper"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 217,
+      "protein_g": 10.12,
+      "carbs_g": 36.22,
+      "fat_g": 2.74,
+      "fiber_g": 33.16,
+      "micronutrients": {
+        "iron_mg": 11.91,
+        "calcium_mg": 405.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1487.0,
+        "sodium_mg": 24.08,
+        "magnesium_mg": 196.0,
+        "zinc_mg": 1.24,
+        "vit_a_iu": 1818.63,
+        "folate_ug": 21.89,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 3,
+      "tbsp": 9,
+      "pinch": 0.3
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G031",
+      "ifct_name": "Pepper, black",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6. Same entry for whole and ground.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "black_salt_raw",
+    "name": "Black salt",
+    "aliases": [
+      "black salt",
+      "kala namak",
+      "sanchal",
+      "bit lavan"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 5,
+      "pinch": 0.4
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 746775,
+      "usda_description": "Salt, table",
+      "confidence": "approximate",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT no entry. No specific FDC entry for kala namak — using plain salt FDC 746775 as proxy. Black salt has distinctive sulfur compounds (egg/savory flavor) but nutritionally near-identical to regular salt. User verify; could also point to same FDC as salt_raw and dedupe at app layer."
+    }
+  },
+  {
+    "app_id": "bottle_gourd_raw",
+    "name": "Bottle gourd (raw)",
+    "aliases": [
+      "lauki",
+      "doodhi",
+      "ghiya",
+      "sorakaya",
+      "sorekai",
+      "opo squash"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 11,
+      "protein_g": 0.53,
+      "carbs_g": 1.68,
+      "fat_g": 0.13,
+      "fiber_g": 2.12,
+      "micronutrients": {
+        "iron_mg": 0.26,
+        "calcium_mg": 15.42,
+        "vit_c_mg": 4.33,
+        "potassium_mg": 124.0,
+        "sodium_mg": 1.46,
+        "magnesium_mg": 10.93,
+        "zinc_mg": 0.15,
+        "vit_a_iu": 73.56,
+        "folate_ug": 41.99,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 500,
+      "cup_chopped": 145
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "D007",
+      "ifct_name": "Bottle gourd, elongate, pale green",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "Three IFCT bottle gourd entries (D007 elongate-pale 6 regn, D008 round-pale 5 regn, D009 elongate-dark 1 regn). D007 wins on regn and matches the dominant Indian variety.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "bread_white_raw",
+    "name": "Bread",
+    "aliases": [
+      "bread",
+      "white bread",
+      "pav",
+      "pao",
+      "sliced bread"
+    ],
+    "category": "processed",
+    "form": "as_eaten",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "slice": 30,
+      "pav_bun": 50
+    },
+    "allergen_tags": [
+      "gluten"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 172684,
+      "usda_description": "Bread, white, commercially prepared",
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT no entry. FDC 172684 SR Legacy white bread (commercial sliced). For pav/dinner rolls use 174923; for whole wheat 172686. form=as_eaten since bread is consumed without further cooking. User verify."
+    }
+  },
+  {
+    "app_id": "brinjal_raw",
+    "name": "Brinjal (raw)",
+    "aliases": [
+      "eggplant",
+      "baingan",
+      "aubergine",
+      "vangi",
+      "kathirikai"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 25,
+      "protein_g": 1.48,
+      "carbs_g": 3.52,
+      "fat_g": 0.32,
+      "fiber_g": 3.98,
+      "micronutrients": {
+        "iron_mg": 0.37,
+        "calcium_mg": 16.59,
+        "vit_c_mg": 2.09,
+        "potassium_mg": 247.0,
+        "sodium_mg": 3.55,
+        "magnesium_mg": 21.0,
+        "zinc_mg": 0.21,
+        "vit_a_iu": 243.82,
+        "folate_ug": 33.93,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 100,
+      "large": 250,
+      "cup_diced": 160
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "D031",
+      "ifct_name": "Brinjal - all varieties",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "D031 is the explicit IFCT aggregate across all 21 individual brinjal varieties (D010-D030), regn=6. Best choice for generic 'brinjal'.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "broken_wheat_raw",
+    "name": "Broken wheat (dalia)",
+    "aliases": [
+      "dalia",
+      "lapsi",
+      "cracked wheat",
+      "fada"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 342,
+      "protein_g": 10.84,
+      "carbs_g": 69.06,
+      "fat_g": 1.45,
+      "fiber_g": 8.81,
+      "micronutrients": {
+        "iron_mg": 3.86,
+        "calcium_mg": 27.09,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 330.0,
+        "sodium_mg": 2.09,
+        "magnesium_mg": 116.0,
+        "zinc_mg": 1.97,
+        "vit_a_iu": 4.26,
+        "folate_ug": 26.3,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 180,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [
+      "gluten"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A021",
+      "ifct_name": "Wheat, bulgur",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "Broken wheat (dalia) is parboiled cracked wheat, functionally equivalent to bulgur. A021 is the closest measured IFCT match. A020 (Wheat, whole) would be acceptable alternative for unparboiled cracked wheat.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "brown_sugar_raw",
+    "name": "Brown sugar",
+    "aliases": [
+      "brown sugar",
+      "demerara sugar",
+      "muscovado"
+    ],
+    "category": "sweetener",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 4,
+      "tbsp": 12,
+      "cup": 220
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 169656,
+      "usda_description": "Sugars, brown",
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT gap (refined sugar excluded). FDC 169656 SR Legacy brown sugar. User verify. Note: distinct from jaggery (I001) — brown sugar is refined white sugar with molasses added back."
+    }
+  },
+  {
+    "app_id": "butter_raw",
+    "name": "Butter",
+    "aliases": [
+      "butter",
+      "makhan",
+      "salted butter"
+    ],
+    "category": "dairy",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 5,
+      "tbsp": 14,
+      "pat": 5
+    },
+    "allergen_tags": [
+      "dairy"
+    ],
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 173430,
+      "usda_description": "Butter, salted",
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT gap (dairy beyond milk/paneer/khoa). FDC 173430 is SR Legacy 'Butter, salted'; user verify. Foundation Foods has no plain butter entry as of v2024."
+    }
+  },
+  {
+    "app_id": "buttermilk_raw",
+    "name": "Buttermilk",
+    "aliases": [
+      "buttermilk",
+      "chaas",
+      "chaach",
+      "mattha"
+    ],
+    "category": "dairy",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "glass": 200,
+      "cup": 240
+    },
+    "allergen_tags": [
+      "dairy"
+    ],
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 173441,
+      "usda_description": "Milk, buttermilk, fluid, cultured, lowfat",
+      "confidence": "approximate",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT gap (curd/dahi-family not covered beyond milks). Indian chaas is diluted curd, closer to cultured buttermilk than sweet-cream buttermilk. FDC 173441 SR Legacy; user verify. Alternative: build as 'composed' from L002 cow milk + dilution if precision matters."
+    }
+  },
+  {
+    "app_id": "cabbage_raw",
+    "name": "Cabbage (raw)",
+    "aliases": [
+      "patta gobi",
+      "band gobi",
+      "muttaikose"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 22,
+      "protein_g": 1.36,
+      "carbs_g": 3.25,
+      "fat_g": 0.12,
+      "fiber_g": 2.76,
+      "micronutrients": {
+        "iron_mg": 0.35,
+        "calcium_mg": 51.76,
+        "vit_c_mg": 33.25,
+        "potassium_mg": 233.0,
+        "sodium_mg": 14.98,
+        "magnesium_mg": 17.99,
+        "zinc_mg": 0.16,
+        "vit_a_iu": 34.2,
+        "folate_ug": 46.36,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_shredded": 90,
+      "medium_head": 900
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "C015",
+      "ifct_name": "Cabbage, green",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "C015 (green cabbage, 6 regions) is the standard. IFCT classifies under Green Leafy Vegetables but in app it's a regular vegetable.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "capsicum_raw",
+    "name": "Capsicum (raw)",
+    "aliases": [
+      "green bell pepper",
+      "shimla mirch",
+      "green capsicum"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 16,
+      "protein_g": 1.11,
+      "carbs_g": 1.84,
+      "fat_g": 0.34,
+      "fiber_g": 2.06,
+      "micronutrients": {
+        "iron_mg": 0.48,
+        "calcium_mg": 14.75,
+        "vit_c_mg": 123.0,
+        "potassium_mg": 154.0,
+        "sodium_mg": 1.84,
+        "magnesium_mg": 11.84,
+        "zinc_mg": 0.15,
+        "vit_a_iu": 547.76,
+        "folate_ug": 51.85,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 150,
+      "cup_chopped": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "D033",
+      "ifct_name": "Capsicum, green",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "D033 (green capsicum, 6 regions) is the default. For red/yellow bell peppers use D034/D035 instead — though note IFCT spec said 'Western vegetables (bell peppers)' should use USDA, IFCT does have measured capsicum entries so using them is appropriate here.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "carrot_raw",
+    "name": "Carrot (raw)",
+    "aliases": [
+      "gajar",
+      "carrot orange"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 33,
+      "protein_g": 0.95,
+      "carbs_g": 5.55,
+      "fat_g": 0.47,
+      "fiber_g": 4.18,
+      "micronutrients": {
+        "iron_mg": 0.6,
+        "calcium_mg": 35.09,
+        "vit_c_mg": 6.22,
+        "potassium_mg": 273.0,
+        "sodium_mg": 52.33,
+        "magnesium_mg": 16.73,
+        "zinc_mg": 0.25,
+        "vit_a_iu": 13488.59,
+        "folate_ug": 24.04,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 60,
+      "large": 100,
+      "cup_chopped": 130,
+      "cup_grated": 110
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "F002",
+      "ifct_name": "Carrot, orange",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "F002 (orange carrot, 6 regions) preferred over F003 (red/desi carrot, 4 regions) on regn. Orange is now the dominant year-round variety; red desi gajar is seasonal (winter) — switch to F003 for halwa contexts if needed.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "cashew_raw",
+    "name": "Cashew",
+    "aliases": [
+      "cashew",
+      "cashew nut",
+      "kaju",
+      "mundhiri",
+      "jeedi pappu"
+    ],
+    "category": "nut_seed",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 583,
+      "protein_g": 18.78,
+      "carbs_g": 25.46,
+      "fat_g": 45.2,
+      "fiber_g": 3.86,
+      "micronutrients": {
+        "iron_mg": 5.95,
+        "calcium_mg": 34.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 635.0,
+        "sodium_mg": 9.0,
+        "magnesium_mg": 307.0,
+        "zinc_mg": 5.34,
+        "vit_a_iu": 0.0,
+        "folate_ug": 25.2,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "piece": 1.5,
+      "katori": 30,
+      "tbsp_chopped": 8
+    },
+    "allergen_tags": [
+      "tree_nuts"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "H005",
+      "ifct_name": "Cashew nut",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6. Raw/unroasted. For roasted use separate app_id with USDA.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "catla_raw",
+    "name": "Catla",
+    "aliases": [
+      "catla",
+      "katla",
+      "bhakur",
+      "Catla catla"
+    ],
+    "category": "fish",
+    "form": "raw",
+    "cooked_yield_ratio": 0.75,
+    "per_100g_nutrition": {
+      "calories": 94,
+      "protein_g": 17.94,
+      "carbs_g": 0.0,
+      "fat_g": 2.15,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 1.14,
+        "calcium_mg": 43.53,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 301.0,
+        "sodium_mg": 36.56,
+        "magnesium_mg": 25.58,
+        "zinc_mg": 0.68,
+        "vit_a_iu": 14.39,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "piece": 100,
+      "serving": 150
+    },
+    "allergen_tags": [
+      "fish"
+    ],
+    "diet_tags": [
+      "fishetarian",
+      "nonveg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "S002",
+      "ifct_name": "Catla",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "cauliflower_raw",
+    "name": "Cauliflower (raw)",
+    "aliases": [
+      "phool gobi",
+      "gobhi",
+      "cauli"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 23,
+      "protein_g": 2.15,
+      "carbs_g": 2.03,
+      "fat_g": 0.44,
+      "fiber_g": 3.71,
+      "micronutrients": {
+        "iron_mg": 0.96,
+        "calcium_mg": 25.16,
+        "vit_c_mg": 47.14,
+        "potassium_mg": 329.0,
+        "sodium_mg": 30.72,
+        "magnesium_mg": 23.08,
+        "zinc_mg": 0.31,
+        "vit_a_iu": 2.66,
+        "folate_ug": 45.95,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_florets": 100,
+      "medium_head": 600
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "D036",
+      "ifct_name": "Cauliflower",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "chana_dal_raw",
+    "name": "Chana dal (raw)",
+    "aliases": [
+      "bengal gram split",
+      "split chickpea",
+      "cholar dal"
+    ],
+    "category": "pulse",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 329,
+      "protein_g": 21.55,
+      "carbs_g": 46.72,
+      "fat_g": 5.31,
+      "fiber_g": 15.15,
+      "micronutrients": {
+        "iron_mg": 6.08,
+        "calcium_mg": 46.32,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 957.0,
+        "sodium_mg": 20.83,
+        "magnesium_mg": 118.0,
+        "zinc_mg": 3.65,
+        "vit_a_iu": 275.55,
+        "folate_ug": 182.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "B001",
+      "ifct_name": "Bengal gram, dal",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "chicken_breast_raw",
+    "name": "Chicken breast",
+    "aliases": [
+      "chicken breast",
+      "chicken breast skinless",
+      "murgh sina"
+    ],
+    "category": "meat",
+    "form": "raw",
+    "cooked_yield_ratio": 0.75,
+    "per_100g_nutrition": {
+      "calories": 168,
+      "protein_g": 21.81,
+      "carbs_g": 0.0,
+      "fat_g": 9.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.83,
+        "calcium_mg": 12.91,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 295.0,
+        "sodium_mg": 36.7,
+        "magnesium_mg": 20.2,
+        "zinc_mg": 0.78,
+        "vit_a_iu": 23.18,
+        "folate_ug": 10.44,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "piece_medium": 150,
+      "piece_small": 100
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "fishetarian",
+      "nonveg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "N003",
+      "ifct_name": "Chicken, poultry, breast, skinless",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match skinless breast regn=5",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "chicken_thigh_raw",
+    "name": "Chicken thigh",
+    "aliases": [
+      "chicken thigh",
+      "chicken thigh skinless",
+      "murgh jangha"
+    ],
+    "category": "meat",
+    "form": "raw",
+    "cooked_yield_ratio": 0.75,
+    "per_100g_nutrition": {
+      "calories": 200,
+      "protein_g": 18.18,
+      "carbs_g": 0.0,
+      "fat_g": 14.23,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 1.11,
+        "calcium_mg": 18.37,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 263.0,
+        "sodium_mg": 64.59,
+        "magnesium_mg": 22.55,
+        "zinc_mg": 1.42,
+        "vit_a_iu": 54.88,
+        "folate_ug": 9.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "piece": 120
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "fishetarian",
+      "nonveg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "N002",
+      "ifct_name": "Chicken, poultry, thigh, skinless",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match skinless thigh regn=6 (highest regn among chicken cuts)",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "cinnamon_raw",
+    "name": "Cinnamon",
+    "aliases": [
+      "cinnamon",
+      "dalchini",
+      "dalchin",
+      "karuva pattai",
+      "lavangapattai"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp_ground": 2,
+      "stick_inch": 0.5,
+      "tbsp_ground": 6
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 171320,
+      "usda_description": "Spices, cinnamon, ground",
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT gap (per spec). FDC 171320 SR Legacy ground cinnamon (Cinnamomum verum/cassia blend typical of US retail). Note: Indian dalchini is usually Cinnamomum verum (true Ceylon) or cassia; FDC entry is acceptable proxy. User verify."
+    }
+  },
+  {
+    "app_id": "cloves_raw",
+    "name": "Cloves",
+    "aliases": [
+      "cloves",
+      "laung",
+      "lavang",
+      "krambu",
+      "kirambu"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 187,
+      "protein_g": 5.86,
+      "carbs_g": 18.73,
+      "fat_g": 8.41,
+      "fiber_g": 34.52,
+      "micronutrients": {
+        "iron_mg": 9.41,
+        "calcium_mg": 567.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1434.0,
+        "sodium_mg": 183.0,
+        "magnesium_mg": 334.0,
+        "zinc_mg": 1.13,
+        "vit_a_iu": 137.04,
+        "folate_ug": 32.81,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "piece": 0.07,
+      "tsp": 2,
+      "tbsp": 6
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G023",
+      "ifct_name": "Cloves",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "coconut_oil_raw",
+    "name": "Coconut oil",
+    "aliases": [
+      "coconut oil",
+      "nariyal tel",
+      "thenga ennai"
+    ],
+    "category": "oil_fat",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 100.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 5,
+      "tbsp": 14,
+      "cup": 218
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "T001",
+      "ifct_name": "Coconut oil",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=1 (only coconut oil entry). Low regn but no better option.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "coriander_leaves_raw",
+    "name": "Coriander leaves (raw)",
+    "aliases": [
+      "dhaniya",
+      "kothmir",
+      "hara dhaniya",
+      "kothamalli",
+      "cilantro"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 31,
+      "protein_g": 3.52,
+      "carbs_g": 1.93,
+      "fat_g": 0.7,
+      "fiber_g": 4.66,
+      "micronutrients": {
+        "iron_mg": 5.3,
+        "calcium_mg": 146.0,
+        "vit_c_mg": 23.87,
+        "potassium_mg": 546.0,
+        "sodium_mg": 37.0,
+        "magnesium_mg": 72.68,
+        "zinc_mg": 0.68,
+        "vit_a_iu": 6359.36,
+        "folate_ug": 51.01,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tbsp_chopped": 4,
+      "cup_chopped": 16,
+      "bunch": 50
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G009",
+      "ifct_name": "Coriander leaves",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT classifies coriander leaves under Condiments and Spices but in app it functions as a leafy garnish/vegetable; category set to vegetable.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "coriander_seeds_raw",
+    "name": "Coriander seeds",
+    "aliases": [
+      "coriander seeds",
+      "dhania",
+      "sabut dhaniya",
+      "kothamalli vidai"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 269,
+      "protein_g": 10.66,
+      "carbs_g": 12.98,
+      "fat_g": 17.47,
+      "fiber_g": 44.81,
+      "micronutrients": {
+        "iron_mg": 17.64,
+        "calcium_mg": 718.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1473.0,
+        "sodium_mg": 34.41,
+        "magnesium_mg": 343.0,
+        "zinc_mg": 3.91,
+        "vit_a_iu": 203.74,
+        "folate_ug": 22.07,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 2,
+      "tbsp": 6
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G024",
+      "ifct_name": "Coriander seeds",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "corn_flakes_raw",
+    "name": "Corn flakes",
+    "aliases": [
+      "corn flakes",
+      "cornflakes",
+      "maize flakes"
+    ],
+    "category": "processed",
+    "form": "as_eaten",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": null,
+        "calcium_mg": null,
+        "vit_c_mg": null,
+        "potassium_mg": null,
+        "sodium_mg": null,
+        "magnesium_mg": null,
+        "zinc_mg": null,
+        "vit_a_iu": null,
+        "folate_ug": null,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "katori": 30,
+      "cup": 28,
+      "bowl": 40
+    },
+    "allergen_tags": [
+      "gluten"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": null,
+      "usda_description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S Corn Flakes",
+      "confidence": "weak",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT no entry. FDC 173220 SR Legacy Kellogg's branded; generic equivalent 173752 'Cereals ready-to-eat, corn flakes, low sodium'. Branded entry chosen as closer to Indian retail. form=as_eaten (RTE). User verify."
+    },
+    "data_status": "missing_no_usda_match"
+  },
+  {
+    "app_id": "cumin_raw",
+    "name": "Cumin seeds",
+    "aliases": [
+      "cumin",
+      "cumin seeds",
+      "jeera",
+      "jeerakam"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 304,
+      "protein_g": 13.91,
+      "carbs_g": 22.62,
+      "fat_g": 16.64,
+      "fiber_g": 30.35,
+      "micronutrients": {
+        "iron_mg": 20.58,
+        "calcium_mg": 878.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1886.0,
+        "sodium_mg": 125.0,
+        "magnesium_mg": 442.0,
+        "zinc_mg": 4.29,
+        "vit_a_iu": 148.95,
+        "folate_ug": 27.79,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 2,
+      "tbsp": 6
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G025",
+      "ifct_name": "Cumin seeds",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "curd_raw",
+    "name": "Curd (dahi)",
+    "aliases": [
+      "dahi",
+      "yogurt",
+      "perugu",
+      "mosaru",
+      "tayir",
+      "thayir"
+    ],
+    "category": "dairy",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "katori": 150,
+      "cup": 245,
+      "tbsp": 15
+    },
+    "allergen_tags": [
+      "dairy"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 170887,
+      "usda_description": "Yogurt, plain, whole milk",
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT does not measure curd/dahi (only milk/paneer/khoa). Per project spec, curd uses USDA fallback. FDC 170887 (Yogurt, plain, whole milk, SR Legacy) is the closest match for traditional Indian whole-milk dahi. For low-fat dahi use a different FDC. USER MUST VERIFY FDC ID."
+    }
+  },
+  {
+    "app_id": "curry_leaves_raw",
+    "name": "Curry leaves (raw)",
+    "aliases": [
+      "kadi patta",
+      "karuveppilai",
+      "karibevu",
+      "kariveppila"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 64,
+      "protein_g": 7.41,
+      "carbs_g": 4.51,
+      "fat_g": 1.06,
+      "fiber_g": 16.83,
+      "micronutrients": {
+        "iron_mg": 8.67,
+        "calcium_mg": 659.0,
+        "vit_c_mg": 6.04,
+        "potassium_mg": 584.0,
+        "sodium_mg": 18.66,
+        "magnesium_mg": 182.0,
+        "zinc_mg": 1.18,
+        "vit_a_iu": 13037.69,
+        "folate_ug": 117.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "sprig": 2,
+      "leaf": 0.2,
+      "tbsp_chopped": 3
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G010",
+      "ifct_name": "Curry leaves",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "curry_powder_raw",
+    "name": "Curry powder",
+    "aliases": [
+      "curry powder",
+      "madras curry powder"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": null,
+        "calcium_mg": null,
+        "vit_c_mg": null,
+        "potassium_mg": null,
+        "sodium_mg": null,
+        "magnesium_mg": null,
+        "zinc_mg": null,
+        "vit_a_iu": null,
+        "folate_ug": null,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 2,
+      "tbsp": 6
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": null,
+      "usda_description": "Spices, curry powder",
+      "confidence": "weak",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT no entry. FDC 170925 SR Legacy. Note: 'curry powder' is largely a British/export concept — Indian cooking uses individual masalas. Same recompose option as garam masala if used heavily. User verify."
+    },
+    "data_status": "missing_no_usda_match"
+  },
+  {
+    "app_id": "dried_red_chilli_raw",
+    "name": "Dried red chilli",
+    "aliases": [
+      "dried red chilli",
+      "sukha lal mirch",
+      "whole red chilli",
+      "byadgi",
+      "kashmiri chilli"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 237,
+      "protein_g": 12.69,
+      "carbs_g": 29.46,
+      "fat_g": 6.4,
+      "fiber_g": 31.15,
+      "micronutrients": {
+        "iron_mg": 6.23,
+        "calcium_mg": 99.83,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 2245.0,
+        "sodium_mg": 19.45,
+        "magnesium_mg": 231.0,
+        "zinc_mg": 1.66,
+        "vit_a_iu": 5245.47,
+        "folate_ug": 51.5,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "whole_small": 1,
+      "whole_medium": 2
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G022",
+      "ifct_name": "Chillies, red",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT G022 = whole dried red chillies. Same code as powder form since IFCT does not separate. regn=6.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "drumstick_raw",
+    "name": "Drumstick (raw)",
+    "aliases": [
+      "moringa pod",
+      "sahjan",
+      "sahijan",
+      "munagakaya",
+      "murungakkai",
+      "nuggekai"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 29,
+      "protein_g": 2.62,
+      "carbs_g": 3.76,
+      "fat_g": 0.12,
+      "fiber_g": 6.83,
+      "micronutrients": {
+        "iron_mg": 0.73,
+        "calcium_mg": 33.3,
+        "vit_c_mg": 71.86,
+        "potassium_mg": 419.0,
+        "sodium_mg": 22.38,
+        "magnesium_mg": 38.1,
+        "zinc_mg": 0.31,
+        "vit_a_iu": 28.86,
+        "folate_ug": 62.75,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium_pod": 30,
+      "cup_chopped": 100
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "D046",
+      "ifct_name": "Drumstick",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "egg_whole_raw",
+    "name": "Egg",
+    "aliases": [
+      "egg",
+      "whole egg",
+      "chicken egg",
+      "anda"
+    ],
+    "category": "egg",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 135,
+      "protein_g": 13.28,
+      "carbs_g": 0.0,
+      "fat_g": 9.15,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 1.82,
+        "calcium_mg": 49.44,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 138.0,
+        "sodium_mg": 123.0,
+        "magnesium_mg": 12.01,
+        "zinc_mg": 1.23,
+        "vit_a_iu": 683.67,
+        "folate_ug": 49.32,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "egg_small": 40,
+      "egg_medium": 50,
+      "egg_large": 60
+    },
+    "allergen_tags": [
+      "eggs"
+    ],
+    "diet_tags": [
+      "eggetarian",
+      "fishetarian",
+      "nonveg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "M001",
+      "ifct_name": "Egg, poultry, whole, raw",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6. For boiled form use M004 as separate app_id (egg_whole_boiled) if needed.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "fennel_seeds_raw",
+    "name": "Fennel seeds",
+    "aliases": [
+      "fennel seeds",
+      "saunf",
+      "sombu",
+      "perun jeerakam",
+      "variyali"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 2,
+      "tbsp": 6
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 171323,
+      "usda_description": "Spices, fennel seed",
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT has no fennel seed entry (surprising given common use). FDC 170926 SR Legacy. User verify."
+    }
+  },
+  {
+    "app_id": "fenugreek_leaves_raw",
+    "name": "Fenugreek leaves (raw)",
+    "aliases": [
+      "methi",
+      "methi leaves",
+      "vendhayakeerai",
+      "menthi kura"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 34,
+      "protein_g": 3.68,
+      "carbs_g": 2.17,
+      "fat_g": 0.83,
+      "fiber_g": 4.9,
+      "micronutrients": {
+        "iron_mg": 5.69,
+        "calcium_mg": 274.0,
+        "vit_c_mg": 58.25,
+        "potassium_mg": 226.0,
+        "sodium_mg": 47.01,
+        "magnesium_mg": 63.67,
+        "zinc_mg": 0.54,
+        "vit_a_iu": 15439.15,
+        "folate_ug": 75.26,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_chopped": 60,
+      "bunch": 100
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "C020",
+      "ifct_name": "Fenugreek leaves",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "fenugreek_seeds_raw",
+    "name": "Fenugreek seeds",
+    "aliases": [
+      "fenugreek seeds",
+      "methi dana",
+      "methi seeds",
+      "vendhayam"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 235,
+      "protein_g": 25.41,
+      "carbs_g": 10.57,
+      "fat_g": 5.72,
+      "fiber_g": 47.55,
+      "micronutrients": {
+        "iron_mg": 8.47,
+        "calcium_mg": 135.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 891.0,
+        "sodium_mg": 40.2,
+        "magnesium_mg": 167.0,
+        "zinc_mg": 3.8,
+        "vit_a_iu": 237.14,
+        "folate_ug": 51.11,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 4,
+      "tbsp": 12,
+      "pinch": 0.3
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G026",
+      "ifct_name": "Fenugreek seeds",
+      "usda_fdc_id": 171324,
+      "usda_description": "Spices, fenugreek seed",
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "finger_millet_flour_raw",
+    "name": "Finger millet flour (ragi flour)",
+    "aliases": [
+      "ragi atta",
+      "nachni flour",
+      "mandua atta"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 1.5,
+    "per_100g_nutrition": {
+      "calories": 321,
+      "protein_g": 7.16,
+      "carbs_g": 66.82,
+      "fat_g": 1.92,
+      "fiber_g": 11.18,
+      "micronutrients": {
+        "iron_mg": 4.62,
+        "calcium_mg": 364.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 443.0,
+        "sodium_mg": 4.75,
+        "magnesium_mg": 146.0,
+        "zinc_mg": 2.53,
+        "vit_a_iu": 2.56,
+        "folate_ug": 34.66,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup": 120,
+      "tbsp": 8
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A010",
+      "ifct_name": "Ragi",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT A010 is whole ragi grain; in India ragi flour is the dominant consumed form so the per-100g composition is essentially the same. Same code used for flour.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "flattened_rice_raw",
+    "name": "Flattened rice (poha)",
+    "aliases": [
+      "poha",
+      "aval",
+      "chivda",
+      "chura",
+      "beaten rice"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 354,
+      "protein_g": 7.44,
+      "carbs_g": 76.75,
+      "fat_g": 1.14,
+      "fiber_g": 3.46,
+      "micronutrients": {
+        "iron_mg": 4.46,
+        "calcium_mg": 9.19,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 148.0,
+        "sodium_mg": 2.58,
+        "magnesium_mg": 77.92,
+        "zinc_mg": 1.49,
+        "vit_a_iu": 0.0,
+        "folate_ug": 8.46,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup": 80,
+      "katori_raw": 50
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A011",
+      "ifct_name": "Rice flakes",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "french_beans_raw",
+    "name": "French beans (raw)",
+    "aliases": [
+      "farasbi",
+      "fansi",
+      "beans",
+      "green beans",
+      "haricot"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 24,
+      "protein_g": 2.49,
+      "carbs_g": 2.68,
+      "fat_g": 0.26,
+      "fiber_g": 4.38,
+      "micronutrients": {
+        "iron_mg": 1.25,
+        "calcium_mg": 55.99,
+        "vit_c_mg": 15.81,
+        "potassium_mg": 324.0,
+        "sodium_mg": 8.84,
+        "magnesium_mg": 43.01,
+        "zinc_mg": 0.5,
+        "vit_a_iu": 695.67,
+        "folate_ug": 47.45,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_chopped": 110,
+      "handful": 50
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "D049",
+      "ifct_name": "French beans, country",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "D049 (country variety, 5 regions) preferred over D050 (hybrid, 2 regions) for typical Indian usage.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "fresh_cream_raw",
+    "name": "Fresh cream",
+    "aliases": [
+      "fresh cream",
+      "heavy cream",
+      "dairy cream",
+      "malai-cream"
+    ],
+    "category": "dairy",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tbsp": 15,
+      "cup": 240
+    },
+    "allergen_tags": [
+      "dairy"
+    ],
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 170859,
+      "usda_description": "Cream, fluid, heavy whipping",
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT gap. FDC 170859 SR Legacy ~36% fat. If recipes use Indian cooking cream (~25%), consider 170857 'Cream, fluid, light whipping' instead. User verify."
+    }
+  },
+  {
+    "app_id": "garam_masala_raw",
+    "name": "Garam masala",
+    "aliases": [
+      "garam masala",
+      "garam masala powder"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": null,
+        "calcium_mg": null,
+        "vit_c_mg": null,
+        "potassium_mg": null,
+        "sodium_mg": null,
+        "magnesium_mg": null,
+        "zinc_mg": null,
+        "vit_a_iu": null,
+        "folate_ug": null,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 2,
+      "tbsp": 6,
+      "pinch": 0.3
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": null,
+      "usda_description": "Spices, garam masala",
+      "confidence": "weak",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT has no blend entry. FDC 171324 SR Legacy garam masala. Blends vary widely by region/brand; consider recomposing as source=composed from G023 cloves + G020 green cardamom + G021 black cardamom + G031 black pepper + G025 cumin + G024 coriander + cinnamon (USDA) in v2 if accuracy matters. User verify FDC ID."
+    },
+    "data_status": "missing_no_usda_match"
+  },
+  {
+    "app_id": "garlic_raw",
+    "name": "Garlic",
+    "aliases": [
+      "garlic",
+      "lasun",
+      "lehsun",
+      "poondu",
+      "vellulli"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 124,
+      "protein_g": 6.92,
+      "carbs_g": 21.93,
+      "fat_g": 0.16,
+      "fiber_g": 5.22,
+      "micronutrients": {
+        "iron_mg": 1.05,
+        "calcium_mg": 20.08,
+        "vit_c_mg": 12.62,
+        "potassium_mg": 430.0,
+        "sodium_mg": 9.42,
+        "magnesium_mg": 27.08,
+        "zinc_mg": 0.89,
+        "vit_a_iu": 0.0,
+        "folate_ug": 85.77,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "clove": 3,
+      "tsp_minced": 5,
+      "tbsp_minced": 15
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G011",
+      "ifct_name": "Garlic, big clove",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "Chose G011 big clove (regn=6) over G012 small (regn=3). Most common commercial garlic in India.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "ghee_raw",
+    "name": "Ghee",
+    "aliases": [
+      "ghee",
+      "clarified butter",
+      "desi ghee"
+    ],
+    "category": "oil_fat",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 100.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 5,
+      "tbsp": 14,
+      "cup": 200
+    },
+    "allergen_tags": [
+      "dairy"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "T013",
+      "ifct_name": "Ghee",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "Direct IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "ginger_raw",
+    "name": "Ginger",
+    "aliases": [
+      "ginger",
+      "fresh ginger",
+      "adrak",
+      "inji",
+      "allam"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 55,
+      "protein_g": 2.22,
+      "carbs_g": 8.97,
+      "fat_g": 0.85,
+      "fiber_g": 5.36,
+      "micronutrients": {
+        "iron_mg": 1.9,
+        "calcium_mg": 18.88,
+        "vit_c_mg": 5.43,
+        "potassium_mg": 407.0,
+        "sodium_mg": 10.03,
+        "magnesium_mg": 54.66,
+        "zinc_mg": 0.39,
+        "vit_a_iu": 148.38,
+        "folate_ug": 10.82,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "inch_piece": 10,
+      "tsp_grated": 5,
+      "tbsp_grated": 15
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G014",
+      "ifct_name": "Ginger, fresh",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6. Use this for fresh ginger; ginger powder/sonth would need USDA.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "green_cardamom_raw",
+    "name": "Green cardamom",
+    "aliases": [
+      "green cardamom",
+      "elaichi",
+      "choti elaichi",
+      "hari elaichi",
+      "yelakai"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 255,
+      "protein_g": 8.1,
+      "carbs_g": 47.76,
+      "fat_g": 2.6,
+      "fiber_g": 23.1,
+      "micronutrients": {
+        "iron_mg": 8.33,
+        "calcium_mg": 378.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1262.0,
+        "sodium_mg": 15.51,
+        "magnesium_mg": 330.0,
+        "zinc_mg": 3.71,
+        "vit_a_iu": 36.59,
+        "folate_ug": 2.85,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "pod": 0.3,
+      "tsp_seeds": 2
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G020",
+      "ifct_name": "Cardamom, green",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "green_chilli_raw",
+    "name": "Green chilli (raw)",
+    "aliases": [
+      "hari mirch",
+      "pacha mulagu",
+      "pachi mirapakaya"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 42,
+      "protein_g": 2.36,
+      "carbs_g": 5.86,
+      "fat_g": 0.72,
+      "fiber_g": 4.77,
+      "micronutrients": {
+        "iron_mg": 1.2,
+        "calcium_mg": 18.45,
+        "vit_c_mg": 94.07,
+        "potassium_mg": 341.0,
+        "sodium_mg": 2.5,
+        "magnesium_mg": 29.51,
+        "zinc_mg": 0.27,
+        "vit_a_iu": 208.75,
+        "folate_ug": 21.5,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "whole_small": 3,
+      "whole_medium": 5,
+      "tsp_chopped": 3
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G008",
+      "ifct_name": "Chillies, green - all varieties",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "G008 is the explicit IFCT aggregate across all 7 green chilli varieties (G001-G007), regn=6. IFCT classifies under Condiments and Spices, but in the app it functions as a vegetable in many dishes; category set to vegetable for consistency with recipe usage.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "green_peas_raw",
+    "name": "Green peas (fresh)",
+    "aliases": [
+      "fresh peas",
+      "matar",
+      "hari matar",
+      "garden peas"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 81,
+      "protein_g": 7.25,
+      "carbs_g": 11.88,
+      "fat_g": 0.13,
+      "fiber_g": 6.32,
+      "micronutrients": {
+        "iron_mg": 1.58,
+        "calcium_mg": 28.24,
+        "vit_c_mg": 38.4,
+        "potassium_mg": 249.0,
+        "sodium_mg": 3.66,
+        "magnesium_mg": 40.11,
+        "zinc_mg": 1.09,
+        "vit_a_iu": 202.07,
+        "folate_ug": 54.77,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup": 150,
+      "katori": 100
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "D061",
+      "ifct_name": "Peas, fresh",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "Fresh green peas. For dried peas use B017 instead.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "groundnut_oil_raw",
+    "name": "Groundnut oil",
+    "aliases": [
+      "groundnut oil",
+      "peanut oil",
+      "moongphali tel"
+    ],
+    "category": "oil_fat",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 100.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 5,
+      "tbsp": 14,
+      "cup": 216
+    },
+    "allergen_tags": [
+      "peanuts"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "T005",
+      "ifct_name": "Groundnut oil",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=5",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "guava_raw",
+    "name": "Guava (raw)",
+    "aliases": [
+      "amrood",
+      "jaam",
+      "peyara",
+      "perakkai",
+      "jaama pandu"
+    ],
+    "category": "fruit",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 32,
+      "protein_g": 1.44,
+      "carbs_g": 5.13,
+      "fat_g": 0.32,
+      "fiber_g": 8.59,
+      "micronutrients": {
+        "iron_mg": 0.32,
+        "calcium_mg": 18.52,
+        "vit_c_mg": 214.0,
+        "potassium_mg": 283.0,
+        "sodium_mg": 2.87,
+        "magnesium_mg": 15.26,
+        "zinc_mg": 0.23,
+        "vit_a_iu": 497.66,
+        "folate_ug": 29.76,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 150,
+      "cup_chopped": 165
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "E028",
+      "ifct_name": "Guava, white flesh",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "Two IFCT guava entries: E028 (white flesh, 5 regn) and E029 (pink flesh, 5 regn). Tied on regn. Going with white-flesh as the more common Indian variety. Switch to E029 if recipes specifically call for pink guava.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "honey_raw",
+    "name": "Honey",
+    "aliases": [
+      "honey",
+      "shahad",
+      "madhu",
+      "thaen"
+    ],
+    "category": "sweetener",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 7,
+      "tbsp": 21
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 169640,
+      "usda_description": "Honey",
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT gap (per spec). FDC 169640 SR Legacy. User verify."
+    }
+  },
+  {
+    "app_id": "horse_gram_raw",
+    "name": "Horse gram (raw)",
+    "aliases": [
+      "kulthi",
+      "kollu",
+      "hurali",
+      "muthira",
+      "gahat"
+    ],
+    "category": "pulse",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 330,
+      "protein_g": 21.73,
+      "carbs_g": 57.24,
+      "fat_g": 0.62,
+      "fiber_g": 7.88,
+      "micronutrients": {
+        "iron_mg": 8.76,
+        "calcium_mg": 269.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1065.0,
+        "sodium_mg": 12.14,
+        "magnesium_mg": 152.0,
+        "zinc_mg": 2.71,
+        "vit_a_iu": 97.81,
+        "folate_ug": 163.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "B012",
+      "ifct_name": "Horse gram, whole",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "idli_rava_raw",
+    "name": "Idli rava",
+    "aliases": [
+      "idli rava",
+      "idli rawa",
+      "rice rava",
+      "coarse rice rava"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 352,
+      "protein_g": 7.81,
+      "carbs_g": 77.16,
+      "fat_g": 0.55,
+      "fiber_g": 3.74,
+      "micronutrients": {
+        "iron_mg": 0.72,
+        "calcium_mg": 8.11,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 142.0,
+        "sodium_mg": 3.16,
+        "magnesium_mg": 26.72,
+        "zinc_mg": 1.08,
+        "vit_a_iu": 0.0,
+        "folate_ug": 9.75,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "katori": 30,
+      "cup": 200
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A014",
+      "ifct_name": "Rice, parboiled, milled",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "Idli rava is coarsely ground parboiled rice. No separate IFCT entry; A014 (regn=6) is the underlying grain — nutrition per 100g identical (coarse grind only). Differs from A015 'Rice, raw, milled' because idli rava is specifically parboiled.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "instant_coffee_raw",
+    "name": "Instant coffee",
+    "aliases": [
+      "instant coffee",
+      "coffee powder",
+      "nescafe",
+      "kaapi powder"
+    ],
+    "category": "beverage",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 2,
+      "tbsp": 6,
+      "cup_brewed": 240
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 171890,
+      "usda_description": "Beverages, coffee, instant, regular, powder, not reconstituted",
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT no entry. FDC 171890 SR Legacy instant coffee powder. User verify. Note: this is dry powder basis; for brewed coffee use FDC 171889 or set source=composed."
+    }
+  },
+  {
+    "app_id": "jaggery_raw",
+    "name": "Jaggery",
+    "aliases": [
+      "jaggery",
+      "gud",
+      "gur",
+      "bellam",
+      "vellam",
+      "cane jaggery"
+    ],
+    "category": "sweetener",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 354,
+      "protein_g": 1.85,
+      "carbs_g": 84.87,
+      "fat_g": 0.16,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 4.63,
+        "calcium_mg": 107.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 488.0,
+        "sodium_mg": 25.38,
+        "magnesium_mg": 115.0,
+        "zinc_mg": 0.45,
+        "vit_a_iu": 0.0,
+        "folate_ug": 14.4,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 4,
+      "tbsp": 12,
+      "piece_small": 15
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "I001",
+      "ifct_name": "Jaggery, cane",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6. This is CANE jaggery. Palm jaggery (per your known-gap list) is a separate ingredient — keep palm_jaggery_raw as USDA if it comes up.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "kabuli_chana_raw",
+    "name": "Kabuli chana (raw)",
+    "aliases": [
+      "garbanzo beans",
+      "white chickpea",
+      "safed chana",
+      "kabuli chickpea"
+    ],
+    "category": "pulse",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 287,
+      "protein_g": 18.77,
+      "carbs_g": 39.56,
+      "fat_g": 5.11,
+      "fiber_g": 25.22,
+      "micronutrients": {
+        "iron_mg": 6.78,
+        "calcium_mg": 150.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 935.0,
+        "sodium_mg": 26.56,
+        "magnesium_mg": 160.0,
+        "zinc_mg": 3.37,
+        "vit_a_iu": 287.24,
+        "folate_ug": 233.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "B002",
+      "ifct_name": "Bengal gram, whole",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT does not distinguish desi (kala chana) from kabuli varieties; B002 (whole Bengal gram, 6 regions) is the same code used for kala chana. Kabuli is larger and lighter but nutritionally close.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "kala_chana_raw",
+    "name": "Kala chana (raw)",
+    "aliases": [
+      "black chickpea",
+      "brown chickpea",
+      "desi chickpea",
+      "bengal gram whole"
+    ],
+    "category": "pulse",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 287,
+      "protein_g": 18.77,
+      "carbs_g": 39.56,
+      "fat_g": 5.11,
+      "fiber_g": 25.22,
+      "micronutrients": {
+        "iron_mg": 6.78,
+        "calcium_mg": 150.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 935.0,
+        "sodium_mg": 26.56,
+        "magnesium_mg": 160.0,
+        "zinc_mg": 3.37,
+        "vit_a_iu": 287.24,
+        "folate_ug": 233.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "B002",
+      "ifct_name": "Bengal gram, whole",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "kasuri_methi_raw",
+    "name": "Dried fenugreek leaves",
+    "aliases": [
+      "kasuri methi",
+      "kasoori methi",
+      "dried fenugreek leaves",
+      "sukhi methi"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": null,
+        "calcium_mg": null,
+        "vit_c_mg": null,
+        "potassium_mg": null,
+        "sodium_mg": null,
+        "magnesium_mg": null,
+        "zinc_mg": null,
+        "vit_a_iu": null,
+        "folate_ug": null,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp_crushed": 1,
+      "tbsp_crushed": 3
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": null,
+      "usda_description": "Spices, fenugreek seed",
+      "confidence": "weak",
+      "extracted_at": "2026-05-23",
+      "notes": "No USDA entry for dried fenugreek leaves (kasuri methi). IFCT C020 is fresh fenugreek leaves — distinct from dried form (~10x nutrient density due to moisture loss). FDC 173470 'Spices, fenugreek seed' used as closest available USDA proxy for a dried fenugreek product, though seeds differ from leaves. Consider source=composed (dry C020 values × 10) for v2 accuracy."
+    },
+    "data_status": "missing_no_usda_match"
+  },
+  {
+    "app_id": "lemon_juice_raw",
+    "name": "Lemon juice",
+    "aliases": [
+      "lemon juice",
+      "nimbu rasa",
+      "elumichai sarru",
+      "lime juice"
+    ],
+    "category": "fruit",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 37,
+      "protein_g": 0.41,
+      "carbs_g": 0.0,
+      "fat_g": 0.75,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.12,
+        "calcium_mg": 22.68,
+        "vit_c_mg": 48.16,
+        "potassium_mg": 113.0,
+        "sodium_mg": 1.21,
+        "magnesium_mg": 8.9,
+        "zinc_mg": 0.08,
+        "vit_a_iu": 4.38,
+        "folate_ug": 12.43,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 5,
+      "tbsp": 15,
+      "lemon_juice_of_1": 30
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "E033",
+      "ifct_name": "Lemon, juice",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT E033 is lemon JUICE (per 100g of juice), not whole fruit. Most recipes use juice — appropriate match. If you need whole lemon nutrition, use USDA. regn=6.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "lobia_raw",
+    "name": "Lobia (raw)",
+    "aliases": [
+      "black-eyed peas",
+      "chawli",
+      "black-eyed beans",
+      "cowpea"
+    ],
+    "category": "pulse",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 320,
+      "protein_g": 20.36,
+      "carbs_g": 54.62,
+      "fat_g": 1.15,
+      "fiber_g": 11.54,
+      "micronutrients": {
+        "iron_mg": 5.9,
+        "calcium_mg": 81.73,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1241.0,
+        "sodium_mg": 13.68,
+        "magnesium_mg": 213.0,
+        "zinc_mg": 3.41,
+        "vit_a_iu": 11.82,
+        "folate_ug": 231.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "B005",
+      "ifct_name": "Cowpea, brown",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "B005 (cowpea brown, 6 regions) preferred over B006 (cowpea white, 1 region) on regn.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "mace_raw",
+    "name": "Mace",
+    "aliases": [
+      "mace",
+      "javitri",
+      "jathipathri",
+      "jaipatri"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 356,
+      "protein_g": 6.24,
+      "carbs_g": 26.51,
+      "fat_g": 24.41,
+      "fiber_g": 20.31,
+      "micronutrients": {
+        "iron_mg": 22.69,
+        "calcium_mg": 174.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 623.0,
+        "sodium_mg": 27.17,
+        "magnesium_mg": 207.0,
+        "zinc_mg": 1.16,
+        "vit_a_iu": 3877.74,
+        "folate_ug": 32.65,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 1,
+      "blade": 0.2
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G027",
+      "ifct_name": "Mace",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "maida_raw",
+    "name": "Refined wheat flour",
+    "aliases": [
+      "maida",
+      "refined wheat flour",
+      "all purpose flour",
+      "APF",
+      "plain flour"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 1.5,
+    "per_100g_nutrition": {
+      "calories": 352,
+      "protein_g": 10.36,
+      "carbs_g": 74.27,
+      "fat_g": 0.76,
+      "fiber_g": 2.76,
+      "micronutrients": {
+        "iron_mg": 1.77,
+        "calcium_mg": 20.4,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 148.0,
+        "sodium_mg": 1.54,
+        "magnesium_mg": 30.69,
+        "zinc_mg": 0.88,
+        "vit_a_iu": 3.29,
+        "folate_ug": 16.25,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 3,
+      "tbsp": 8,
+      "cup": 120
+    },
+    "allergen_tags": [
+      "gluten"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A018",
+      "ifct_name": "Wheat flour, refined",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6. cooked_yield_ratio=1.50 per flour default.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "mango_raw",
+    "name": "Mango (ripe)",
+    "aliases": [
+      "aam",
+      "pazha mangai",
+      "mamidipandu",
+      "alphonso/kesar/etc"
+    ],
+    "category": "fruit",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 42,
+      "protein_g": 0.54,
+      "carbs_g": 8.18,
+      "fat_g": 0.55,
+      "fiber_g": 1.88,
+      "micronutrients": {
+        "iron_mg": 0.51,
+        "calcium_mg": 15.77,
+        "vit_c_mg": 32.97,
+        "potassium_mg": 144.0,
+        "sodium_mg": 1.34,
+        "magnesium_mg": 13.35,
+        "zinc_mg": 0.12,
+        "vit_a_iu": 1955.1,
+        "folate_ug": 82.05,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 200,
+      "large": 300,
+      "cup_sliced": 165
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "E036",
+      "ifct_name": "Mango, ripe, banganapalli",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT has 7 named ripe mango varieties (banganapalli/gulabkhas/himsagar/kesar/neelam/paheri/totapari) and no 'all varieties' aggregate. E036 (banganapalli, 6 regions) wins on regn — it's also a widely-eaten table mango. For specific varieties: E037 gulabkhas, E038 himsagar, E039 kesar, E040 neelam, E041 paheri, E042 totapari. For unripe/raw mango (chutney/pickle context) use D057.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "masoor_dal_raw",
+    "name": "Masoor dal (raw)",
+    "aliases": [
+      "red lentil split",
+      "pink lentil",
+      "split red lentil"
+    ],
+    "category": "pulse",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 322,
+      "protein_g": 24.35,
+      "carbs_g": 52.53,
+      "fat_g": 0.75,
+      "fiber_g": 10.43,
+      "micronutrients": {
+        "iron_mg": 7.06,
+        "calcium_mg": 44.32,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 786.0,
+        "sodium_mg": 10.27,
+        "magnesium_mg": 74.69,
+        "zinc_mg": 3.61,
+        "vit_a_iu": 10.59,
+        "folate_ug": 49.99,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "B013",
+      "ifct_name": "Lentil dal",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "matki_raw",
+    "name": "Matki (raw)",
+    "aliases": [
+      "moth beans",
+      "matki bean",
+      "dew bean",
+      "turkish gram"
+    ],
+    "category": "pulse",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 309,
+      "protein_g": 19.75,
+      "carbs_g": 52.09,
+      "fat_g": 1.76,
+      "fiber_g": 15.12,
+      "micronutrients": {
+        "iron_mg": 7.9,
+        "calcium_mg": 154.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1356.0,
+        "sodium_mg": 26.34,
+        "magnesium_mg": 205.0,
+        "zinc_mg": 1.92,
+        "vit_a_iu": 5.96,
+        "folate_ug": 349.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "B016",
+      "ifct_name": "Moth bean",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "melon_seeds_raw",
+    "name": "Melon seeds",
+    "aliases": [
+      "melon seeds",
+      "magaz",
+      "magajtari",
+      "chaar magaz",
+      "watermelon seeds",
+      "muskmelon seeds"
+    ],
+    "category": "nut_seed",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": null,
+        "calcium_mg": null,
+        "vit_c_mg": null,
+        "potassium_mg": null,
+        "sodium_mg": null,
+        "magnesium_mg": null,
+        "zinc_mg": null,
+        "vit_a_iu": null,
+        "folate_ug": null,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 3,
+      "tbsp": 9
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": null,
+      "usda_description": "Seeds, watermelon seed kernels, dried",
+      "confidence": "weak",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT no entry. 'Magaz/char magaz' in Indian cooking is typically a mix of watermelon, muskmelon, pumpkin, and cucumber seed kernels — FDC 170556 watermelon seed kernels is closest single proxy. If brand specifies char magaz blend, build as source=composed. User verify."
+    },
+    "data_status": "missing_no_usda_match"
+  },
+  {
+    "app_id": "milk_cow_whole",
+    "name": "Milk (whole, cow)",
+    "aliases": [
+      "doodh",
+      "paal",
+      "haalu",
+      "dudh",
+      "whole milk"
+    ],
+    "category": "dairy",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 73,
+      "protein_g": 3.26,
+      "carbs_g": 4.94,
+      "fat_g": 4.48,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.15,
+        "calcium_mg": 118.0,
+        "vit_c_mg": 2.01,
+        "potassium_mg": 115.0,
+        "sodium_mg": 25.46,
+        "magnesium_mg": 8.28,
+        "zinc_mg": 0.33,
+        "vit_a_iu": 22.83,
+        "folate_ug": 7.03,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup": 250,
+      "glass": 200,
+      "tbsp": 15
+    },
+    "allergen_tags": [
+      "dairy"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "L002",
+      "ifct_name": "Milk, whole, Cow",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "L002 (cow milk, 6 regions) is the default. For buffalo milk use L001 instead (higher fat). IFCT measures B12 as zero / not reported; the B12 overlay from USDA should be applied for accurate animal-product B12 in v1.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "moong_dal_raw",
+    "name": "Moong dal (raw)",
+    "aliases": [
+      "mung dal",
+      "green gram split",
+      "yellow moong dal"
+    ],
+    "category": "pulse",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 326,
+      "protein_g": 23.88,
+      "carbs_g": 52.59,
+      "fat_g": 1.35,
+      "fiber_g": 9.37,
+      "micronutrients": {
+        "iron_mg": 3.93,
+        "calcium_mg": 43.13,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1268.0,
+        "sodium_mg": 10.14,
+        "magnesium_mg": 155.0,
+        "zinc_mg": 2.49,
+        "vit_a_iu": 203.74,
+        "folate_ug": 92.11,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "B010",
+      "ifct_name": "Green gram, dal",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "moong_sprouts_raw",
+    "name": "Moong sprouts",
+    "aliases": [
+      "sprouted mung beans",
+      "mung sprouts",
+      "ankurit moong"
+    ],
+    "category": "pulse",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": null,
+        "calcium_mg": null,
+        "vit_c_mg": null,
+        "potassium_mg": null,
+        "sodium_mg": null,
+        "magnesium_mg": null,
+        "zinc_mg": null,
+        "vit_a_iu": null,
+        "folate_ug": null,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup": 100,
+      "katori": 80
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": null,
+      "usda_description": "Mung beans, mature seeds, sprouted, raw",
+      "confidence": "weak",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT has no sprouted moong entry; B011 (whole green gram) is the unsprouted base but sprouting changes vitamin C and digestibility substantially. USDA FDC 169260 (SR Legacy) is the standard reference for raw mung sprouts. USER MUST VERIFY FDC ID."
+    },
+    "data_status": "missing_no_usda_match"
+  },
+  {
+    "app_id": "mustard_oil_raw",
+    "name": "Mustard oil",
+    "aliases": [
+      "mustard oil",
+      "sarson ka tel",
+      "kachi ghani"
+    ],
+    "category": "oil_fat",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 100.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 5,
+      "tbsp": 14,
+      "cup": 220
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "T006",
+      "ifct_name": "Mustard oil",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "mustard_seeds_raw",
+    "name": "Mustard seeds",
+    "aliases": [
+      "mustard seeds",
+      "rai",
+      "sarson",
+      "kadugu",
+      "black mustard seeds"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 510,
+      "protein_g": 19.51,
+      "carbs_g": 16.8,
+      "fat_g": 40.19,
+      "fiber_g": 14.1,
+      "micronutrients": {
+        "iron_mg": 13.49,
+        "calcium_mg": 402.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 694.0,
+        "sodium_mg": 3.97,
+        "magnesium_mg": 266.0,
+        "zinc_mg": 4.03,
+        "vit_a_iu": 61.32,
+        "folate_ug": 94.88,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 3,
+      "tbsp": 9,
+      "pinch": 0.3
+    },
+    "allergen_tags": [
+      "mustard"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "H013",
+      "ifct_name": "Mustard seeds",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT H013 sits in 'Nuts and Oil Seeds' group, not Spices, but is the mustard seeds entry. regn=6.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "mutton_raw",
+    "name": "Mutton (goat)",
+    "aliases": [
+      "mutton",
+      "goat meat",
+      "bakra",
+      "chevon",
+      "goat shoulder"
+    ],
+    "category": "meat",
+    "form": "raw",
+    "cooked_yield_ratio": 0.75,
+    "per_100g_nutrition": {
+      "calories": 188,
+      "protein_g": 20.33,
+      "carbs_g": 0.0,
+      "fat_g": 11.94,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 1.48,
+        "calcium_mg": 6.18,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 332.0,
+        "sodium_mg": 47.31,
+        "magnesium_mg": 21.39,
+        "zinc_mg": 4.19,
+        "vit_a_iu": 25.21,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "piece_curry": 30,
+      "serving": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "fishetarian",
+      "nonveg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "O001",
+      "ifct_name": "Goat, shoulder, meat",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "Chose O001 shoulder (regn=6) as default cut for Indian mutton curry/biryani. Alternatives: O002 chops, O003 legs (also regn=6) — split if recipes specify.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "nutmeg_raw",
+    "name": "Nutmeg",
+    "aliases": [
+      "nutmeg",
+      "jaiphal",
+      "jathikka",
+      "jaikaay"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 464,
+      "protein_g": 6.3,
+      "carbs_g": 27.64,
+      "fat_g": 36.52,
+      "fiber_g": 11.99,
+      "micronutrients": {
+        "iron_mg": 2.33,
+        "calcium_mg": 148.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 474.0,
+        "sodium_mg": 14.31,
+        "magnesium_mg": 212.0,
+        "zinc_mg": 1.45,
+        "vit_a_iu": 25.67,
+        "folate_ug": 74.78,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "whole": 5,
+      "tsp_grated": 2,
+      "pinch": 0.3
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G028",
+      "ifct_name": "Nutmeg",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "okra_raw",
+    "name": "Okra (raw)",
+    "aliases": [
+      "bhindi",
+      "ladies finger",
+      "vendakkai",
+      "bendekayi"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 27,
+      "protein_g": 2.08,
+      "carbs_g": 3.62,
+      "fat_g": 0.22,
+      "fiber_g": 4.08,
+      "micronutrients": {
+        "iron_mg": 0.84,
+        "calcium_mg": 86.12,
+        "vit_c_mg": 22.51,
+        "potassium_mg": 263.0,
+        "sodium_mg": 7.37,
+        "magnesium_mg": 66.1,
+        "zinc_mg": 0.45,
+        "vit_a_iu": 115.4,
+        "folate_ug": 63.68,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_chopped": 100,
+      "medium": 10
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "D056",
+      "ifct_name": "Ladies finger",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "onion_raw",
+    "name": "Onion (raw)",
+    "aliases": [
+      "pyaaz",
+      "kanda",
+      "ulli",
+      "big onion"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 48,
+      "protein_g": 1.5,
+      "carbs_g": 9.56,
+      "fat_g": 0.24,
+      "fiber_g": 2.45,
+      "micronutrients": {
+        "iron_mg": 0.43,
+        "calcium_mg": 21.03,
+        "vit_c_mg": 6.69,
+        "potassium_mg": 171.0,
+        "sodium_mg": 5.5,
+        "magnesium_mg": 17.96,
+        "zinc_mg": 0.35,
+        "vit_a_iu": 1.8,
+        "folate_ug": 28.88,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 100,
+      "large": 150,
+      "cup_chopped": 160,
+      "tbsp_chopped": 10
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G017",
+      "ifct_name": "Onion, big",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "G017 (big onion, 6 regions) preferred over G018 (small onion / sambar onion, 5 regions). Note IFCT classifies onion under Condiments and Spices, but for the app it belongs in vegetable category.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "paneer_raw",
+    "name": "Paneer",
+    "aliases": [
+      "paneer",
+      "cottage cheese (Indian)",
+      "chhena-pressed"
+    ],
+    "category": "dairy",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 258,
+      "protein_g": 18.86,
+      "carbs_g": 12.41,
+      "fat_g": 14.78,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.9,
+        "calcium_mg": 476.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 63.53,
+        "sodium_mg": 18.04,
+        "magnesium_mg": 26.62,
+        "zinc_mg": 2.74,
+        "vit_a_iu": 7.33,
+        "folate_ug": 93.31,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cube_small": 20,
+      "cube_medium": 30,
+      "katori": 80
+    },
+    "allergen_tags": [
+      "dairy"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "L003",
+      "ifct_name": "Paneer",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "Direct IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "papad_raw",
+    "name": "Papad",
+    "aliases": [
+      "papad",
+      "papadum",
+      "appalam",
+      "pappadam",
+      "urad papad"
+    ],
+    "category": "processed",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": null,
+        "calcium_mg": null,
+        "vit_c_mg": null,
+        "potassium_mg": null,
+        "sodium_mg": null,
+        "magnesium_mg": null,
+        "zinc_mg": null,
+        "vit_a_iu": null,
+        "folate_ug": null,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "piece": 8
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": null,
+      "usda_description": "Papad",
+      "confidence": "weak",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT no entry. FDC 169743 SR Legacy papad. Note: huge variation by base (urad/moong/rice/sago) and seasoning — FDC entry is generic urad-style. For specific papad types consider source=composed. User verify. cooked_yield_ratio=1.00 since fried/roasted papad loses moisture but gains oil ~ even out per piece basis."
+    },
+    "data_status": "missing_no_usda_match"
+  },
+  {
+    "app_id": "papaya_raw",
+    "name": "Papaya (ripe)",
+    "aliases": [
+      "papita",
+      "pappali",
+      "boppayi",
+      "papaw"
+    ],
+    "category": "fruit",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 24,
+      "protein_g": 0.42,
+      "carbs_g": 4.61,
+      "fat_g": 0.16,
+      "fiber_g": 2.83,
+      "micronutrients": {
+        "iron_mg": 0.23,
+        "calcium_mg": 15.02,
+        "vit_c_mg": 43.09,
+        "potassium_mg": 173.0,
+        "sodium_mg": 6.68,
+        "magnesium_mg": 10.97,
+        "zinc_mg": 0.08,
+        "vit_a_iu": 2241.14,
+        "folate_ug": 60.9,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_cubed": 145,
+      "small_whole": 300,
+      "medium_whole": 500
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "E049",
+      "ifct_name": "Papaya, ripe",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "E049 (ripe papaya, 6 regions). For green/raw papaya used as vegetable (e.g., thoran), use D059 instead.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "parboiled_rice_raw",
+    "name": "Parboiled rice (raw)",
+    "aliases": [
+      "ukda chawal",
+      "sela rice",
+      "idli rice"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 352,
+      "protein_g": 7.81,
+      "carbs_g": 77.16,
+      "fat_g": 0.55,
+      "fiber_g": 3.74,
+      "micronutrients": {
+        "iron_mg": 0.72,
+        "calcium_mg": 8.11,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 142.0,
+        "sodium_mg": 3.16,
+        "magnesium_mg": 26.72,
+        "zinc_mg": 1.08,
+        "vit_a_iu": 0.0,
+        "folate_ug": 9.75,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A014",
+      "ifct_name": "Rice, parboiled, milled",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "peanut_raw",
+    "name": "Peanut",
+    "aliases": [
+      "peanut",
+      "groundnut",
+      "moongphali",
+      "verkadalai",
+      "pallelu"
+    ],
+    "category": "nut_seed",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 520,
+      "protein_g": 23.65,
+      "carbs_g": 17.27,
+      "fat_g": 39.63,
+      "fiber_g": 10.38,
+      "micronutrients": {
+        "iron_mg": 3.44,
+        "calcium_mg": 54.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 679.0,
+        "sodium_mg": 12.21,
+        "magnesium_mg": 197.0,
+        "zinc_mg": 3.18,
+        "vit_a_iu": 37.99,
+        "folate_ug": 90.87,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "katori": 30,
+      "tbsp": 9,
+      "palmful": 15
+    },
+    "allergen_tags": [
+      "peanuts"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "H012",
+      "ifct_name": "Ground nut",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT H012 = peanut (groundnut in Indian English). regn=6. Raw with skin; roasted variant would need separate entry.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "pearl_millet_flour_raw",
+    "name": "Pearl millet flour (bajra flour)",
+    "aliases": [
+      "bajra atta",
+      "kambu maavu"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 1.5,
+    "per_100g_nutrition": {
+      "calories": 348,
+      "protein_g": 10.96,
+      "carbs_g": 61.78,
+      "fat_g": 5.43,
+      "fiber_g": 11.49,
+      "micronutrients": {
+        "iron_mg": 6.42,
+        "calcium_mg": 27.35,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 365.0,
+        "sodium_mg": 4.11,
+        "magnesium_mg": 124.0,
+        "zinc_mg": 2.76,
+        "vit_a_iu": 47.14,
+        "folate_ug": 36.11,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup": 120,
+      "tbsp": 8
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A003",
+      "ifct_name": "Bajra",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT A003 is whole bajra grain; bajra flour is functionally the same composition. Same code used for flour.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "pistachio_raw",
+    "name": "Pistachio",
+    "aliases": [
+      "pistachio",
+      "pista",
+      "pistanut"
+    ],
+    "category": "nut_seed",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 539,
+      "protein_g": 23.35,
+      "carbs_g": 15.82,
+      "fat_g": 42.49,
+      "fiber_g": 10.64,
+      "micronutrients": {
+        "iron_mg": 4.5,
+        "calcium_mg": 135.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1053.0,
+        "sodium_mg": 6.93,
+        "magnesium_mg": 149.0,
+        "zinc_mg": 2.42,
+        "vit_a_iu": 183.7,
+        "folate_ug": 64.9,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "piece": 0.7,
+      "katori": 30,
+      "tbsp_chopped": 8
+    },
+    "allergen_tags": [
+      "tree_nuts"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "H018",
+      "ifct_name": "Pistachio nuts",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6. Raw/unsalted; salted/roasted needs separate entry.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "poha_raw",
+    "name": "Flattened rice",
+    "aliases": [
+      "poha",
+      "flattened rice",
+      "aval",
+      "atukulu",
+      "chivda",
+      "chura",
+      "pauwa"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 354,
+      "protein_g": 7.44,
+      "carbs_g": 76.75,
+      "fat_g": 1.14,
+      "fiber_g": 3.46,
+      "micronutrients": {
+        "iron_mg": 4.46,
+        "calcium_mg": 9.19,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 148.0,
+        "sodium_mg": 2.58,
+        "magnesium_mg": 77.92,
+        "zinc_mg": 1.49,
+        "vit_a_iu": 0.0,
+        "folate_ug": 8.46,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "katori": 30,
+      "cup": 50
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A011",
+      "ifct_name": "Rice flakes",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6. Thick or thin poha; nutrition essentially same. cooked_yield_ratio=3.00 for grain default (poha rehydrates significantly).",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "pomegranate_raw",
+    "name": "Pomegranate (raw)",
+    "aliases": [
+      "anar",
+      "anaar",
+      "danimma",
+      "matalam",
+      "dalimba",
+      "arils"
+    ],
+    "category": "fruit",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 55,
+      "protein_g": 1.33,
+      "carbs_g": 11.58,
+      "fat_g": 0.15,
+      "fiber_g": 2.83,
+      "micronutrients": {
+        "iron_mg": 0.31,
+        "calcium_mg": 10.65,
+        "vit_c_mg": 12.69,
+        "potassium_mg": 206.0,
+        "sodium_mg": 2.13,
+        "magnesium_mg": 11.07,
+        "zinc_mg": 0.18,
+        "vit_a_iu": 3.42,
+        "folate_ug": 38.64,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_arils": 174,
+      "medium_whole": 280
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "E055",
+      "ifct_name": "Pomegranate, maroon seeds",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "pomfret_raw",
+    "name": "Pomfret",
+    "aliases": [
+      "pomfret",
+      "white pomfret",
+      "paplet",
+      "vavval"
+    ],
+    "category": "fish",
+    "form": "raw",
+    "cooked_yield_ratio": 0.75,
+    "per_100g_nutrition": {
+      "calories": 123,
+      "protein_g": 19.02,
+      "carbs_g": 0.0,
+      "fat_g": 5.12,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.31,
+        "calcium_mg": 13.64,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 255.0,
+        "sodium_mg": 46.09,
+        "magnesium_mg": 32.2,
+        "zinc_mg": 0.53,
+        "vit_a_iu": 100.93,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "piece": 150
+    },
+    "allergen_tags": [
+      "fish"
+    ],
+    "diet_tags": [
+      "fishetarian",
+      "nonveg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "P057",
+      "ifct_name": "Pomfret, white",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "P057 white pomfret (Pampus argenteus) — most common in Indian markets/recipes. Corrected from S006 (Rohu) which was a copy-paste error. P055 black pomfret is alternative if recipes specify.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "poppy_seeds_raw",
+    "name": "Poppy seeds",
+    "aliases": [
+      "poppy seeds",
+      "khus khus",
+      "gasagasa",
+      "khaskhas",
+      "posto"
+    ],
+    "category": "nut_seed",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 423,
+      "protein_g": 20.31,
+      "carbs_g": 12.37,
+      "fat_g": 30.38,
+      "fiber_g": 26.68,
+      "micronutrients": {
+        "iron_mg": 10.13,
+        "calcium_mg": 1372.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 646.0,
+        "sodium_mg": 25.35,
+        "magnesium_mg": 393.0,
+        "zinc_mg": 6.38,
+        "vit_a_iu": 5.86,
+        "folate_ug": 78.73,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 3,
+      "tbsp": 9
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G032",
+      "ifct_name": "Poppy seeds",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6. Note: IFCT places poppy seeds in Condiments and Spices (G-code) not Nuts/Oil Seeds, but culinary category for app is nut_seed.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "potato_raw",
+    "name": "Potato (raw)",
+    "aliases": [
+      "aloo",
+      "alu",
+      "batata"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 70,
+      "protein_g": 1.54,
+      "carbs_g": 14.89,
+      "fat_g": 0.23,
+      "fiber_g": 1.71,
+      "micronutrients": {
+        "iron_mg": 0.57,
+        "calcium_mg": 9.52,
+        "vit_c_mg": 23.15,
+        "potassium_mg": 541.0,
+        "sodium_mg": 4.11,
+        "magnesium_mg": 24.07,
+        "zinc_mg": 0.28,
+        "vit_a_iu": 0.0,
+        "folate_ug": 15.51,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 150,
+      "large": 200,
+      "cup_diced": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "F006",
+      "ifct_name": "Potato, brown skin, big",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "F006 (brown skin big, 6 regions) preferred over F007 (brown skin small, 1 region) and F008 (red skin, 1 region) on regn. The standard generic potato.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "prawns_raw",
+    "name": "Prawns",
+    "aliases": [
+      "prawns",
+      "shrimp",
+      "jhinga",
+      "chemmeen",
+      "eral"
+    ],
+    "category": "fish",
+    "form": "raw",
+    "cooked_yield_ratio": 0.75,
+    "per_100g_nutrition": {
+      "calories": 71,
+      "protein_g": 13.07,
+      "carbs_g": 0.0,
+      "fat_g": 0.78,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.87,
+        "calcium_mg": 67.99,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 224.0,
+        "sodium_mg": 77.71,
+        "magnesium_mg": 26.91,
+        "zinc_mg": 0.87,
+        "vit_a_iu": 9.26,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "piece_medium": 15,
+      "serving": 100
+    },
+    "allergen_tags": [
+      "shellfish"
+    ],
+    "diet_tags": [
+      "fishetarian",
+      "nonveg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "S009",
+      "ifct_name": "Prawns, small",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "Chose S009 small freshwater prawns (regn=6, highest). For tiger prawns specifically use Q008/Q007 (marine, regn=1) or S010 (freshwater, regn=2).",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "processed_cheese_raw",
+    "name": "Processed cheese",
+    "aliases": [
+      "processed cheese",
+      "cheese slice",
+      "Amul cheese"
+    ],
+    "category": "dairy",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "slice": 20,
+      "cube": 15
+    },
+    "allergen_tags": [
+      "dairy"
+    ],
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 746766,
+      "usda_description": "Cheese, pasteurized process, american, fortified with vitamin D",
+      "confidence": "approximate",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT gap. FDC 746766 is SR Legacy processed American cheese (closest analog to Indian sliced processed cheese like Amul). User verify; consider 746767 if low-sodium variant needed."
+    }
+  },
+  {
+    "app_id": "pumpkin_raw",
+    "name": "Pumpkin (raw)",
+    "aliases": [
+      "kaddu",
+      "kashi halwa",
+      "mathanga",
+      "parangikai",
+      "sitaphal"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 23,
+      "protein_g": 0.84,
+      "carbs_g": 4.0,
+      "fat_g": 0.16,
+      "fiber_g": 2.56,
+      "micronutrients": {
+        "iron_mg": 0.36,
+        "calcium_mg": 23.06,
+        "vit_c_mg": 8.04,
+        "potassium_mg": 253.0,
+        "sodium_mg": 8.81,
+        "magnesium_mg": 10.43,
+        "zinc_mg": 0.11,
+        "vit_a_iu": 400.37,
+        "folate_ug": 24.14,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_cubed": 116,
+      "cup_mashed": 245
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "D066",
+      "ifct_name": "Pumpkin, orange, round",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "D066 (orange round, 6 regions) is the dominant Indian pumpkin / kaddu. D065 (green cylindrical) is the unripe green form, less common.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "radish_raw",
+    "name": "Radish (raw)",
+    "aliases": [
+      "mooli",
+      "daikon",
+      "mullangi",
+      "white radish"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 32,
+      "protein_g": 0.77,
+      "carbs_g": 6.56,
+      "fat_g": 0.15,
+      "fiber_g": 2.65,
+      "micronutrients": {
+        "iron_mg": 0.36,
+        "calcium_mg": 30.2,
+        "vit_c_mg": 19.91,
+        "potassium_mg": 288.0,
+        "sodium_mg": 28.2,
+        "magnesium_mg": 16.07,
+        "zinc_mg": 0.22,
+        "vit_a_iu": 0.0,
+        "folate_ug": 29.75,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 200,
+      "cup_sliced": 115
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "F010",
+      "ifct_name": "Radish, elongate, white skin",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "Four radish entries in IFCT: F009 elongate-red (3 regn), F010 elongate-white (6 regn), F011 round-red (1 regn), F012 round-white (2 regn). F010 wins on regn=6 and matches the dominant Indian mooli form.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "rajma_raw",
+    "name": "Rajma (raw)",
+    "aliases": [
+      "red kidney beans",
+      "kidney beans",
+      "lal rajma"
+    ],
+    "category": "pulse",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 298,
+      "protein_g": 19.5,
+      "carbs_g": 48.83,
+      "fat_g": 1.68,
+      "fiber_g": 16.95,
+      "micronutrients": {
+        "iron_mg": 6.3,
+        "calcium_mg": 134.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1366.0,
+        "sodium_mg": 10.47,
+        "magnesium_mg": 164.0,
+        "zinc_mg": 2.6,
+        "vit_a_iu": 3.61,
+        "folate_ug": 330.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "B019",
+      "ifct_name": "Rajmah, brown",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "Three IFCT rajma entries exist (B018 black 2-region, B019 brown 6-region, B020 red 3-region). B019 picked on regn=6 tie-breaker. For the common Indian red rajma, B020 is acceptable alternative but lower regn.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "red_chilli_powder_raw",
+    "name": "Red chilli powder",
+    "aliases": [
+      "red chilli powder",
+      "lal mirch",
+      "chilli powder",
+      "mirchi powder"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 237,
+      "protein_g": 12.69,
+      "carbs_g": 29.46,
+      "fat_g": 6.4,
+      "fiber_g": 31.15,
+      "micronutrients": {
+        "iron_mg": 6.23,
+        "calcium_mg": 99.83,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 2245.0,
+        "sodium_mg": 19.45,
+        "magnesium_mg": 231.0,
+        "zinc_mg": 1.66,
+        "vit_a_iu": 5245.47,
+        "folate_ug": 51.5,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 3,
+      "tbsp": 9,
+      "pinch": 0.3
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G022",
+      "ifct_name": "Chillies, red",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT G022 is whole dried red chillies — powder is ground form, nutritionally equivalent per 100g dry weight. No separate powder entry in IFCT. regn=6.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "refined_wheat_flour_raw",
+    "name": "Refined wheat flour (maida)",
+    "aliases": [
+      "maida",
+      "all purpose flour",
+      "APF"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 1.5,
+    "per_100g_nutrition": {
+      "calories": 352,
+      "protein_g": 10.36,
+      "carbs_g": 74.27,
+      "fat_g": 0.76,
+      "fiber_g": 2.76,
+      "micronutrients": {
+        "iron_mg": 1.77,
+        "calcium_mg": 20.4,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 148.0,
+        "sodium_mg": 1.54,
+        "magnesium_mg": 30.69,
+        "zinc_mg": 0.88,
+        "vit_a_iu": 3.29,
+        "folate_ug": 16.25,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup": 125,
+      "tbsp": 8
+    },
+    "allergen_tags": [
+      "gluten"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A018",
+      "ifct_name": "Wheat flour, refined",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "rice_sevai_raw",
+    "name": "Rice sevai",
+    "aliases": [
+      "rice sevai",
+      "rice vermicelli",
+      "idiyappam",
+      "santhakai",
+      "sevai",
+      "rice noodles"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": null,
+        "calcium_mg": null,
+        "vit_c_mg": null,
+        "potassium_mg": null,
+        "sodium_mg": null,
+        "magnesium_mg": null,
+        "zinc_mg": null,
+        "vit_a_iu": null,
+        "folate_ug": null,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "katori": 30,
+      "cup": 56
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": null,
+      "usda_description": "Rice noodles, dry",
+      "confidence": "weak",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT no entry (A023/A024 are wheat vermicelli, distinct). FDC 168879 SR Legacy rice noodles. User verify. Distinguish in app from wheat vermicelli — different gluten profile and culinary use."
+    },
+    "data_status": "missing_no_usda_match"
+  },
+  {
+    "app_id": "ridge_gourd_raw",
+    "name": "Ridge gourd (raw)",
+    "aliases": [
+      "turai",
+      "turiya",
+      "beerakaya",
+      "peerkangai",
+      "jhinge"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 13,
+      "protein_g": 0.91,
+      "carbs_g": 1.72,
+      "fat_g": 0.14,
+      "fiber_g": 1.81,
+      "micronutrients": {
+        "iron_mg": 0.42,
+        "calcium_mg": 13.7,
+        "vit_c_mg": 5.42,
+        "potassium_mg": 118.0,
+        "sodium_mg": 4.71,
+        "magnesium_mg": 16.15,
+        "zinc_mg": 0.22,
+        "vit_a_iu": 581.16,
+        "folate_ug": 29.26,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 150,
+      "cup_chopped": 95
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "D068",
+      "ifct_name": "Ridge gourd",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "D068 (ridge gourd, 6 regions) preferred over D069 (smooth-skin variant, 3 regions). The standard ridged/angled variety.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "rohu_raw",
+    "name": "Rohu",
+    "aliases": [
+      "rohu",
+      "rohu fish",
+      "rui",
+      "Labeo rohita"
+    ],
+    "category": "fish",
+    "form": "raw",
+    "cooked_yield_ratio": 0.75,
+    "per_100g_nutrition": {
+      "calories": 102,
+      "protein_g": 19.71,
+      "carbs_g": 0.0,
+      "fat_g": 2.39,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 1.04,
+        "calcium_mg": 39.37,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 303.0,
+        "sodium_mg": 35.56,
+        "magnesium_mg": 26.53,
+        "zinc_mg": 0.8,
+        "vit_a_iu": 12.89,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "piece": 100,
+      "serving": 150
+    },
+    "allergen_tags": [
+      "fish"
+    ],
+    "diet_tags": [
+      "fishetarian",
+      "nonveg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "S006",
+      "ifct_name": "Rohu",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "rolled_oats_raw",
+    "name": "Rolled oats",
+    "aliases": [
+      "rolled oats",
+      "oats",
+      "oatmeal",
+      "jai",
+      "jaii"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "katori": 40,
+      "cup": 81,
+      "tbsp": 6
+    },
+    "allergen_tags": [
+      "gluten"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 173904,
+      "usda_description": "Cereals, oats, regular and quick, not fortified, dry",
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT no entry. FDC 173904 SR Legacy plain dry rolled oats. For fortified (most Indian brands like Quaker/Bagrry's fortify) use 173903. User verify."
+    }
+  },
+  {
+    "app_id": "rose_water_raw",
+    "name": "Rose water",
+    "aliases": [
+      "rose water",
+      "gulab jal",
+      "gulab arak"
+    ],
+    "category": "beverage",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": null,
+        "calcium_mg": null,
+        "vit_c_mg": null,
+        "potassium_mg": null,
+        "sodium_mg": null,
+        "magnesium_mg": null,
+        "zinc_mg": null,
+        "vit_a_iu": null,
+        "folate_ug": null,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 5,
+      "tbsp": 15
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": null,
+      "usda_description": "Water, bottled, generic",
+      "confidence": "weak",
+      "extracted_at": "2026-05-23",
+      "notes": "Rose water is ~99% water with trace flavoring compounds. Plain water (FDC 174831) used as nutrition proxy; contribution to recipe macros is negligible."
+    },
+    "data_status": "missing_no_usda_match"
+  },
+  {
+    "app_id": "sabudana_raw",
+    "name": "Sabudana",
+    "aliases": [
+      "sabudana",
+      "sago",
+      "tapioca pearl",
+      "saggubiyyam",
+      "sabakki"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "katori": 30,
+      "cup": 152
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 169717,
+      "usda_description": "Tapioca, pearl, dry",
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT F015 'Tapioca' is the fresh root (regn=3), nutritionally very different from processed sago pearls (sabudana is near-pure starch, ~85% carbs, minimal fiber/protein vs fresh tapioca's higher fiber and moisture). FDC 169717 SR Legacy 'Tapioca, pearl, dry' is correct match. Categorized as grain for app purposes (used like rice in khichdi/kheer). User verify."
+    }
+  },
+  {
+    "app_id": "saffron_raw",
+    "name": "Saffron",
+    "aliases": [
+      "saffron",
+      "kesar",
+      "zafran",
+      "kumkumapoo"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": null,
+        "calcium_mg": null,
+        "vit_c_mg": null,
+        "potassium_mg": null,
+        "sodium_mg": null,
+        "magnesium_mg": null,
+        "zinc_mg": null,
+        "vit_a_iu": null,
+        "folate_ug": null,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "pinch": 0.06,
+      "tsp": 0.7,
+      "strands_few": 0.03
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": null,
+      "usda_description": "Spices, saffron",
+      "confidence": "weak",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT no entry. FDC 171323 SR Legacy. Used in such tiny quantities that nutrition contribution is negligible. User verify."
+    },
+    "data_status": "missing_no_usda_match"
+  },
+  {
+    "app_id": "salt_raw",
+    "name": "Salt",
+    "aliases": [
+      "salt",
+      "namak",
+      "uppu",
+      "iodised salt",
+      "table salt"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 6,
+      "pinch": 0.4
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 173468,
+      "usda_description": "Salt, table, iodized",
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT has no salt entry (no caloric/macro content, minerals only). FDC 173468 SR Legacy iodised; user verify. Consider 746775 if non-iodised needed."
+    }
+  },
+  {
+    "app_id": "semolina_raw",
+    "name": "Semolina",
+    "aliases": [
+      "semolina",
+      "sooji",
+      "suji",
+      "rava",
+      "bombay rava"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 334,
+      "protein_g": 11.38,
+      "carbs_g": 68.43,
+      "fat_g": 0.74,
+      "fiber_g": 9.72,
+      "micronutrients": {
+        "iron_mg": 2.98,
+        "calcium_mg": 29.38,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 284.0,
+        "sodium_mg": 2.31,
+        "magnesium_mg": 37.89,
+        "zinc_mg": 2.13,
+        "vit_a_iu": 2.67,
+        "folate_ug": 25.68,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 4,
+      "tbsp": 12,
+      "cup": 170,
+      "katori": 100
+    },
+    "allergen_tags": [
+      "gluten"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A022",
+      "ifct_name": "Wheat, semolina",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6. Used for upma/halwa/rava idli. cooked_yield_ratio=3.00 per grain default.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "sesame_oil_raw",
+    "name": "Sesame oil",
+    "aliases": [
+      "sesame oil",
+      "gingelly oil",
+      "til tel",
+      "nallennai"
+    ],
+    "category": "oil_fat",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 100.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 5,
+      "tbsp": 14,
+      "cup": 218
+    },
+    "allergen_tags": [
+      "sesame"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "T004",
+      "ifct_name": "Gingelly oil",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT 'Gingelly oil' = sesame oil (Indian English)",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "sesame_seeds_raw",
+    "name": "Sesame seeds",
+    "aliases": [
+      "sesame seeds",
+      "til",
+      "ellu",
+      "nuvvulu",
+      "gingelly seeds",
+      "white til"
+    ],
+    "category": "nut_seed",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 520,
+      "protein_g": 21.7,
+      "carbs_g": 10.83,
+      "fat_g": 43.05,
+      "fiber_g": 16.99,
+      "micronutrients": {
+        "iron_mg": 15.04,
+        "calcium_mg": 1283.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 460.0,
+        "sodium_mg": 15.43,
+        "magnesium_mg": 372.0,
+        "zinc_mg": 7.77,
+        "vit_a_iu": 21.61,
+        "folate_ug": 131.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 3,
+      "tbsp": 9,
+      "katori": 30
+    },
+    "allergen_tags": [
+      "sesame"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "H011",
+      "ifct_name": "Gingelly seeds, white",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "Chose H011 white (regn=5) as default — most common in Indian sweets and tahini. Alternatives: H009 black (regn=6) for til chikki/Karnataka use; H010 brown (regn=4). Specificity (white = culinary default) beats regn tiebreak here.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "sona_masoori_rice_raw",
+    "name": "Sona masoori rice (raw)",
+    "aliases": [
+      "sona masuri",
+      "medium grain rice"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 356,
+      "protein_g": 7.94,
+      "carbs_g": 78.24,
+      "fat_g": 0.52,
+      "fiber_g": 2.81,
+      "micronutrients": {
+        "iron_mg": 0.65,
+        "calcium_mg": 7.49,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 108.0,
+        "sodium_mg": 2.34,
+        "magnesium_mg": 19.3,
+        "zinc_mg": 1.21,
+        "vit_a_iu": 0.0,
+        "folate_ug": 9.32,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150,
+      "cup_cooked": 175
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A015",
+      "ifct_name": "Rice, raw, milled",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT does not break out sona masoori varietal; A015 (raw milled white rice) is the closest measured match.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "sorghum_flour_raw",
+    "name": "Sorghum flour (jowar flour)",
+    "aliases": [
+      "jowar atta",
+      "cholam maavu"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 1.5,
+    "per_100g_nutrition": {
+      "calories": 334,
+      "protein_g": 9.97,
+      "carbs_g": 67.68,
+      "fat_g": 1.73,
+      "fiber_g": 10.22,
+      "micronutrients": {
+        "iron_mg": 3.95,
+        "calcium_mg": 27.6,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 328.0,
+        "sodium_mg": 5.42,
+        "magnesium_mg": 133.0,
+        "zinc_mg": 1.96,
+        "vit_a_iu": 13.84,
+        "folate_ug": 39.42,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup": 120,
+      "tbsp": 8
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A005",
+      "ifct_name": "Jowar",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT A005 is whole jowar grain; jowar flour has essentially the same composition. Same code used for flour.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "spinach_raw",
+    "name": "Spinach (raw)",
+    "aliases": [
+      "palak",
+      "pasalai keerai",
+      "bachhali kura"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 24,
+      "protein_g": 2.14,
+      "carbs_g": 2.05,
+      "fat_g": 0.64,
+      "fiber_g": 2.38,
+      "micronutrients": {
+        "iron_mg": 2.95,
+        "calcium_mg": 82.29,
+        "vit_c_mg": 30.28,
+        "potassium_mg": 625.0,
+        "sodium_mg": 42.55,
+        "magnesium_mg": 86.97,
+        "zinc_mg": 0.46,
+        "vit_a_iu": 4350.35,
+        "folate_ug": 142.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_chopped_raw": 30,
+      "cup_cooked": 180,
+      "bunch": 340
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "C033",
+      "ifct_name": "Spinach",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "star_anise_raw",
+    "name": "Star anise",
+    "aliases": [
+      "star anise",
+      "chakra phool",
+      "anasphal",
+      "badiyan"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": null,
+        "calcium_mg": null,
+        "vit_c_mg": null,
+        "potassium_mg": null,
+        "sodium_mg": null,
+        "magnesium_mg": null,
+        "zinc_mg": null,
+        "vit_a_iu": null,
+        "folate_ug": null,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "whole": 1,
+      "tsp_ground": 2
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": null,
+      "usda_description": "Spices, anise seed",
+      "confidence": "weak",
+      "extracted_at": "2026-05-23",
+      "notes": "Used in trace quantities; nutritional contribution negligible. No exact FDC match for Illicium verum; FDC 170915 anise seed retained as closest available proxy."
+    },
+    "data_status": "missing_no_usda_match"
+  },
+  {
+    "app_id": "sugar_raw",
+    "name": "Sugar",
+    "aliases": [
+      "sugar",
+      "refined sugar",
+      "cheeni",
+      "chakkara",
+      "white sugar"
+    ],
+    "category": "sweetener",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 4,
+      "tbsp": 12,
+      "cup": 200
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 169655,
+      "usda_description": "Sugars, granulated",
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT gap (per spec — refined sugar excluded). FDC 169655 SR Legacy granulated sugar. User verify."
+    }
+  },
+  {
+    "app_id": "sunflower_oil_raw",
+    "name": "Sunflower oil",
+    "aliases": [
+      "sunflower oil",
+      "suraj mukhi tel"
+    ],
+    "category": "oil_fat",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 100.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 5,
+      "tbsp": 14,
+      "cup": 218
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "T012",
+      "ifct_name": "Sunflower oil",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "sweet_lime_raw",
+    "name": "Sweet lime (raw)",
+    "aliases": [
+      "mosambi",
+      "mausambi",
+      "sweet lemon",
+      "musami"
+    ],
+    "category": "fruit",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 27,
+      "protein_g": 0.76,
+      "carbs_g": 5.18,
+      "fat_g": 0.2,
+      "fiber_g": 2.07,
+      "micronutrients": {
+        "iron_mg": 0.11,
+        "calcium_mg": 25.79,
+        "vit_c_mg": 46.96,
+        "potassium_mg": 182.0,
+        "sodium_mg": 1.17,
+        "magnesium_mg": 15.4,
+        "zinc_mg": 0.05,
+        "vit_a_iu": 4.24,
+        "folate_ug": 15.38,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 150,
+      "cup_segments": 165
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "E034",
+      "ifct_name": "Lime, sweet, pulp",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "sweet_potato_raw",
+    "name": "Sweet potato (raw)",
+    "aliases": [
+      "shakarkand",
+      "shakarkandi",
+      "ratalu",
+      "genasu"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 109,
+      "protein_g": 1.33,
+      "carbs_g": 24.25,
+      "fat_g": 0.26,
+      "fiber_g": 3.99,
+      "micronutrients": {
+        "iron_mg": 0.35,
+        "calcium_mg": 27.5,
+        "vit_c_mg": 17.94,
+        "potassium_mg": 345.0,
+        "sodium_mg": 29.6,
+        "magnesium_mg": 17.37,
+        "zinc_mg": 0.16,
+        "vit_a_iu": 8977.92,
+        "folate_ug": 15.62,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 150,
+      "cup_cubed": 130
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "F013",
+      "ifct_name": "Sweet potato, brown skin",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "F013 (brown skin, 4 regions) preferred over F014 (pink skin, 3 regions). Standard orange-fleshed Indian sweet potato.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "tamarind_pulp_raw",
+    "name": "Tamarind pulp",
+    "aliases": [
+      "tamarind",
+      "tamarind pulp",
+      "imli",
+      "puli",
+      "chinch",
+      "tamarind paste"
+    ],
+    "category": "fruit",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 288,
+      "protein_g": 2.92,
+      "carbs_g": 67.35,
+      "fat_g": 0.15,
+      "fiber_g": 5.31,
+      "micronutrients": {
+        "iron_mg": 9.16,
+        "calcium_mg": 149.0,
+        "vit_c_mg": 3.62,
+        "potassium_mg": 836.0,
+        "sodium_mg": 24.92,
+        "magnesium_mg": 82.73,
+        "zinc_mg": 0.58,
+        "vit_a_iu": 2.57,
+        "folate_ug": 9.79,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp_paste": 5,
+      "tbsp_paste": 15,
+      "ball_lemon_sized": 30
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "E064",
+      "ifct_name": "Tamarind, pulp",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6. This is deseeded pulp. For dried tamarind block, use same entry — nutrition per 100g pulp is comparable; adjust unit_default if needed.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "tea_leaves_raw",
+    "name": "Tea leaves",
+    "aliases": [
+      "tea leaves",
+      "chai patti",
+      "chai",
+      "black tea",
+      "assam tea"
+    ],
+    "category": "beverage",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": null,
+        "calcium_mg": null,
+        "vit_c_mg": null,
+        "potassium_mg": null,
+        "sodium_mg": null,
+        "magnesium_mg": null,
+        "zinc_mg": null,
+        "vit_a_iu": null,
+        "folate_ug": null,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp_dry": 2,
+      "tbsp_dry": 6,
+      "cup_brewed": 240
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": null,
+      "usda_description": "Tea, instant, unsweetened, powder",
+      "confidence": "weak",
+      "extracted_at": "2026-05-23",
+      "notes": "Dry-leaf basis. Instant tea powder used as closest dry-basis USDA equivalent. Per-cup brewing uses 2g leaves; nutrition per cup brewed is negligible vs leaves."
+    },
+    "data_status": "missing_no_usda_match"
+  },
+  {
+    "app_id": "tomato_raw",
+    "name": "Tomato (raw)",
+    "aliases": [
+      "tamatar",
+      "thakkali",
+      "ripe tomato"
+    ],
+    "category": "vegetable",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 20,
+      "protein_g": 0.9,
+      "carbs_g": 2.71,
+      "fat_g": 0.47,
+      "fiber_g": 1.77,
+      "micronutrients": {
+        "iron_mg": 0.3,
+        "calcium_mg": 10.17,
+        "vit_c_mg": 27.47,
+        "potassium_mg": 204.0,
+        "sodium_mg": 9.73,
+        "magnesium_mg": 13.65,
+        "zinc_mg": 0.12,
+        "vit_a_iu": 1527.0,
+        "folate_ug": 19.46,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "medium": 100,
+      "large": 150,
+      "cup_chopped": 180
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "D076",
+      "ifct_name": "Tomato, ripe, local",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "D076 (ripe local tomato, 6 regions) preferred over D075 (ripe hybrid, 6 regions); local matches generic Indian recipe usage. D074 (green tomato) is a different culinary item.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "toor_dal_raw",
+    "name": "Toor dal (raw)",
+    "aliases": [
+      "arhar dal",
+      "tur dal",
+      "red gram split",
+      "pigeon pea split"
+    ],
+    "category": "pulse",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 331,
+      "protein_g": 21.7,
+      "carbs_g": 55.23,
+      "fat_g": 1.56,
+      "fiber_g": 9.06,
+      "micronutrients": {
+        "iron_mg": 3.9,
+        "calcium_mg": 71.73,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1395.0,
+        "sodium_mg": 18.01,
+        "magnesium_mg": 119.0,
+        "zinc_mg": 2.63,
+        "vit_a_iu": 212.09,
+        "folate_ug": 108.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "B021",
+      "ifct_name": "Red gram, dal",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "turmeric_powder_raw",
+    "name": "Turmeric powder",
+    "aliases": [
+      "turmeric powder",
+      "haldi",
+      "manjal podi"
+    ],
+    "category": "spice",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 281,
+      "protein_g": 7.66,
+      "carbs_g": 49.22,
+      "fat_g": 5.03,
+      "fiber_g": 21.38,
+      "micronutrients": {
+        "iron_mg": 46.08,
+        "calcium_mg": 122.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 2374.0,
+        "sodium_mg": 24.41,
+        "magnesium_mg": 260.0,
+        "zinc_mg": 2.64,
+        "vit_a_iu": 92.18,
+        "folate_ug": 13.86,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "tsp": 3,
+      "tbsp": 9,
+      "pinch": 0.3
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "G033",
+      "ifct_name": "Turmeric powder",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "urad_dal_raw",
+    "name": "Urad dal (raw)",
+    "aliases": [
+      "black gram split",
+      "white urad dal",
+      "ulundu paruppu"
+    ],
+    "category": "pulse",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 324,
+      "protein_g": 23.06,
+      "carbs_g": 51.0,
+      "fat_g": 1.69,
+      "fiber_g": 11.93,
+      "micronutrients": {
+        "iron_mg": 4.67,
+        "calcium_mg": 55.67,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1157.0,
+        "sodium_mg": 18.88,
+        "magnesium_mg": 173.0,
+        "zinc_mg": 3.0,
+        "vit_a_iu": 16.88,
+        "folate_ug": 88.75,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "B003",
+      "ifct_name": "Black gram, dal",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "vermicelli_wheat_raw",
+    "name": "Wheat vermicelli",
+    "aliases": [
+      "vermicelli",
+      "semiya",
+      "seviyan",
+      "sevaiyan",
+      "wheat vermicelli"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 333,
+      "protein_g": 9.7,
+      "carbs_g": 70.39,
+      "fat_g": 0.45,
+      "fiber_g": 9.28,
+      "micronutrients": {
+        "iron_mg": 2.02,
+        "calcium_mg": 19.42,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 163.0,
+        "sodium_mg": 2.71,
+        "magnesium_mg": 34.18,
+        "zinc_mg": 0.83,
+        "vit_a_iu": 2.81,
+        "folate_ug": 14.35,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "katori": 30,
+      "cup": 60
+    },
+    "allergen_tags": [
+      "gluten"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A023",
+      "ifct_name": "Wheat, vermicelli",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "Chose A023 raw (regn=6) as default. For roasted (most commercial Indian brands sell pre-roasted) use A024. Both regn=6 — culinary intent decides; recipes specifying just 'vermicelli' usually mean unroasted.",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "walnut_raw",
+    "name": "Walnut",
+    "aliases": [
+      "walnut",
+      "akhrot",
+      "akrot",
+      "akhrot giri"
+    ],
+    "category": "nut_seed",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 671,
+      "protein_g": 14.92,
+      "carbs_g": 10.14,
+      "fat_g": 64.27,
+      "fiber_g": 5.39,
+      "micronutrients": {
+        "iron_mg": 3.21,
+        "calcium_mg": 105.0,
+        "vit_c_mg": 0.88,
+        "potassium_mg": 457.0,
+        "sodium_mg": 1.33,
+        "magnesium_mg": 180.0,
+        "zinc_mg": 2.94,
+        "vit_a_iu": 24.16,
+        "folate_ug": 57.95,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "half": 2,
+      "katori": 30,
+      "tbsp_chopped": 8
+    },
+    "allergen_tags": [
+      "tree_nuts"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "H021",
+      "ifct_name": "Walnut",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": "IFCT match regn=6",
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "watermelon_raw",
+    "name": "Watermelon (raw)",
+    "aliases": [
+      "tarbooz",
+      "tarbuj",
+      "kalingad",
+      "pucha kayalu"
+    ],
+    "category": "fruit",
+    "form": "raw",
+    "cooked_yield_ratio": 1.0,
+    "per_100g_nutrition": {
+      "calories": 0,
+      "protein_g": 0.0,
+      "carbs_g": 0.0,
+      "fat_g": 0.0,
+      "fiber_g": 0.0,
+      "micronutrients": {
+        "iron_mg": 0.0,
+        "calcium_mg": 0.0,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 0.0,
+        "sodium_mg": 0.0,
+        "magnesium_mg": 0.0,
+        "zinc_mg": 0.0,
+        "vit_a_iu": 0.0,
+        "folate_ug": 0.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_diced": 152,
+      "wedge": 286
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "usda",
+      "ifct_code": null,
+      "ifct_name": null,
+      "usda_fdc_id": 167765,
+      "usda_description": "Watermelon, raw",
+      "confidence": "good",
+      "extracted_at": "2026-05-23",
+      "notes": "Not in IFCT (IFCT has muskmelon E045 but no watermelon). USDA FDC 167765 (SR Legacy) is the standard reference. USER MUST VERIFY FDC ID."
+    }
+  },
+  {
+    "app_id": "whole_moong_raw",
+    "name": "Whole moong (raw)",
+    "aliases": [
+      "whole mung",
+      "green gram whole",
+      "sabut moong"
+    ],
+    "category": "pulse",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 294,
+      "protein_g": 22.53,
+      "carbs_g": 46.13,
+      "fat_g": 1.14,
+      "fiber_g": 17.04,
+      "micronutrients": {
+        "iron_mg": 4.89,
+        "calcium_mg": 92.43,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1177.0,
+        "sodium_mg": 12.48,
+        "magnesium_mg": 198.0,
+        "zinc_mg": 2.67,
+        "vit_a_iu": 228.79,
+        "folate_ug": 145.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "B011",
+      "ifct_name": "Green gram, whole",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "whole_urad_raw",
+    "name": "Whole urad (raw)",
+    "aliases": [
+      "sabut urad",
+      "black gram whole",
+      "kali dal"
+    ],
+    "category": "pulse",
+    "form": "raw",
+    "cooked_yield_ratio": 3.0,
+    "per_100g_nutrition": {
+      "calories": 291,
+      "protein_g": 21.97,
+      "carbs_g": 43.99,
+      "fat_g": 1.58,
+      "fiber_g": 20.41,
+      "micronutrients": {
+        "iron_mg": 5.97,
+        "calcium_mg": 86.18,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 1093.0,
+        "sodium_mg": 26.8,
+        "magnesium_mg": 190.0,
+        "zinc_mg": 3.05,
+        "vit_a_iu": 21.38,
+        "folate_ug": 134.0,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup_raw": 200,
+      "katori_cooked": 150
+    },
+    "allergen_tags": [],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "B004",
+      "ifct_name": "Black gram, whole",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  },
+  {
+    "app_id": "whole_wheat_flour_raw",
+    "name": "Whole wheat flour (atta)",
+    "aliases": [
+      "atta",
+      "gehu ka atta",
+      "chakki atta"
+    ],
+    "category": "grain",
+    "form": "raw",
+    "cooked_yield_ratio": 1.5,
+    "per_100g_nutrition": {
+      "calories": 320,
+      "protein_g": 10.57,
+      "carbs_g": 64.17,
+      "fat_g": 1.53,
+      "fiber_g": 11.36,
+      "micronutrients": {
+        "iron_mg": 4.1,
+        "calcium_mg": 30.94,
+        "vit_c_mg": 0.0,
+        "potassium_mg": 311.0,
+        "sodium_mg": 2.04,
+        "magnesium_mg": 125.0,
+        "zinc_mg": 2.85,
+        "vit_a_iu": 4.46,
+        "folate_ug": 29.22,
+        "vit_b12_ug": null
+      }
+    },
+    "household_units": {
+      "cup": 120,
+      "tbsp": 8
+    },
+    "allergen_tags": [
+      "gluten"
+    ],
+    "diet_tags": [
+      "vegetarian",
+      "eggetarian",
+      "fishetarian",
+      "veg"
+    ],
+    "provenance": {
+      "source": "ifct",
+      "ifct_code": "A019",
+      "ifct_name": "Wheat flour, atta",
+      "usda_fdc_id": null,
+      "usda_description": null,
+      "confidence": "exact",
+      "extracted_at": "2026-05-23",
+      "notes": null,
+      "package_version": "@ifct2017/compositions@2.0.11"
+    }
+  }
+]
