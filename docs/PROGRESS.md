@@ -6,7 +6,7 @@ Append one entry per completed module. Newest at the top.
 
 ## M3 — Recipes
 - **Completed:** 2026-05-24
-- **Commit:** TBD (pre-amend)
+- **Commit:** 7803cbc
 - **Tests:** 196 passing; `apps/recipes/services/seed.py` 92%, `apps/recipes/services/nutrition.py` 100%
 - **Acceptance criteria:** all met
   - `GET /api/v1/recipes/` — cursor-paginated list with 10 filters (meal_type, cuisine, diet_tags, allergen exclusion, difficulty, spice_level, calorie range, cost, search) ✅
