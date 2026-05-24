@@ -7,7 +7,7 @@ Append one entry per completed module. Newest at the top.
 ## M3 — Recipes
 - **Completed:** 2026-05-24
 - **Commit:** 7803cbc
-- **Tests:** 196 passing; `apps/recipes/services/seed.py` 92%, `apps/recipes/services/nutrition.py` 100%
+- **Tests:** 201 passing; `apps/recipes/services/seed.py` 92%, `apps/recipes/services/nutrition.py` 100%
 - **Acceptance criteria:** all met
   - `GET /api/v1/recipes/` — cursor-paginated list with 10 filters (meal_type, cuisine, diet_tags, allergen exclusion, difficulty, spice_level, calorie range, cost, search) ✅
   - `GET /api/v1/recipes/<slug>/` — full detail with ingredients and cached nutrition ✅
@@ -17,7 +17,8 @@ Append one entry per completed module. Newest at the top.
   - `recompute_recipes_using_ingredient` — targeted recompute for admin use ✅
   - `seed_recipes` management command (transaction.atomic) + `recompute_nutrition` command ✅
   - `ruff + black --check + mypy --strict` all pass ✅
-- **Deviations from spec:** None
+- **Deviations from spec:** `DIET_TAG_CHOICES` corrected to canonical vocab (seed data ∪ spec). Removed `fishetarian`, `non_vegetarian`, `diabetic_friendly`, `veg`; added `pescatarian`, `dairy_free`, `nut_free`, `satvik`, `keto`, `mediterranean`.
+- **Postfix commit:** Filter validation — all filter fields now reject invalid vocab with 400 `INVALID_FILTER_VALUE` (5 new tests, 201 total)
 - **New env vars:** None
 - **New external services touched:** None
 - **What the next module needs to know:**
@@ -25,6 +26,16 @@ Append one entry per completed module. Newest at the top.
   - `Recipe.cost_known` gates strict budget filtering; recipes with `cost_known=False` belong in the fallback pool only
   - `compute_recipe_nutrition()` must be called after any ingredient price update (`recompute_recipes_using_ingredient`)
   - Seed files live at `apps/recipes/seed_data/` — `ingredients.json` (136 entries), `household_units.json`, and the recipe JSON files under `claude_recipes/` and `gemini recipies/`
+
+---
+
+## M4 — MealPlans (BLOCKED)
+- **Status:** Blocked on prerequisite
+- **Blocker:** Seed expansion to ≥200 recipes covering all profile×goal combinations (diet_type × goal × budget tier). Current seed has 93 recipes, all vegetarian/vegan/eggetarian/pescatarian. Non-veg recipes (chicken, mutton, fish-as-main, egg-as-main) are missing entirely. The M4 recommendation engine requires sufficient recipe coverage across all diet×goal cells to avoid `NO_SUITABLE_RECIPE` failures.
+- **Unblock criteria:**
+  1. Expand `recipes.json` to ≥200 recipes with coverage across: breakfast/lunch/dinner × vegetarian/eggetarian/pescatarian/non-veg × lose_weight/maintain/gain_muscle/gain_weight_healthy/eat_healthier
+  2. Run `make seed` and verify no calorie-range warnings
+  3. Verify `?diet_tags=<tag>` returns ≥10 recipes for each common tag
 
 ---
 

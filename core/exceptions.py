@@ -17,6 +17,7 @@ from core.error_codes import (  # noqa: F401  # re-exported for backwards compat
     EXTERNAL_SERVICE_ERROR,
     INTERNAL_ERROR,
     INVALID_AUTH_HEADER,
+    INVALID_FILTER_VALUE,
     INVALID_TOKEN,
     MEAL_PLAN_NOT_FOUND,
     NO_SUITABLE_RECIPE,

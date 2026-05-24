@@ -84,9 +84,9 @@ This is the loop. Every module follows it. No exceptions.
 
 > **Update this section at Step 5 of every module.**
 
-- **Active module:** `M4_mealplans`
-- **Last completed module:** `M3_recipes` (2026-05-24)
-- **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 → M5 → M6 → M7 → M8
+- **Active module:** `M4_mealplans` (**BLOCKED** — seed expansion to ≥200 recipes covering all profile×goal combos needed first)
+- **Last completed module:** `M3_recipes` (2026-05-24, commit `7803cbc` + postfix filter validation)
+- **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 🚫 → M5 → M6 → M7 → M8
 - **Repo path:** `nutri-app-backend/`
 - **Python version:** 3.12.13 (managed by `uv`, venv at `.venv/`)
 - **Package manager:** `uv` 0.11.2

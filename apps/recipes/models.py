@@ -101,6 +101,8 @@ ALLERGEN_CHOICES = [
     (ALLERGEN_MUSTARD, "Mustard"),
 ]
 
+VALID_ALLERGEN_TAGS = frozenset(tag for tag, _ in ALLERGEN_CHOICES)
+
 # ---------------------------------------------------------------------------
 # Recipe choice constants
 # ---------------------------------------------------------------------------
@@ -154,18 +156,22 @@ CUISINE_CHOICES = [
 ]
 
 DIET_TAG_CHOICES = [
-    ("vegetarian", "Vegetarian"),
-    ("eggetarian", "Eggetarian"),
-    ("fishetarian", "Fishetarian"),
     ("vegan", "Vegan"),
-    ("non_vegetarian", "Non-Vegetarian"),
-    ("jain", "Jain"),
+    ("vegetarian", "Vegetarian"),
+    ("pescatarian", "Pescatarian"),
+    ("eggetarian", "Eggetarian"),
     ("gluten_free", "Gluten-Free"),
-    ("diabetic_friendly", "Diabetic-Friendly"),
-    ("high_protein", "High Protein"),
+    ("dairy_free", "Dairy-Free"),
+    ("nut_free", "Nut-Free"),
     ("low_carb", "Low Carb"),
-    ("veg", "Veg"),
+    ("high_protein", "High Protein"),
+    ("jain", "Jain"),
+    ("satvik", "Satvik"),
+    ("keto", "Keto"),
+    ("mediterranean", "Mediterranean"),
 ]
+
+VALID_DIET_TAGS = frozenset(tag for tag, _ in DIET_TAG_CHOICES)
 
 RECIPE_SOURCE_SEED = "seed"
 RECIPE_SOURCE_AI = "ai_generated"

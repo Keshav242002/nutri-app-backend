@@ -1,16 +1,57 @@
 import django_filters
 from django.db.models import DecimalField, ExpressionWrapper, F, Q, QuerySet
 
-from apps.recipes.models import Recipe
+from apps.recipes.models import (
+    CUISINE_CHOICES,
+    DIFFICULTY_CHOICES,
+    MEAL_TYPE_CHOICES,
+    SPICE_LEVEL_CHOICES,
+    VALID_ALLERGEN_TAGS,
+    VALID_DIET_TAGS,
+    Recipe,
+)
+from core.error_codes import INVALID_FILTER_VALUE
+from core.exceptions import AppValidationError
+
+
+def _validate_csv_values(value: str, allowed: frozenset[str], field_name: str) -> list[str]:
+    """Split a comma-separated string and validate each value against the allowed set."""
+    values = [v.strip() for v in value.split(",") if v.strip()]
+    invalid = [v for v in values if v not in allowed]
+    if invalid:
+        raise AppValidationError(
+            message=f"Invalid {field_name} value(s): {', '.join(invalid)}",
+            code=INVALID_FILTER_VALUE,
+            details={
+                "field": field_name,
+                "invalid_values": invalid,
+                "allowed_values": sorted(allowed),
+            },
+        )
+    return values
+
+
+def _validate_choice_value(value: str, choices: list[tuple[str, str]], field_name: str) -> str:
+    """Validate a single value against a choices list."""
+    allowed = frozenset(k for k, _ in choices)
+    if value not in allowed:
+        raise AppValidationError(
+            message=f"Invalid {field_name} value: {value}",
+            code=INVALID_FILTER_VALUE,
+            details={
+                "field": field_name,
+                "invalid_values": [value],
+                "allowed_values": sorted(allowed),
+            },
+        )
+    return value
 
 
 class RecipeFilter(django_filters.FilterSet):  # type: ignore[misc]
-    meal_type = django_filters.CharFilter(field_name="meal_type", lookup_expr="exact")
-    cuisine = django_filters.CharFilter(field_name="cuisine", lookup_expr="exact")
-    estimated_difficulty = django_filters.CharFilter(
-        field_name="estimated_difficulty", lookup_expr="exact"
-    )
-    spice_level = django_filters.CharFilter(field_name="spice_level", lookup_expr="exact")
+    meal_type = django_filters.CharFilter(method="filter_meal_type")
+    cuisine = django_filters.CharFilter(method="filter_cuisine")
+    estimated_difficulty = django_filters.CharFilter(method="filter_estimated_difficulty")
+    spice_level = django_filters.CharFilter(method="filter_spice_level")
     max_prep_time = django_filters.NumberFilter(field_name="prep_time_min", lookup_expr="lte")
 
     diet_tags = django_filters.CharFilter(method="filter_diet_tags")
@@ -24,10 +65,40 @@ class RecipeFilter(django_filters.FilterSet):  # type: ignore[misc]
         model = Recipe
         fields: list[str] = []
 
+    # ------------------------------------------------------------------
+    # Choice-validated single-value filters
+    # ------------------------------------------------------------------
+
+    def filter_meal_type(
+        self, queryset: QuerySet[Recipe], name: str, value: str
+    ) -> QuerySet[Recipe]:
+        _validate_choice_value(value, MEAL_TYPE_CHOICES, "meal_type")
+        return queryset.filter(meal_type=value)
+
+    def filter_cuisine(self, queryset: QuerySet[Recipe], name: str, value: str) -> QuerySet[Recipe]:
+        _validate_choice_value(value, CUISINE_CHOICES, "cuisine")
+        return queryset.filter(cuisine=value)
+
+    def filter_estimated_difficulty(
+        self, queryset: QuerySet[Recipe], name: str, value: str
+    ) -> QuerySet[Recipe]:
+        _validate_choice_value(value, DIFFICULTY_CHOICES, "estimated_difficulty")
+        return queryset.filter(estimated_difficulty=value)
+
+    def filter_spice_level(
+        self, queryset: QuerySet[Recipe], name: str, value: str
+    ) -> QuerySet[Recipe]:
+        _validate_choice_value(value, SPICE_LEVEL_CHOICES, "spice_level")
+        return queryset.filter(spice_level=value)
+
+    # ------------------------------------------------------------------
+    # Vocab-validated comma-separated filters
+    # ------------------------------------------------------------------
+
     def filter_diet_tags(
         self, queryset: QuerySet[Recipe], name: str, value: str
     ) -> QuerySet[Recipe]:
-        tags = [t.strip() for t in value.split(",") if t.strip()]
+        tags = _validate_csv_values(value, VALID_DIET_TAGS, "diet_tags")
         if tags:
             queryset = queryset.filter(diet_tags__contains=tags)
         return queryset
@@ -35,10 +106,14 @@ class RecipeFilter(django_filters.FilterSet):  # type: ignore[misc]
     def filter_exclude_allergens(
         self, queryset: QuerySet[Recipe], name: str, value: str
     ) -> QuerySet[Recipe]:
-        allergens = [a.strip() for a in value.split(",") if a.strip()]
+        allergens = _validate_csv_values(value, VALID_ALLERGEN_TAGS, "exclude_allergens")
         if allergens:
             queryset = queryset.exclude(allergen_tags__overlap=allergens)
         return queryset
+
+    # ------------------------------------------------------------------
+    # Non-vocab filters (no validation needed beyond type)
+    # ------------------------------------------------------------------
 
     def filter_search(self, queryset: QuerySet[Recipe], name: str, value: str) -> QuerySet[Recipe]:
         return queryset.filter(Q(name__icontains=value) | Q(name_alt__icontains=value))
