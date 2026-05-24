@@ -4,6 +4,28 @@ Append one entry per completed module. Newest at the top.
 
 ---
 
+## M3.5 — Seed Expansion (content sprint)
+- **Completed:** 2026-05-25
+- **Commit:** TBD
+- **Tests:** 206 passing; `apps/recipes/services/seed.py` 92%, `apps/recipes/services/nutrition.py` 100%
+- **Acceptance criteria:** partial
+  - 43 of 45 new recipes merged (2 rejected: duplicate slug `matki-usal`, invalid cuisine `fusion` on `paneer-rajma-rice-bowl`) ✅
+  - Total recipes: 136 (up from 93) ✅
+  - `make seed` runs cleanly, no allowlist failures ✅
+  - chicken ≥10: 12 ✅ | mutton ≥3: 3 ✅ | egg ≥10: 12 ✅ | eggetarian ≥8: 13 ✅
+  - fish ≥5: 4 ⚠️ (known gap — batch_3_fish.json contained 3 mutton + 4 fish; 1 more fish recipe needed)
+  - `ruff + black --check + mypy --strict` all pass ✅
+- **Deviations from spec:** fish=4 accepted by user (option 2); will be supplemented before M4 unblock
+- **New env vars:** None
+- **New external services touched:** None
+- **What the next module needs to know:**
+  - 136 recipes in DB; non-veg coverage: chicken=12, egg=12, mutton=3, fish=4
+  - Source files for Gemini batches archived at `apps/recipes/seed_data/sources/gemini_batches/`
+  - Still need 1 more fish recipe (protein_source=fish) to clear the M4 prerequisite gate fish≥5
+  - M4 unblock also requires ≥200 recipes total; current 136 still short — further batch expansion needed
+
+---
+
 ## M3 — Recipes
 - **Completed:** 2026-05-24
 - **Commit:** 7803cbc

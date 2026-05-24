@@ -156,3 +156,69 @@ These ingredients have `data_status=missing_no_usda_match` and need USDA fetch i
 - Vitamin A conversion: μg RAE × 3.33 ≈ IU (rough retinol-equivalent approximation; actual conversion depends on source being retinol vs β-carotene)
 - Missing USDA nutrients are set to 0.0 (not null)
 - Vitamin B12 from USDA is the primary reason these dairy/animal items use USDA as the data source (IFCT does not measure B12)
+
+---
+
+## M3.5 — Gemini Batch Seed Expansion
+
+**Expansion date:** 2026-05-25
+**Source files:** `apps/recipes/seed_data/sources/gemini_batches/` (5 batch files)
+
+### Summary
+
+| Batch | Loaded | Accepted | Rejected |
+|-------|--------|----------|----------|
+| batch_1_eggs | 11 | 11 | 0 |
+| batch_2_chicken | 12 | 12 | 0 |
+| batch_3_fish | 7 | 7 | 0 |
+| batch_4_protein | 10 | 8 | 2 |
+| batch_5_cuisine | 5 | 5 | 0 |
+| **Total** | **45** | **43** | **2** |
+
+**Rejections:**
+- `matki-usal` — slug already existed in original 93
+- `paneer-rajma-rice-bowl` — invalid cuisine value `fusion`
+
+### New recipe counts (total: 136)
+
+#### By meal_type
+
+| Meal Type | Count |
+|-----------|-------|
+| breakfast | 39 |
+| lunch | 48 |
+| dinner | 49 |
+| **Total** | **136** |
+
+#### By protein_source
+
+| protein_source | Count |
+|----------------|-------|
+| none | 96 |
+| egg | 12 |
+| chicken | 12 |
+| dal_legume | 7 |
+| fish | 4 |
+| mutton | 3 |
+| paneer | 2 |
+
+**Known gap:** fish=4 is below the M4 gate target of ≥5. At least 1 more fish recipe needed before M4 unblock.
+
+#### Cuisines added/expanded
+
+| Cuisine | Before | After |
+|---------|--------|-------|
+| north_indian | 18 | 34 |
+| punjabi | 8 | 14 |
+| south_indian | 23 | 28 |
+| maharashtrian | 9 | 12 |
+| tamil | 7 | 9 |
+| chinese_indo | 0 | 3 |
+| continental | 0 | 3 |
+| goan | 0 | 3 |
+| kerala | 1 | 2 |
+| sindhi | 0 | 1 |
+
+### Zero-nutrition warnings (pre-existing, unchanged)
+
+Same 14 zero-nutrition ingredients as before (spices, salt, trace items). No new zero-nutrition ingredients introduced by the new recipes.

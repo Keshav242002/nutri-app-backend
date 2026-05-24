@@ -1,0 +1,923 @@
+{
+"recipes": [
+{
+"name": "Mutton Keema",
+"name_alt": "Kheema Matar",
+"slug": "mutton-keema",
+"meal_type": "lunch",
+"cuisine": "north_indian",
+"diet_tags": [
+"high_protein",
+"gluten_free",
+"dairy_free",
+"low_carb"
+],
+"allergen_tags": [],
+"prep_time_min": 15,
+"cook_time_min": 45,
+"servings": 4,
+"estimated_difficulty": "intermediate",
+"spice_level": "hot",
+"protein_source": "mutton",
+"ingredients": [
+{
+"ingredient_app_id": "mutton_raw",
+"quantity_grams": 400.0,
+"display_quantity": 400.0,
+"display_unit": "g",
+"notes": "minced"
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 200.0,
+"display_quantity": 2.0,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 150.0,
+"display_quantity": 2.0,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "green_peas_raw",
+"quantity_grams": 100.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": "shelled"
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "minced"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "minced"
+},
+{
+"ingredient_app_id": "green_chilli_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": "slit"
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 30.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "cumin_raw",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "coriander_seeds_raw",
+"quantity_grams": 4.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": "powdered"
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 4.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "garam_masala_raw",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 8.0,
+"display_quantity": 1.5,
+"display_unit": "tsp",
+"notes": "to taste"
+},
+{
+"ingredient_app_id": "coriander_leaves_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": "chopped for garnish"
+}
+],
+"instructions": [
+"Heat sunflower oil in a thick-bottomed pan or kadhai.",
+"Add cumin seeds and let them splutter.",
+"Add chopped onions and sauté until golden brown.",
+"Add minced ginger, garlic, and green chillies, sautéing for another 2 minutes.",
+"Mix in tomatoes, coriander powder, red chilli powder, turmeric, and salt. Cook until oil separates.",
+"Add the minced mutton (keema) and roast it on medium-high heat for 10-15 minutes until it changes color completely.",
+"Add green peas and a splash of water. Cover and simmer for 15-20 minutes until mutton and peas are fully cooked.",
+"Sprinkle garam masala and mix well.",
+"Garnish with fresh coriander leaves and serve hot."
+],
+"source": "seed"
+},
+{
+"name": "Mutton Rogan Josh",
+"name_alt": "Kashmiri Rogan Josh",
+"slug": "mutton-rogan-josh",
+"meal_type": "lunch",
+"cuisine": "north_indian",
+"diet_tags": [
+"high_protein",
+"gluten_free",
+"low_carb"
+],
+"allergen_tags": [
+"dairy",
+"mustard"
+],
+"prep_time_min": 20,
+"cook_time_min": 60,
+"servings": 4,
+"estimated_difficulty": "advanced",
+"spice_level": "hot",
+"protein_source": "mutton",
+"ingredients": [
+{
+"ingredient_app_id": "mutton_raw",
+"quantity_grams": 500.0,
+"display_quantity": 500.0,
+"display_unit": "g",
+"notes": "curry cut"
+},
+{
+"ingredient_app_id": "curd_raw",
+"quantity_grams": 100.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": "whisked"
+},
+{
+"ingredient_app_id": "mustard_oil_raw",
+"quantity_grams": 50.0,
+"display_quantity": 3.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 200.0,
+"display_quantity": 2.0,
+"display_unit": "medium",
+"notes": "finely sliced"
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "fennel_seeds_raw",
+"quantity_grams": 4.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": "ground to powder"
+},
+{
+"ingredient_app_id": "black_cardamom_raw",
+"quantity_grams": 2.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "green_cardamom_raw",
+"quantity_grams": 2.0,
+"display_quantity": 4.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "cloves_raw",
+"quantity_grams": 1.0,
+"display_quantity": 4.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "cinnamon_raw",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "1 inch stick"
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 6.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "Kashmiri variety preferred"
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 8.0,
+"display_quantity": 1.5,
+"display_unit": "tsp",
+"notes": "to taste"
+}
+],
+"instructions": [
+"Heat mustard oil in a heavy-bottomed pot until it smokes, then reduce heat.",
+"Add black cardamom, green cardamom, cloves, and cinnamon. Sauté for 30 seconds.",
+"Add sliced onions and fry until they turn deep golden brown.",
+"Add ginger and garlic paste, and sauté for 2 minutes.",
+"Add mutton pieces and roast on high heat for 10 minutes until well browned.",
+"Lower the heat and add red chilli powder and salt. Mix thoroughly.",
+"Gradually stir in the whisked curd, ensuring it does not curdle.",
+"Add fennel powder and 2 cups of water. Bring to a boil.",
+"Cover tightly and simmer on low heat for 45-60 minutes until mutton is tender and oil floats on top.",
+"Serve hot with steamed rice or flatbreads."
+],
+"source": "seed"
+},
+{
+"name": "Mutton Curry",
+"name_alt": "Homestyle Mutton Curry",
+"slug": "mutton-curry",
+"meal_type": "dinner",
+"cuisine": "north_indian",
+"diet_tags": [
+"high_protein",
+"gluten_free",
+"dairy_free",
+"low_carb"
+],
+"allergen_tags": [],
+"prep_time_min": 20,
+"cook_time_min": 60,
+"servings": 4,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"protein_source": "mutton",
+"ingredients": [
+{
+"ingredient_app_id": "mutton_raw",
+"quantity_grams": 500.0,
+"display_quantity": 500.0,
+"display_unit": "g",
+"notes": "curry cut"
+},
+{
+"ingredient_app_id": "potato_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "cut into large chunks"
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 200.0,
+"display_quantity": 2.0,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 150.0,
+"display_quantity": 2.0,
+"display_unit": "medium",
+"notes": "chopped"
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 40.0,
+"display_quantity": 3.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "bay_leaf_raw",
+"quantity_grams": 1.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "cumin_raw",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "coriander_seeds_raw",
+"quantity_grams": 4.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": "powdered"
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "garam_masala_raw",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 8.0,
+"display_quantity": 1.5,
+"display_unit": "tsp",
+"notes": "to taste"
+},
+{
+"ingredient_app_id": "coriander_leaves_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": "chopped"
+}
+],
+"instructions": [
+"Heat oil in a pressure cooker or deep pot.",
+"Add bay leaf and cumin seeds; let them splutter.",
+"Add chopped onions and fry until golden brown.",
+"Stir in ginger and garlic paste, sautéing until the raw smell disappears.",
+"Add tomatoes, turmeric, coriander powder, red chilli powder, and salt. Cook until oil separates.",
+"Add the mutton pieces and sear on medium-high heat for 8-10 minutes.",
+"Add potato chunks and pour in 1.5 cups of water.",
+"If using a pressure cooker, cook for 4-5 whistles. If using a pot, cover and simmer for 50-60 minutes until meat is tender.",
+"Sprinkle garam masala and garnish with fresh coriander leaves.",
+"Serve hot with rice or roti."
+],
+"source": "seed"
+},
+{
+"name": "Prawn Masala",
+"name_alt": "Goan Prawn Masala",
+"slug": "prawn-masala",
+"meal_type": "lunch",
+"cuisine": "goan",
+"diet_tags": [
+"high_protein",
+"gluten_free",
+"dairy_free",
+"pescatarian",
+"low_carb"
+],
+"allergen_tags": [
+"shellfish",
+"mustard"
+],
+"prep_time_min": 15,
+"cook_time_min": 20,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "hot",
+"protein_source": "fish",
+"ingredients": [
+{
+"ingredient_app_id": "prawns_raw",
+"quantity_grams": 300.0,
+"display_quantity": 300.0,
+"display_unit": "g",
+"notes": "cleaned and deveined"
+},
+{
+"ingredient_app_id": "coconut_oil_raw",
+"quantity_grams": 20.0,
+"display_quantity": 1.5,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 80.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "chopped"
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "minced"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "minced"
+},
+{
+"ingredient_app_id": "green_chilli_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "slit"
+},
+{
+"ingredient_app_id": "mustard_seeds_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "curry_leaves_raw",
+"quantity_grams": 1.0,
+"display_quantity": 1.0,
+"display_unit": "handful",
+"notes": ""
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 1.0,
+"display_quantity": 0.25,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "coriander_seeds_raw",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "powdered"
+},
+{
+"ingredient_app_id": "tamarind_pulp_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "to taste"
+}
+],
+"instructions": [
+"Marinate prawns with turmeric and a pinch of salt for 10 minutes.",
+"Heat coconut oil in a pan; add mustard seeds and let them pop.",
+"Add curry leaves, green chilli, and chopped onions. Sauté until onions are soft.",
+"Mix in ginger and garlic, sautéing for another minute.",
+"Add tomatoes, red chilli powder, coriander powder, and remaining salt. Cook until tomatoes turn mushy.",
+"Add tamarind pulp and 1/4 cup of water, bringing the masala to a simmer.",
+"Gently fold in the marinated prawns.",
+"Cook for 5-7 minutes until the prawns are opaque and cooked through.",
+"Serve hot with steamed rice or bread."
+],
+"source": "seed"
+},
+{
+"name": "Fish Fry (Tawa)",
+"name_alt": "Pomfret Tawa Fry",
+"slug": "fish-fry-tawa",
+"meal_type": "dinner",
+"cuisine": "goan",
+"diet_tags": [
+"high_protein",
+"gluten_free",
+"dairy_free",
+"pescatarian",
+"low_carb"
+],
+"allergen_tags": [
+"fish"
+],
+"prep_time_min": 15,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "beginner",
+"spice_level": "medium",
+"protein_source": "fish",
+"ingredients": [
+{
+"ingredient_app_id": "pomfret_raw",
+"quantity_grams": 300.0,
+"display_quantity": 300.0,
+"display_unit": "g",
+"notes": "cleaned whole or steaks"
+},
+{
+"ingredient_app_id": "lemon_juice_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 3.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "to taste"
+},
+{
+"ingredient_app_id": "coconut_oil_raw",
+"quantity_grams": 20.0,
+"display_quantity": 1.5,
+"display_unit": "tbsp",
+"notes": "for shallow frying"
+}
+],
+"instructions": [
+"Make slits on the pomfret pieces to allow the marinade to seep in.",
+"In a small bowl, mix lemon juice, ginger paste, garlic paste, red chilli powder, turmeric, and salt to form a thick paste.",
+"Rub the marinade evenly over the fish and inside the slits.",
+"Let the fish marinate for 15-20 minutes.",
+"Heat coconut oil in a shallow frying pan or tawa.",
+"Place the marinated fish on the tawa and fry on medium heat for 4-5 minutes per side until crisp and cooked through.",
+"Drain excess oil and serve hot with onion rings and lemon wedges."
+],
+"source": "seed"
+},
+{
+"name": "Prawn Curry",
+"name_alt": "South Indian Prawn Curry",
+"slug": "prawn-curry",
+"meal_type": "dinner",
+"cuisine": "south_indian",
+"diet_tags": [
+"high_protein",
+"gluten_free",
+"dairy_free",
+"pescatarian",
+"low_carb"
+],
+"allergen_tags": [
+"shellfish",
+"mustard"
+],
+"prep_time_min": 15,
+"cook_time_min": 25,
+"servings": 4,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"protein_source": "fish",
+"ingredients": [
+{
+"ingredient_app_id": "prawns_raw",
+"quantity_grams": 500.0,
+"display_quantity": 500.0,
+"display_unit": "g",
+"notes": "cleaned and deveined"
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 150.0,
+"display_quantity": 2.0,
+"display_unit": "medium",
+"notes": "chopped"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "large",
+"notes": "chopped"
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "crushed"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "crushed"
+},
+{
+"ingredient_app_id": "mustard_seeds_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "fenugreek_seeds_raw",
+"quantity_grams": 1.0,
+"display_quantity": 0.25,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "curry_leaves_raw",
+"quantity_grams": 2.0,
+"display_quantity": 2.0,
+"display_unit": "handful",
+"notes": ""
+},
+{
+"ingredient_app_id": "tamarind_pulp_raw",
+"quantity_grams": 20.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "soaked in warm water"
+},
+{
+"ingredient_app_id": "coconut_oil_raw",
+"quantity_grams": 30.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "coriander_seeds_raw",
+"quantity_grams": 4.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": "powdered"
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 6.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "to taste"
+}
+],
+"instructions": [
+"Heat coconut oil in an earthen pot or heavy pan.",
+"Add mustard seeds and fenugreek seeds; allow them to splutter.",
+"Add curry leaves and chopped onions, frying until onions are translucent.",
+"Stir in crushed ginger and garlic, cooking until fragrant.",
+"Add tomatoes, turmeric, red chilli powder, and coriander powder. Sauté until tomatoes break down.",
+"Pour in the tamarind extract along with 1 cup of water and salt. Bring to a rolling boil.",
+"Add the cleaned prawns, reduce the heat, and simmer gently for 6-8 minutes.",
+"Once the oil surfaces and prawns are cooked, turn off the heat.",
+"Let the curry rest for 15 minutes before serving with rice."
+],
+"source": "seed"
+},
+{
+"name": "Tandoori Fish Tikka Salad",
+"name_alt": "Rohu Tikka Salad",
+"slug": "tandoori-fish-tikka-salad",
+"meal_type": "dinner",
+"cuisine": "north_indian",
+"diet_tags": [
+"high_protein",
+"gluten_free",
+"pescatarian",
+"low_carb"
+],
+"allergen_tags": [
+"fish",
+"dairy",
+"mustard"
+],
+"prep_time_min": 20,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"protein_source": "fish",
+"ingredients": [
+{
+"ingredient_app_id": "rohu_raw",
+"quantity_grams": 300.0,
+"display_quantity": 300.0,
+"display_unit": "g",
+"notes": "boneless pieces"
+},
+{
+"ingredient_app_id": "curd_raw",
+"quantity_grams": 40.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": "thick or hung curd"
+},
+{
+"ingredient_app_id": "lemon_juice_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "garam_masala_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 1.0,
+"display_quantity": 0.25,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 4.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": "to taste"
+},
+{
+"ingredient_app_id": "mustard_oil_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "sliced as salad rings"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "sliced"
+},
+{
+"ingredient_app_id": "capsicum_raw",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "julienned"
+},
+{
+"ingredient_app_id": "carrot_raw",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "grated or julienned"
+},
+{
+"ingredient_app_id": "cabbage_raw",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": "shredded"
+},
+{
+"ingredient_app_id": "coriander_leaves_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": "chopped"
+}
+],
+"instructions": [
+"In a mixing bowl, combine thick curd, ginger paste, garlic paste, lemon juice, garam masala, red chilli powder, turmeric, and half of the salt.",
+"Add mustard oil to the marinade and whisk well.",
+"Add the boneless rohu fish pieces to the marinade, coating them evenly. Rest for 15-20 minutes.",
+"Preheat an oven, air fryer, or heavy pan. Cook the fish tikka for 10-12 minutes until perfectly charred and fully cooked.",
+"While the fish cooks, toss sliced onion, tomato, capsicum, carrot, and cabbage in a large salad bowl.",
+"Add the remaining salt, a squeeze of lemon if desired, and fresh coriander leaves to the vegetables.",
+"Arrange the hot fish tikkas over the mixed salad.",
+"Serve immediately as a healthy, high-protein dinner."
+],
+"source": "seed"
+}
+]
+}
