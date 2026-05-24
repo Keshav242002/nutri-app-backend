@@ -35,6 +35,7 @@ class RecipeAdmin(admin.ModelAdmin):
         "name",
         "meal_type",
         "cuisine",
+        "protein_source",
         "estimated_difficulty",
         "spice_level",
         "servings",
@@ -46,6 +47,7 @@ class RecipeAdmin(admin.ModelAdmin):
     list_filter = (
         "meal_type",
         "cuisine",
+        "protein_source",
         "estimated_difficulty",
         "spice_level",
         "source",

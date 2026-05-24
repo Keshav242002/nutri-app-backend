@@ -863,3 +863,55 @@ def test_recipe_list_rejects_partially_invalid_multi_tag(registered_user: Any) -
     assert body["error"]["code"] == "INVALID_FILTER_VALUE"
     assert body["error"]["details"]["invalid_values"] == ["veg"]
     assert "vegetarian" not in body["error"]["details"]["invalid_values"]
+
+
+# ---------------------------------------------------------------------------
+# protein_source filter tests
+# ---------------------------------------------------------------------------
+
+
+def test_recipe_list_filter_by_protein_source(registered_user: Any) -> None:
+    """?protein_source=chicken returns only chicken recipes."""
+    client, _ = registered_user
+    _make_recipe(slug="chicken-r", protein_source="chicken")
+    _make_recipe(slug="paneer-r", protein_source="paneer")
+    _make_recipe(slug="none-r", protein_source="none")
+    with patch("firebase_admin.auth.verify_id_token", return_value=FAKE_TOKEN_PAYLOAD):
+        response = client.get(RECIPE_LIST_URL + "?protein_source=chicken")
+    assert response.status_code == 200
+    results = response.json()["data"]["results"]
+    slugs = [r["slug"] for r in results]
+    assert "chicken-r" in slugs
+    assert "paneer-r" not in slugs
+    assert "none-r" not in slugs
+
+
+def test_recipe_list_rejects_invalid_protein_source(registered_user: Any) -> None:
+    """?protein_source=tofu is not valid — must return 400 INVALID_FILTER_VALUE."""
+    client, _ = registered_user
+    with patch("firebase_admin.auth.verify_id_token", return_value=FAKE_TOKEN_PAYLOAD):
+        response = client.get(RECIPE_LIST_URL + "?protein_source=tofu")
+    assert response.status_code == 400
+    body = response.json()
+    assert body["status"] == "error"
+    assert body["error"]["code"] == "INVALID_FILTER_VALUE"
+    assert "tofu" in body["error"]["details"]["invalid_values"]
+    assert "protein_source" == body["error"]["details"]["field"]
+
+
+def test_recipe_list_includes_protein_source_in_response(registered_user: Any) -> None:
+    """protein_source must appear in both list and detail API responses."""
+    client, _ = registered_user
+    _make_recipe(slug="ps-check", protein_source="dal_legume")
+    with patch("firebase_admin.auth.verify_id_token", return_value=FAKE_TOKEN_PAYLOAD):
+        # List
+        response = client.get(RECIPE_LIST_URL)
+    assert response.status_code == 200
+    result = next(r for r in response.json()["data"]["results"] if r["slug"] == "ps-check")
+    assert result["protein_source"] == "dal_legume"
+
+    with patch("firebase_admin.auth.verify_id_token", return_value=FAKE_TOKEN_PAYLOAD):
+        # Detail
+        response = client.get("/api/v1/recipes/ps-check/")
+    assert response.status_code == 200
+    assert response.json()["data"]["protein_source"] == "dal_legume"

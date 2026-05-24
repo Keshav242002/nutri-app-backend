@@ -205,6 +205,28 @@ SPICE_LEVEL_CHOICES = [
     (SPICE_VERY_HOT, "Very Hot"),
 ]
 
+PROTEIN_SOURCE_PANEER = "paneer"
+PROTEIN_SOURCE_DAL = "dal_legume"
+PROTEIN_SOURCE_EGG = "egg"
+PROTEIN_SOURCE_CHICKEN = "chicken"
+PROTEIN_SOURCE_MUTTON = "mutton"
+PROTEIN_SOURCE_FISH = "fish"
+PROTEIN_SOURCE_SOY = "soy"
+PROTEIN_SOURCE_NONE = "none"
+
+PROTEIN_SOURCE_CHOICES = [
+    (PROTEIN_SOURCE_PANEER, "Paneer"),
+    (PROTEIN_SOURCE_DAL, "Dal / Legume"),
+    (PROTEIN_SOURCE_EGG, "Egg"),
+    (PROTEIN_SOURCE_CHICKEN, "Chicken"),
+    (PROTEIN_SOURCE_MUTTON, "Mutton"),
+    (PROTEIN_SOURCE_FISH, "Fish / Seafood"),
+    (PROTEIN_SOURCE_SOY, "Soy / Tofu"),
+    (PROTEIN_SOURCE_NONE, "None"),
+]
+
+VALID_PROTEIN_SOURCES = frozenset(tag for tag, _ in PROTEIN_SOURCE_CHOICES)
+
 
 # ---------------------------------------------------------------------------
 # Models
@@ -298,6 +320,12 @@ class Recipe(TimestampedModel):
         max_length=20, choices=DIFFICULTY_CHOICES, default=DIFFICULTY_INTERMEDIATE
     )
     spice_level = models.CharField(max_length=20, choices=SPICE_LEVEL_CHOICES, default=SPICE_MEDIUM)
+    protein_source = models.CharField(
+        max_length=20,
+        choices=PROTEIN_SOURCE_CHOICES,
+        default=PROTEIN_SOURCE_NONE,
+        db_index=True,
+    )
     instructions = models.JSONField(default=list)
     image_url = models.URLField(blank=True, default="")
     is_active = models.BooleanField(default=True)
