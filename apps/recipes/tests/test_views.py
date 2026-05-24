@@ -796,3 +796,70 @@ def test_admin_registered() -> None:
 
     for model in [Ingredient, Recipe, HouseholdUnit, RecipeIngredient]:
         assert admin.site.is_registered(model), f"{model.__name__} not registered in admin"
+
+
+# ---------------------------------------------------------------------------
+# Filter validation tests — invalid vocab → 400 INVALID_FILTER_VALUE
+# ---------------------------------------------------------------------------
+
+
+def test_recipe_list_rejects_invalid_diet_tag_value(registered_user: Any) -> None:
+    """?diet_tags=veg is not a valid tag — must return 400 with INVALID_FILTER_VALUE."""
+    client, _ = registered_user
+    with patch("firebase_admin.auth.verify_id_token", return_value=FAKE_TOKEN_PAYLOAD):
+        response = client.get(RECIPE_LIST_URL + "?diet_tags=veg")
+    assert response.status_code == 400
+    body = response.json()
+    assert body["status"] == "error"
+    assert body["error"]["code"] == "INVALID_FILTER_VALUE"
+    assert "veg" in body["error"]["details"]["invalid_values"]
+    assert "diet_tags" == body["error"]["details"]["field"]
+    assert "vegetarian" in body["error"]["details"]["allowed_values"]
+
+
+def test_recipe_list_rejects_invalid_allergen_value(registered_user: Any) -> None:
+    """?exclude_allergens=nuts is not a valid tag (tree_nuts and peanuts are)."""
+    client, _ = registered_user
+    with patch("firebase_admin.auth.verify_id_token", return_value=FAKE_TOKEN_PAYLOAD):
+        response = client.get(RECIPE_LIST_URL + "?exclude_allergens=nuts")
+    assert response.status_code == 400
+    body = response.json()
+    assert body["status"] == "error"
+    assert body["error"]["code"] == "INVALID_FILTER_VALUE"
+    assert "nuts" in body["error"]["details"]["invalid_values"]
+    assert "exclude_allergens" == body["error"]["details"]["field"]
+
+
+def test_recipe_list_rejects_invalid_meal_type(registered_user: Any) -> None:
+    """?meal_type=brunch is not valid — breakfast, lunch, dinner only."""
+    client, _ = registered_user
+    with patch("firebase_admin.auth.verify_id_token", return_value=FAKE_TOKEN_PAYLOAD):
+        response = client.get(RECIPE_LIST_URL + "?meal_type=brunch")
+    assert response.status_code == 400
+    body = response.json()
+    assert body["status"] == "error"
+    assert body["error"]["code"] == "INVALID_FILTER_VALUE"
+    assert "brunch" in body["error"]["details"]["invalid_values"]
+
+
+def test_recipe_list_accepts_valid_diet_tag_value(registered_user: Any) -> None:
+    """Regression guard: ?diet_tags=vegetarian must return 200, not 400."""
+    client, _ = registered_user
+    _make_recipe(slug="valid-veg-r", diet_tags=["vegetarian"])
+    with patch("firebase_admin.auth.verify_id_token", return_value=FAKE_TOKEN_PAYLOAD):
+        response = client.get(RECIPE_LIST_URL + "?diet_tags=vegetarian")
+    assert response.status_code == 200
+    assert response.json()["status"] == "success"
+
+
+def test_recipe_list_rejects_partially_invalid_multi_tag(registered_user: Any) -> None:
+    """?diet_tags=vegetarian,veg — 'veg' is invalid, 'vegetarian' is valid.
+    Must return 400 with only 'veg' in invalid_values."""
+    client, _ = registered_user
+    with patch("firebase_admin.auth.verify_id_token", return_value=FAKE_TOKEN_PAYLOAD):
+        response = client.get(RECIPE_LIST_URL + "?diet_tags=vegetarian,veg")
+    assert response.status_code == 400
+    body = response.json()
+    assert body["error"]["code"] == "INVALID_FILTER_VALUE"
+    assert body["error"]["details"]["invalid_values"] == ["veg"]
+    assert "vegetarian" not in body["error"]["details"]["invalid_values"]
