@@ -254,6 +254,7 @@ def seed_recipes(path: Path) -> tuple[int, int]:
             "servings": recipe_entry.get("servings", 2),
             "estimated_difficulty": recipe_entry.get("estimated_difficulty", "intermediate"),
             "spice_level": recipe_entry.get("spice_level", "medium"),
+            "protein_source": recipe_entry.get("protein_source", "none"),
             "instructions": recipe_entry.get("instructions") or [],
             "image_url": recipe_entry.get("image_url", ""),
             "source": recipe_entry.get("source", "seed"),

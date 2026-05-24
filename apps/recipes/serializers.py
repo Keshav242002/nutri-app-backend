@@ -50,6 +50,7 @@ class RecipeListSerializer(serializers.ModelSerializer[Recipe]):
             "servings",
             "estimated_difficulty",
             "spice_level",
+            "protein_source",
             "image_url",
             "source",
             "cached_nutrition_summary",

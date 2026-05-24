@@ -8,6 +8,7 @@ from apps.recipes.models import (
     DIFFICULTY_INTERMEDIATE,
     FORM_RAW,
     MEAL_TYPE_LUNCH,
+    PROTEIN_SOURCE_NONE,
     RECIPE_SOURCE_SEED,
     SOURCE_IFCT,
     SPICE_MEDIUM,
@@ -78,6 +79,7 @@ class RecipeFactory(DjangoModelFactory):
     cook_time_min = 20
     estimated_difficulty = DIFFICULTY_INTERMEDIATE
     spice_level = SPICE_MEDIUM
+    protein_source = PROTEIN_SOURCE_NONE
     instructions = factory.LazyAttribute(lambda _: ["Step 1", "Step 2"])
     diet_tags = factory.LazyAttribute(lambda _: ["vegetarian"])
     allergen_tags = factory.LazyAttribute(lambda _: [])

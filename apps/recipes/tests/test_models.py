@@ -174,3 +174,23 @@ def test_recipe_ingredient_unique_together_constraint() -> None:
             quantity_grams="50.00",
             order=1,
         )
+
+
+# ---------------------------------------------------------------------------
+# protein_source field
+# ---------------------------------------------------------------------------
+
+
+def test_recipe_protein_source_rejects_invalid_choice() -> None:
+    recipe = RecipeFactory.build(protein_source="invalid_source")
+    with pytest.raises(ValidationError) as exc_info:
+        recipe.full_clean()
+    assert "protein_source" in str(exc_info.value)
+
+
+def test_recipe_protein_source_accepts_all_valid_choices() -> None:
+    from apps.recipes.models import PROTEIN_SOURCE_CHOICES
+
+    for value, _ in PROTEIN_SOURCE_CHOICES:
+        recipe = RecipeFactory.build(protein_source=value)
+        recipe.full_clean()  # should not raise

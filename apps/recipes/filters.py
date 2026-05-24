@@ -5,6 +5,7 @@ from apps.recipes.models import (
     CUISINE_CHOICES,
     DIFFICULTY_CHOICES,
     MEAL_TYPE_CHOICES,
+    PROTEIN_SOURCE_CHOICES,
     SPICE_LEVEL_CHOICES,
     VALID_ALLERGEN_TAGS,
     VALID_DIET_TAGS,
@@ -52,6 +53,7 @@ class RecipeFilter(django_filters.FilterSet):  # type: ignore[misc]
     cuisine = django_filters.CharFilter(method="filter_cuisine")
     estimated_difficulty = django_filters.CharFilter(method="filter_estimated_difficulty")
     spice_level = django_filters.CharFilter(method="filter_spice_level")
+    protein_source = django_filters.CharFilter(method="filter_protein_source")
     max_prep_time = django_filters.NumberFilter(field_name="prep_time_min", lookup_expr="lte")
 
     diet_tags = django_filters.CharFilter(method="filter_diet_tags")
@@ -90,6 +92,12 @@ class RecipeFilter(django_filters.FilterSet):  # type: ignore[misc]
     ) -> QuerySet[Recipe]:
         _validate_choice_value(value, SPICE_LEVEL_CHOICES, "spice_level")
         return queryset.filter(spice_level=value)
+
+    def filter_protein_source(
+        self, queryset: QuerySet[Recipe], name: str, value: str
+    ) -> QuerySet[Recipe]:
+        _validate_choice_value(value, PROTEIN_SOURCE_CHOICES, "protein_source")
+        return queryset.filter(protein_source=value)
 
     # ------------------------------------------------------------------
     # Vocab-validated comma-separated filters
