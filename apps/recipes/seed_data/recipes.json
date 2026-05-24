@@ -10567,5 +10567,4723 @@
     "source": "seed",
     "name_alt": "Roti / Chapati",
     "slug": "whole-wheat-phulka"
+  },
+  {
+    "name": "Masala Omelette",
+    "name_alt": "Indian Style Omelette",
+    "slug": "masala-omelette",
+    "meal_type": "breakfast",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "eggetarian",
+      "gluten_free",
+      "dairy_free",
+      "nut_free",
+      "low_carb"
+    ],
+    "allergen_tags": [
+      "eggs"
+    ],
+    "prep_time_min": 5,
+    "cook_time_min": 10,
+    "servings": 2,
+    "estimated_difficulty": "beginner",
+    "spice_level": "medium",
+    "protein_source": "egg",
+    "ingredients": [
+      {
+        "ingredient_app_id": "egg_whole_raw",
+        "quantity_grams": 200.0,
+        "display_quantity": 4.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "green_chilli_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "piece",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "In a bowl, crack the eggs and whisk them thoroughly until slightly frothy.",
+      "Add the chopped onion, tomato, green chilli, and coriander leaves to the eggs.",
+      "Add turmeric powder, red chilli powder, and salt, mixing well to combine all ingredients.",
+      "Heat oil in a non-stick pan over medium heat.",
+      "Pour half of the egg mixture into the pan, swirling to spread it evenly.",
+      "Cook for 2-3 minutes until the bottom is set and slightly golden.",
+      "Flip carefully and cook the other side for another 1-2 minutes.",
+      "Remove from heat and repeat with the remaining egg mixture.",
+      "Serve hot with toast or paratha."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Egg Paratha",
+    "name_alt": "Anda Paratha",
+    "slug": "egg-paratha",
+    "meal_type": "breakfast",
+    "cuisine": "punjabi",
+    "diet_tags": [
+      "eggetarian",
+      "nut_free"
+    ],
+    "allergen_tags": [
+      "eggs",
+      "gluten",
+      "dairy"
+    ],
+    "prep_time_min": 15,
+    "cook_time_min": 15,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "medium",
+    "protein_source": "egg",
+    "ingredients": [
+      {
+        "ingredient_app_id": "whole_wheat_flour_raw",
+        "quantity_grams": 120.0,
+        "display_quantity": 1.0,
+        "display_unit": "cup",
+        "notes": "kneaded into dough"
+      },
+      {
+        "ingredient_app_id": "egg_whole_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 2.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 30.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "green_chilli_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "piece",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "ghee_raw",
+        "quantity_grams": 15.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Divide the pre-kneaded whole wheat dough into 2 equal portions and roll them into smooth balls.",
+      "In a small bowl, beat the eggs with chopped onion, green chilli, and a pinch of salt.",
+      "Roll out one dough ball into a thin circle using a rolling pin.",
+      "Heat a tawa or flat pan over medium heat and place the rolled dough on it.",
+      "Cook for a minute until small bubbles appear, then flip.",
+      "Spread half a teaspoon of ghee on the surface, then carefully pour half of the egg mixture over the paratha.",
+      "Gently spread the egg mixture with a spoon and wait 30 seconds for it to slightly set.",
+      "Flip the paratha quickly to cook the egg side down.",
+      "Press gently with a spatula and apply a little more ghee to the edges until the egg is cooked and the paratha is golden brown.",
+      "Repeat for the second paratha and serve hot."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Egg Bhurji",
+    "name_alt": "Anda Bhurji",
+    "slug": "egg-bhurji",
+    "meal_type": "breakfast",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "eggetarian",
+      "gluten_free",
+      "dairy_free",
+      "nut_free",
+      "low_carb",
+      "high_protein"
+    ],
+    "allergen_tags": [
+      "eggs"
+    ],
+    "prep_time_min": 10,
+    "cook_time_min": 10,
+    "servings": 2,
+    "estimated_difficulty": "beginner",
+    "spice_level": "hot",
+    "protein_source": "egg",
+    "ingredients": [
+      {
+        "ingredient_app_id": "egg_whole_raw",
+        "quantity_grams": 200.0,
+        "display_quantity": 4.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 80.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 80.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "green_chilli_raw",
+        "quantity_grams": 15.0,
+        "display_quantity": 3.0,
+        "display_unit": "piece",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 15.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "cumin_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": "chopped"
+      }
+    ],
+    "instructions": [
+      "Crack the eggs into a bowl, whisk well, and set aside.",
+      "Heat oil in a pan over medium heat and add cumin seeds.",
+      "Once the seeds crackle, add chopped onions and green chillies, sautéing until onions turn translucent.",
+      "Add chopped tomatoes, turmeric powder, red chilli powder, and salt. Cook until tomatoes are soft and oil starts to separate.",
+      "Reduce the heat and pour in the beaten eggs.",
+      "Stir continuously to scramble the eggs and mix them with the onion-tomato masala.",
+      "Cook for 3-4 minutes until the eggs are fully cooked but still slightly soft.",
+      "Garnish with freshly chopped coriander leaves.",
+      "Serve hot with roti, paratha, or bread."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Egg Dosa",
+    "name_alt": "Muttai Dosa",
+    "slug": "egg-dosa",
+    "meal_type": "breakfast",
+    "cuisine": "south_indian",
+    "diet_tags": [
+      "eggetarian",
+      "gluten_free",
+      "dairy_free",
+      "nut_free"
+    ],
+    "allergen_tags": [
+      "eggs",
+      "sesame"
+    ],
+    "prep_time_min": 10,
+    "cook_time_min": 10,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "mild",
+    "protein_source": "egg",
+    "ingredients": [
+      {
+        "ingredient_app_id": "idli_rava_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": "fermented as batter"
+      },
+      {
+        "ingredient_app_id": "urad_dal_raw",
+        "quantity_grams": 30.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": "fermented as batter"
+      },
+      {
+        "ingredient_app_id": "egg_whole_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 2.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "sesame_oil_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Prepare the dosa batter using fermented idli rava and urad dal, ensuring it has a pourable consistency.",
+      "Heat a flat non-stick dosa tawa over medium-high heat and grease lightly with a few drops of sesame oil.",
+      "Pour a ladle of batter in the center and spread it outward in a circular motion to make a thin crepe.",
+      "Crack one egg directly onto the center of the dosa while it is still cooking.",
+      "Quickly spread the egg over the surface of the dosa using the back of a spoon.",
+      "Drizzle half a teaspoon of sesame oil around the edges.",
+      "Sprinkle a tiny pinch of salt over the egg.",
+      "Cook until the egg sets and the bottom of the dosa turns golden brown and crispy.",
+      "Fold the dosa in half and remove from heat.",
+      "Repeat for the second dosa and serve immediately."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Egg Curry Rice Bowl",
+    "name_alt": "",
+    "slug": "egg-curry-rice-bowl",
+    "meal_type": "lunch",
+    "cuisine": "south_indian",
+    "diet_tags": [
+      "eggetarian",
+      "gluten_free",
+      "dairy_free",
+      "nut_free",
+      "high_protein"
+    ],
+    "allergen_tags": [
+      "eggs",
+      "mustard"
+    ],
+    "prep_time_min": 15,
+    "cook_time_min": 25,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "medium",
+    "protein_source": "egg",
+    "ingredients": [
+      {
+        "ingredient_app_id": "sona_masoori_rice_raw",
+        "quantity_grams": 120.0,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": "washed"
+      },
+      {
+        "ingredient_app_id": "egg_whole_raw",
+        "quantity_grams": 200.0,
+        "display_quantity": 4.0,
+        "display_unit": "piece",
+        "notes": "hard boiled"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "sliced"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "coconut_oil_raw",
+        "quantity_grams": 15.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "mustard_seeds_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "curry_leaves_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 10.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_seeds_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "crushed"
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 6.0,
+        "display_quantity": 1.5,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Cook the sona masoori rice with enough water until fluffy, then set aside.",
+      "Boil the eggs, peel them, and make shallow slits on the egg whites.",
+      "Heat coconut oil in a deep pan. Add mustard seeds and wait for them to splutter, then add curry leaves.",
+      "Add sliced onions and sauté until golden brown.",
+      "Add chopped tomatoes and cook until they soften and turn mushy.",
+      "Stir in turmeric powder, red chilli powder, crushed coriander seeds, and half the salt. Mix well.",
+      "Add half a cup of water to create a gravy consistency and bring to a simmer.",
+      "Gently drop the boiled eggs into the curry and simmer for 5 minutes.",
+      "To serve, divide the cooked rice into bowls and pour the hot egg curry over the top."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Anda Biryani",
+    "name_alt": "Egg Biryani",
+    "slug": "anda-biryani",
+    "meal_type": "lunch",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "eggetarian",
+      "gluten_free",
+      "nut_free",
+      "high_protein"
+    ],
+    "allergen_tags": [
+      "eggs",
+      "dairy"
+    ],
+    "prep_time_min": 20,
+    "cook_time_min": 40,
+    "servings": 4,
+    "estimated_difficulty": "advanced",
+    "spice_level": "hot",
+    "protein_source": "egg",
+    "ingredients": [
+      {
+        "ingredient_app_id": "basmati_rice_raw",
+        "quantity_grams": 240.0,
+        "display_quantity": 1.5,
+        "display_unit": "cup",
+        "notes": "soaked for 30 mins"
+      },
+      {
+        "ingredient_app_id": "egg_whole_raw",
+        "quantity_grams": 300.0,
+        "display_quantity": 6.0,
+        "display_unit": "piece",
+        "notes": "hard boiled"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 200.0,
+        "display_quantity": 2.0,
+        "display_unit": "large",
+        "notes": "thinly sliced"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 150.0,
+        "display_quantity": 2.0,
+        "display_unit": "medium",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "ghee_raw",
+        "quantity_grams": 30.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "green_chilli_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "piece",
+        "notes": "slit"
+      },
+      {
+        "ingredient_app_id": "curd_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": "whisked"
+      },
+      {
+        "ingredient_app_id": "garam_masala_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 6.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 12.0,
+        "display_quantity": 2.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 20.0,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": "chopped"
+      }
+    ],
+    "instructions": [
+      "Boil the soaked basmati rice with whole spices (optional) and salt until 80% cooked. Drain and set aside.",
+      "Heat half the ghee in a heavy-bottomed pot and fry the boiled eggs slightly until golden. Remove and set aside.",
+      "In the same pot, fry thinly sliced onions until crisp and golden brown (birista). Keep half aside for garnish.",
+      "Add ginger and garlic paste to the remaining onions and sauté until the raw smell disappears.",
+      "Stir in tomatoes, green chillies, turmeric, red chilli powder, and garam masala. Cook until tomatoes are mushy.",
+      "Lower the flame, stir in whisked curd, and cook until oil separates. Season with salt.",
+      "Place the fried eggs into this masala, then layer the par-cooked rice over it.",
+      "Sprinkle the remaining fried onions, coriander leaves, and the rest of the ghee on top.",
+      "Cover tightly and cook on Dum (very low heat) for 15-20 minutes.",
+      "Gently fluff the biryani before serving hot."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Egg Fried Rice",
+    "name_alt": "",
+    "slug": "egg-fried-rice",
+    "meal_type": "lunch",
+    "cuisine": "chinese_indo",
+    "diet_tags": [
+      "eggetarian",
+      "gluten_free",
+      "dairy_free",
+      "nut_free"
+    ],
+    "allergen_tags": [
+      "eggs"
+    ],
+    "prep_time_min": 10,
+    "cook_time_min": 15,
+    "servings": 2,
+    "estimated_difficulty": "beginner",
+    "spice_level": "mild",
+    "protein_source": "egg",
+    "ingredients": [
+      {
+        "ingredient_app_id": "basmati_rice_raw",
+        "quantity_grams": 120.0,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": "cooked and cooled completely"
+      },
+      {
+        "ingredient_app_id": "egg_whole_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 2.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "carrot_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "french_beans_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 10.0,
+        "display_unit": "piece",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "capsicum_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "finely minced"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 15.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "black_pepper_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": "crushed"
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Crack eggs into a bowl, whisk slightly, and scramble them in a heated pan with a few drops of oil. Set scrambled eggs aside.",
+      "In a wok or large pan, heat the remaining oil on high heat.",
+      "Add minced garlic and stir-fry for a few seconds until fragrant.",
+      "Add carrots and french beans, tossing continuously for 2-3 minutes.",
+      "Add chopped capsicum and cook for another minute, keeping the vegetables crunchy.",
+      "Add the cooked, cooled rice to the wok along with scrambled eggs.",
+      "Sprinkle salt and crushed black pepper.",
+      "Toss everything together on high heat for 2-3 minutes until the rice is heated through.",
+      "Serve hot immediately."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Egg White Bhurji Bowl",
+    "name_alt": "",
+    "slug": "egg-white-bhurji-bowl",
+    "meal_type": "lunch",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "eggetarian",
+      "gluten_free",
+      "dairy_free",
+      "nut_free",
+      "low_carb",
+      "high_protein"
+    ],
+    "allergen_tags": [
+      "eggs"
+    ],
+    "prep_time_min": 10,
+    "cook_time_min": 10,
+    "servings": 2,
+    "estimated_difficulty": "beginner",
+    "spice_level": "mild",
+    "protein_source": "egg",
+    "ingredients": [
+      {
+        "ingredient_app_id": "egg_whole_raw",
+        "quantity_grams": 200.0,
+        "display_quantity": 4.0,
+        "display_unit": "piece",
+        "notes": "use whites only"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 80.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "green_chilli_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "piece",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 1.0,
+        "display_quantity": 0.25,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Separate the egg whites from the yolks and whisk the egg whites slightly in a bowl.",
+      "Heat a minimal amount of oil in a non-stick pan over medium heat.",
+      "Add chopped onions and green chilli, sautéing until onions are soft.",
+      "Stir in chopped tomatoes and turmeric powder, cooking for 2 minutes.",
+      "Pour in the egg whites and continuously stir to scramble them.",
+      "Add salt and cook for a few more minutes until the egg whites are fully cooked but not rubbery.",
+      "Transfer to a bowl and serve warm."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Egg Drop Rasam",
+    "name_alt": "Muttai Rasam",
+    "slug": "egg-drop-rasam",
+    "meal_type": "dinner",
+    "cuisine": "tamil",
+    "diet_tags": [
+      "eggetarian",
+      "gluten_free",
+      "dairy_free",
+      "nut_free",
+      "low_carb"
+    ],
+    "allergen_tags": [
+      "eggs",
+      "mustard",
+      "sesame"
+    ],
+    "prep_time_min": 10,
+    "cook_time_min": 15,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "hot",
+    "protein_source": "egg",
+    "ingredients": [
+      {
+        "ingredient_app_id": "egg_whole_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 2.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "tamarind_pulp_raw",
+        "quantity_grams": 20.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 80.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "mashed"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 3.0,
+        "display_unit": "piece",
+        "notes": "crushed"
+      },
+      {
+        "ingredient_app_id": "cumin_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "crushed"
+      },
+      {
+        "ingredient_app_id": "black_pepper_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "crushed"
+      },
+      {
+        "ingredient_app_id": "mustard_seeds_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "curry_leaves_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 10.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "sesame_oil_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "chopped"
+      }
+    ],
+    "instructions": [
+      "In a bowl, mix tamarind pulp and mashed tomato with 2 cups of water.",
+      "Heat sesame oil in a pot, add mustard seeds and let them crackle.",
+      "Add curry leaves and the freshly crushed mixture of garlic, cumin, and black pepper. Sauté for 1 minute.",
+      "Pour in the tamarind-tomato water and add salt. Bring to a gentle boil.",
+      "Reduce the heat to a simmer. Crack the eggs directly into the simmering rasam.",
+      "Do not stir immediately; let the eggs poach in the hot liquid for 3-4 minutes until set.",
+      "Gently stir to ensure the rasam flavors meld. Garnish with coriander leaves.",
+      "Serve hot as a soup or with rice."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Masala Egg Curry",
+    "name_alt": "Anda Rassa",
+    "slug": "masala-egg-curry",
+    "meal_type": "dinner",
+    "cuisine": "maharashtrian",
+    "diet_tags": [
+      "eggetarian",
+      "gluten_free",
+      "dairy_free",
+      "high_protein"
+    ],
+    "allergen_tags": [
+      "eggs",
+      "peanuts",
+      "sesame"
+    ],
+    "prep_time_min": 15,
+    "cook_time_min": 30,
+    "servings": 4,
+    "estimated_difficulty": "advanced",
+    "spice_level": "medium",
+    "protein_source": "egg",
+    "ingredients": [
+      {
+        "ingredient_app_id": "egg_whole_raw",
+        "quantity_grams": 400.0,
+        "display_quantity": 8.0,
+        "display_unit": "piece",
+        "notes": "hard boiled"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 200.0,
+        "display_quantity": 2.0,
+        "display_unit": "large",
+        "notes": "sliced"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 150.0,
+        "display_quantity": 2.0,
+        "display_unit": "medium",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "sesame_seeds_raw",
+        "quantity_grams": 20.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": "dry roasted"
+      },
+      {
+        "ingredient_app_id": "peanut_raw",
+        "quantity_grams": 30.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": "dry roasted"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 15.0,
+        "display_quantity": 1.5,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 25.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "garam_masala_raw",
+        "quantity_grams": 6.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 15.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": "chopped"
+      }
+    ],
+    "instructions": [
+      "In a pan, dry roast sesame seeds and peanuts until fragrant, then grind into a fine paste with a little water.",
+      "Heat a little oil and sauté sliced onions, ginger, and garlic until golden. Cool and blend into a smooth paste.",
+      "Heat the remaining oil in a heavy-bottomed pan, add the onion paste, and cook until oil separates.",
+      "Add chopped tomatoes, turmeric, red chilli powder, and garam masala. Cook until tomatoes are completely soft.",
+      "Stir in the peanut-sesame paste and cook for 3-4 minutes.",
+      "Add 1.5 cups of water and salt, bringing the curry to a boil, then simmering until it reaches desired thickness.",
+      "Make small incisions on the boiled eggs and drop them into the simmering gravy.",
+      "Cook for another 5 minutes, garnish with coriander leaves, and serve with bhakri or rice."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Masala Egg Salad",
+    "name_alt": "",
+    "slug": "masala-egg-salad",
+    "meal_type": "dinner",
+    "cuisine": "continental",
+    "diet_tags": [
+      "eggetarian",
+      "gluten_free",
+      "dairy_free",
+      "nut_free",
+      "low_carb",
+      "high_protein"
+    ],
+    "allergen_tags": [
+      "eggs"
+    ],
+    "prep_time_min": 15,
+    "cook_time_min": 0,
+    "servings": 2,
+    "estimated_difficulty": "beginner",
+    "spice_level": "mild",
+    "protein_source": "egg",
+    "ingredients": [
+      {
+        "ingredient_app_id": "egg_whole_raw",
+        "quantity_grams": 200.0,
+        "display_quantity": 4.0,
+        "display_unit": "piece",
+        "notes": "hard boiled"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "diced"
+      },
+      {
+        "ingredient_app_id": "capsicum_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "diced"
+      },
+      {
+        "ingredient_app_id": "carrot_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "grated"
+      },
+      {
+        "ingredient_app_id": "lemon_juice_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "black_pepper_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": "freshly ground"
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": "chopped"
+      }
+    ],
+    "instructions": [
+      "Peel the hard-boiled eggs and cut them into quarters or chunks.",
+      "In a large mixing bowl, combine the chopped onion, tomato, capsicum, and grated carrot.",
+      "Add lemon juice, black pepper, and salt to the vegetables and toss gently to coat.",
+      "Add the boiled egg chunks to the bowl.",
+      "Gently mix everything together, being careful not to mash the egg yolks entirely.",
+      "Garnish with freshly chopped coriander leaves.",
+      "Serve immediately as a light dinner or side dish."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Chicken Keema Paratha",
+    "name_alt": "Keema Parotta",
+    "slug": "chicken-keema-paratha",
+    "meal_type": "breakfast",
+    "cuisine": "punjabi",
+    "diet_tags": [
+      "high_protein",
+      "dairy_free",
+      "nut_free"
+    ],
+    "allergen_tags": [
+      "gluten"
+    ],
+    "prep_time_min": 20,
+    "cook_time_min": 20,
+    "servings": 2,
+    "estimated_difficulty": "advanced",
+    "spice_level": "hot",
+    "protein_source": "chicken",
+    "ingredients": [
+      {
+        "ingredient_app_id": "chicken_breast_raw",
+        "quantity_grams": 200.0,
+        "display_quantity": 200.0,
+        "display_unit": "g",
+        "notes": "minced"
+      },
+      {
+        "ingredient_app_id": "whole_wheat_flour_raw",
+        "quantity_grams": 120.0,
+        "display_quantity": 1.0,
+        "display_unit": "cup",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "green_chilli_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 2.0,
+        "display_unit": "piece",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "grated"
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 15.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "for cooking and stuffing"
+      },
+      {
+        "ingredient_app_id": "garam_masala_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Knead whole wheat flour with water and a pinch of salt into a soft dough, then cover and rest.",
+      "Heat half the oil in a pan, add chopped onion, green chilli, and ginger, cooking until onions soften.",
+      "Add minced chicken breast, salt, red chilli powder, and garam masala to the pan.",
+      "Cook the chicken mix thoroughly for 8-10 minutes until completely dry, then mix in fresh coriander leaves and let cool.",
+      "Divide the rested dough into two equal portions and roll each into a small disc.",
+      "Place half of the cooled chicken stuffing in the center of a dough disc, pleat the edges to seal, and flatten.",
+      "Roll out the stuffed dough gently into a thick paratha using dry flour to avoid tearing.",
+      "Cook on a hot tawa on both sides, applying the remaining oil until golden brown spots appear.",
+      "Repeat the rolling and cooking process for the second portion and serve hot."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Chicken Poha",
+    "name_alt": "Keema Poha",
+    "slug": "chicken-poha",
+    "meal_type": "breakfast",
+    "cuisine": "maharashtrian",
+    "diet_tags": [
+      "high_protein",
+      "dairy_free",
+      "nut_free",
+      "gluten_free"
+    ],
+    "allergen_tags": [
+      "mustard"
+    ],
+    "prep_time_min": 15,
+    "cook_time_min": 15,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "medium",
+    "protein_source": "chicken",
+    "ingredients": [
+      {
+        "ingredient_app_id": "poha_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.5,
+        "display_unit": "cup",
+        "notes": "thick variety"
+      },
+      {
+        "ingredient_app_id": "chicken_breast_raw",
+        "quantity_grams": 160.0,
+        "display_quantity": 160.0,
+        "display_unit": "g",
+        "notes": "finely minced or chopped"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 70.0,
+        "display_quantity": 1.0,
+        "display_unit": "small",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "green_chilli_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 1.5,
+        "display_unit": "piece",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "groundnut_oil_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "mustard_seeds_raw",
+        "quantity_grams": 1.5,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "curry_leaves_raw",
+        "quantity_grams": 1.0,
+        "display_quantity": 8.0,
+        "display_unit": "piece",
+        "notes": "fresh"
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 1.0,
+        "display_quantity": 0.25,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.75,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "lemon_juice_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "chopped"
+      }
+    ],
+    "instructions": [
+      "Rinse poha in a colander under running water for a few seconds, drain completely, and set aside to soften.",
+      "Heat groundnut oil in a pan, add mustard seeds, and let them splutter.",
+      "Add the chopped onion, green chilli, and curry leaves to the pan, sautéing until onions turn translucent.",
+      "Add the finely minced chicken breast, turmeric powder, and half the salt.",
+      "Sauté the chicken on medium heat for 6-8 minutes until it is completely cooked and slightly browned.",
+      "Fluff the softened poha gently with a fork and add it to the pan along with the remaining salt.",
+      "Mix everything thoroughly but gently to avoid breaking the flattened rice grains.",
+      "Cover the pan with a lid and steam on low heat for 2-3 minutes.",
+      "Turn off the heat, stir in lemon juice and fresh coriander leaves, then serve hot."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Chicken Curry with Rice",
+    "name_alt": "Tariwala Chicken Rice",
+    "slug": "chicken-curry-with-rice",
+    "meal_type": "lunch",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "high_protein",
+      "dairy_free",
+      "nut_free",
+      "gluten_free"
+    ],
+    "allergen_tags": [],
+    "prep_time_min": 15,
+    "cook_time_min": 30,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "medium",
+    "protein_source": "chicken",
+    "ingredients": [
+      {
+        "ingredient_app_id": "chicken_thigh_raw",
+        "quantity_grams": 250.0,
+        "display_quantity": 250.0,
+        "display_unit": "g",
+        "notes": "boneless, diced"
+      },
+      {
+        "ingredient_app_id": "basmati_rice_raw",
+        "quantity_grams": 120.0,
+        "display_quantity": 0.6,
+        "display_unit": "cup",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "pureed"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 15.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 1.5,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "garam_masala_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.25,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "chopped"
+      }
+    ],
+    "instructions": [
+      "Wash and soak the basmati rice in water for 20 minutes, then drain.",
+      "Boil the soaked rice in water with a pinch of salt until fully cooked, drain excess water, and set aside.",
+      "Heat sunflower oil in a separate pan, add chopped onions, and sauté until golden brown.",
+      "Add ginger paste and garlic paste, frying for another minute until fragrant.",
+      "Stir in the tomato puree, turmeric powder, red chilli powder, and salt, cooking until the oil begins to separate.",
+      "Add the diced chicken thigh pieces and stir well to coat them thoroughly with the masala base.",
+      "Pour in one cup of water, cover the pan, and simmer on low heat for 15 minutes until the chicken is tender.",
+      "Sprinkle garam masala and simmer for another 2 minutes, then garnish with fresh coriander leaves.",
+      "Serve the chicken curry hot alongside the cooked basmati rice."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Chicken Biryani",
+    "name_alt": "South Indian Chicken Biryani",
+    "slug": "chicken-biryani",
+    "meal_type": "lunch",
+    "cuisine": "south_indian",
+    "diet_tags": [
+      "high_protein",
+      "gluten_free",
+      "nut_free"
+    ],
+    "allergen_tags": [
+      "dairy"
+    ],
+    "prep_time_min": 25,
+    "cook_time_min": 35,
+    "servings": 4,
+    "estimated_difficulty": "advanced",
+    "spice_level": "hot",
+    "protein_source": "chicken",
+    "ingredients": [
+      {
+        "ingredient_app_id": "chicken_thigh_raw",
+        "quantity_grams": 450.0,
+        "display_quantity": 450.0,
+        "display_unit": "g",
+        "notes": "cut into pieces"
+      },
+      {
+        "ingredient_app_id": "basmati_rice_raw",
+        "quantity_grams": 240.0,
+        "display_quantity": 1.25,
+        "display_unit": "cup",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "curd_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "ghee_raw",
+        "quantity_grams": 20.0,
+        "display_quantity": 1.5,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 150.0,
+        "display_quantity": 1.5,
+        "display_unit": "medium",
+        "notes": "sliced"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "green_chilli_raw",
+        "quantity_grams": 6.0,
+        "display_quantity": 3.0,
+        "display_unit": "piece",
+        "notes": "slit lengthwise"
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "cinnamon_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 2.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "cloves_raw",
+        "quantity_grams": 1.0,
+        "display_quantity": 4.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 8.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 15.0,
+        "display_quantity": 3.0,
+        "display_unit": "tbsp",
+        "notes": "chopped"
+      }
+    ],
+    "instructions": [
+      "Marinate the chicken pieces with curd, turmeric powder, red chilli powder, and half the salt for 30 minutes.",
+      "Wash the basmati rice and soak it in water for 20 minutes, then drain completely.",
+      "Parboil the soaked rice in plenty of salted water with cloves and cinnamon until it is 70% cooked, then drain.",
+      "Heat ghee in a large heavy-bottomed pot, add the sliced onions, and fry until golden brown.",
+      "Add the ginger and garlic pastes along with slit green chillies, sautéing for 2 minutes.",
+      "Add the chopped tomatoes and cook until they soften completely.",
+      "Add the marinated chicken pieces to the pot and cook on high heat for 5 minutes until sealed.",
+      "Reduce heat, cover, and let the chicken cook in its own juices for 10 minutes.",
+      "Layer the parboiled rice evenly over the chicken base, scatter fresh coriander leaves on top, cover tightly, and cook on very low heat (Dum) for 15 minutes before serving."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Butter Chicken Lite",
+    "name_alt": "Murgh Makhani Slim",
+    "slug": "butter-chicken-lite",
+    "meal_type": "lunch",
+    "cuisine": "punjabi",
+    "diet_tags": [
+      "high_protein",
+      "gluten_free"
+    ],
+    "allergen_tags": [
+      "dairy",
+      "tree_nuts"
+    ],
+    "prep_time_min": 20,
+    "cook_time_min": 25,
+    "servings": 2,
+    "estimated_difficulty": "advanced",
+    "spice_level": "mild",
+    "protein_source": "chicken",
+    "ingredients": [
+      {
+        "ingredient_app_id": "chicken_breast_raw",
+        "quantity_grams": 250.0,
+        "display_quantity": 250.0,
+        "display_unit": "g",
+        "notes": "cubed"
+      },
+      {
+        "ingredient_app_id": "curd_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 0.25,
+        "display_unit": "cup",
+        "notes": "for marinade"
+      },
+      {
+        "ingredient_app_id": "butter_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 200.0,
+        "display_quantity": 2.0,
+        "display_unit": "medium",
+        "notes": "pureed"
+      },
+      {
+        "ingredient_app_id": "cashew_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 5.0,
+        "display_unit": "piece",
+        "notes": "soaked and ground to paste"
+      },
+      {
+        "ingredient_app_id": "fresh_cream_raw",
+        "quantity_grams": 15.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "kasuri_methi_raw",
+        "quantity_grams": 1.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": "crushed"
+      },
+      {
+        "ingredient_app_id": "garam_masala_raw",
+        "quantity_grams": 1.5,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Marinate chicken breast cubes with curd, ginger paste, garlic paste, and half the salt for 20 minutes.",
+      "Heat a non-stick pan over medium heat, add the marinated chicken, and cook until golden and tender, then remove.",
+      "In the same pan, melt the butter, then add the pureed tomatoes and cook for 5 minutes.",
+      "Stir the ground cashew paste into the tomatoes and simmer until the mixture thickens slightly.",
+      "Add the remaining salt, garam masala, and a splash of water to form a smooth gravy.",
+      "Return the cooked chicken pieces to the gravy and simmer together for 5 minutes.",
+      "Stir in the fresh cream and crushed kasuri methi, blending well on low heat.",
+      "Remove from heat and serve hot."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Chicken Tikka Salad",
+    "name_alt": "Tikka Salad",
+    "slug": "chicken-tikka-salad",
+    "meal_type": "lunch",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "high_protein",
+      "gluten_free",
+      "nut_free",
+      "low_carb"
+    ],
+    "allergen_tags": [
+      "dairy"
+    ],
+    "prep_time_min": 15,
+    "cook_time_min": 15,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "medium",
+    "protein_source": "chicken",
+    "ingredients": [
+      {
+        "ingredient_app_id": "chicken_breast_raw",
+        "quantity_grams": 240.0,
+        "display_quantity": 240.0,
+        "display_unit": "g",
+        "notes": "cut into bite-sized strips"
+      },
+      {
+        "ingredient_app_id": "curd_raw",
+        "quantity_grams": 40.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 60.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "sliced"
+      },
+      {
+        "ingredient_app_id": "capsicum_raw",
+        "quantity_grams": 80.0,
+        "display_quantity": 1.0,
+        "display_unit": "small",
+        "notes": "sliced"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 80.0,
+        "display_quantity": 1.0,
+        "display_unit": "small",
+        "notes": "deseeded and sliced"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 6.0,
+        "display_quantity": 1.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "garam_masala_raw",
+        "quantity_grams": 1.5,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.75,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "lemon_juice_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Marinate the chicken strips in curd, red chilli powder, garam masala, and half the salt for 15 minutes.",
+      "Heat the sunflower oil in a non-stick pan over medium-high heat.",
+      "Add the marinated chicken strips and pan-sear them for 6-8 minutes until cooked through and lightly charred.",
+      "In a large mixing bowl, combine the sliced onions, capsicum, and deseeded tomatoes.",
+      "Transfer the hot chicken tikka pieces into the bowl with the fresh vegetables.",
+      "Toss the mixture together with the remaining salt and lemon juice.",
+      "Serve immediately as a light, high-protein meal."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Chicken Fried Rice",
+    "name_alt": "Indo-Chinese Chicken Fried Rice",
+    "slug": "chicken-fried-rice",
+    "meal_type": "lunch",
+    "cuisine": "chinese_indo",
+    "diet_tags": [
+      "high_protein",
+      "dairy_free",
+      "nut_free",
+      "gluten_free"
+    ],
+    "allergen_tags": [],
+    "prep_time_min": 15,
+    "cook_time_min": 15,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "mild",
+    "protein_source": "chicken",
+    "ingredients": [
+      {
+        "ingredient_app_id": "sona_masoori_rice_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": "cooked and cooled completely"
+      },
+      {
+        "ingredient_app_id": "chicken_breast_raw",
+        "quantity_grams": 180.0,
+        "display_quantity": 180.0,
+        "display_unit": "g",
+        "notes": "shredded or finely cubed"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 12.0,
+        "display_quantity": 2.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 6.0,
+        "display_quantity": 1.5,
+        "display_unit": "tsp",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 40.0,
+        "display_quantity": 0.5,
+        "display_unit": "small",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "carrot_raw",
+        "quantity_grams": 40.0,
+        "display_quantity": 0.5,
+        "display_unit": "small",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "french_beans_raw",
+        "quantity_grams": 30.0,
+        "display_quantity": 0.25,
+        "display_unit": "cup",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "black_pepper_raw",
+        "quantity_grams": 1.5,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": "crushed"
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.75,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Cook the Sona Masoori rice in advance, drain thoroughly, fluff, and ensure it is completely cold before using.",
+      "Heat half the sunflower oil in a wok or deep pan over high heat, add the chicken pieces, and stir-fry until cooked and white throughout, then remove.",
+      "Add the remaining oil to the same wok on high heat and toss in the chopped garlic and onions, stir-frying for 1 minute.",
+      "Add the finely chopped carrots and french beans, stir-frying rapidly for 2-3 minutes so they stay crisp.",
+      "Return the cooked chicken back to the wok alongside the vegetables.",
+      "Add the cold cooked rice, spreading it evenly across the wok.",
+      "Season everything with salt and freshly crushed black pepper.",
+      "Toss the fried rice continuously on high heat for 2 minutes until everything is evenly incorporated and heated through."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Chicken Chettinad",
+    "name_alt": "Chettinad Kozhi Curry",
+    "slug": "chicken-chettinad",
+    "meal_type": "lunch",
+    "cuisine": "tamil",
+    "diet_tags": [
+      "high_protein",
+      "dairy_free",
+      "nut_free",
+      "gluten_free"
+    ],
+    "allergen_tags": [
+      "sesame"
+    ],
+    "prep_time_min": 20,
+    "cook_time_min": 30,
+    "servings": 2,
+    "estimated_difficulty": "advanced",
+    "spice_level": "very_hot",
+    "protein_source": "chicken",
+    "ingredients": [
+      {
+        "ingredient_app_id": "chicken_thigh_raw",
+        "quantity_grams": 260.0,
+        "display_quantity": 260.0,
+        "display_unit": "g",
+        "notes": "cut into curry pieces"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 80.0,
+        "display_quantity": 1.0,
+        "display_unit": "small",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "sesame_oil_raw",
+        "quantity_grams": 15.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "Gingelly oil"
+      },
+      {
+        "ingredient_app_id": "coriander_seeds_raw",
+        "quantity_grams": 6.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": "for chettinad paste"
+      },
+      {
+        "ingredient_app_id": "cumin_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "for chettinad paste"
+      },
+      {
+        "ingredient_app_id": "fennel_seeds_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "for chettinad paste"
+      },
+      {
+        "ingredient_app_id": "dried_red_chilli_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 4.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "curry_leaves_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 10.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 1.0,
+        "display_quantity": 0.25,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Dry roast coriander seeds, cumin, fennel seeds, and dried red chillies in a pan until fragrant, then grind with a little water into a smooth masala paste.",
+      "Heat sesame oil in a pot, add the fresh curry leaves, and let them crackle.",
+      "Add the chopped onions and sauté until dark golden brown.",
+      "Stir in the ginger paste and garlic paste, frying for 1 minute to remove the raw smell.",
+      "Add the chopped tomatoes and turmeric powder, cooking until the tomatoes mash completely.",
+      "Add the prepared Chettinad masala paste and salt, stir-frying for 2 minutes over medium heat.",
+      "Add the chicken thigh pieces and toss thoroughly to coat them in the rich spice mixture.",
+      "Pour in half a cup of water, cover the pot, and cook on medium-low heat for 18-20 minutes until the chicken is tender and the gravy is thick."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Grilled Chicken and Veggie Bowl",
+    "name_alt": "Continental Chicken Bowl",
+    "slug": "grilled-chicken-and-veggie-bowl",
+    "meal_type": "dinner",
+    "cuisine": "continental",
+    "diet_tags": [
+      "high_protein",
+      "dairy_free",
+      "nut_free",
+      "gluten_free",
+      "low_carb"
+    ],
+    "allergen_tags": [],
+    "prep_time_min": 15,
+    "cook_time_min": 15,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "mild",
+    "protein_source": "chicken",
+    "ingredients": [
+      {
+        "ingredient_app_id": "chicken_breast_raw",
+        "quantity_grams": 250.0,
+        "display_quantity": 250.0,
+        "display_unit": "g",
+        "notes": "filleted"
+      },
+      {
+        "ingredient_app_id": "capsicum_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "diced"
+      },
+      {
+        "ingredient_app_id": "carrot_raw",
+        "quantity_grams": 80.0,
+        "display_quantity": 1.0,
+        "display_unit": "small",
+        "notes": "sliced"
+      },
+      {
+        "ingredient_app_id": "cauliflower_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.0,
+        "display_unit": "cup",
+        "notes": "small florets"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "black_pepper_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.75,
+        "display_unit": "tsp",
+        "notes": "freshly crushed"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "minced"
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.75,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "lemon_juice_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Marinate the chicken breast fillets with minced garlic, lemon juice, half the crushed black pepper, and half the salt for 15 minutes.",
+      "Steam the sliced carrots and cauliflower florets for 4-5 minutes until tender-crisp, then set aside.",
+      "Heat half the sunflower oil in a grill pan or non-stick skillet over medium-high heat.",
+      "Place the marinated chicken breast fillets in the pan and grill for 5-6 minutes on each side until fully cooked.",
+      "Remove the cooked chicken from the pan, let it rest briefly, and slice into strips.",
+      "Add the remaining oil to the same pan and toss in the diced capsicum along with the steamed carrots and cauliflower.",
+      "Sauté the vegetables on high heat for 2 minutes, seasoning with the remaining salt and black pepper.",
+      "Assemble the meal bowls by placing the sautéed vegetables on one side and the grilled chicken strips on the other."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Chicken Saagwala",
+    "name_alt": "Palak Chicken",
+    "slug": "chicken-saagwala",
+    "meal_type": "dinner",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "high_protein",
+      "dairy_free",
+      "nut_free",
+      "gluten_free",
+      "low_carb"
+    ],
+    "allergen_tags": [],
+    "prep_time_min": 20,
+    "cook_time_min": 25,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "medium",
+    "protein_source": "chicken",
+    "ingredients": [
+      {
+        "ingredient_app_id": "chicken_thigh_raw",
+        "quantity_grams": 250.0,
+        "display_quantity": 250.0,
+        "display_unit": "g",
+        "notes": "boneless, cubed"
+      },
+      {
+        "ingredient_app_id": "spinach_raw",
+        "quantity_grams": 250.0,
+        "display_quantity": 1.0,
+        "display_unit": "bunch",
+        "notes": "blanched and pureed"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 80.0,
+        "display_quantity": 1.0,
+        "display_unit": "small",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 60.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "cumin_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": "seeds"
+      },
+      {
+        "ingredient_app_id": "garam_masala_raw",
+        "quantity_grams": 1.5,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Blanch the fresh spinach leaves in boiling water for 2 minutes, plunge them into cold water, and puree smoothly.",
+      "Heat sunflower oil in a pan, add the cumin seeds, and let them sizzle.",
+      "Add the finely chopped onions and sauté until translucent.",
+      "Incorporate the ginger paste and garlic paste, frying for an additional minute.",
+      "Add the chopped tomatoes and cook until they soften completely.",
+      "Add the chicken thigh cubes and sauté for 5 minutes until the meat turns opaque.",
+      "Pour in the spinach puree and add the salt, mixing thoroughly.",
+      "Cover the pan and simmer on low heat for 10-12 minutes until the chicken is thoroughly cooked.",
+      "Stir in the garam masala just before turning off the heat, mixing gently."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Chicken Shorba",
+    "name_alt": "Murgh Shorba",
+    "slug": "chicken-shorba",
+    "meal_type": "dinner",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "high_protein",
+      "dairy_free",
+      "nut_free",
+      "gluten_free",
+      "low_carb"
+    ],
+    "allergen_tags": [],
+    "prep_time_min": 10,
+    "cook_time_min": 20,
+    "servings": 2,
+    "estimated_difficulty": "beginner",
+    "spice_level": "mild",
+    "protein_source": "chicken",
+    "ingredients": [
+      {
+        "ingredient_app_id": "chicken_breast_raw",
+        "quantity_grams": 180.0,
+        "display_quantity": 180.0,
+        "display_unit": "g",
+        "notes": "cut into very small cubes"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 6.0,
+        "display_quantity": 1.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "cumin_raw",
+        "quantity_grams": 1.5,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": "powder"
+      },
+      {
+        "ingredient_app_id": "black_pepper_raw",
+        "quantity_grams": 1.5,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": "powder"
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 0.5,
+        "display_quantity": 0.12,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.75,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "chopped"
+      }
+    ],
+    "instructions": [
+      "Heat sunflower oil in a deep pot, add the chopped onions, and sauté until they turn light brown.",
+      "Add the ginger paste and garlic paste, sautéing briefly for 30 seconds.",
+      "Add the small chicken breast cubes along with turmeric powder, cumin powder, and half the black pepper.",
+      "Sauté the chicken pieces for 3-4 minutes until they turn white exteriorly.",
+      "Pour in 2.5 cups of water and add the salt, stirring well to combine.",
+      "Bring the soup to a boil, then reduce the heat, cover with a lid, and simmer for 12-15 minutes.",
+      "Stir in the remaining black pepper powder and check the seasoning.",
+      "Garnish with fresh chopped coriander leaves and serve warm as a soothing broth."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Tandoori Chicken",
+    "name_alt": "Tandoori Murgh",
+    "slug": "tandoori-chicken",
+    "meal_type": "dinner",
+    "cuisine": "punjabi",
+    "diet_tags": [
+      "high_protein",
+      "gluten_free",
+      "nut_free",
+      "low_carb"
+    ],
+    "allergen_tags": [
+      "dairy",
+      "mustard"
+    ],
+    "prep_time_min": 20,
+    "cook_time_min": 25,
+    "servings": 2,
+    "estimated_difficulty": "advanced",
+    "spice_level": "hot",
+    "protein_source": "chicken",
+    "ingredients": [
+      {
+        "ingredient_app_id": "chicken_thigh_raw",
+        "quantity_grams": 300.0,
+        "display_quantity": 300.0,
+        "display_unit": "g",
+        "notes": "boneless, cut into large chunks"
+      },
+      {
+        "ingredient_app_id": "curd_raw",
+        "quantity_grams": 80.0,
+        "display_quantity": 0.33,
+        "display_unit": "cup",
+        "notes": "thick hung curd"
+      },
+      {
+        "ingredient_app_id": "mustard_oil_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "preferably Kashmiri variety"
+      },
+      {
+        "ingredient_app_id": "garam_masala_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "kasuri_methi_raw",
+        "quantity_grams": 1.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": "crushed"
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "lemon_juice_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Make shallow cuts across the chicken thigh chunks to help the marinade penetrate.",
+      "In a bowl, mix thick curd, mustard oil, ginger paste, garlic paste, red chilli powder, garam masala, crushed kasuri methi, salt, and lemon juice into a smooth paste.",
+      "Rub the marinade thoroughly into the chicken pieces and set aside to rest for at least 30 minutes.",
+      "Preheat your oven to 220°C (or heat a non-stick grill pan over high heat).",
+      "Place the marinated chicken chunks on a wire rack or directly onto the hot pan.",
+      "Roast or pan-grill for 10-12 minutes on one side until slightly charred.",
+      "Flip the chicken pieces over and cook the other side for another 10 minutes until completely cooked and edges are smoky.",
+      "Remove from heat, let it rest for 2 minutes, and serve hot."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Mutton Keema",
+    "name_alt": "Kheema Matar",
+    "slug": "mutton-keema",
+    "meal_type": "lunch",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "high_protein",
+      "gluten_free",
+      "dairy_free",
+      "low_carb"
+    ],
+    "allergen_tags": [],
+    "prep_time_min": 15,
+    "cook_time_min": 45,
+    "servings": 4,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "hot",
+    "protein_source": "mutton",
+    "ingredients": [
+      {
+        "ingredient_app_id": "mutton_raw",
+        "quantity_grams": 400.0,
+        "display_quantity": 400.0,
+        "display_unit": "g",
+        "notes": "minced"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 200.0,
+        "display_quantity": 2.0,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 150.0,
+        "display_quantity": 2.0,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "green_peas_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": "shelled"
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "minced"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "minced"
+      },
+      {
+        "ingredient_app_id": "green_chilli_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "piece",
+        "notes": "slit"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 30.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "cumin_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_seeds_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": "powdered"
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "garam_masala_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 8.0,
+        "display_quantity": 1.5,
+        "display_unit": "tsp",
+        "notes": "to taste"
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": "chopped for garnish"
+      }
+    ],
+    "instructions": [
+      "Heat sunflower oil in a thick-bottomed pan or kadhai.",
+      "Add cumin seeds and let them splutter.",
+      "Add chopped onions and sauté until golden brown.",
+      "Add minced ginger, garlic, and green chillies, sautéing for another 2 minutes.",
+      "Mix in tomatoes, coriander powder, red chilli powder, turmeric, and salt. Cook until oil separates.",
+      "Add the minced mutton (keema) and roast it on medium-high heat for 10-15 minutes until it changes color completely.",
+      "Add green peas and a splash of water. Cover and simmer for 15-20 minutes until mutton and peas are fully cooked.",
+      "Sprinkle garam masala and mix well.",
+      "Garnish with fresh coriander leaves and serve hot."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Mutton Rogan Josh",
+    "name_alt": "Kashmiri Rogan Josh",
+    "slug": "mutton-rogan-josh",
+    "meal_type": "lunch",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "high_protein",
+      "gluten_free",
+      "low_carb"
+    ],
+    "allergen_tags": [
+      "dairy",
+      "mustard"
+    ],
+    "prep_time_min": 20,
+    "cook_time_min": 60,
+    "servings": 4,
+    "estimated_difficulty": "advanced",
+    "spice_level": "hot",
+    "protein_source": "mutton",
+    "ingredients": [
+      {
+        "ingredient_app_id": "mutton_raw",
+        "quantity_grams": 500.0,
+        "display_quantity": 500.0,
+        "display_unit": "g",
+        "notes": "curry cut"
+      },
+      {
+        "ingredient_app_id": "curd_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": "whisked"
+      },
+      {
+        "ingredient_app_id": "mustard_oil_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 3.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 200.0,
+        "display_quantity": 2.0,
+        "display_unit": "medium",
+        "notes": "finely sliced"
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "fennel_seeds_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": "ground to powder"
+      },
+      {
+        "ingredient_app_id": "black_cardamom_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 2.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "green_cardamom_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 4.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "cloves_raw",
+        "quantity_grams": 1.0,
+        "display_quantity": 4.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "cinnamon_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 1.0,
+        "display_unit": "piece",
+        "notes": "1 inch stick"
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 6.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "Kashmiri variety preferred"
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 8.0,
+        "display_quantity": 1.5,
+        "display_unit": "tsp",
+        "notes": "to taste"
+      }
+    ],
+    "instructions": [
+      "Heat mustard oil in a heavy-bottomed pot until it smokes, then reduce heat.",
+      "Add black cardamom, green cardamom, cloves, and cinnamon. Sauté for 30 seconds.",
+      "Add sliced onions and fry until they turn deep golden brown.",
+      "Add ginger and garlic paste, and sauté for 2 minutes.",
+      "Add mutton pieces and roast on high heat for 10 minutes until well browned.",
+      "Lower the heat and add red chilli powder and salt. Mix thoroughly.",
+      "Gradually stir in the whisked curd, ensuring it does not curdle.",
+      "Add fennel powder and 2 cups of water. Bring to a boil.",
+      "Cover tightly and simmer on low heat for 45-60 minutes until mutton is tender and oil floats on top.",
+      "Serve hot with steamed rice or flatbreads."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Mutton Curry",
+    "name_alt": "Homestyle Mutton Curry",
+    "slug": "mutton-curry",
+    "meal_type": "dinner",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "high_protein",
+      "gluten_free",
+      "dairy_free",
+      "low_carb"
+    ],
+    "allergen_tags": [],
+    "prep_time_min": 20,
+    "cook_time_min": 60,
+    "servings": 4,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "medium",
+    "protein_source": "mutton",
+    "ingredients": [
+      {
+        "ingredient_app_id": "mutton_raw",
+        "quantity_grams": 500.0,
+        "display_quantity": 500.0,
+        "display_unit": "g",
+        "notes": "curry cut"
+      },
+      {
+        "ingredient_app_id": "potato_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "cut into large chunks"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 200.0,
+        "display_quantity": 2.0,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 150.0,
+        "display_quantity": 2.0,
+        "display_unit": "medium",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 40.0,
+        "display_quantity": 3.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "bay_leaf_raw",
+        "quantity_grams": 1.0,
+        "display_quantity": 1.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "cumin_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_seeds_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": "powdered"
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "garam_masala_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 8.0,
+        "display_quantity": 1.5,
+        "display_unit": "tsp",
+        "notes": "to taste"
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": "chopped"
+      }
+    ],
+    "instructions": [
+      "Heat oil in a pressure cooker or deep pot.",
+      "Add bay leaf and cumin seeds; let them splutter.",
+      "Add chopped onions and fry until golden brown.",
+      "Stir in ginger and garlic paste, sautéing until the raw smell disappears.",
+      "Add tomatoes, turmeric, coriander powder, red chilli powder, and salt. Cook until oil separates.",
+      "Add the mutton pieces and sear on medium-high heat for 8-10 minutes.",
+      "Add potato chunks and pour in 1.5 cups of water.",
+      "If using a pressure cooker, cook for 4-5 whistles. If using a pot, cover and simmer for 50-60 minutes until meat is tender.",
+      "Sprinkle garam masala and garnish with fresh coriander leaves.",
+      "Serve hot with rice or roti."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Prawn Masala",
+    "name_alt": "Goan Prawn Masala",
+    "slug": "prawn-masala",
+    "meal_type": "lunch",
+    "cuisine": "goan",
+    "diet_tags": [
+      "high_protein",
+      "gluten_free",
+      "dairy_free",
+      "pescatarian",
+      "low_carb"
+    ],
+    "allergen_tags": [
+      "shellfish",
+      "mustard"
+    ],
+    "prep_time_min": 15,
+    "cook_time_min": 20,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "hot",
+    "protein_source": "fish",
+    "ingredients": [
+      {
+        "ingredient_app_id": "prawns_raw",
+        "quantity_grams": 300.0,
+        "display_quantity": 300.0,
+        "display_unit": "g",
+        "notes": "cleaned and deveined"
+      },
+      {
+        "ingredient_app_id": "coconut_oil_raw",
+        "quantity_grams": 20.0,
+        "display_quantity": 1.5,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 80.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "minced"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "minced"
+      },
+      {
+        "ingredient_app_id": "green_chilli_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "piece",
+        "notes": "slit"
+      },
+      {
+        "ingredient_app_id": "mustard_seeds_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "curry_leaves_raw",
+        "quantity_grams": 1.0,
+        "display_quantity": 1.0,
+        "display_unit": "handful",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 1.0,
+        "display_quantity": 0.25,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_seeds_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "powdered"
+      },
+      {
+        "ingredient_app_id": "tamarind_pulp_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "to taste"
+      }
+    ],
+    "instructions": [
+      "Marinate prawns with turmeric and a pinch of salt for 10 minutes.",
+      "Heat coconut oil in a pan; add mustard seeds and let them pop.",
+      "Add curry leaves, green chilli, and chopped onions. Sauté until onions are soft.",
+      "Mix in ginger and garlic, sautéing for another minute.",
+      "Add tomatoes, red chilli powder, coriander powder, and remaining salt. Cook until tomatoes turn mushy.",
+      "Add tamarind pulp and 1/4 cup of water, bringing the masala to a simmer.",
+      "Gently fold in the marinated prawns.",
+      "Cook for 5-7 minutes until the prawns are opaque and cooked through.",
+      "Serve hot with steamed rice or bread."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Fish Fry (Tawa)",
+    "name_alt": "Pomfret Tawa Fry",
+    "slug": "fish-fry-tawa",
+    "meal_type": "dinner",
+    "cuisine": "goan",
+    "diet_tags": [
+      "high_protein",
+      "gluten_free",
+      "dairy_free",
+      "pescatarian",
+      "low_carb"
+    ],
+    "allergen_tags": [
+      "fish"
+    ],
+    "prep_time_min": 15,
+    "cook_time_min": 15,
+    "servings": 2,
+    "estimated_difficulty": "beginner",
+    "spice_level": "medium",
+    "protein_source": "fish",
+    "ingredients": [
+      {
+        "ingredient_app_id": "pomfret_raw",
+        "quantity_grams": 300.0,
+        "display_quantity": 300.0,
+        "display_unit": "g",
+        "notes": "cleaned whole or steaks"
+      },
+      {
+        "ingredient_app_id": "lemon_juice_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "to taste"
+      },
+      {
+        "ingredient_app_id": "coconut_oil_raw",
+        "quantity_grams": 20.0,
+        "display_quantity": 1.5,
+        "display_unit": "tbsp",
+        "notes": "for shallow frying"
+      }
+    ],
+    "instructions": [
+      "Make slits on the pomfret pieces to allow the marinade to seep in.",
+      "In a small bowl, mix lemon juice, ginger paste, garlic paste, red chilli powder, turmeric, and salt to form a thick paste.",
+      "Rub the marinade evenly over the fish and inside the slits.",
+      "Let the fish marinate for 15-20 minutes.",
+      "Heat coconut oil in a shallow frying pan or tawa.",
+      "Place the marinated fish on the tawa and fry on medium heat for 4-5 minutes per side until crisp and cooked through.",
+      "Drain excess oil and serve hot with onion rings and lemon wedges."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Prawn Curry",
+    "name_alt": "South Indian Prawn Curry",
+    "slug": "prawn-curry",
+    "meal_type": "dinner",
+    "cuisine": "south_indian",
+    "diet_tags": [
+      "high_protein",
+      "gluten_free",
+      "dairy_free",
+      "pescatarian",
+      "low_carb"
+    ],
+    "allergen_tags": [
+      "shellfish",
+      "mustard"
+    ],
+    "prep_time_min": 15,
+    "cook_time_min": 25,
+    "servings": 4,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "medium",
+    "protein_source": "fish",
+    "ingredients": [
+      {
+        "ingredient_app_id": "prawns_raw",
+        "quantity_grams": 500.0,
+        "display_quantity": 500.0,
+        "display_unit": "g",
+        "notes": "cleaned and deveined"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 150.0,
+        "display_quantity": 2.0,
+        "display_unit": "medium",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.0,
+        "display_unit": "large",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "crushed"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "crushed"
+      },
+      {
+        "ingredient_app_id": "mustard_seeds_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "fenugreek_seeds_raw",
+        "quantity_grams": 1.0,
+        "display_quantity": 0.25,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "curry_leaves_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 2.0,
+        "display_unit": "handful",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "tamarind_pulp_raw",
+        "quantity_grams": 20.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "soaked in warm water"
+      },
+      {
+        "ingredient_app_id": "coconut_oil_raw",
+        "quantity_grams": 30.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_seeds_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": "powdered"
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 6.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "to taste"
+      }
+    ],
+    "instructions": [
+      "Heat coconut oil in an earthen pot or heavy pan.",
+      "Add mustard seeds and fenugreek seeds; allow them to splutter.",
+      "Add curry leaves and chopped onions, frying until onions are translucent.",
+      "Stir in crushed ginger and garlic, cooking until fragrant.",
+      "Add tomatoes, turmeric, red chilli powder, and coriander powder. Sauté until tomatoes break down.",
+      "Pour in the tamarind extract along with 1 cup of water and salt. Bring to a rolling boil.",
+      "Add the cleaned prawns, reduce the heat, and simmer gently for 6-8 minutes.",
+      "Once the oil surfaces and prawns are cooked, turn off the heat.",
+      "Let the curry rest for 15 minutes before serving with rice."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Tandoori Fish Tikka Salad",
+    "name_alt": "Rohu Tikka Salad",
+    "slug": "tandoori-fish-tikka-salad",
+    "meal_type": "dinner",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "high_protein",
+      "gluten_free",
+      "pescatarian",
+      "low_carb"
+    ],
+    "allergen_tags": [
+      "fish",
+      "dairy",
+      "mustard"
+    ],
+    "prep_time_min": 20,
+    "cook_time_min": 15,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "medium",
+    "protein_source": "fish",
+    "ingredients": [
+      {
+        "ingredient_app_id": "rohu_raw",
+        "quantity_grams": 300.0,
+        "display_quantity": 300.0,
+        "display_unit": "g",
+        "notes": "boneless pieces"
+      },
+      {
+        "ingredient_app_id": "curd_raw",
+        "quantity_grams": 40.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": "thick or hung curd"
+      },
+      {
+        "ingredient_app_id": "lemon_juice_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 5.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "paste"
+      },
+      {
+        "ingredient_app_id": "garam_masala_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 1.0,
+        "display_quantity": 0.25,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": "to taste"
+      },
+      {
+        "ingredient_app_id": "mustard_oil_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "sliced as salad rings"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "sliced"
+      },
+      {
+        "ingredient_app_id": "capsicum_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "julienned"
+      },
+      {
+        "ingredient_app_id": "carrot_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "grated or julienned"
+      },
+      {
+        "ingredient_app_id": "cabbage_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": "shredded"
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": "chopped"
+      }
+    ],
+    "instructions": [
+      "In a mixing bowl, combine thick curd, ginger paste, garlic paste, lemon juice, garam masala, red chilli powder, turmeric, and half of the salt.",
+      "Add mustard oil to the marinade and whisk well.",
+      "Add the boneless rohu fish pieces to the marinade, coating them evenly. Rest for 15-20 minutes.",
+      "Preheat an oven, air fryer, or heavy pan. Cook the fish tikka for 10-12 minutes until perfectly charred and fully cooked.",
+      "While the fish cooks, toss sliced onion, tomato, capsicum, carrot, and cabbage in a large salad bowl.",
+      "Add the remaining salt, a squeeze of lemon if desired, and fresh coriander leaves to the vegetables.",
+      "Arrange the hot fish tikkas over the mixed salad.",
+      "Serve immediately as a healthy, high-protein dinner."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Paneer Dosa",
+    "name_alt": "Cottage Cheese Crepe",
+    "slug": "paneer-dosa",
+    "meal_type": "breakfast",
+    "cuisine": "south_indian",
+    "diet_tags": [
+      "vegetarian",
+      "gluten_free",
+      "high_protein",
+      "nut_free"
+    ],
+    "allergen_tags": [
+      "dairy"
+    ],
+    "prep_time_min": 480,
+    "cook_time_min": 20,
+    "servings": 2,
+    "estimated_difficulty": "advanced",
+    "spice_level": "mild",
+    "protein_source": "paneer",
+    "ingredients": [
+      {
+        "ingredient_app_id": "idli_rava_raw",
+        "quantity_grams": 100,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "urad_dal_raw",
+        "quantity_grams": 25,
+        "display_quantity": 2,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "fenugreek_seeds_raw",
+        "quantity_grams": 2,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "paneer_raw",
+        "quantity_grams": 100,
+        "display_quantity": 1,
+        "display_unit": "cup",
+        "notes": "grated"
+      },
+      {
+        "ingredient_app_id": "ghee_raw",
+        "quantity_grams": 10,
+        "display_quantity": 2,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4,
+        "display_quantity": 1,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Wash and soak idli rava, urad dal, and fenugreek seeds in water for 6-8 hours.",
+      "Grind the soaked mixture into a smooth batter adding a little water.",
+      "Add salt to the batter, mix well, and let it ferment overnight.",
+      "Heat a non-stick pan or tawa and pour a ladleful of batter, spreading it thinly in a circular motion.",
+      "Drizzle ghee around the edges and cook until the bottom turns golden crisp.",
+      "Sprinkle grated paneer evenly over the dosa.",
+      "Fold the dosa in half and serve hot."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Sprouted Moong Poha",
+    "name_alt": "Matki Poha",
+    "slug": "sprouted-moong-poha",
+    "meal_type": "breakfast",
+    "cuisine": "maharashtrian",
+    "diet_tags": [
+      "vegan",
+      "vegetarian",
+      "gluten_free",
+      "dairy_free",
+      "high_protein"
+    ],
+    "allergen_tags": [
+      "peanuts",
+      "mustard"
+    ],
+    "prep_time_min": 10,
+    "cook_time_min": 15,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "medium",
+    "protein_source": "dal_legume",
+    "ingredients": [
+      {
+        "ingredient_app_id": "poha_raw",
+        "quantity_grams": 100,
+        "display_quantity": 1.5,
+        "display_unit": "cup",
+        "notes": "rinsed well"
+      },
+      {
+        "ingredient_app_id": "moong_sprouts_raw",
+        "quantity_grams": 100,
+        "display_quantity": 1,
+        "display_unit": "cup",
+        "notes": "lightly steamed"
+      },
+      {
+        "ingredient_app_id": "peanut_raw",
+        "quantity_grams": 20,
+        "display_quantity": 2,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "mustard_oil_raw",
+        "quantity_grams": 10,
+        "display_quantity": 2,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "mustard_seeds_raw",
+        "quantity_grams": 2,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "curry_leaves_raw",
+        "quantity_grams": 2,
+        "display_quantity": 10,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "green_chilli_raw",
+        "quantity_grams": 5,
+        "display_quantity": 1,
+        "display_unit": "piece",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 2,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4,
+        "display_quantity": 1,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "lemon_juice_raw",
+        "quantity_grams": 10,
+        "display_quantity": 2,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Rinse poha in a colander and set aside to soften.",
+      "Heat mustard oil in a pan and roast peanuts until crunchy, then remove and set aside.",
+      "In the same oil, add mustard seeds and let them splutter.",
+      "Add curry leaves and chopped green chillies, sautéing for 30 seconds.",
+      "Add lightly steamed moong sprouts, turmeric powder, and salt. Cook for 2-3 minutes.",
+      "Add the softened poha and toss gently to mix well without breaking the flakes.",
+      "Turn off the heat, stir in lemon juice and roasted peanuts.",
+      "Serve hot."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Moong Dal Cheela",
+    "name_alt": "Pesarattu",
+    "slug": "moong-dal-cheela",
+    "meal_type": "breakfast",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "vegan",
+      "vegetarian",
+      "gluten_free",
+      "dairy_free",
+      "nut_free",
+      "high_protein"
+    ],
+    "allergen_tags": [],
+    "prep_time_min": 120,
+    "cook_time_min": 15,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "medium",
+    "protein_source": "dal_legume",
+    "ingredients": [
+      {
+        "ingredient_app_id": "moong_dal_raw",
+        "quantity_grams": 100,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": "soaked for 2 hours"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 50,
+        "display_quantity": 1,
+        "display_unit": "small",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "green_chilli_raw",
+        "quantity_grams": 5,
+        "display_quantity": 1,
+        "display_unit": "piece",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 10,
+        "display_quantity": 2,
+        "display_unit": "tbsp",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "cumin_raw",
+        "quantity_grams": 2,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 2,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4,
+        "display_quantity": 1,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 10,
+        "display_quantity": 2,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Drain the soaked moong dal and blend it into a smooth batter with a little water.",
+      "Transfer the batter to a bowl. Mix in chopped onion, green chilli, coriander leaves, cumin, turmeric, and salt.",
+      "Heat a non-stick tawa or griddle on medium heat and brush with a little oil.",
+      "Pour a ladle of batter onto the center and spread it outwards in a circular motion to form a thin pancake.",
+      "Drizzle a little oil around the edges and cook until the base turns golden and crisp.",
+      "Flip the cheela and cook the other side for another minute.",
+      "Serve hot."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Sprouted Moong Chaat",
+    "name_alt": "Moong Salad",
+    "slug": "sprouted-moong-chaat",
+    "meal_type": "lunch",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "vegan",
+      "vegetarian",
+      "gluten_free",
+      "dairy_free",
+      "nut_free",
+      "high_protein"
+    ],
+    "allergen_tags": [],
+    "prep_time_min": 10,
+    "cook_time_min": 5,
+    "servings": 2,
+    "estimated_difficulty": "beginner",
+    "spice_level": "medium",
+    "protein_source": "dal_legume",
+    "ingredients": [
+      {
+        "ingredient_app_id": "moong_sprouts_raw",
+        "quantity_grams": 150,
+        "display_quantity": 1.5,
+        "display_unit": "cup",
+        "notes": "lightly steamed"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 50,
+        "display_quantity": 1,
+        "display_unit": "small",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 50,
+        "display_quantity": 1,
+        "display_unit": "small",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "green_chilli_raw",
+        "quantity_grams": 5,
+        "display_quantity": 1,
+        "display_unit": "piece",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "coriander_leaves_raw",
+        "quantity_grams": 10,
+        "display_quantity": 2,
+        "display_unit": "tbsp",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 2,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "amchur_powder_raw",
+        "quantity_grams": 2,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 3,
+        "display_quantity": 0.75,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "lemon_juice_raw",
+        "quantity_grams": 15,
+        "display_quantity": 1,
+        "display_unit": "tbsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "In a large mixing bowl, add the lightly steamed moong sprouts.",
+      "Add finely chopped onion, tomato, green chilli, and coriander leaves.",
+      "Sprinkle red chilli powder, amchur powder, and salt over the mixture.",
+      "Pour lemon juice on top.",
+      "Toss everything well so the spices and juice coat the sprouts evenly.",
+      "Serve immediately as a fresh, high-protein meal."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Paneer Tikka Salad",
+    "name_alt": "Cottage Cheese Salad",
+    "slug": "paneer-tikka-salad",
+    "meal_type": "lunch",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "vegetarian",
+      "gluten_free",
+      "nut_free",
+      "high_protein"
+    ],
+    "allergen_tags": [
+      "dairy",
+      "mustard"
+    ],
+    "prep_time_min": 20,
+    "cook_time_min": 10,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "medium",
+    "protein_source": "paneer",
+    "ingredients": [
+      {
+        "ingredient_app_id": "paneer_raw",
+        "quantity_grams": 150,
+        "display_quantity": 1.5,
+        "display_unit": "cup",
+        "notes": "cubed"
+      },
+      {
+        "ingredient_app_id": "curd_raw",
+        "quantity_grams": 50,
+        "display_quantity": 0.25,
+        "display_unit": "cup",
+        "notes": "whisked"
+      },
+      {
+        "ingredient_app_id": "capsicum_raw",
+        "quantity_grams": 100,
+        "display_quantity": 1,
+        "display_unit": "medium",
+        "notes": "cubed"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 100,
+        "display_quantity": 1,
+        "display_unit": "medium",
+        "notes": "cubed"
+      },
+      {
+        "ingredient_app_id": "mustard_oil_raw",
+        "quantity_grams": 10,
+        "display_quantity": 2,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 3,
+        "display_quantity": 1,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 2,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "garam_masala_raw",
+        "quantity_grams": 2,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4,
+        "display_quantity": 1,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "lemon_juice_raw",
+        "quantity_grams": 10,
+        "display_quantity": 2,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "In a bowl, mix curd, mustard oil, red chilli powder, turmeric, garam masala, salt, and lemon juice to make a marinade.",
+      "Add paneer cubes, capsicum, and onion to the marinade. Toss gently to coat and let it rest for 15 minutes.",
+      "Heat a non-stick pan on medium-high heat.",
+      "Add the marinated paneer and vegetables to the pan.",
+      "Cook for 6-8 minutes, turning occasionally until the paneer gets slightly charred edges.",
+      "Remove from heat and serve hot."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Rajma Rice Bowl",
+    "name_alt": "Rajma Chawal",
+    "slug": "rajma-rice-bowl",
+    "meal_type": "lunch",
+    "cuisine": "punjabi",
+    "diet_tags": [
+      "vegan",
+      "vegetarian",
+      "gluten_free",
+      "dairy_free",
+      "nut_free",
+      "high_protein"
+    ],
+    "allergen_tags": [],
+    "prep_time_min": 480,
+    "cook_time_min": 40,
+    "servings": 4,
+    "estimated_difficulty": "advanced",
+    "spice_level": "medium",
+    "protein_source": "dal_legume",
+    "ingredients": [
+      {
+        "ingredient_app_id": "rajma_raw",
+        "quantity_grams": 200,
+        "display_quantity": 1,
+        "display_unit": "cup",
+        "notes": "soaked overnight"
+      },
+      {
+        "ingredient_app_id": "basmati_rice_raw",
+        "quantity_grams": 200,
+        "display_quantity": 1,
+        "display_unit": "cup",
+        "notes": "rinsed"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 150,
+        "display_quantity": 2,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 150,
+        "display_quantity": 2,
+        "display_unit": "medium",
+        "notes": "puréed"
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 10,
+        "display_quantity": 1,
+        "display_unit": "inch",
+        "notes": "grated"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 10,
+        "display_quantity": 3,
+        "display_unit": "clove",
+        "notes": "minced"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 20,
+        "display_quantity": 1.5,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "cumin_raw",
+        "quantity_grams": 3,
+        "display_quantity": 1,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_seeds_raw",
+        "quantity_grams": 4,
+        "display_quantity": 1,
+        "display_unit": "tsp",
+        "notes": "crushed or powdered"
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 3,
+        "display_quantity": 1,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 8,
+        "display_quantity": 2,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Pressure cook the soaked rajma with salt and enough water until soft and fully cooked.",
+      "In a separate pot, cook the basmati rice with double the amount of water until fluffy.",
+      "In a deep pan, heat oil and add cumin seeds. Let them splutter.",
+      "Add chopped onions, ginger, and garlic. Sauté until onions turn golden brown.",
+      "Add tomato purée, coriander powder, and turmeric. Cook until oil separates from the masala.",
+      "Add the boiled rajma along with its cooking water to the masala.",
+      "Simmer for 15-20 minutes on low heat to let the flavors blend and the gravy thicken.",
+      "Serve hot rajma layered over the steamed rice in a bowl."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Chana Masala (Dry)",
+    "name_alt": "Sukha Chole",
+    "slug": "chana-masala-dry",
+    "meal_type": "dinner",
+    "cuisine": "punjabi",
+    "diet_tags": [
+      "vegan",
+      "vegetarian",
+      "gluten_free",
+      "dairy_free",
+      "nut_free",
+      "high_protein"
+    ],
+    "allergen_tags": [
+      "mustard"
+    ],
+    "prep_time_min": 480,
+    "cook_time_min": 30,
+    "servings": 4,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "hot",
+    "protein_source": "dal_legume",
+    "ingredients": [
+      {
+        "ingredient_app_id": "kabuli_chana_raw",
+        "quantity_grams": 200,
+        "display_quantity": 1,
+        "display_unit": "cup",
+        "notes": "soaked overnight"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 150,
+        "display_quantity": 2,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 150,
+        "display_quantity": 2,
+        "display_unit": "medium",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "mustard_oil_raw",
+        "quantity_grams": 20,
+        "display_quantity": 1.5,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 10,
+        "display_quantity": 1,
+        "display_unit": "inch",
+        "notes": "grated"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 10,
+        "display_quantity": 4,
+        "display_unit": "clove",
+        "notes": "minced"
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 4,
+        "display_quantity": 1,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 3,
+        "display_quantity": 1,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "garam_masala_raw",
+        "quantity_grams": 3,
+        "display_quantity": 1,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "amchur_powder_raw",
+        "quantity_grams": 3,
+        "display_quantity": 1,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 8,
+        "display_quantity": 2,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Boil the soaked kabuli chana in a pressure cooker with salt and water until tender. Drain excess water.",
+      "Heat mustard oil in a heavy-bottomed pan until it starts smoking gently, then lower the heat.",
+      "Add chopped onions, ginger, and garlic, and fry until deeply golden.",
+      "Stir in tomatoes, red chilli powder, turmeric, and garam masala. Cook until the tomatoes are mushy and oil separates.",
+      "Add the boiled chana and mix well so the masala coats the chickpeas entirely.",
+      "Stir in amchur powder for tanginess and cook on low heat for 5-7 minutes until dry.",
+      "Serve hot."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Palak Dal",
+    "name_alt": "Dal Palak",
+    "slug": "palak-dal",
+    "meal_type": "dinner",
+    "cuisine": "north_indian",
+    "diet_tags": [
+      "vegan",
+      "vegetarian",
+      "gluten_free",
+      "dairy_free",
+      "nut_free",
+      "high_protein"
+    ],
+    "allergen_tags": [],
+    "prep_time_min": 15,
+    "cook_time_min": 25,
+    "servings": 4,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "medium",
+    "protein_source": "dal_legume",
+    "ingredients": [
+      {
+        "ingredient_app_id": "masoor_dal_raw",
+        "quantity_grams": 150,
+        "display_quantity": 0.75,
+        "display_unit": "cup",
+        "notes": "rinsed"
+      },
+      {
+        "ingredient_app_id": "spinach_raw",
+        "quantity_grams": 200,
+        "display_quantity": 2,
+        "display_unit": "cup",
+        "notes": "washed and roughly chopped"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 100,
+        "display_quantity": 1,
+        "display_unit": "medium",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 100,
+        "display_quantity": 1,
+        "display_unit": "medium",
+        "notes": "chopped"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 15,
+        "display_quantity": 5,
+        "display_unit": "clove",
+        "notes": "minced"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 15,
+        "display_quantity": 1,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "cumin_raw",
+        "quantity_grams": 3,
+        "display_quantity": 1,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "dried_red_chilli_raw",
+        "quantity_grams": 2,
+        "display_quantity": 2,
+        "display_unit": "piece",
+        "notes": "broken"
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 3,
+        "display_quantity": 1,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 6,
+        "display_quantity": 1.5,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "In a pressure cooker, add rinsed masoor dal, turmeric, a pinch of salt, and water. Cook until the dal is soft and mashed.",
+      "Heat oil in a pan or kadhai. Add cumin seeds and dried red chillies, and let them sizzle.",
+      "Add minced garlic and sauté until fragrant and lightly golden.",
+      "Add chopped onions and fry until translucent, then add tomatoes and cook until soft.",
+      "Add the chopped spinach and cook until wilted and completely reduced in volume.",
+      "Pour the boiled dal into the spinach mixture, adding salt to taste and a little water if needed to adjust consistency.",
+      "Simmer for 5 minutes for flavors to meld, then serve hot."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Goan Vegetable Xacuti",
+    "name_alt": "Vegetable Xacuti",
+    "slug": "goan-vegetable-xacuti",
+    "meal_type": "dinner",
+    "cuisine": "goan",
+    "diet_tags": [
+      "vegetarian",
+      "gluten_free",
+      "nut_free"
+    ],
+    "allergen_tags": [],
+    "prep_time_min": 20,
+    "cook_time_min": 30,
+    "servings": 4,
+    "estimated_difficulty": "advanced",
+    "spice_level": "hot",
+    "protein_source": "none",
+    "ingredients": [
+      {
+        "ingredient_app_id": "potato_raw",
+        "quantity_grams": 300.0,
+        "display_quantity": 2.0,
+        "display_unit": "medium",
+        "notes": "peeled and cubed"
+      },
+      {
+        "ingredient_app_id": "cauliflower_raw",
+        "quantity_grams": 300.0,
+        "display_quantity": 2.0,
+        "display_unit": "cup",
+        "notes": "cut into florets"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 150.0,
+        "display_quantity": 1.0,
+        "display_unit": "large",
+        "notes": "sliced"
+      },
+      {
+        "ingredient_app_id": "coconut_oil_raw",
+        "quantity_grams": 24.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "poppy_seeds_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coriander_seeds_raw",
+        "quantity_grams": 12.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "cumin_raw",
+        "quantity_grams": 6.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "fennel_seeds_raw",
+        "quantity_grams": 6.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "cloves_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 4.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "cinnamon_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 1.0,
+        "display_unit": "piece",
+        "notes": "small stick"
+      },
+      {
+        "ingredient_app_id": "dried_red_chilli_raw",
+        "quantity_grams": 8.0,
+        "display_quantity": 4.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 8.0,
+        "display_quantity": 1.5,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Dry roast the poppy seeds, coriander seeds, cumin, fennel, cloves, cinnamon, and dried red chillies until fragrant.",
+      "Grind the roasted spice mix with a little water to form a smooth Xacuti paste.",
+      "Heat coconut oil in a deep pan and sauté the sliced onions until soft and translucent.",
+      "Add the prepared Xacuti spice paste and turmeric powder to the pan, stirring continuously for 3 minutes.",
+      "Add the cubed potatoes and cauliflower florets to the pan, coating them well with the spice paste.",
+      "Pour in 2 cups of water, add salt, and bring the curry to a boil.",
+      "Cover the pan with a lid and simmer on medium heat for 15-20 minutes until the vegetables are cooked through.",
+      "Remove the lid and simmer for an additional 2 minutes until the gravy reaches a thick consistency."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Indo-Chinese Veg Fried Rice",
+    "name_alt": "Veg Fried Rice",
+    "slug": "indo-chinese-veg-fried-rice",
+    "meal_type": "lunch",
+    "cuisine": "chinese_indo",
+    "diet_tags": [
+      "vegan",
+      "vegetarian",
+      "nut_free",
+      "dairy_free"
+    ],
+    "allergen_tags": [],
+    "prep_time_min": 15,
+    "cook_time_min": 15,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "medium",
+    "protein_source": "none",
+    "ingredients": [
+      {
+        "ingredient_app_id": "basmati_rice_raw",
+        "quantity_grams": 140.0,
+        "display_quantity": 0.75,
+        "display_unit": "cup",
+        "notes": "cooked and cooled completely"
+      },
+      {
+        "ingredient_app_id": "capsicum_raw",
+        "quantity_grams": 60.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "carrot_raw",
+        "quantity_grams": 60.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "cabbage_raw",
+        "quantity_grams": 60.0,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": "shredded"
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 50.0,
+        "display_quantity": 0.5,
+        "display_unit": "medium",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": "minced"
+      },
+      {
+        "ingredient_app_id": "green_chilli_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "piece",
+        "notes": "finely chopped"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 14.0,
+        "display_quantity": 1.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "black_pepper_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": "crushed"
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 0.75,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Heat sunflower oil in a large wok or pan over high heat until smoking.",
+      "Add the minced garlic and chopped green chilli, and stir-fry quickly for 30 seconds.",
+      "Add the chopped onions and toss for 1 minute on high heat until translucent.",
+      "Add the chopped carrots, capsicum, and shredded cabbage, and stir-fry rapidly for 2-3 minutes keeping the vegetables crunchy.",
+      "Add the pre-cooked and cooled basmati rice into the wok, breaking any clumps.",
+      "Season with salt and crushed black pepper, and gently toss everything together to combine.",
+      "Stir-fry on high heat for another 2 minutes until the rice is thoroughly heated and fragrant."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Sindhi Kadhi",
+    "name_alt": "Sindhi Besan Kadhi",
+    "slug": "sindhi-kadhi",
+    "meal_type": "lunch",
+    "cuisine": "sindhi",
+    "diet_tags": [
+      "vegetarian",
+      "nut_free"
+    ],
+    "allergen_tags": [
+      "mustard"
+    ],
+    "prep_time_min": 15,
+    "cook_time_min": 35,
+    "servings": 4,
+    "estimated_difficulty": "advanced",
+    "spice_level": "medium",
+    "protein_source": "dal_legume",
+    "ingredients": [
+      {
+        "ingredient_app_id": "besan_raw",
+        "quantity_grams": 60.0,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "onion_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "sliced"
+      },
+      {
+        "ingredient_app_id": "tomato_raw",
+        "quantity_grams": 150.0,
+        "display_quantity": 2.0,
+        "display_unit": "medium",
+        "notes": "pureed"
+      },
+      {
+        "ingredient_app_id": "tamarind_pulp_raw",
+        "quantity_grams": 30.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "potato_raw",
+        "quantity_grams": 150.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "cubed"
+      },
+      {
+        "ingredient_app_id": "drumstick_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 1.0,
+        "display_unit": "piece",
+        "notes": "cut into 2-inch pieces"
+      },
+      {
+        "ingredient_app_id": "sunflower_oil_raw",
+        "quantity_grams": 28.0,
+        "display_quantity": 2.0,
+        "display_unit": "tbsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "mustard_seeds_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "cumin_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "fenugreek_seeds_raw",
+        "quantity_grams": 1.0,
+        "display_quantity": 0.25,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "curry_leaves_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 1.0,
+        "display_unit": "handful",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "ginger_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": "grated"
+      },
+      {
+        "ingredient_app_id": "green_chilli_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "piece",
+        "notes": "slit"
+      },
+      {
+        "ingredient_app_id": "red_chilli_powder_raw",
+        "quantity_grams": 4.0,
+        "display_quantity": 1.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "turmeric_powder_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "asafoetida_raw",
+        "quantity_grams": 0.5,
+        "display_quantity": 1.0,
+        "display_unit": "pinch",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 8.0,
+        "display_quantity": 1.5,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Heat oil in a deep pot and add mustard seeds, cumin seeds, fenugreek seeds, asafoetida, and curry leaves.",
+      "Once the seeds splutter, add the besan (gram flour) and roast on low flame, stirring constantly until it turns golden brown and aromatic.",
+      "Slowly pour in 4 cups of water while whisking vigorously to avoid any lumps.",
+      "Add the tomato puree, sliced onions, grated ginger, slit green chilli, turmeric powder, and red chilli powder to the pot.",
+      "Bring the mixture to a boil, then add the cubed potatoes, drumstick pieces, and salt.",
+      "Reduce the heat, cover, and let it simmer for 20-25 minutes until the vegetables are tender.",
+      "Stir in the tamarind pulp and simmer for another 5 minutes before turning off the heat."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Continental Veg Stir Fry",
+    "name_alt": "Herbed Vegetable Stir Fry",
+    "slug": "continental-veg-stir-fry",
+    "meal_type": "dinner",
+    "cuisine": "continental",
+    "diet_tags": [
+      "vegan",
+      "vegetarian",
+      "gluten_free",
+      "dairy_free",
+      "nut_free",
+      "low_carb"
+    ],
+    "allergen_tags": [
+      "sesame"
+    ],
+    "prep_time_min": 10,
+    "cook_time_min": 10,
+    "servings": 2,
+    "estimated_difficulty": "beginner",
+    "spice_level": "mild",
+    "protein_source": "none",
+    "ingredients": [
+      {
+        "ingredient_app_id": "capsicum_raw",
+        "quantity_grams": 80.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "sliced into strips"
+      },
+      {
+        "ingredient_app_id": "carrot_raw",
+        "quantity_grams": 80.0,
+        "display_quantity": 1.0,
+        "display_unit": "medium",
+        "notes": "sliced into batons"
+      },
+      {
+        "ingredient_app_id": "french_beans_raw",
+        "quantity_grams": 60.0,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": "diagonally cut"
+      },
+      {
+        "ingredient_app_id": "cabbage_raw",
+        "quantity_grams": 80.0,
+        "display_quantity": 1.0,
+        "display_unit": "cup",
+        "notes": "shredded roughly"
+      },
+      {
+        "ingredient_app_id": "sesame_oil_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "garlic_raw",
+        "quantity_grams": 6.0,
+        "display_quantity": 3.0,
+        "display_unit": "piece",
+        "notes": "finely minced"
+      },
+      {
+        "ingredient_app_id": "black_pepper_raw",
+        "quantity_grams": 2.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": "freshly cracked"
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Heat sesame oil in a wide pan or skillet over medium-high heat.",
+      "Add the minced garlic and sauté for 30 seconds until fragrant without browning it.",
+      "Add the carrot batons and french beans to the pan first, as they take longer to cook, and stir-fry for 2-3 minutes.",
+      "Add the capsicum strips and shredded cabbage to the pan.",
+      "Stir-fry all the vegetables together on high heat for another 3 minutes until they are cooked but still crisp.",
+      "Season with salt and freshly cracked black pepper, tossing well to coat evenly.",
+      "Remove from heat immediately and serve hot."
+    ],
+    "source": "seed"
+  },
+  {
+    "name": "Egg Appam",
+    "name_alt": "Mutta Appam",
+    "slug": "egg-appam",
+    "meal_type": "breakfast",
+    "cuisine": "kerala",
+    "diet_tags": [
+      "eggetarian",
+      "gluten_free",
+      "dairy_free",
+      "nut_free"
+    ],
+    "allergen_tags": [
+      "eggs"
+    ],
+    "prep_time_min": 10,
+    "cook_time_min": 15,
+    "servings": 2,
+    "estimated_difficulty": "intermediate",
+    "spice_level": "mild",
+    "protein_source": "egg",
+    "ingredients": [
+      {
+        "ingredient_app_id": "parboiled_rice_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 0.5,
+        "display_unit": "cup",
+        "notes": "soaked and ground into a fermented batter"
+      },
+      {
+        "ingredient_app_id": "egg_whole_raw",
+        "quantity_grams": 100.0,
+        "display_quantity": 2.0,
+        "display_unit": "piece",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "coconut_oil_raw",
+        "quantity_grams": 10.0,
+        "display_quantity": 2.0,
+        "display_unit": "tsp",
+        "notes": ""
+      },
+      {
+        "ingredient_app_id": "black_pepper_raw",
+        "quantity_grams": 1.5,
+        "display_quantity": 0.25,
+        "display_unit": "tsp",
+        "notes": "powdered"
+      },
+      {
+        "ingredient_app_id": "salt_raw",
+        "quantity_grams": 3.0,
+        "display_quantity": 0.5,
+        "display_unit": "tsp",
+        "notes": ""
+      }
+    ],
+    "instructions": [
+      "Heat an appam chatti (woked-pan) and lightly grease it with a few drops of coconut oil.",
+      "Pour a ladleful of fermented parboiled rice batter into the center of the pan.",
+      "Immediately swirl the pan in a circular motion so the batter spreads to form thin lacey edges and a thicker center.",
+      "Crack one whole egg directly into the center of the appam.",
+      "Sprinkle a pinch of salt and a pinch of powdered black pepper over the egg.",
+      "Cover the pan with a lid and cook on low-medium heat for about 2-3 minutes until the egg white is set and edges are crisp.",
+      "Carefully remove the appam using a spatula without breaking the center egg, and repeat for the second serving."
+    ],
+    "source": "seed"
   }
 ]

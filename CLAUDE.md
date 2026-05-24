@@ -84,8 +84,8 @@ This is the loop. Every module follows it. No exceptions.
 
 > **Update this section at Step 5 of every module.**
 
-- **Active module:** `M4_mealplans` (**BLOCKED** — seed expansion to ≥200 recipes covering all profile×goal combos needed first)
-- **Last completed module:** `M3_recipes` (2026-05-24, commit `7803cbc` + postfix filter validation)
+- **Active module:** `M4_mealplans` (**BLOCKED** — seed expansion to ≥200 recipes still needed; current 136 covers veg/non-veg but is short of the 200 total and fish≥5 gate)
+- **Last completed module:** `M3.5_seed_expansion` (2026-05-25) — 43 recipes merged, total 136
 - **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 🚫 → M5 → M6 → M7 → M8
 - **Repo path:** `nutri-app-backend/`
 - **Python version:** 3.12.13 (managed by `uv`, venv at `.venv/`)
@@ -600,6 +600,7 @@ feat(M<n>): <module name> — <one-line summary>
 - 2026-05-23 — Phase 6 USDA fetch corrected 7 FDC IDs in ingredient_mapping.csv (the manual Phase 3 verification matched USDA descriptions but missed that several IDs pointed to wrong variants — e.g., skim yogurt vs whole milk yogurt). USDA fetch script is now authoritative for nutrition values; CSV is authoritative for provenance metadata. Discrepancies caught during fetch should be propagated back to CSV in the same commit. (process)
 - 2026-05-23 — M3 planning decisions (full plan: `docs/plans/M3_plan.md`): (1) `mustard` added to allergen controlled vocab in Ingredient, Recipe models and PROJECT_SPEC — regulated allergen in EU/Canada, present in seed data; (2) Recipe model gains 4 new fields: `name_alt` (alternate name, included in search), `estimated_difficulty` (beginner/intermediate/advanced, filterable), `spice_level` (mild/medium/hot/very_hot, filterable), `cached_calories_per_serving` (denormalized PositiveIntegerField with B-tree index for M4 engine SQL calorie window); (3) calorie fallback `protein×4 + carbs×4 + fat×9` applied at seed time for IFCT oils with 0 enerc (ghee→900 kcal); 12 weak USDA items stay at zero (trace ingredients); (4) `cost_known` set by `compute_recipe_nutrition()`; cost filter requires `cost_known=True`; (5) `diet_tags` not stored on Ingredient; (6) `cached_nutrition` as JSONField + denormalized `cached_calories_per_serving` both populated by same service call. (M3 plan)
 - 2026-05-24 — M3 (Recipes) committed: 4 models + seed services + `compute_recipe_nutrition` + 2 endpoints (list + detail). Antigravity review caught `full_clean()` ordering issue (fired after `update_or_create` save) and missing `recipe_uses_zero_nutrition_ingredient` log event, both fixed before push. All three seed functions now use get-or-build pattern: full_clean() → save(). `_SEED_ONLY_FIELDS` dead code deleted. 196 tests, seed services 92%, nutrition service 100%. (module complete)
+- 2026-05-25 — M3.5 seed expansion: 43 recipes added (45 loaded, 2 rejected), total 136. protein_source populated: chicken=12, egg=12, dal_legume=7, fish=4, mutton=3, paneer=2. fish=4 accepted as known gap (user decision). Source batches archived to `apps/recipes/seed_data/sources/gemini_batches/`. Coverage now supports weight_loss/maintain/muscle_gain × veg/vegan/eggetarian/non_veg; still short of ≥200 total for M4 unblock. (content sprint)
 
 ---
 

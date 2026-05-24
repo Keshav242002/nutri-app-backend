@@ -1,0 +1,511 @@
+{
+"recipes": [
+{
+"name": "Goan Vegetable Xacuti",
+"name_alt": "Vegetable Xacuti",
+"slug": "goan-vegetable-xacuti",
+"meal_type": "dinner",
+"cuisine": "goan",
+"diet_tags": ["vegetarian", "gluten_free", "nut_free"],
+"allergen_tags": [],
+"prep_time_min": 20,
+"cook_time_min": 30,
+"servings": 4,
+"estimated_difficulty": "advanced",
+"spice_level": "hot",
+"protein_source": "none",
+"ingredients": [
+{
+"ingredient_app_id": "potato_raw",
+"quantity_grams": 300.0,
+"display_quantity": 2.0,
+"display_unit": "medium",
+"notes": "peeled and cubed"
+},
+{
+"ingredient_app_id": "cauliflower_raw",
+"quantity_grams": 300.0,
+"display_quantity": 2.0,
+"display_unit": "cup",
+"notes": "cut into florets"
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 150.0,
+"display_quantity": 1.0,
+"display_unit": "large",
+"notes": "sliced"
+},
+{
+"ingredient_app_id": "coconut_oil_raw",
+"quantity_grams": 24.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "poppy_seeds_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "coriander_seeds_raw",
+"quantity_grams": 12.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "cumin_raw",
+"quantity_grams": 6.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "fennel_seeds_raw",
+"quantity_grams": 6.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "cloves_raw",
+"quantity_grams": 2.0,
+"display_quantity": 4.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "cinnamon_raw",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "small stick"
+},
+{
+"ingredient_app_id": "dried_red_chilli_raw",
+"quantity_grams": 8.0,
+"display_quantity": 4.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 8.0,
+"display_quantity": 1.5,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Dry roast the poppy seeds, coriander seeds, cumin, fennel, cloves, cinnamon, and dried red chillies until fragrant.",
+"Grind the roasted spice mix with a little water to form a smooth Xacuti paste.",
+"Heat coconut oil in a deep pan and sauté the sliced onions until soft and translucent.",
+"Add the prepared Xacuti spice paste and turmeric powder to the pan, stirring continuously for 3 minutes.",
+"Add the cubed potatoes and cauliflower florets to the pan, coating them well with the spice paste.",
+"Pour in 2 cups of water, add salt, and bring the curry to a boil.",
+"Cover the pan with a lid and simmer on medium heat for 15-20 minutes until the vegetables are cooked through.",
+"Remove the lid and simmer for an additional 2 minutes until the gravy reaches a thick consistency."
+],
+"source": "seed"
+},
+{
+"name": "Indo-Chinese Veg Fried Rice",
+"name_alt": "Veg Fried Rice",
+"slug": "indo-chinese-veg-fried-rice",
+"meal_type": "lunch",
+"cuisine": "chinese_indo",
+"diet_tags": ["vegan", "vegetarian", "nut_free", "dairy_free"],
+"allergen_tags": [],
+"prep_time_min": 15,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"protein_source": "none",
+"ingredients": [
+{
+"ingredient_app_id": "basmati_rice_raw",
+"quantity_grams": 140.0,
+"display_quantity": 0.75,
+"display_unit": "cup",
+"notes": "cooked and cooled completely"
+},
+{
+"ingredient_app_id": "capsicum_raw",
+"quantity_grams": 60.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "carrot_raw",
+"quantity_grams": 60.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "cabbage_raw",
+"quantity_grams": 60.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": "shredded"
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "minced"
+},
+{
+"ingredient_app_id": "green_chilli_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 14.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "black_pepper_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": "crushed"
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 4.0,
+"display_quantity": 0.75,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Heat sunflower oil in a large wok or pan over high heat until smoking.",
+"Add the minced garlic and chopped green chilli, and stir-fry quickly for 30 seconds.",
+"Add the chopped onions and toss for 1 minute on high heat until translucent.",
+"Add the chopped carrots, capsicum, and shredded cabbage, and stir-fry rapidly for 2-3 minutes keeping the vegetables crunchy.",
+"Add the pre-cooked and cooled basmati rice into the wok, breaking any clumps.",
+"Season with salt and crushed black pepper, and gently toss everything together to combine.",
+"Stir-fry on high heat for another 2 minutes until the rice is thoroughly heated and fragrant."
+],
+"source": "seed"
+},
+{
+"name": "Sindhi Kadhi",
+"name_alt": "Sindhi Besan Kadhi",
+"slug": "sindhi-kadhi",
+"meal_type": "lunch",
+"cuisine": "sindhi",
+"diet_tags": ["vegetarian", "nut_free"],
+"allergen_tags": ["mustard"],
+"prep_time_min": 15,
+"cook_time_min": 35,
+"servings": 4,
+"estimated_difficulty": "advanced",
+"spice_level": "medium",
+"protein_source": "dal_legume",
+"ingredients": [
+{
+"ingredient_app_id": "besan_raw",
+"quantity_grams": 60.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": ""
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "sliced"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 150.0,
+"display_quantity": 2.0,
+"display_unit": "medium",
+"notes": "pureed"
+},
+{
+"ingredient_app_id": "tamarind_pulp_raw",
+"quantity_grams": 30.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "potato_raw",
+"quantity_grams": 150.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "cubed"
+},
+{
+"ingredient_app_id": "drumstick_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "cut into 2-inch pieces"
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 28.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "mustard_seeds_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "cumin_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "fenugreek_seeds_raw",
+"quantity_grams": 1.0,
+"display_quantity": 0.25,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "curry_leaves_raw",
+"quantity_grams": 2.0,
+"display_quantity": 1.0,
+"display_unit": "handful",
+"notes": ""
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "grated"
+},
+{
+"ingredient_app_id": "green_chilli_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "slit"
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "asafoetida_raw",
+"quantity_grams": 0.5,
+"display_quantity": 1.0,
+"display_unit": "pinch",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 8.0,
+"display_quantity": 1.5,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Heat oil in a deep pot and add mustard seeds, cumin seeds, fenugreek seeds, asafoetida, and curry leaves.",
+"Once the seeds splutter, add the besan (gram flour) and roast on low flame, stirring constantly until it turns golden brown and aromatic.",
+"Slowly pour in 4 cups of water while whisking vigorously to avoid any lumps.",
+"Add the tomato puree, sliced onions, grated ginger, slit green chilli, turmeric powder, and red chilli powder to the pot.",
+"Bring the mixture to a boil, then add the cubed potatoes, drumstick pieces, and salt.",
+"Reduce the heat, cover, and let it simmer for 20-25 minutes until the vegetables are tender.",
+"Stir in the tamarind pulp and simmer for another 5 minutes before turning off the heat."
+],
+"source": "seed"
+},
+{
+"name": "Continental Veg Stir Fry",
+"name_alt": "Herbed Vegetable Stir Fry",
+"slug": "continental-veg-stir-fry",
+"meal_type": "dinner",
+"cuisine": "continental",
+"diet_tags": ["vegan", "vegetarian", "gluten_free", "dairy_free", "nut_free", "low_carb"],
+"allergen_tags": ["sesame"],
+"prep_time_min": 10,
+"cook_time_min": 10,
+"servings": 2,
+"estimated_difficulty": "beginner",
+"spice_level": "mild",
+"protein_source": "none",
+"ingredients": [
+{
+"ingredient_app_id": "capsicum_raw",
+"quantity_grams": 80.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "sliced into strips"
+},
+{
+"ingredient_app_id": "carrot_raw",
+"quantity_grams": 80.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "sliced into batons"
+},
+{
+"ingredient_app_id": "french_beans_raw",
+"quantity_grams": 60.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": "diagonally cut"
+},
+{
+"ingredient_app_id": "cabbage_raw",
+"quantity_grams": 80.0,
+"display_quantity": 1.0,
+"display_unit": "cup",
+"notes": "shredded roughly"
+},
+{
+"ingredient_app_id": "sesame_oil_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 6.0,
+"display_quantity": 3.0,
+"display_unit": "piece",
+"notes": "finely minced"
+},
+{
+"ingredient_app_id": "black_pepper_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": "freshly cracked"
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Heat sesame oil in a wide pan or skillet over medium-high heat.",
+"Add the minced garlic and sauté for 30 seconds until fragrant without browning it.",
+"Add the carrot batons and french beans to the pan first, as they take longer to cook, and stir-fry for 2-3 minutes.",
+"Add the capsicum strips and shredded cabbage to the pan.",
+"Stir-fry all the vegetables together on high heat for another 3 minutes until they are cooked but still crisp.",
+"Season with salt and freshly cracked black pepper, tossing well to coat evenly.",
+"Remove from heat immediately and serve hot."
+],
+"source": "seed"
+},
+{
+"name": "Egg Appam",
+"name_alt": "Mutta Appam",
+"slug": "egg-appam",
+"meal_type": "breakfast",
+"cuisine": "kerala",
+"diet_tags": ["eggetarian", "gluten_free", "dairy_free", "nut_free"],
+"allergen_tags": ["eggs"],
+"prep_time_min": 10,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "mild",
+"protein_source": "egg",
+"ingredients": [
+{
+"ingredient_app_id": "parboiled_rice_raw",
+"quantity_grams": 100.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": "soaked and ground into a fermented batter"
+},
+{
+"ingredient_app_id": "egg_whole_raw",
+"quantity_grams": 100.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "coconut_oil_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "black_pepper_raw",
+"quantity_grams": 1.5,
+"display_quantity": 0.25,
+"display_unit": "tsp",
+"notes": "powdered"
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Heat an appam chatti (woked-pan) and lightly grease it with a few drops of coconut oil.",
+"Pour a ladleful of fermented parboiled rice batter into the center of the pan.",
+"Immediately swirl the pan in a circular motion so the batter spreads to form thin lacey edges and a thicker center.",
+"Crack one whole egg directly into the center of the appam.",
+"Sprinkle a pinch of salt and a pinch of powdered black pepper over the egg.",
+"Cover the pan with a lid and cook on low-medium heat for about 2-3 minutes until the egg white is set and edges are crisp.",
+"Carefully remove the appam using a spatula without breaking the center egg, and repeat for the second serving."
+],
+"source": "seed"
+}
+]
+}

@@ -1,0 +1,1117 @@
+{
+  "recipes": [
+    {
+      "name": "Paneer Dosa",
+      "name_alt": "Cottage Cheese Crepe",
+      "slug": "paneer-dosa",
+      "meal_type": "breakfast",
+      "cuisine": "south_indian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten_free",
+        "high_protein",
+        "nut_free"
+      ],
+      "allergen_tags": [
+        "dairy"
+      ],
+      "prep_time_min": 480,
+      "cook_time_min": 20,
+      "servings": 2,
+      "estimated_difficulty": "advanced",
+      "spice_level": "mild",
+      "protein_source": "paneer",
+      "ingredients": [
+        {
+          "ingredient_app_id": "idli_rava_raw",
+          "quantity_grams": 100,
+          "display_quantity": 0.5,
+          "display_unit": "cup",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "urad_dal_raw",
+          "quantity_grams": 25,
+          "display_quantity": 2,
+          "display_unit": "tbsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "fenugreek_seeds_raw",
+          "quantity_grams": 2,
+          "display_quantity": 0.5,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "paneer_raw",
+          "quantity_grams": 100,
+          "display_quantity": 1,
+          "display_unit": "cup",
+          "notes": "grated"
+        },
+        {
+          "ingredient_app_id": "ghee_raw",
+          "quantity_grams": 10,
+          "display_quantity": 2,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "salt_raw",
+          "quantity_grams": 4,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        }
+      ],
+      "instructions": [
+        "Wash and soak idli rava, urad dal, and fenugreek seeds in water for 6-8 hours.",
+        "Grind the soaked mixture into a smooth batter adding a little water.",
+        "Add salt to the batter, mix well, and let it ferment overnight.",
+        "Heat a non-stick pan or tawa and pour a ladleful of batter, spreading it thinly in a circular motion.",
+        "Drizzle ghee around the edges and cook until the bottom turns golden crisp.",
+        "Sprinkle grated paneer evenly over the dosa.",
+        "Fold the dosa in half and serve hot."
+      ],
+      "source": "seed"
+    },
+    {
+      "name": "Sprouted Moong Poha",
+      "name_alt": "Matki Poha",
+      "slug": "sprouted-moong-poha",
+      "meal_type": "breakfast",
+      "cuisine": "maharashtrian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "dairy_free",
+        "high_protein"
+      ],
+      "allergen_tags": [
+        "peanuts",
+        "mustard"
+      ],
+      "prep_time_min": 10,
+      "cook_time_min": 15,
+      "servings": 2,
+      "estimated_difficulty": "intermediate",
+      "spice_level": "medium",
+      "protein_source": "dal_legume",
+      "ingredients": [
+        {
+          "ingredient_app_id": "poha_raw",
+          "quantity_grams": 100,
+          "display_quantity": 1.5,
+          "display_unit": "cup",
+          "notes": "rinsed well"
+        },
+        {
+          "ingredient_app_id": "moong_sprouts_raw",
+          "quantity_grams": 100,
+          "display_quantity": 1,
+          "display_unit": "cup",
+          "notes": "lightly steamed"
+        },
+        {
+          "ingredient_app_id": "peanut_raw",
+          "quantity_grams": 20,
+          "display_quantity": 2,
+          "display_unit": "tbsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "mustard_oil_raw",
+          "quantity_grams": 10,
+          "display_quantity": 2,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "mustard_seeds_raw",
+          "quantity_grams": 2,
+          "display_quantity": 0.5,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "curry_leaves_raw",
+          "quantity_grams": 2,
+          "display_quantity": 10,
+          "display_unit": "piece",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "green_chilli_raw",
+          "quantity_grams": 5,
+          "display_quantity": 1,
+          "display_unit": "piece",
+          "notes": "chopped"
+        },
+        {
+          "ingredient_app_id": "turmeric_powder_raw",
+          "quantity_grams": 2,
+          "display_quantity": 0.5,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "salt_raw",
+          "quantity_grams": 4,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "lemon_juice_raw",
+          "quantity_grams": 10,
+          "display_quantity": 2,
+          "display_unit": "tsp",
+          "notes": ""
+        }
+      ],
+      "instructions": [
+        "Rinse poha in a colander and set aside to soften.",
+        "Heat mustard oil in a pan and roast peanuts until crunchy, then remove and set aside.",
+        "In the same oil, add mustard seeds and let them splutter.",
+        "Add curry leaves and chopped green chillies, saut\u00e9ing for 30 seconds.",
+        "Add lightly steamed moong sprouts, turmeric powder, and salt. Cook for 2-3 minutes.",
+        "Add the softened poha and toss gently to mix well without breaking the flakes.",
+        "Turn off the heat, stir in lemon juice and roasted peanuts.",
+        "Serve hot."
+      ],
+      "source": "seed"
+    },
+    {
+      "name": "Moong Dal Cheela",
+      "name_alt": "Pesarattu",
+      "slug": "moong-dal-cheela",
+      "meal_type": "breakfast",
+      "cuisine": "north_indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "dairy_free",
+        "nut_free",
+        "high_protein"
+      ],
+      "allergen_tags": [],
+      "prep_time_min": 120,
+      "cook_time_min": 15,
+      "servings": 2,
+      "estimated_difficulty": "intermediate",
+      "spice_level": "medium",
+      "protein_source": "dal_legume",
+      "ingredients": [
+        {
+          "ingredient_app_id": "moong_dal_raw",
+          "quantity_grams": 100,
+          "display_quantity": 0.5,
+          "display_unit": "cup",
+          "notes": "soaked for 2 hours"
+        },
+        {
+          "ingredient_app_id": "onion_raw",
+          "quantity_grams": 50,
+          "display_quantity": 1,
+          "display_unit": "small",
+          "notes": "finely chopped"
+        },
+        {
+          "ingredient_app_id": "green_chilli_raw",
+          "quantity_grams": 5,
+          "display_quantity": 1,
+          "display_unit": "piece",
+          "notes": "chopped"
+        },
+        {
+          "ingredient_app_id": "coriander_leaves_raw",
+          "quantity_grams": 10,
+          "display_quantity": 2,
+          "display_unit": "tbsp",
+          "notes": "chopped"
+        },
+        {
+          "ingredient_app_id": "cumin_raw",
+          "quantity_grams": 2,
+          "display_quantity": 0.5,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "turmeric_powder_raw",
+          "quantity_grams": 2,
+          "display_quantity": 0.5,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "salt_raw",
+          "quantity_grams": 4,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "sunflower_oil_raw",
+          "quantity_grams": 10,
+          "display_quantity": 2,
+          "display_unit": "tsp",
+          "notes": ""
+        }
+      ],
+      "instructions": [
+        "Drain the soaked moong dal and blend it into a smooth batter with a little water.",
+        "Transfer the batter to a bowl. Mix in chopped onion, green chilli, coriander leaves, cumin, turmeric, and salt.",
+        "Heat a non-stick tawa or griddle on medium heat and brush with a little oil.",
+        "Pour a ladle of batter onto the center and spread it outwards in a circular motion to form a thin pancake.",
+        "Drizzle a little oil around the edges and cook until the base turns golden and crisp.",
+        "Flip the cheela and cook the other side for another minute.",
+        "Serve hot."
+      ],
+      "source": "seed"
+    },
+    {
+      "name": "Sprouted Moong Chaat",
+      "name_alt": "Moong Salad",
+      "slug": "sprouted-moong-chaat",
+      "meal_type": "lunch",
+      "cuisine": "north_indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "dairy_free",
+        "nut_free",
+        "high_protein"
+      ],
+      "allergen_tags": [],
+      "prep_time_min": 10,
+      "cook_time_min": 5,
+      "servings": 2,
+      "estimated_difficulty": "beginner",
+      "spice_level": "medium",
+      "protein_source": "dal_legume",
+      "ingredients": [
+        {
+          "ingredient_app_id": "moong_sprouts_raw",
+          "quantity_grams": 150,
+          "display_quantity": 1.5,
+          "display_unit": "cup",
+          "notes": "lightly steamed"
+        },
+        {
+          "ingredient_app_id": "onion_raw",
+          "quantity_grams": 50,
+          "display_quantity": 1,
+          "display_unit": "small",
+          "notes": "finely chopped"
+        },
+        {
+          "ingredient_app_id": "tomato_raw",
+          "quantity_grams": 50,
+          "display_quantity": 1,
+          "display_unit": "small",
+          "notes": "finely chopped"
+        },
+        {
+          "ingredient_app_id": "green_chilli_raw",
+          "quantity_grams": 5,
+          "display_quantity": 1,
+          "display_unit": "piece",
+          "notes": "chopped"
+        },
+        {
+          "ingredient_app_id": "coriander_leaves_raw",
+          "quantity_grams": 10,
+          "display_quantity": 2,
+          "display_unit": "tbsp",
+          "notes": "chopped"
+        },
+        {
+          "ingredient_app_id": "red_chilli_powder_raw",
+          "quantity_grams": 2,
+          "display_quantity": 0.5,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "amchur_powder_raw",
+          "quantity_grams": 2,
+          "display_quantity": 0.5,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "salt_raw",
+          "quantity_grams": 3,
+          "display_quantity": 0.75,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "lemon_juice_raw",
+          "quantity_grams": 15,
+          "display_quantity": 1,
+          "display_unit": "tbsp",
+          "notes": ""
+        }
+      ],
+      "instructions": [
+        "In a large mixing bowl, add the lightly steamed moong sprouts.",
+        "Add finely chopped onion, tomato, green chilli, and coriander leaves.",
+        "Sprinkle red chilli powder, amchur powder, and salt over the mixture.",
+        "Pour lemon juice on top.",
+        "Toss everything well so the spices and juice coat the sprouts evenly.",
+        "Serve immediately as a fresh, high-protein meal."
+      ],
+      "source": "seed"
+    },
+    {
+      "name": "Paneer Tikka Salad",
+      "name_alt": "Cottage Cheese Salad",
+      "slug": "paneer-tikka-salad",
+      "meal_type": "lunch",
+      "cuisine": "north_indian",
+      "diet_tags": [
+        "vegetarian",
+        "gluten_free",
+        "nut_free",
+        "high_protein"
+      ],
+      "allergen_tags": [
+        "dairy",
+        "mustard"
+      ],
+      "prep_time_min": 20,
+      "cook_time_min": 10,
+      "servings": 2,
+      "estimated_difficulty": "intermediate",
+      "spice_level": "medium",
+      "protein_source": "paneer",
+      "ingredients": [
+        {
+          "ingredient_app_id": "paneer_raw",
+          "quantity_grams": 150,
+          "display_quantity": 1.5,
+          "display_unit": "cup",
+          "notes": "cubed"
+        },
+        {
+          "ingredient_app_id": "curd_raw",
+          "quantity_grams": 50,
+          "display_quantity": 0.25,
+          "display_unit": "cup",
+          "notes": "whisked"
+        },
+        {
+          "ingredient_app_id": "capsicum_raw",
+          "quantity_grams": 100,
+          "display_quantity": 1,
+          "display_unit": "medium",
+          "notes": "cubed"
+        },
+        {
+          "ingredient_app_id": "onion_raw",
+          "quantity_grams": 100,
+          "display_quantity": 1,
+          "display_unit": "medium",
+          "notes": "cubed"
+        },
+        {
+          "ingredient_app_id": "mustard_oil_raw",
+          "quantity_grams": 10,
+          "display_quantity": 2,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "red_chilli_powder_raw",
+          "quantity_grams": 3,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "turmeric_powder_raw",
+          "quantity_grams": 2,
+          "display_quantity": 0.5,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "garam_masala_raw",
+          "quantity_grams": 2,
+          "display_quantity": 0.5,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "salt_raw",
+          "quantity_grams": 4,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "lemon_juice_raw",
+          "quantity_grams": 10,
+          "display_quantity": 2,
+          "display_unit": "tsp",
+          "notes": ""
+        }
+      ],
+      "instructions": [
+        "In a bowl, mix curd, mustard oil, red chilli powder, turmeric, garam masala, salt, and lemon juice to make a marinade.",
+        "Add paneer cubes, capsicum, and onion to the marinade. Toss gently to coat and let it rest for 15 minutes.",
+        "Heat a non-stick pan on medium-high heat.",
+        "Add the marinated paneer and vegetables to the pan.",
+        "Cook for 6-8 minutes, turning occasionally until the paneer gets slightly charred edges.",
+        "Remove from heat and serve hot."
+      ],
+      "source": "seed"
+    },
+    {
+      "name": "Rajma Rice Bowl",
+      "name_alt": "Rajma Chawal",
+      "slug": "rajma-rice-bowl",
+      "meal_type": "lunch",
+      "cuisine": "punjabi",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "dairy_free",
+        "nut_free",
+        "high_protein"
+      ],
+      "allergen_tags": [],
+      "prep_time_min": 480,
+      "cook_time_min": 40,
+      "servings": 4,
+      "estimated_difficulty": "advanced",
+      "spice_level": "medium",
+      "protein_source": "dal_legume",
+      "ingredients": [
+        {
+          "ingredient_app_id": "rajma_raw",
+          "quantity_grams": 200,
+          "display_quantity": 1,
+          "display_unit": "cup",
+          "notes": "soaked overnight"
+        },
+        {
+          "ingredient_app_id": "basmati_rice_raw",
+          "quantity_grams": 200,
+          "display_quantity": 1,
+          "display_unit": "cup",
+          "notes": "rinsed"
+        },
+        {
+          "ingredient_app_id": "onion_raw",
+          "quantity_grams": 150,
+          "display_quantity": 2,
+          "display_unit": "medium",
+          "notes": "finely chopped"
+        },
+        {
+          "ingredient_app_id": "tomato_raw",
+          "quantity_grams": 150,
+          "display_quantity": 2,
+          "display_unit": "medium",
+          "notes": "pur\u00e9ed"
+        },
+        {
+          "ingredient_app_id": "ginger_raw",
+          "quantity_grams": 10,
+          "display_quantity": 1,
+          "display_unit": "inch",
+          "notes": "grated"
+        },
+        {
+          "ingredient_app_id": "garlic_raw",
+          "quantity_grams": 10,
+          "display_quantity": 3,
+          "display_unit": "clove",
+          "notes": "minced"
+        },
+        {
+          "ingredient_app_id": "sunflower_oil_raw",
+          "quantity_grams": 20,
+          "display_quantity": 1.5,
+          "display_unit": "tbsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "cumin_raw",
+          "quantity_grams": 3,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "coriander_seeds_raw",
+          "quantity_grams": 4,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": "crushed or powdered"
+        },
+        {
+          "ingredient_app_id": "turmeric_powder_raw",
+          "quantity_grams": 3,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "salt_raw",
+          "quantity_grams": 8,
+          "display_quantity": 2,
+          "display_unit": "tsp",
+          "notes": ""
+        }
+      ],
+      "instructions": [
+        "Pressure cook the soaked rajma with salt and enough water until soft and fully cooked.",
+        "In a separate pot, cook the basmati rice with double the amount of water until fluffy.",
+        "In a deep pan, heat oil and add cumin seeds. Let them splutter.",
+        "Add chopped onions, ginger, and garlic. Saut\u00e9 until onions turn golden brown.",
+        "Add tomato pur\u00e9e, coriander powder, and turmeric. Cook until oil separates from the masala.",
+        "Add the boiled rajma along with its cooking water to the masala.",
+        "Simmer for 15-20 minutes on low heat to let the flavors blend and the gravy thicken.",
+        "Serve hot rajma layered over the steamed rice in a bowl."
+      ],
+      "source": "seed"
+    },
+    {
+      "name": "Chana Masala (Dry)",
+      "name_alt": "Sukha Chole",
+      "slug": "chana-masala-dry",
+      "meal_type": "dinner",
+      "cuisine": "punjabi",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "dairy_free",
+        "nut_free",
+        "high_protein"
+      ],
+      "allergen_tags": [
+        "mustard"
+      ],
+      "prep_time_min": 480,
+      "cook_time_min": 30,
+      "servings": 4,
+      "estimated_difficulty": "intermediate",
+      "spice_level": "hot",
+      "protein_source": "dal_legume",
+      "ingredients": [
+        {
+          "ingredient_app_id": "kabuli_chana_raw",
+          "quantity_grams": 200,
+          "display_quantity": 1,
+          "display_unit": "cup",
+          "notes": "soaked overnight"
+        },
+        {
+          "ingredient_app_id": "onion_raw",
+          "quantity_grams": 150,
+          "display_quantity": 2,
+          "display_unit": "medium",
+          "notes": "finely chopped"
+        },
+        {
+          "ingredient_app_id": "tomato_raw",
+          "quantity_grams": 150,
+          "display_quantity": 2,
+          "display_unit": "medium",
+          "notes": "chopped"
+        },
+        {
+          "ingredient_app_id": "mustard_oil_raw",
+          "quantity_grams": 20,
+          "display_quantity": 1.5,
+          "display_unit": "tbsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "ginger_raw",
+          "quantity_grams": 10,
+          "display_quantity": 1,
+          "display_unit": "inch",
+          "notes": "grated"
+        },
+        {
+          "ingredient_app_id": "garlic_raw",
+          "quantity_grams": 10,
+          "display_quantity": 4,
+          "display_unit": "clove",
+          "notes": "minced"
+        },
+        {
+          "ingredient_app_id": "red_chilli_powder_raw",
+          "quantity_grams": 4,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "turmeric_powder_raw",
+          "quantity_grams": 3,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "garam_masala_raw",
+          "quantity_grams": 3,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "amchur_powder_raw",
+          "quantity_grams": 3,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "salt_raw",
+          "quantity_grams": 8,
+          "display_quantity": 2,
+          "display_unit": "tsp",
+          "notes": ""
+        }
+      ],
+      "instructions": [
+        "Boil the soaked kabuli chana in a pressure cooker with salt and water until tender. Drain excess water.",
+        "Heat mustard oil in a heavy-bottomed pan until it starts smoking gently, then lower the heat.",
+        "Add chopped onions, ginger, and garlic, and fry until deeply golden.",
+        "Stir in tomatoes, red chilli powder, turmeric, and garam masala. Cook until the tomatoes are mushy and oil separates.",
+        "Add the boiled chana and mix well so the masala coats the chickpeas entirely.",
+        "Stir in amchur powder for tanginess and cook on low heat for 5-7 minutes until dry.",
+        "Serve hot."
+      ],
+      "source": "seed"
+    },
+    {
+      "name": "Palak Dal",
+      "name_alt": "Dal Palak",
+      "slug": "palak-dal",
+      "meal_type": "dinner",
+      "cuisine": "north_indian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "dairy_free",
+        "nut_free",
+        "high_protein"
+      ],
+      "allergen_tags": [],
+      "prep_time_min": 15,
+      "cook_time_min": 25,
+      "servings": 4,
+      "estimated_difficulty": "intermediate",
+      "spice_level": "medium",
+      "protein_source": "dal_legume",
+      "ingredients": [
+        {
+          "ingredient_app_id": "masoor_dal_raw",
+          "quantity_grams": 150,
+          "display_quantity": 0.75,
+          "display_unit": "cup",
+          "notes": "rinsed"
+        },
+        {
+          "ingredient_app_id": "spinach_raw",
+          "quantity_grams": 200,
+          "display_quantity": 2,
+          "display_unit": "cup",
+          "notes": "washed and roughly chopped"
+        },
+        {
+          "ingredient_app_id": "onion_raw",
+          "quantity_grams": 100,
+          "display_quantity": 1,
+          "display_unit": "medium",
+          "notes": "chopped"
+        },
+        {
+          "ingredient_app_id": "tomato_raw",
+          "quantity_grams": 100,
+          "display_quantity": 1,
+          "display_unit": "medium",
+          "notes": "chopped"
+        },
+        {
+          "ingredient_app_id": "garlic_raw",
+          "quantity_grams": 15,
+          "display_quantity": 5,
+          "display_unit": "clove",
+          "notes": "minced"
+        },
+        {
+          "ingredient_app_id": "sunflower_oil_raw",
+          "quantity_grams": 15,
+          "display_quantity": 1,
+          "display_unit": "tbsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "cumin_raw",
+          "quantity_grams": 3,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "dried_red_chilli_raw",
+          "quantity_grams": 2,
+          "display_quantity": 2,
+          "display_unit": "piece",
+          "notes": "broken"
+        },
+        {
+          "ingredient_app_id": "turmeric_powder_raw",
+          "quantity_grams": 3,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "salt_raw",
+          "quantity_grams": 6,
+          "display_quantity": 1.5,
+          "display_unit": "tsp",
+          "notes": ""
+        }
+      ],
+      "instructions": [
+        "In a pressure cooker, add rinsed masoor dal, turmeric, a pinch of salt, and water. Cook until the dal is soft and mashed.",
+        "Heat oil in a pan or kadhai. Add cumin seeds and dried red chillies, and let them sizzle.",
+        "Add minced garlic and saut\u00e9 until fragrant and lightly golden.",
+        "Add chopped onions and fry until translucent, then add tomatoes and cook until soft.",
+        "Add the chopped spinach and cook until wilted and completely reduced in volume.",
+        "Pour the boiled dal into the spinach mixture, adding salt to taste and a little water if needed to adjust consistency.",
+        "Simmer for 5 minutes for flavors to meld, then serve hot."
+      ],
+      "source": "seed"
+    },
+    {
+      "name": "Matki Usal",
+      "name_alt": "Sprouted Moth Bean Curry",
+      "slug": "matki-usal",
+      "meal_type": "lunch",
+      "cuisine": "maharashtrian",
+      "diet_tags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "dairy_free",
+        "nut_free",
+        "high_protein"
+      ],
+      "allergen_tags": [
+        "mustard"
+      ],
+      "prep_time_min": 15,
+      "cook_time_min": 25,
+      "servings": 4,
+      "estimated_difficulty": "intermediate",
+      "spice_level": "medium",
+      "protein_source": "dal_legume",
+      "ingredients": [
+        {
+          "ingredient_app_id": "matki_raw",
+          "quantity_grams": 200,
+          "display_quantity": 1,
+          "display_unit": "cup",
+          "notes": "soaked overnight and sprouted for 12-24 hours"
+        },
+        {
+          "ingredient_app_id": "onion_raw",
+          "quantity_grams": 150,
+          "display_quantity": 2,
+          "display_unit": "medium",
+          "notes": "finely chopped"
+        },
+        {
+          "ingredient_app_id": "tomato_raw",
+          "quantity_grams": 100,
+          "display_quantity": 1,
+          "display_unit": "medium",
+          "notes": "chopped"
+        },
+        {
+          "ingredient_app_id": "mustard_oil_raw",
+          "quantity_grams": 20,
+          "display_quantity": 1.5,
+          "display_unit": "tbsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "mustard_seeds_raw",
+          "quantity_grams": 2,
+          "display_quantity": 0.5,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "curry_leaves_raw",
+          "quantity_grams": 2,
+          "display_quantity": 10,
+          "display_unit": "piece",
+          "notes": "fresh"
+        },
+        {
+          "ingredient_app_id": "ginger_raw",
+          "quantity_grams": 10,
+          "display_quantity": 1,
+          "display_unit": "inch",
+          "notes": "grated"
+        },
+        {
+          "ingredient_app_id": "garlic_raw",
+          "quantity_grams": 10,
+          "display_quantity": 4,
+          "display_unit": "clove",
+          "notes": "minced"
+        },
+        {
+          "ingredient_app_id": "green_chilli_raw",
+          "quantity_grams": 6,
+          "display_quantity": 2,
+          "display_unit": "piece",
+          "notes": "slit"
+        },
+        {
+          "ingredient_app_id": "turmeric_powder_raw",
+          "quantity_grams": 3,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "red_chilli_powder_raw",
+          "quantity_grams": 3,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "coriander_seeds_raw",
+          "quantity_grams": 4,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": "powdered"
+        },
+        {
+          "ingredient_app_id": "garam_masala_raw",
+          "quantity_grams": 3,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "salt_raw",
+          "quantity_grams": 8,
+          "display_quantity": 2,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "coriander_leaves_raw",
+          "quantity_grams": 15,
+          "display_quantity": 3,
+          "display_unit": "tbsp",
+          "notes": "chopped, for garnish"
+        },
+        {
+          "ingredient_app_id": "lemon_juice_raw",
+          "quantity_grams": 10,
+          "display_quantity": 2,
+          "display_unit": "tsp",
+          "notes": "for serving"
+        }
+      ],
+      "instructions": [
+        "Heat mustard oil in a heavy-bottomed pot until it just begins to smoke, then lower the heat.",
+        "Add mustard seeds and let them crackle, then add curry leaves, ginger, garlic, and slit green chillies.",
+        "Add chopped onions and saute until golden brown, about 6-8 minutes.",
+        "Add chopped tomatoes along with turmeric, red chilli powder, and coriander seed powder, cooking until the tomatoes break down into a soft masala.",
+        "Add the sprouted matki and stir to coat with the masala for a minute.",
+        "Pour in 2 cups of water, add salt, and bring to a boil.",
+        "Lower the heat, cover, and simmer for 15-18 minutes until the matki is tender but still holds shape.",
+        "Stir in garam masala and cook uncovered for another 2 minutes to thicken the gravy slightly.",
+        "Garnish with chopped coriander leaves and serve with lemon wedges on the side."
+      ],
+      "source": "seed"
+    },
+    {
+      "name": "Paneer Rajma Rice Bowl",
+      "name_alt": "Spiced Paneer and Kidney Bean Bowl",
+      "slug": "paneer-rajma-rice-bowl",
+      "meal_type": "lunch",
+      "cuisine": "fusion",
+      "diet_tags": [
+        "vegetarian",
+        "gluten_free",
+        "nut_free",
+        "high_protein"
+      ],
+      "allergen_tags": [
+        "dairy"
+      ],
+      "prep_time_min": 15,
+      "cook_time_min": 30,
+      "servings": 2,
+      "estimated_difficulty": "intermediate",
+      "spice_level": "medium",
+      "protein_source": "paneer",
+      "ingredients": [
+        {
+          "ingredient_app_id": "basmati_rice_raw",
+          "quantity_grams": 120,
+          "display_quantity": 0.6,
+          "display_unit": "cup",
+          "notes": "rinsed"
+        },
+        {
+          "ingredient_app_id": "paneer_raw",
+          "quantity_grams": 200,
+          "display_quantity": 2,
+          "display_unit": "cup",
+          "notes": "cubed"
+        },
+        {
+          "ingredient_app_id": "rajma_raw",
+          "quantity_grams": 80,
+          "display_quantity": 0.4,
+          "display_unit": "cup",
+          "notes": "soaked overnight and pressure cooked until soft"
+        },
+        {
+          "ingredient_app_id": "capsicum_raw",
+          "quantity_grams": 100,
+          "display_quantity": 1,
+          "display_unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "ingredient_app_id": "onion_raw",
+          "quantity_grams": 80,
+          "display_quantity": 1,
+          "display_unit": "small",
+          "notes": "diced"
+        },
+        {
+          "ingredient_app_id": "tomato_raw",
+          "quantity_grams": 80,
+          "display_quantity": 1,
+          "display_unit": "small",
+          "notes": "diced"
+        },
+        {
+          "ingredient_app_id": "cabbage_raw",
+          "quantity_grams": 60,
+          "display_quantity": 1,
+          "display_unit": "cup",
+          "notes": "shredded, for topping"
+        },
+        {
+          "ingredient_app_id": "butter_raw",
+          "quantity_grams": 10,
+          "display_quantity": 2,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "sunflower_oil_raw",
+          "quantity_grams": 10,
+          "display_quantity": 2,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "garlic_raw",
+          "quantity_grams": 6,
+          "display_quantity": 2,
+          "display_unit": "clove",
+          "notes": "minced"
+        },
+        {
+          "ingredient_app_id": "cumin_raw",
+          "quantity_grams": 2,
+          "display_quantity": 0.5,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "red_chilli_powder_raw",
+          "quantity_grams": 2,
+          "display_quantity": 0.5,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "garam_masala_raw",
+          "quantity_grams": 2,
+          "display_quantity": 0.5,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "turmeric_powder_raw",
+          "quantity_grams": 1,
+          "display_quantity": 0.25,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "black_pepper_raw",
+          "quantity_grams": 1,
+          "display_quantity": 0.25,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "salt_raw",
+          "quantity_grams": 4,
+          "display_quantity": 1,
+          "display_unit": "tsp",
+          "notes": ""
+        },
+        {
+          "ingredient_app_id": "lemon_juice_raw",
+          "quantity_grams": 10,
+          "display_quantity": 2,
+          "display_unit": "tsp",
+          "notes": "for serving"
+        },
+        {
+          "ingredient_app_id": "coriander_leaves_raw",
+          "quantity_grams": 10,
+          "display_quantity": 2,
+          "display_unit": "tbsp",
+          "notes": "chopped, for garnish"
+        }
+      ],
+      "instructions": [
+        "Cook the rinsed basmati rice in 1.5 cups of water with a pinch of salt until fluffy, then keep covered and warm.",
+        "While the rice cooks, warm the cooked rajma in a small pan with a pinch of salt, red chilli powder, and a splash of water until heated through, then set aside.",
+        "Heat sunflower oil in a wide pan over medium-high heat, add cumin seeds and let them sizzle.",
+        "Add minced garlic and stir for 20 seconds, then add diced onion and capsicum and cook for 3-4 minutes until just softened but still crisp.",
+        "Push the vegetables to one side, add butter and the paneer cubes to the empty side of the pan, and sear the paneer for 2 minutes per side until golden.",
+        "Sprinkle turmeric, remaining red chilli powder, garam masala, black pepper, and salt over the pan and toss everything together for 1 minute.",
+        "Build each bowl: add a base of rice, top with the spiced paneer and vegetables on one side, the warm rajma on another, and a small mound of fresh diced tomato and shredded cabbage on top.",
+        "Finish with a squeeze of lemon juice and a generous sprinkle of chopped coriander leaves before serving."
+      ],
+      "source": "seed"
+    }
+  ]
+}

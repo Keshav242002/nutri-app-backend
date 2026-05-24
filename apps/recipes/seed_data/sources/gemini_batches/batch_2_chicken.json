@@ -1,0 +1,1327 @@
+{
+"recipes": [
+{
+"name": "Chicken Keema Paratha",
+"name_alt": "Keema Parotta",
+"slug": "chicken-keema-paratha",
+"meal_type": "breakfast",
+"cuisine": "punjabi",
+"diet_tags": [
+"high_protein",
+"dairy_free",
+"nut_free"
+],
+"allergen_tags": [
+"gluten"
+],
+"prep_time_min": 20,
+"cook_time_min": 20,
+"servings": 2,
+"estimated_difficulty": "advanced",
+"spice_level": "hot",
+"protein_source": "chicken",
+"ingredients": [
+{
+"ingredient_app_id": "chicken_breast_raw",
+"quantity_grams": 200.0,
+"display_quantity": 200.0,
+"display_unit": "g",
+"notes": "minced"
+},
+{
+"ingredient_app_id": "whole_wheat_flour_raw",
+"quantity_grams": 120.0,
+"display_quantity": 1.0,
+"display_unit": "cup",
+"notes": ""
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "green_chilli_raw",
+"quantity_grams": 4.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "grated"
+},
+{
+"ingredient_app_id": "coriander_leaves_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": "chopped"
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 15.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "for cooking and stuffing"
+},
+{
+"ingredient_app_id": "garam_masala_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Knead whole wheat flour with water and a pinch of salt into a soft dough, then cover and rest.",
+"Heat half the oil in a pan, add chopped onion, green chilli, and ginger, cooking until onions soften.",
+"Add minced chicken breast, salt, red chilli powder, and garam masala to the pan.",
+"Cook the chicken mix thoroughly for 8-10 minutes until completely dry, then mix in fresh coriander leaves and let cool.",
+"Divide the rested dough into two equal portions and roll each into a small disc.",
+"Place half of the cooled chicken stuffing in the center of a dough disc, pleat the edges to seal, and flatten.",
+"Roll out the stuffed dough gently into a thick paratha using dry flour to avoid tearing.",
+"Cook on a hot tawa on both sides, applying the remaining oil until golden brown spots appear.",
+"Repeat the rolling and cooking process for the second portion and serve hot."
+],
+"source": "seed"
+},
+{
+"name": "Chicken Poha",
+"name_alt": "Keema Poha",
+"slug": "chicken-poha",
+"meal_type": "breakfast",
+"cuisine": "maharashtrian",
+"diet_tags": [
+"high_protein",
+"dairy_free",
+"nut_free",
+"gluten_free"
+],
+"allergen_tags": [
+"mustard"
+],
+"prep_time_min": 15,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"protein_source": "chicken",
+"ingredients": [
+{
+"ingredient_app_id": "poha_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.5,
+"display_unit": "cup",
+"notes": "thick variety"
+},
+{
+"ingredient_app_id": "chicken_breast_raw",
+"quantity_grams": 160.0,
+"display_quantity": 160.0,
+"display_unit": "g",
+"notes": "finely minced or chopped"
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 70.0,
+"display_quantity": 1.0,
+"display_unit": "small",
+"notes": "chopped"
+},
+{
+"ingredient_app_id": "green_chilli_raw",
+"quantity_grams": 3.0,
+"display_quantity": 1.5,
+"display_unit": "piece",
+"notes": "chopped"
+},
+{
+"ingredient_app_id": "groundnut_oil_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "mustard_seeds_raw",
+"quantity_grams": 1.5,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "curry_leaves_raw",
+"quantity_grams": 1.0,
+"display_quantity": 8.0,
+"display_unit": "piece",
+"notes": "fresh"
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 1.0,
+"display_quantity": 0.25,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.75,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "lemon_juice_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "coriander_leaves_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "chopped"
+}
+],
+"instructions": [
+"Rinse poha in a colander under running water for a few seconds, drain completely, and set aside to soften.",
+"Heat groundnut oil in a pan, add mustard seeds, and let them splutter.",
+"Add the chopped onion, green chilli, and curry leaves to the pan, sautéing until onions turn translucent.",
+"Add the finely minced chicken breast, turmeric powder, and half the salt.",
+"Sauté the chicken on medium heat for 6-8 minutes until it is completely cooked and slightly browned.",
+"Fluff the softened poha gently with a fork and add it to the pan along with the remaining salt.",
+"Mix everything thoroughly but gently to avoid breaking the flattened rice grains.",
+"Cover the pan with a lid and steam on low heat for 2-3 minutes.",
+"Turn off the heat, stir in lemon juice and fresh coriander leaves, then serve hot."
+],
+"source": "seed"
+},
+{
+"name": "Chicken Curry with Rice",
+"name_alt": "Tariwala Chicken Rice",
+"slug": "chicken-curry-with-rice",
+"meal_type": "lunch",
+"cuisine": "north_indian",
+"diet_tags": [
+"high_protein",
+"dairy_free",
+"nut_free",
+"gluten_free"
+],
+"allergen_tags": [],
+"prep_time_min": 15,
+"cook_time_min": 30,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"protein_source": "chicken",
+"ingredients": [
+{
+"ingredient_app_id": "chicken_thigh_raw",
+"quantity_grams": 250.0,
+"display_quantity": 250.0,
+"display_unit": "g",
+"notes": "boneless, diced"
+},
+{
+"ingredient_app_id": "basmati_rice_raw",
+"quantity_grams": 120.0,
+"display_quantity": 0.6,
+"display_unit": "cup",
+"notes": ""
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "pureed"
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 15.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 1.5,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "garam_masala_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.25,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "coriander_leaves_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "chopped"
+}
+],
+"instructions": [
+"Wash and soak the basmati rice in water for 20 minutes, then drain.",
+"Boil the soaked rice in water with a pinch of salt until fully cooked, drain excess water, and set aside.",
+"Heat sunflower oil in a separate pan, add chopped onions, and sauté until golden brown.",
+"Add ginger paste and garlic paste, frying for another minute until fragrant.",
+"Stir in the tomato puree, turmeric powder, red chilli powder, and salt, cooking until the oil begins to separate.",
+"Add the diced chicken thigh pieces and stir well to coat them thoroughly with the masala base.",
+"Pour in one cup of water, cover the pan, and simmer on low heat for 15 minutes until the chicken is tender.",
+"Sprinkle garam masala and simmer for another 2 minutes, then garnish with fresh coriander leaves.",
+"Serve the chicken curry hot alongside the cooked basmati rice."
+],
+"source": "seed"
+},
+{
+"name": "Chicken Biryani",
+"name_alt": "South Indian Chicken Biryani",
+"slug": "chicken-biryani",
+"meal_type": "lunch",
+"cuisine": "south_indian",
+"diet_tags": [
+"high_protein",
+"gluten_free",
+"nut_free"
+],
+"allergen_tags": [
+"dairy"
+],
+"prep_time_min": 25,
+"cook_time_min": 35,
+"servings": 4,
+"estimated_difficulty": "advanced",
+"spice_level": "hot",
+"protein_source": "chicken",
+"ingredients": [
+{
+"ingredient_app_id": "chicken_thigh_raw",
+"quantity_grams": 450.0,
+"display_quantity": 450.0,
+"display_unit": "g",
+"notes": "cut into pieces"
+},
+{
+"ingredient_app_id": "basmati_rice_raw",
+"quantity_grams": 240.0,
+"display_quantity": 1.25,
+"display_unit": "cup",
+"notes": ""
+},
+{
+"ingredient_app_id": "curd_raw",
+"quantity_grams": 100.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": ""
+},
+{
+"ingredient_app_id": "ghee_raw",
+"quantity_grams": 20.0,
+"display_quantity": 1.5,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 150.0,
+"display_quantity": 1.5,
+"display_unit": "medium",
+"notes": "sliced"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "chopped"
+},
+{
+"ingredient_app_id": "green_chilli_raw",
+"quantity_grams": 6.0,
+"display_quantity": 3.0,
+"display_unit": "piece",
+"notes": "slit lengthwise"
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"notes": "paste"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"notes": "paste"
+},
+{
+"ingredient_app_id": "cinnamon_raw",
+"quantity_grams": 2.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "cloves_raw",
+"quantity_grams": 1.0,
+"display_quantity": 4.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 8.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "coriander_leaves_raw",
+"quantity_grams": 15.0,
+"display_quantity": 3.0,
+"display_unit": "tbsp",
+"notes": "chopped"
+}
+],
+"instructions": [
+"Marinate the chicken pieces with curd, turmeric powder, red chilli powder, and half the salt for 30 minutes.",
+"Wash the basmati rice and soak it in water for 20 minutes, then drain completely.",
+"Parboil the soaked rice in plenty of salted water with cloves and cinnamon until it is 70% cooked, then drain.",
+"Heat ghee in a large heavy-bottomed pot, add the sliced onions, and fry until golden brown.",
+"Add the ginger and garlic pastes along with slit green chillies, sautéing for 2 minutes.",
+"Add the chopped tomatoes and cook until they soften completely.",
+"Add the marinated chicken pieces to the pot and cook on high heat for 5 minutes until sealed.",
+"Reduce heat, cover, and let the chicken cook in its own juices for 10 minutes.",
+"Layer the parboiled rice evenly over the chicken base, scatter fresh coriander leaves on top, cover tightly, and cook on very low heat (Dum) for 15 minutes before serving."
+],
+"source": "seed"
+},
+{
+"name": "Butter Chicken Lite",
+"name_alt": "Murgh Makhani Slim",
+"slug": "butter-chicken-lite",
+"meal_type": "lunch",
+"cuisine": "punjabi",
+"diet_tags": [
+"high_protein",
+"gluten_free"
+],
+"allergen_tags": [
+"dairy",
+"tree_nuts"
+],
+"prep_time_min": 20,
+"cook_time_min": 25,
+"servings": 2,
+"estimated_difficulty": "advanced",
+"spice_level": "mild",
+"protein_source": "chicken",
+"ingredients": [
+{
+"ingredient_app_id": "chicken_breast_raw",
+"quantity_grams": 250.0,
+"display_quantity": 250.0,
+"display_unit": "g",
+"notes": "cubed"
+},
+{
+"ingredient_app_id": "curd_raw",
+"quantity_grams": 50.0,
+"display_quantity": 0.25,
+"display_unit": "cup",
+"notes": "for marinade"
+},
+{
+"ingredient_app_id": "butter_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 200.0,
+"display_quantity": 2.0,
+"display_unit": "medium",
+"notes": "pureed"
+},
+{
+"ingredient_app_id": "cashew_raw",
+"quantity_grams": 10.0,
+"display_quantity": 5.0,
+"display_unit": "piece",
+"notes": "soaked and ground to paste"
+},
+{
+"ingredient_app_id": "fresh_cream_raw",
+"quantity_grams": 15.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "kasuri_methi_raw",
+"quantity_grams": 1.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": "crushed"
+},
+{
+"ingredient_app_id": "garam_masala_raw",
+"quantity_grams": 1.5,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Marinate chicken breast cubes with curd, ginger paste, garlic paste, and half the salt for 20 minutes.",
+"Heat a non-stick pan over medium heat, add the marinated chicken, and cook until golden and tender, then remove.",
+"In the same pan, melt the butter, then add the pureed tomatoes and cook for 5 minutes.",
+"Stir the ground cashew paste into the tomatoes and simmer until the mixture thickens slightly.",
+"Add the remaining salt, garam masala, and a splash of water to form a smooth gravy.",
+"Return the cooked chicken pieces to the gravy and simmer together for 5 minutes.",
+"Stir in the fresh cream and crushed kasuri methi, blending well on low heat.",
+"Remove from heat and serve hot."
+],
+"source": "seed"
+},
+{
+"name": "Chicken Tikka Salad",
+"name_alt": "Tikka Salad",
+"slug": "chicken-tikka-salad",
+"meal_type": "lunch",
+"cuisine": "north_indian",
+"diet_tags": [
+"high_protein",
+"gluten_free",
+"nut_free",
+"low_carb"
+],
+"allergen_tags": [
+"dairy"
+],
+"prep_time_min": 15,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"protein_source": "chicken",
+"ingredients": [
+{
+"ingredient_app_id": "chicken_breast_raw",
+"quantity_grams": 240.0,
+"display_quantity": 240.0,
+"display_unit": "g",
+"notes": "cut into bite-sized strips"
+},
+{
+"ingredient_app_id": "curd_raw",
+"quantity_grams": 40.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 60.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "sliced"
+},
+{
+"ingredient_app_id": "capsicum_raw",
+"quantity_grams": 80.0,
+"display_quantity": 1.0,
+"display_unit": "small",
+"notes": "sliced"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 80.0,
+"display_quantity": 1.0,
+"display_unit": "small",
+"notes": "deseeded and sliced"
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 6.0,
+"display_quantity": 1.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "garam_masala_raw",
+"quantity_grams": 1.5,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.75,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "lemon_juice_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Marinate the chicken strips in curd, red chilli powder, garam masala, and half the salt for 15 minutes.",
+"Heat the sunflower oil in a non-stick pan over medium-high heat.",
+"Add the marinated chicken strips and pan-sear them for 6-8 minutes until cooked through and lightly charred.",
+"In a large mixing bowl, combine the sliced onions, capsicum, and deseeded tomatoes.",
+"Transfer the hot chicken tikka pieces into the bowl with the fresh vegetables.",
+"Toss the mixture together with the remaining salt and lemon juice.",
+"Serve immediately as a light, high-protein meal."
+],
+"source": "seed"
+},
+{
+"name": "Chicken Fried Rice",
+"name_alt": "Indo-Chinese Chicken Fried Rice",
+"slug": "chicken-fried-rice",
+"meal_type": "lunch",
+"cuisine": "chinese_indo",
+"diet_tags": [
+"high_protein",
+"dairy_free",
+"nut_free",
+"gluten_free"
+],
+"allergen_tags": [],
+"prep_time_min": 15,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "mild",
+"protein_source": "chicken",
+"ingredients": [
+{
+"ingredient_app_id": "sona_masoori_rice_raw",
+"quantity_grams": 100.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": "cooked and cooled completely"
+},
+{
+"ingredient_app_id": "chicken_breast_raw",
+"quantity_grams": 180.0,
+"display_quantity": 180.0,
+"display_unit": "g",
+"notes": "shredded or finely cubed"
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 12.0,
+"display_quantity": 2.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 6.0,
+"display_quantity": 1.5,
+"display_unit": "tsp",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 40.0,
+"display_quantity": 0.5,
+"display_unit": "small",
+"notes": "chopped"
+},
+{
+"ingredient_app_id": "carrot_raw",
+"quantity_grams": 40.0,
+"display_quantity": 0.5,
+"display_unit": "small",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "french_beans_raw",
+"quantity_grams": 30.0,
+"display_quantity": 0.25,
+"display_unit": "cup",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "black_pepper_raw",
+"quantity_grams": 1.5,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": "crushed"
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.75,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Cook the Sona Masoori rice in advance, drain thoroughly, fluff, and ensure it is completely cold before using.",
+"Heat half the sunflower oil in a wok or deep pan over high heat, add the chicken pieces, and stir-fry until cooked and white throughout, then remove.",
+"Add the remaining oil to the same wok on high heat and toss in the chopped garlic and onions, stir-frying for 1 minute.",
+"Add the finely chopped carrots and french beans, stir-frying rapidly for 2-3 minutes so they stay crisp.",
+"Return the cooked chicken back to the wok alongside the vegetables.",
+"Add the cold cooked rice, spreading it evenly across the wok.",
+"Season everything with salt and freshly crushed black pepper.",
+"Toss the fried rice continuously on high heat for 2 minutes until everything is evenly incorporated and heated through."
+],
+"source": "seed"
+},
+{
+"name": "Chicken Chettinad",
+"name_alt": "Chettinad Kozhi Curry",
+"slug": "chicken-chettinad",
+"meal_type": "lunch",
+"cuisine": "tamil",
+"diet_tags": [
+"high_protein",
+"dairy_free",
+"nut_free",
+"gluten_free"
+],
+"allergen_tags": [
+"sesame"
+],
+"prep_time_min": 20,
+"cook_time_min": 30,
+"servings": 2,
+"estimated_difficulty": "advanced",
+"spice_level": "very_hot",
+"protein_source": "chicken",
+"ingredients": [
+{
+"ingredient_app_id": "chicken_thigh_raw",
+"quantity_grams": 260.0,
+"display_quantity": 260.0,
+"display_unit": "g",
+"notes": "cut into curry pieces"
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 80.0,
+"display_quantity": 1.0,
+"display_unit": "small",
+"notes": "chopped"
+},
+{
+"ingredient_app_id": "sesame_oil_raw",
+"quantity_grams": 15.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "Gingelly oil"
+},
+{
+"ingredient_app_id": "coriander_seeds_raw",
+"quantity_grams": 6.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": "for chettinad paste"
+},
+{
+"ingredient_app_id": "cumin_raw",
+"quantity_grams": 3.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "for chettinad paste"
+},
+{
+"ingredient_app_id": "fennel_seeds_raw",
+"quantity_grams": 3.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "for chettinad paste"
+},
+{
+"ingredient_app_id": "dried_red_chilli_raw",
+"quantity_grams": 4.0,
+"display_quantity": 4.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "curry_leaves_raw",
+"quantity_grams": 2.0,
+"display_quantity": 10.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 1.0,
+"display_quantity": 0.25,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Dry roast coriander seeds, cumin, fennel seeds, and dried red chillies in a pan until fragrant, then grind with a little water into a smooth masala paste.",
+"Heat sesame oil in a pot, add the fresh curry leaves, and let them crackle.",
+"Add the chopped onions and sauté until dark golden brown.",
+"Stir in the ginger paste and garlic paste, frying for 1 minute to remove the raw smell.",
+"Add the chopped tomatoes and turmeric powder, cooking until the tomatoes mash completely.",
+"Add the prepared Chettinad masala paste and salt, stir-frying for 2 minutes over medium heat.",
+"Add the chicken thigh pieces and toss thoroughly to coat them in the rich spice mixture.",
+"Pour in half a cup of water, cover the pot, and cook on medium-low heat for 18-20 minutes until the chicken is tender and the gravy is thick."
+],
+"source": "seed"
+},
+{
+"name": "Grilled Chicken and Veggie Bowl",
+"name_alt": "Continental Chicken Bowl",
+"slug": "grilled-chicken-and-veggie-bowl",
+"meal_type": "dinner",
+"cuisine": "continental",
+"diet_tags": [
+"high_protein",
+"dairy_free",
+"nut_free",
+"gluten_free",
+"low_carb"
+],
+"allergen_tags": [],
+"prep_time_min": 15,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "mild",
+"protein_source": "chicken",
+"ingredients": [
+{
+"ingredient_app_id": "chicken_breast_raw",
+"quantity_grams": 250.0,
+"display_quantity": 250.0,
+"display_unit": "g",
+"notes": "filleted"
+},
+{
+"ingredient_app_id": "capsicum_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "diced"
+},
+{
+"ingredient_app_id": "carrot_raw",
+"quantity_grams": 80.0,
+"display_quantity": 1.0,
+"display_unit": "small",
+"notes": "sliced"
+},
+{
+"ingredient_app_id": "cauliflower_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "cup",
+"notes": "small florets"
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "black_pepper_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.75,
+"display_unit": "tsp",
+"notes": "freshly crushed"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "minced"
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.75,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "lemon_juice_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Marinate the chicken breast fillets with minced garlic, lemon juice, half the crushed black pepper, and half the salt for 15 minutes.",
+"Steam the sliced carrots and cauliflower florets for 4-5 minutes until tender-crisp, then set aside.",
+"Heat half the sunflower oil in a grill pan or non-stick skillet over medium-high heat.",
+"Place the marinated chicken breast fillets in the pan and grill for 5-6 minutes on each side until fully cooked.",
+"Remove the cooked chicken from the pan, let it rest briefly, and slice into strips.",
+"Add the remaining oil to the same pan and toss in the diced capsicum along with the steamed carrots and cauliflower.",
+"Sauté the vegetables on high heat for 2 minutes, seasoning with the remaining salt and black pepper.",
+"Assemble the meal bowls by placing the sautéed vegetables on one side and the grilled chicken strips on the other."
+],
+"source": "seed"
+},
+{
+"name": "Chicken Saagwala",
+"name_alt": "Palak Chicken",
+"slug": "chicken-saagwala",
+"meal_type": "dinner",
+"cuisine": "north_indian",
+"diet_tags": [
+"high_protein",
+"dairy_free",
+"nut_free",
+"gluten_free",
+"low_carb"
+],
+"allergen_tags": [],
+"prep_time_min": 20,
+"cook_time_min": 25,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"protein_source": "chicken",
+"ingredients": [
+{
+"ingredient_app_id": "chicken_thigh_raw",
+"quantity_grams": 250.0,
+"display_quantity": 250.0,
+"display_unit": "g",
+"notes": "boneless, cubed"
+},
+{
+"ingredient_app_id": "spinach_raw",
+"quantity_grams": 250.0,
+"display_quantity": 1.0,
+"display_unit": "bunch",
+"notes": "blanched and pureed"
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 80.0,
+"display_quantity": 1.0,
+"display_unit": "small",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 60.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "chopped"
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "cumin_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": "seeds"
+},
+{
+"ingredient_app_id": "garam_masala_raw",
+"quantity_grams": 1.5,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Blanch the fresh spinach leaves in boiling water for 2 minutes, plunge them into cold water, and puree smoothly.",
+"Heat sunflower oil in a pan, add the cumin seeds, and let them sizzle.",
+"Add the finely chopped onions and sauté until translucent.",
+"Incorporate the ginger paste and garlic paste, frying for an additional minute.",
+"Add the chopped tomatoes and cook until they soften completely.",
+"Add the chicken thigh cubes and sauté for 5 minutes until the meat turns opaque.",
+"Pour in the spinach puree and add the salt, mixing thoroughly.",
+"Cover the pan and simmer on low heat for 10-12 minutes until the chicken is thoroughly cooked.",
+"Stir in the garam masala just before turning off the heat, mixing gently."
+],
+"source": "seed"
+},
+{
+"name": "Chicken Shorba",
+"name_alt": "Murgh Shorba",
+"slug": "chicken-shorba",
+"meal_type": "dinner",
+"cuisine": "north_indian",
+"diet_tags": [
+"high_protein",
+"dairy_free",
+"nut_free",
+"gluten_free",
+"low_carb"
+],
+"allergen_tags": [],
+"prep_time_min": 10,
+"cook_time_min": 20,
+"servings": 2,
+"estimated_difficulty": "beginner",
+"spice_level": "mild",
+"protein_source": "chicken",
+"ingredients": [
+{
+"ingredient_app_id": "chicken_breast_raw",
+"quantity_grams": 180.0,
+"display_quantity": 180.0,
+"display_unit": "g",
+"notes": "cut into very small cubes"
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 6.0,
+"display_quantity": 1.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "cumin_raw",
+"quantity_grams": 1.5,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": "powder"
+},
+{
+"ingredient_app_id": "black_pepper_raw",
+"quantity_grams": 1.5,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": "powder"
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 0.5,
+"display_quantity": 0.12,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.75,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "coriander_leaves_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "chopped"
+}
+],
+"instructions": [
+"Heat sunflower oil in a deep pot, add the chopped onions, and sauté until they turn light brown.",
+"Add the ginger paste and garlic paste, sautéing briefly for 30 seconds.",
+"Add the small chicken breast cubes along with turmeric powder, cumin powder, and half the black pepper.",
+"Sauté the chicken pieces for 3-4 minutes until they turn white exteriorly.",
+"Pour in 2.5 cups of water and add the salt, stirring well to combine.",
+"Bring the soup to a boil, then reduce the heat, cover with a lid, and simmer for 12-15 minutes.",
+"Stir in the remaining black pepper powder and check the seasoning.",
+"Garnish with fresh chopped coriander leaves and serve warm as a soothing broth."
+],
+"source": "seed"
+},
+{
+"name": "Tandoori Chicken",
+"name_alt": "Tandoori Murgh",
+"slug": "tandoori-chicken",
+"meal_type": "dinner",
+"cuisine": "punjabi",
+"diet_tags": [
+"high_protein",
+"gluten_free",
+"nut_free",
+"low_carb"
+],
+"allergen_tags": [
+"dairy",
+"mustard"
+],
+"prep_time_min": 20,
+"cook_time_min": 25,
+"servings": 2,
+"estimated_difficulty": "advanced",
+"spice_level": "hot",
+"protein_source": "chicken",
+"ingredients": [
+{
+"ingredient_app_id": "chicken_thigh_raw",
+"quantity_grams": 300.0,
+"display_quantity": 300.0,
+"display_unit": "g",
+"notes": "boneless, cut into large chunks"
+},
+{
+"ingredient_app_id": "curd_raw",
+"quantity_grams": 80.0,
+"display_quantity": 0.33,
+"display_unit": "cup",
+"notes": "thick hung curd"
+},
+{
+"ingredient_app_id": "mustard_oil_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "preferably Kashmiri variety"
+},
+{
+"ingredient_app_id": "garam_masala_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "kasuri_methi_raw",
+"quantity_grams": 1.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": "crushed"
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "lemon_juice_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Make shallow cuts across the chicken thigh chunks to help the marinade penetrate.",
+"In a bowl, mix thick curd, mustard oil, ginger paste, garlic paste, red chilli powder, garam masala, crushed kasuri methi, salt, and lemon juice into a smooth paste.",
+"Rub the marinade thoroughly into the chicken pieces and set aside to rest for at least 30 minutes.",
+"Preheat your oven to 220°C (or heat a non-stick grill pan over high heat).",
+"Place the marinated chicken chunks on a wire rack or directly onto the hot pan.",
+"Roast or pan-grill for 10-12 minutes on one side until slightly charred.",
+"Flip the chicken pieces over and cook the other side for another 10 minutes until completely cooked and edges are smoky.",
+"Remove from heat, let it rest for 2 minutes, and serve hot."
+],
+"source": "seed"
+}
+]
+}

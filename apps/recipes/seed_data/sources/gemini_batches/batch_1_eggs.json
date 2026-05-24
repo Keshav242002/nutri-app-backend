@@ -1,0 +1,1141 @@
+{
+"recipes": [
+{
+"name": "Masala Omelette",
+"name_alt": "Indian Style Omelette",
+"slug": "masala-omelette",
+"meal_type": "breakfast",
+"cuisine": "north_indian",
+"diet_tags": [
+"eggetarian",
+"gluten_free",
+"dairy_free",
+"nut_free",
+"low_carb"
+],
+"allergen_tags": [
+"eggs"
+],
+"prep_time_min": 5,
+"cook_time_min": 10,
+"servings": 2,
+"estimated_difficulty": "beginner",
+"spice_level": "medium",
+"protein_source": "egg",
+"ingredients": [
+{
+"ingredient_app_id": "egg_whole_raw",
+"quantity_grams": 200.0,
+"display_quantity": 4.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "green_chilli_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "coriander_leaves_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"In a bowl, crack the eggs and whisk them thoroughly until slightly frothy.",
+"Add the chopped onion, tomato, green chilli, and coriander leaves to the eggs.",
+"Add turmeric powder, red chilli powder, and salt, mixing well to combine all ingredients.",
+"Heat oil in a non-stick pan over medium heat.",
+"Pour half of the egg mixture into the pan, swirling to spread it evenly.",
+"Cook for 2-3 minutes until the bottom is set and slightly golden.",
+"Flip carefully and cook the other side for another 1-2 minutes.",
+"Remove from heat and repeat with the remaining egg mixture.",
+"Serve hot with toast or paratha."
+],
+"source": "seed"
+},
+{
+"name": "Egg Paratha",
+"name_alt": "Anda Paratha",
+"slug": "egg-paratha",
+"meal_type": "breakfast",
+"cuisine": "punjabi",
+"diet_tags": [
+"eggetarian",
+"nut_free"
+],
+"allergen_tags": [
+"eggs",
+"gluten",
+"dairy"
+],
+"prep_time_min": 15,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"protein_source": "egg",
+"ingredients": [
+{
+"ingredient_app_id": "whole_wheat_flour_raw",
+"quantity_grams": 120.0,
+"display_quantity": 1.0,
+"display_unit": "cup",
+"notes": "kneaded into dough"
+},
+{
+"ingredient_app_id": "egg_whole_raw",
+"quantity_grams": 100.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 30.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "green_chilli_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "ghee_raw",
+"quantity_grams": 15.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": ""
+}
+],
+"instructions": [
+"Divide the pre-kneaded whole wheat dough into 2 equal portions and roll them into smooth balls.",
+"In a small bowl, beat the eggs with chopped onion, green chilli, and a pinch of salt.",
+"Roll out one dough ball into a thin circle using a rolling pin.",
+"Heat a tawa or flat pan over medium heat and place the rolled dough on it.",
+"Cook for a minute until small bubbles appear, then flip.",
+"Spread half a teaspoon of ghee on the surface, then carefully pour half of the egg mixture over the paratha.",
+"Gently spread the egg mixture with a spoon and wait 30 seconds for it to slightly set.",
+"Flip the paratha quickly to cook the egg side down.",
+"Press gently with a spatula and apply a little more ghee to the edges until the egg is cooked and the paratha is golden brown.",
+"Repeat for the second paratha and serve hot."
+],
+"source": "seed"
+},
+{
+"name": "Egg Bhurji",
+"name_alt": "Anda Bhurji",
+"slug": "egg-bhurji",
+"meal_type": "breakfast",
+"cuisine": "north_indian",
+"diet_tags": [
+"eggetarian",
+"gluten_free",
+"dairy_free",
+"nut_free",
+"low_carb",
+"high_protein"
+],
+"allergen_tags": [
+"eggs"
+],
+"prep_time_min": 10,
+"cook_time_min": 10,
+"servings": 2,
+"estimated_difficulty": "beginner",
+"spice_level": "hot",
+"protein_source": "egg",
+"ingredients": [
+{
+"ingredient_app_id": "egg_whole_raw",
+"quantity_grams": 200.0,
+"display_quantity": 4.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 80.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 80.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "green_chilli_raw",
+"quantity_grams": 15.0,
+"display_quantity": 3.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 15.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "cumin_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "coriander_leaves_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": "chopped"
+}
+],
+"instructions": [
+"Crack the eggs into a bowl, whisk well, and set aside.",
+"Heat oil in a pan over medium heat and add cumin seeds.",
+"Once the seeds crackle, add chopped onions and green chillies, sautéing until onions turn translucent.",
+"Add chopped tomatoes, turmeric powder, red chilli powder, and salt. Cook until tomatoes are soft and oil starts to separate.",
+"Reduce the heat and pour in the beaten eggs.",
+"Stir continuously to scramble the eggs and mix them with the onion-tomato masala.",
+"Cook for 3-4 minutes until the eggs are fully cooked but still slightly soft.",
+"Garnish with freshly chopped coriander leaves.",
+"Serve hot with roti, paratha, or bread."
+],
+"source": "seed"
+},
+{
+"name": "Egg Dosa",
+"name_alt": "Muttai Dosa",
+"slug": "egg-dosa",
+"meal_type": "breakfast",
+"cuisine": "south_indian",
+"diet_tags": [
+"eggetarian",
+"gluten_free",
+"dairy_free",
+"nut_free"
+],
+"allergen_tags": [
+"eggs",
+"sesame"
+],
+"prep_time_min": 10,
+"cook_time_min": 10,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "mild",
+"protein_source": "egg",
+"ingredients": [
+{
+"ingredient_app_id": "idli_rava_raw",
+"quantity_grams": 100.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": "fermented as batter"
+},
+{
+"ingredient_app_id": "urad_dal_raw",
+"quantity_grams": 30.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": "fermented as batter"
+},
+{
+"ingredient_app_id": "egg_whole_raw",
+"quantity_grams": 100.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "sesame_oil_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Prepare the dosa batter using fermented idli rava and urad dal, ensuring it has a pourable consistency.",
+"Heat a flat non-stick dosa tawa over medium-high heat and grease lightly with a few drops of sesame oil.",
+"Pour a ladle of batter in the center and spread it outward in a circular motion to make a thin crepe.",
+"Crack one egg directly onto the center of the dosa while it is still cooking.",
+"Quickly spread the egg over the surface of the dosa using the back of a spoon.",
+"Drizzle half a teaspoon of sesame oil around the edges.",
+"Sprinkle a tiny pinch of salt over the egg.",
+"Cook until the egg sets and the bottom of the dosa turns golden brown and crispy.",
+"Fold the dosa in half and remove from heat.",
+"Repeat for the second dosa and serve immediately."
+],
+"source": "seed"
+},
+{
+"name": "Egg Curry Rice Bowl",
+"name_alt": "",
+"slug": "egg-curry-rice-bowl",
+"meal_type": "lunch",
+"cuisine": "south_indian",
+"diet_tags": [
+"eggetarian",
+"gluten_free",
+"dairy_free",
+"nut_free",
+"high_protein"
+],
+"allergen_tags": [
+"eggs",
+"mustard"
+],
+"prep_time_min": 15,
+"cook_time_min": 25,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "medium",
+"protein_source": "egg",
+"ingredients": [
+{
+"ingredient_app_id": "sona_masoori_rice_raw",
+"quantity_grams": 120.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": "washed"
+},
+{
+"ingredient_app_id": "egg_whole_raw",
+"quantity_grams": 200.0,
+"display_quantity": 4.0,
+"display_unit": "piece",
+"notes": "hard boiled"
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "sliced"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 100.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "chopped"
+},
+{
+"ingredient_app_id": "coconut_oil_raw",
+"quantity_grams": 15.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "mustard_seeds_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "curry_leaves_raw",
+"quantity_grams": 2.0,
+"display_quantity": 10.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "coriander_seeds_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "crushed"
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 6.0,
+"display_quantity": 1.5,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Cook the sona masoori rice with enough water until fluffy, then set aside.",
+"Boil the eggs, peel them, and make shallow slits on the egg whites.",
+"Heat coconut oil in a deep pan. Add mustard seeds and wait for them to splutter, then add curry leaves.",
+"Add sliced onions and sauté until golden brown.",
+"Add chopped tomatoes and cook until they soften and turn mushy.",
+"Stir in turmeric powder, red chilli powder, crushed coriander seeds, and half the salt. Mix well.",
+"Add half a cup of water to create a gravy consistency and bring to a simmer.",
+"Gently drop the boiled eggs into the curry and simmer for 5 minutes.",
+"To serve, divide the cooked rice into bowls and pour the hot egg curry over the top."
+],
+"source": "seed"
+},
+{
+"name": "Anda Biryani",
+"name_alt": "Egg Biryani",
+"slug": "anda-biryani",
+"meal_type": "lunch",
+"cuisine": "north_indian",
+"diet_tags": [
+"eggetarian",
+"gluten_free",
+"nut_free",
+"high_protein"
+],
+"allergen_tags": [
+"eggs",
+"dairy"
+],
+"prep_time_min": 20,
+"cook_time_min": 40,
+"servings": 4,
+"estimated_difficulty": "advanced",
+"spice_level": "hot",
+"protein_source": "egg",
+"ingredients": [
+{
+"ingredient_app_id": "basmati_rice_raw",
+"quantity_grams": 240.0,
+"display_quantity": 1.5,
+"display_unit": "cup",
+"notes": "soaked for 30 mins"
+},
+{
+"ingredient_app_id": "egg_whole_raw",
+"quantity_grams": 300.0,
+"display_quantity": 6.0,
+"display_unit": "piece",
+"notes": "hard boiled"
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 200.0,
+"display_quantity": 2.0,
+"display_unit": "large",
+"notes": "thinly sliced"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 150.0,
+"display_quantity": 2.0,
+"display_unit": "medium",
+"notes": "chopped"
+},
+{
+"ingredient_app_id": "ghee_raw",
+"quantity_grams": 30.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "paste"
+},
+{
+"ingredient_app_id": "green_chilli_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": "slit"
+},
+{
+"ingredient_app_id": "curd_raw",
+"quantity_grams": 100.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": "whisked"
+},
+{
+"ingredient_app_id": "garam_masala_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 6.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 4.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 12.0,
+"display_quantity": 2.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "coriander_leaves_raw",
+"quantity_grams": 20.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": "chopped"
+}
+],
+"instructions": [
+"Boil the soaked basmati rice with whole spices (optional) and salt until 80% cooked. Drain and set aside.",
+"Heat half the ghee in a heavy-bottomed pot and fry the boiled eggs slightly until golden. Remove and set aside.",
+"In the same pot, fry thinly sliced onions until crisp and golden brown (birista). Keep half aside for garnish.",
+"Add ginger and garlic paste to the remaining onions and sauté until the raw smell disappears.",
+"Stir in tomatoes, green chillies, turmeric, red chilli powder, and garam masala. Cook until tomatoes are mushy.",
+"Lower the flame, stir in whisked curd, and cook until oil separates. Season with salt.",
+"Place the fried eggs into this masala, then layer the par-cooked rice over it.",
+"Sprinkle the remaining fried onions, coriander leaves, and the rest of the ghee on top.",
+"Cover tightly and cook on Dum (very low heat) for 15-20 minutes.",
+"Gently fluff the biryani before serving hot."
+],
+"source": "seed"
+},
+{
+"name": "Egg Fried Rice",
+"name_alt": "",
+"slug": "egg-fried-rice",
+"meal_type": "lunch",
+"cuisine": "chinese_indo",
+"diet_tags": [
+"eggetarian",
+"gluten_free",
+"dairy_free",
+"nut_free"
+],
+"allergen_tags": [
+"eggs"
+],
+"prep_time_min": 10,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "beginner",
+"spice_level": "mild",
+"protein_source": "egg",
+"ingredients": [
+{
+"ingredient_app_id": "basmati_rice_raw",
+"quantity_grams": 120.0,
+"display_quantity": 0.5,
+"display_unit": "cup",
+"notes": "cooked and cooled completely"
+},
+{
+"ingredient_app_id": "egg_whole_raw",
+"quantity_grams": 100.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "carrot_raw",
+"quantity_grams": 50.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "french_beans_raw",
+"quantity_grams": 50.0,
+"display_quantity": 10.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "capsicum_raw",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "finely minced"
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 15.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "black_pepper_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": "crushed"
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Crack eggs into a bowl, whisk slightly, and scramble them in a heated pan with a few drops of oil. Set scrambled eggs aside.",
+"In a wok or large pan, heat the remaining oil on high heat.",
+"Add minced garlic and stir-fry for a few seconds until fragrant.",
+"Add carrots and french beans, tossing continuously for 2-3 minutes.",
+"Add chopped capsicum and cook for another minute, keeping the vegetables crunchy.",
+"Add the cooked, cooled rice to the wok along with scrambled eggs.",
+"Sprinkle salt and crushed black pepper.",
+"Toss everything together on high heat for 2-3 minutes until the rice is heated through.",
+"Serve hot immediately."
+],
+"source": "seed"
+},
+{
+"name": "Egg White Bhurji Bowl",
+"name_alt": "",
+"slug": "egg-white-bhurji-bowl",
+"meal_type": "lunch",
+"cuisine": "north_indian",
+"diet_tags": [
+"eggetarian",
+"gluten_free",
+"dairy_free",
+"nut_free",
+"low_carb",
+"high_protein"
+],
+"allergen_tags": [
+"eggs"
+],
+"prep_time_min": 10,
+"cook_time_min": 10,
+"servings": 2,
+"estimated_difficulty": "beginner",
+"spice_level": "mild",
+"protein_source": "egg",
+"ingredients": [
+{
+"ingredient_app_id": "egg_whole_raw",
+"quantity_grams": 200.0,
+"display_quantity": 4.0,
+"display_unit": "piece",
+"notes": "use whites only"
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 80.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "green_chilli_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "piece",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 1.0,
+"display_quantity": 0.25,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+}
+],
+"instructions": [
+"Separate the egg whites from the yolks and whisk the egg whites slightly in a bowl.",
+"Heat a minimal amount of oil in a non-stick pan over medium heat.",
+"Add chopped onions and green chilli, sautéing until onions are soft.",
+"Stir in chopped tomatoes and turmeric powder, cooking for 2 minutes.",
+"Pour in the egg whites and continuously stir to scramble them.",
+"Add salt and cook for a few more minutes until the egg whites are fully cooked but not rubbery.",
+"Transfer to a bowl and serve warm."
+],
+"source": "seed"
+},
+{
+"name": "Egg Drop Rasam",
+"name_alt": "Muttai Rasam",
+"slug": "egg-drop-rasam",
+"meal_type": "dinner",
+"cuisine": "tamil",
+"diet_tags": [
+"eggetarian",
+"gluten_free",
+"dairy_free",
+"nut_free",
+"low_carb"
+],
+"allergen_tags": [
+"eggs",
+"mustard",
+"sesame"
+],
+"prep_time_min": 10,
+"cook_time_min": 15,
+"servings": 2,
+"estimated_difficulty": "intermediate",
+"spice_level": "hot",
+"protein_source": "egg",
+"ingredients": [
+{
+"ingredient_app_id": "egg_whole_raw",
+"quantity_grams": 100.0,
+"display_quantity": 2.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "tamarind_pulp_raw",
+"quantity_grams": 20.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 80.0,
+"display_quantity": 1.0,
+"display_unit": "medium",
+"notes": "mashed"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 10.0,
+"display_quantity": 3.0,
+"display_unit": "piece",
+"notes": "crushed"
+},
+{
+"ingredient_app_id": "cumin_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "crushed"
+},
+{
+"ingredient_app_id": "black_pepper_raw",
+"quantity_grams": 4.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": "crushed"
+},
+{
+"ingredient_app_id": "mustard_seeds_raw",
+"quantity_grams": 2.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "curry_leaves_raw",
+"quantity_grams": 2.0,
+"display_quantity": 10.0,
+"display_unit": "piece",
+"notes": ""
+},
+{
+"ingredient_app_id": "sesame_oil_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "coriander_leaves_raw",
+"quantity_grams": 5.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": "chopped"
+}
+],
+"instructions": [
+"In a bowl, mix tamarind pulp and mashed tomato with 2 cups of water.",
+"Heat sesame oil in a pot, add mustard seeds and let them crackle.",
+"Add curry leaves and the freshly crushed mixture of garlic, cumin, and black pepper. Sauté for 1 minute.",
+"Pour in the tamarind-tomato water and add salt. Bring to a gentle boil.",
+"Reduce the heat to a simmer. Crack the eggs directly into the simmering rasam.",
+"Do not stir immediately; let the eggs poach in the hot liquid for 3-4 minutes until set.",
+"Gently stir to ensure the rasam flavors meld. Garnish with coriander leaves.",
+"Serve hot as a soup or with rice."
+],
+"source": "seed"
+},
+{
+"name": "Masala Egg Curry",
+"name_alt": "Anda Rassa",
+"slug": "masala-egg-curry",
+"meal_type": "dinner",
+"cuisine": "maharashtrian",
+"diet_tags": [
+"eggetarian",
+"gluten_free",
+"dairy_free",
+"high_protein"
+],
+"allergen_tags": [
+"eggs",
+"peanuts",
+"sesame"
+],
+"prep_time_min": 15,
+"cook_time_min": 30,
+"servings": 4,
+"estimated_difficulty": "advanced",
+"spice_level": "medium",
+"protein_source": "egg",
+"ingredients": [
+{
+"ingredient_app_id": "egg_whole_raw",
+"quantity_grams": 400.0,
+"display_quantity": 8.0,
+"display_unit": "piece",
+"notes": "hard boiled"
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 200.0,
+"display_quantity": 2.0,
+"display_unit": "large",
+"notes": "sliced"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 150.0,
+"display_quantity": 2.0,
+"display_unit": "medium",
+"notes": "chopped"
+},
+{
+"ingredient_app_id": "sesame_seeds_raw",
+"quantity_grams": 20.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": "dry roasted"
+},
+{
+"ingredient_app_id": "peanut_raw",
+"quantity_grams": 30.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": "dry roasted"
+},
+{
+"ingredient_app_id": "garlic_raw",
+"quantity_grams": 15.0,
+"display_quantity": 1.5,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "ginger_raw",
+"quantity_grams": 10.0,
+"display_quantity": 1.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "sunflower_oil_raw",
+"quantity_grams": 25.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "red_chilli_powder_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "garam_masala_raw",
+"quantity_grams": 6.0,
+"display_quantity": 1.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "turmeric_powder_raw",
+"quantity_grams": 4.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "coriander_leaves_raw",
+"quantity_grams": 15.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": "chopped"
+}
+],
+"instructions": [
+"In a pan, dry roast sesame seeds and peanuts until fragrant, then grind into a fine paste with a little water.",
+"Heat a little oil and sauté sliced onions, ginger, and garlic until golden. Cool and blend into a smooth paste.",
+"Heat the remaining oil in a heavy-bottomed pan, add the onion paste, and cook until oil separates.",
+"Add chopped tomatoes, turmeric, red chilli powder, and garam masala. Cook until tomatoes are completely soft.",
+"Stir in the peanut-sesame paste and cook for 3-4 minutes.",
+"Add 1.5 cups of water and salt, bringing the curry to a boil, then simmering until it reaches desired thickness.",
+"Make small incisions on the boiled eggs and drop them into the simmering gravy.",
+"Cook for another 5 minutes, garnish with coriander leaves, and serve with bhakri or rice."
+],
+"source": "seed"
+},
+{
+"name": "Masala Egg Salad",
+"name_alt": "",
+"slug": "masala-egg-salad",
+"meal_type": "dinner",
+"cuisine": "continental",
+"diet_tags": [
+"eggetarian",
+"gluten_free",
+"dairy_free",
+"nut_free",
+"low_carb",
+"high_protein"
+],
+"allergen_tags": [
+"eggs"
+],
+"prep_time_min": 15,
+"cook_time_min": 0,
+"servings": 2,
+"estimated_difficulty": "beginner",
+"spice_level": "mild",
+"protein_source": "egg",
+"ingredients": [
+{
+"ingredient_app_id": "egg_whole_raw",
+"quantity_grams": 200.0,
+"display_quantity": 4.0,
+"display_unit": "piece",
+"notes": "hard boiled"
+},
+{
+"ingredient_app_id": "onion_raw",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "finely chopped"
+},
+{
+"ingredient_app_id": "tomato_raw",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "diced"
+},
+{
+"ingredient_app_id": "capsicum_raw",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "diced"
+},
+{
+"ingredient_app_id": "carrot_raw",
+"quantity_grams": 50.0,
+"display_quantity": 0.5,
+"display_unit": "medium",
+"notes": "grated"
+},
+{
+"ingredient_app_id": "lemon_juice_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "black_pepper_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": "freshly ground"
+},
+{
+"ingredient_app_id": "salt_raw",
+"quantity_grams": 3.0,
+"display_quantity": 0.5,
+"display_unit": "tsp",
+"notes": ""
+},
+{
+"ingredient_app_id": "coriander_leaves_raw",
+"quantity_grams": 10.0,
+"display_quantity": 2.0,
+"display_unit": "tbsp",
+"notes": "chopped"
+}
+],
+"instructions": [
+"Peel the hard-boiled eggs and cut them into quarters or chunks.",
+"In a large mixing bowl, combine the chopped onion, tomato, capsicum, and grated carrot.",
+"Add lemon juice, black pepper, and salt to the vegetables and toss gently to coat.",
+"Add the boiled egg chunks to the bowl.",
+"Gently mix everything together, being careful not to mash the egg yolks entirely.",
+"Garnish with freshly chopped coriander leaves.",
+"Serve immediately as a light dinner or side dish."
+],
+"source": "seed"
+}
+]
+}
