@@ -295,7 +295,8 @@
     "Grocery list generation — already non-goal v1; trivially derived from week plan in v2",
     "Recovery-mode dieting (post-v1) — refeeding protocol, diet breaks; out of scope for v1 engine",
     "Hyper-protein-per-rupee optimization as primary mode — post-v1; falls out naturally from budget + macro scoring if data is structured right",
-    "IFCT integration as nutrition source — DONE: promoted to v1 primary in spec v3 patch"
+    "IFCT integration as nutrition source — DONE: promoted to v1 primary in spec v3 patch",
+    "Meal plan slot locking — user marks a slot 'I want this recipe' and regeneration preserves it; deferred from M4 to post-v1"
   ],
   "feature_requirements": {
     "F1_authentication": {

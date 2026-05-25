@@ -4,6 +4,37 @@ Append one entry per completed module. Newest at the top.
 
 ---
 
+## M4 — MealPlans + Engine
+- **Completed:** 2026-05-25
+- **Commit:** TBD
+- **Tests:** 282 passing; `apps/mealplans/services/plan_service.py` 100%, `apps/mealplans/services/engine.py` 66% (thin cell + week gen paths exercised separately), `apps/mealplans/views.py` 94%
+- **Acceptance criteria:** partial
+  - MealPlan model (3-FK daily row, regeneration_count JSONField, full_plan_regenerations) + migration ✅
+  - `GET /api/v1/mealplans/today/` — lazy generation, 200 with plan or 404 PROFILE_NOT_FOUND ✅
+  - `GET /api/v1/mealplans/day/<date>/` — lazy generation for any valid date ✅
+  - `GET /api/v1/mealplans/week/` — filter existing plans by ISO week or `?from=` param ✅
+  - `POST /api/v1/mealplans/regenerate-slot/` — per-slot regen with 3/week rate limit, 429 REGENERATE_LIMIT ✅
+  - `POST /api/v1/mealplans/regenerate/` — full plan regen with 3/week cross-plan rate limit, 429 REGENERATE_LIMIT ✅
+  - Recommendation engine: 10 steps (meal_type, diet, allergen, calorie window, budget, exclusions, variety, protein rotation, scoring, pick) ✅
+  - Per-slot calorie windows: breakfast (50–150%), lunch/dinner (75–125%) — widens breakfast to admit Indian light portions ✅
+  - Thin-cell regression guard (`test_engine_thin_cell_inventory`) at target=1000 kcal: 12 cells, 2 known thin (vegan lunch/dinner) ✅
+  - All endpoints: auth required, standard envelope, typed exceptions ✅
+  - `ruff + black --check + mypy --strict` all pass ✅
+  - **DEFERRED:** Production viability — seed data tops out at 355 kcal for lunch, 391 kcal for dinner; engine needs recipes ≥400 kcal/serving to cover the 1200 kcal floor profile. Full e2e with real profiles blocked until M4.5.
+- **Deviations from spec:**
+  - Recipe gate lowered from ≥200 to ≥130 recipes per M4 plan (136 pass gate); thin cells documented
+  - Slot lock deferred to v2 per M4 plan
+  - Celery pre-generation deferred to M6 per M4 plan; lazy generation only in M4
+- **New env vars:** None
+- **New external services touched:** None
+- **What the next module needs to know:**
+  - Seed data gap: lunch max 355 kcal, dinner max 391 kcal; any profile with target ≥ ~900 kcal (i.e., all real profiles) will have 0 lunch/dinner candidates — M4.5 seed expansion must add higher-calorie lunch/dinner recipes before M5
+  - `SLOT_CALORIE_WINDOW` in `engine.py` is the canonical per-slot window dict — update it if recipe coverage changes
+  - `MealPlan.regeneration_count` is a JSONField `{slot: count}` per plan row; `full_plan_regenerations` is a per-row int for cross-day weekly tracking
+  - `get_or_generate_plan` is idempotent — safe to call on every `today/` or `day/` GET
+
+---
+
 ## M3.5 — Seed Expansion (content sprint)
 - **Completed:** 2026-05-25
 - **Commit:** TBD
