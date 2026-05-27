@@ -4,6 +4,33 @@ Append one entry per completed module. Newest at the top.
 
 ---
 
+## M4.5 — Heavy-Portion Seed Expansion
+- **Completed:** 2026-05-27
+- **Commit:** TBD
+- **Tests:** 282 passing; `test_engine_thin_cell_inventory` updated (vegan lunch no longer thin)
+- **Acceptance criteria:** all met
+  - 15 heavy-portion composite-meal recipes merged from `heavy_batch_gemini.json` ✅
+  - All 15 validated: slug uniqueness, ingredient_app_id correctness, diet_tags, allergen_tags, schema conformance ✅
+  - Calorie calibration: all 15 recipes within 400–650 kcal/serving after ingredient scaling ✅
+  - 5 existing recipe quantity fixes applied (lemon-rice, curd-rice, panchmel-dal, prawn-curry, rohu-machher-jhol) ✅
+  - Servings unchanged on all 5 fixed recipes ✅
+  - `make seed` runs cleanly, 151 recipes seeded ✅
+  - Lunch 400–650 kcal pool: 7 → 14 recipes ✅
+  - Dinner 400–650 kcal pool: 0 → 9 recipes ✅
+  - `KNOWN_THIN_CELLS` updated: vegan lunch removed (now 3 candidates), vegan dinner remains (2 candidates) ✅
+  - `ruff + black --check + mypy --strict` all pass (pre-existing script errors only) ✅
+- **Deviations from spec:** None
+- **New env vars:** None
+- **New external services touched:** None
+- **What the next module needs to know:**
+  - 151 recipes in DB; calorie ceiling resolved for lunch and dinner
+  - Engine should now successfully generate plans for profiles with target_calories ≥ 1600
+  - Remaining thin cell: (vegan, dinner) at target=1000 has only 2 candidates
+  - New recipe slugs: rajma-chawal, chole-bhature, dal-chawal-tadka, paneer-butter-masala-naan, aloo-paratha-thali, veg-biryani, vegan-rajma-rice-bowl, chana-masala-rice, bisi-bele-bath-full, egg-biryani-full, egg-paratha-thali, chicken-biryani-full, mutton-pulao, butter-chicken-rice, fish-curry-rice
+  - fish count now ≥ 5 (fish-curry-rice added): fish gate cleared for M4 unblock
+
+---
+
 ## M4 — MealPlans + Engine
 - **Completed:** 2026-05-25
 - **Commit:** TBD

@@ -222,3 +222,80 @@ These ingredients have `data_status=missing_no_usda_match` and need USDA fetch i
 ### Zero-nutrition warnings (pre-existing, unchanged)
 
 Same 14 zero-nutrition ingredients as before (spices, salt, trace items). No new zero-nutrition ingredients introduced by the new recipes.
+
+---
+
+## M4.5 — Heavy-Portion Seed Expansion
+
+**Expansion date:** 2026-05-27
+**Source file:** `apps/recipes/seed_data/heavy_batch_gemini.json`
+
+### Summary
+
+| Metric | Value |
+|--------|-------|
+| Loaded from batch | 15 |
+| Accepted | 15 |
+| Rejected | 0 |
+| Existing recipes quantity-fixed | 5 |
+| New total recipes | **151** |
+
+### New recipes (all 15 accepted)
+
+| Slug | Meal Type | Cuisine | Diet | kcal/srv |
+|------|-----------|---------|------|----------|
+| rajma-chawal | lunch | north_indian | vegan | 516 |
+| chole-bhature | lunch | punjabi | vegetarian | 615 |
+| dal-chawal-tadka | dinner | north_indian | vegan | 463 |
+| paneer-butter-masala-naan | dinner | punjabi | vegetarian | 589 |
+| aloo-paratha-thali | lunch | punjabi | vegetarian | 525 |
+| veg-biryani | dinner | north_indian | vegetarian | 491 |
+| vegan-rajma-rice-bowl | dinner | north_indian | vegan | 497 |
+| chana-masala-rice | lunch | north_indian | vegan | 542 |
+| bisi-bele-bath-full | dinner | south_indian | vegan | 471 |
+| egg-biryani-full | lunch | north_indian | eggetarian | 565 |
+| egg-paratha-thali | dinner | punjabi | eggetarian | 505 |
+| chicken-biryani-full | dinner | south_indian | non-veg | 624 |
+| mutton-pulao | dinner | north_indian | non-veg | 601 |
+| butter-chicken-rice | lunch | punjabi | non-veg | 634 |
+| fish-curry-rice | dinner | bengali | pescatarian | 502 |
+
+All 15 recipes calibrated to 400–650 kcal/serving after scaling calorie-dense ingredients.
+
+### 5 existing recipe quantity fixes (per M4.5 plan §6.3)
+
+| Slug | Fix | kcal/srv |
+|------|-----|----------|
+| lemon-rice | rice 200→400g, sesame oil 20→30g | 472 |
+| curd-rice | rice 120→250g, curd 250→350g | 315 |
+| panchmel-dal | 5 dals 30→50g each, ghee 28→40g | 324 |
+| prawn-curry | prawns 500→600g, coconut oil 30→45g | 260 |
+| rohu-machher-jhol | potato 150→250g, mustard oil 30→45g | 262 |
+
+Servings unchanged on all 5 recipes (all remain servings=4).
+
+### Updated recipe counts (total: 151)
+
+#### By meal_type
+
+| Meal Type | Before | After |
+|-----------|--------|-------|
+| breakfast | 39 | 39 |
+| lunch | 48 | 55 |
+| dinner | 49 | 57 |
+| **Total** | **136** | **151** |
+
+#### Engine coverage improvement (target_cal=1000)
+
+| Cell | Before | After |
+|------|--------|-------|
+| Lunch 400-650 kcal | 7 | 14 |
+| Dinner 400-650 kcal | 0 | 9 |
+| Vegan lunch (thin cell) | 2 | 3 ✅ |
+| Vegan dinner (thin cell) | 2 | 2 ⚠️ |
+
+### Thin cell inventory update
+
+- `(vegan, lunch)` removed from KNOWN_THIN_CELLS (now has 3 candidates)
+- `(vegan, dinner)` remains as known thin cell (2 candidates)
+
