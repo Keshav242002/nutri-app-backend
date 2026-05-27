@@ -16,9 +16,12 @@ from apps.mealplans.tests.conftest import (
     FAKE_TOKEN_PAYLOAD,
     FROZEN_TODAY,
     MEALPLANS_DAY_URL,
+    MEALPLANS_GROCERY_REGEN_URL,
+    MEALPLANS_GROCERY_URL,
     MEALPLANS_REGEN_SLOT_URL,
     MEALPLANS_REGEN_URL,
     MEALPLANS_TODAY_URL,
+    MEALPLANS_WEEK_GENERATE_URL,
     MEALPLANS_WEEK_URL,
 )
 from apps.mealplans.tests.factories import MealPlanFactory
@@ -381,3 +384,139 @@ def test_response_envelope_shape_error() -> None:
     assert "message" in body
     assert "error" in body
     assert "code" in body["error"]
+
+
+# ---------------------------------------------------------------------------
+# WEEK GENERATE endpoint
+# ---------------------------------------------------------------------------
+
+
+@freeze_time(FROZEN_TODAY)
+def test_weekly_generate_endpoint_returns_200(registered_user_with_profile: Any) -> None:
+    client, user, profile, _ = registered_user_with_profile
+    # Make user a returning user so full Mon–Sun week is generated
+    MealPlanFactory(user=user, plan_date=date(2026, 5, 18))
+
+    response = _auth_post(client, MEALPLANS_WEEK_GENERATE_URL, {})
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["status"] == "success"
+    data = body["data"]
+    assert data["week_start"] == "2026-05-25"
+    assert data["week_end"] == "2026-05-31"
+    assert data["days_generated"] == 7
+    assert data["days_existing"] == 0
+    assert len(data["plans"]) == 7
+
+
+def test_weekly_generate_endpoint_requires_auth() -> None:
+    anon = Client()
+    response = anon.post(MEALPLANS_WEEK_GENERATE_URL, content_type="application/json")
+    assert response.status_code == 401
+    assert response.json()["status"] == "error"
+
+
+@freeze_time(FROZEN_TODAY)
+def test_weekly_generate_endpoint_returns_422_no_recipe(
+    registered_user_with_profile: Any,
+) -> None:
+    client, user, profile, _ = registered_user_with_profile
+    MealPlanFactory(user=user, plan_date=date(2026, 5, 18))
+
+    with patch(
+        "apps.mealplans.views.generate_weekly_plan",
+        side_effect=NoSuitableRecipeError(slot="lunch", plan_date=date(2026, 5, 25)),
+    ):
+        response = _auth_post(client, MEALPLANS_WEEK_GENERATE_URL, {})
+
+    assert response.status_code == 422
+    body = response.json()
+    assert body["status"] == "error"
+    assert body["error"]["code"] == "NO_SUITABLE_RECIPE"
+
+
+# ---------------------------------------------------------------------------
+# GROCERY LIST GET endpoint
+# ---------------------------------------------------------------------------
+
+
+@freeze_time(FROZEN_TODAY)
+def test_grocery_get_endpoint_returns_200(registered_user_with_profile: Any) -> None:
+    client, user, profile, _ = registered_user_with_profile
+    MealPlanFactory(user=user, plan_date=date(2026, 5, 25))
+
+    response = _auth_get(client, MEALPLANS_GROCERY_URL.format("2026-05-25"))
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["status"] == "success"
+    data = body["data"]
+    assert "week_start_date" in data
+    assert "categories" in data
+    assert "summary" in data
+    assert "generated_at" in data
+
+
+def test_grocery_get_endpoint_404_no_plans(registered_user_with_profile: Any) -> None:
+    client, user, profile, _ = registered_user_with_profile
+    # No plans for this week
+    response = _auth_get(client, MEALPLANS_GROCERY_URL.format("2026-05-25"))
+
+    assert response.status_code == 404
+    body = response.json()
+    assert body["status"] == "error"
+    assert body["error"]["code"] == "MEAL_PLAN_NOT_FOUND"
+
+
+# ---------------------------------------------------------------------------
+# GROCERY LIST REGENERATE endpoint
+# ---------------------------------------------------------------------------
+
+
+@freeze_time(FROZEN_TODAY)
+def test_grocery_regenerate_endpoint_forces_recompute(
+    registered_user_with_profile: Any,
+) -> None:
+    from apps.mealplans.models import GroceryList
+
+    client, user, profile, _ = registered_user_with_profile
+    MealPlanFactory(user=user, plan_date=date(2026, 5, 25))
+
+    # Pre-create a cached grocery list
+    old_gl = GroceryList.objects.create(
+        user=user, week_start_date=date(2026, 5, 25), items={"categories": [], "summary": {}}
+    )
+    old_pk = old_gl.pk
+
+    response = _auth_post(client, MEALPLANS_GROCERY_REGEN_URL.format("2026-05-25"), {})
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["status"] == "success"
+    # Old cached row replaced — new GroceryList has a different pk
+    new_gl = GroceryList.objects.get(user=user, week_start_date=date(2026, 5, 25))
+    assert new_gl.pk != old_pk
+
+
+# ---------------------------------------------------------------------------
+# Grocery envelope shape
+# ---------------------------------------------------------------------------
+
+
+@freeze_time(FROZEN_TODAY)
+def test_response_envelope_shape_grocery(registered_user_with_profile: Any) -> None:
+    client, user, profile, _ = registered_user_with_profile
+    MealPlanFactory(user=user, plan_date=date(2026, 5, 25))
+
+    response = _auth_get(client, MEALPLANS_GROCERY_URL.format("2026-05-25"))
+
+    assert response.status_code == 200
+    body = response.json()
+    assert "status" in body
+    assert "message" in body
+    assert "data" in body
+    assert body["status"] == "success"
+    data = body["data"]
+    for field in ["id", "week_start_date", "categories", "summary", "generated_at"]:
+        assert field in data, f"Missing field in grocery response: {field}"

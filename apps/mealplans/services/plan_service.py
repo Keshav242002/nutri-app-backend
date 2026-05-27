@@ -18,6 +18,20 @@ if TYPE_CHECKING:
 log = logging.getLogger(__name__)
 
 
+def _invalidate_grocery_list(user: User, plan_date: date) -> None:
+    """Delete cached grocery list for the ISO week containing plan_date."""
+    from apps.mealplans.models import GroceryList  # local import — GroceryList lives in same app
+
+    week_monday = plan_date - timedelta(days=plan_date.weekday())
+    count, _ = GroceryList.objects.filter(user=user, week_start_date=week_monday).delete()
+    if count:
+        log.info(
+            "event=grocery_list_invalidated user_id=%s week_start=%s",
+            user.pk,
+            week_monday,
+        )
+
+
 def get_or_generate_plan(user: User, plan_date: date) -> MealPlan:
     """Return existing MealPlan for (user, plan_date) or generate and persist a new one."""
     try:
@@ -91,6 +105,7 @@ def regenerate_slot(user: User, plan_date: date, slot: str) -> MealPlan:
         slot,
         plan.regeneration_count[slot],
     )
+    _invalidate_grocery_list(user, plan_date)
     return plan
 
 
@@ -129,4 +144,5 @@ def regenerate_plan(user: User, plan_date: date) -> MealPlan:
         plan_date,
         plan.full_plan_regenerations,
     )
+    _invalidate_grocery_list(user, plan_date)
     return plan
