@@ -782,9 +782,8 @@ class TestPlanService:
 # Cells with < 3 candidates after steps 1–4 that are explicitly accepted.
 # (diet_pattern, slot): human-readable reason
 KNOWN_THIN_CELLS: dict[tuple[str, str], str] = {
-    # Seed recipes are light Indian dish portions (~200-400 kcal/serving); vegan
-    # lunch/dinner options in the 300-500 kcal window are scarce at 136 recipes total.
-    ("vegan", "lunch"): "only ~2 vegan lunch recipes in the [300,500] kcal window",
+    # After M4.5 expansion (151 recipes), vegan dinner in the [262,437] kcal window
+    # still has only ~2 candidates — remaining vegan dinners land above 437 kcal.
     ("vegan", "dinner"): "only ~2 vegan dinner recipes in the [262,437] kcal window",
 }
 

@@ -84,9 +84,9 @@ This is the loop. Every module follows it. No exceptions.
 
 > **Update this section at Step 5 of every module.**
 
-- **Active module:** `M4.5_seed_expansion` — lunch/dinner recipes must reach ≥400 kcal/serving to support the 1200 kcal floor profile; thin-cell regression guard in place to catch regressions
-- **Last completed module:** `M4_mealplans` (2026-05-25, commit TBD) — engine + 5 plan API endpoints; 282 tests; known seed gap deferred to M4.5
-- **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 ✅ → M4.5 🚧 → M5 → M6 → M7 → M8
+- **Active module:** `M5` — next sprint
+- **Last completed module:** `M4.5_seed_expansion` (2026-05-27, commit TBD) — 15 heavy-portion recipes added (151 total), 5 existing recipes quantity-fixed, all calorie targets verified
+- **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 ✅ → M4.5 ✅ → M5 → M6 → M7 → M8
 - **Repo path:** `nutri-app-backend/`
 - **Python version:** 3.12.13 (managed by `uv`, venv at `.venv/`)
 - **Package manager:** `uv` 0.11.2
@@ -603,6 +603,7 @@ feat(M<n>): <module name> — <one-line summary>
 - 2026-05-25 — M3.5 seed expansion: 43 recipes added (45 loaded, 2 rejected), total 136. protein_source populated: chicken=12, egg=12, dal_legume=7, fish=4, mutton=3, paneer=2. fish=4 accepted as known gap (user decision). Source batches archived to `apps/recipes/seed_data/sources/gemini_batches/`. Coverage now supports weight_loss/maintain/muscle_gain × veg/vegan/eggetarian/non_veg; still short of ≥200 total for M4 unblock. (content sprint)
 - 2026-05-25 — M4 planning decisions (full plan: `docs/plans/M4_plan.md`): (1) Recipe gate lowered from ≥200 to ≥130 — 136 recipes pass; thin cells documented via `test_engine_thin_cell_inventory` regression guard; (2) MealPlan model uses 3 FKs per row (one row = one day) with `regeneration_count` JSONField for per-slot regen tracking + `full_plan_regenerations` PositiveSmallIntegerField for full-plan regen tracking; (3) Protein rotation penalty applies within same slot only (Q1) — cross-slot rotation deferred; (4) Slot lock deferred to v2 (Q2) — added to PROJECT_SPEC.json `future_addons_backlog`; (5) Lazy generation in M4, Celery beat wrapper in M6 (Q3); (6) Two rate limit counters: `regeneration_count[slot]` capped at 3/slot/week, `full_plan_regenerations` capped at 3/week via aggregate query — `django-ratelimit` hardening deferred to M8 (Q4); (7) Budget annotation uses `ExpressionWrapper` with explicit `DecimalField(max_digits=7, decimal_places=2)` to avoid silent precision loss (same pattern as M3 filters.py fix). (M4 plan)
 - 2026-05-25 — M4 (MealPlans + engine) complete. Per-slot calorie windows landed (breakfast 50-150%, lunch/dinner 75-125%). Engine produces correct outputs for normal profiles given adequate seed data. Seed gap discovered: lunch max 355 kcal, dinner thin at 1200 kcal floor — blocks production use. M4.5 seed expansion sprint to follow before M5. (module complete with known seed gap)
+- 2026-05-27 — M4.5 seed expansion: 15 heavy-portion composite-meal recipes added + 5 existing recipes quantity-recalibrated. target_calories=1600 dinner now serves 9 candidates (was 0). Lunch 400–650 kcal pool: 7 → 14. All new recipes 400–650 kcal/serving. Known thin cell: (vegan, dinner) at target=1000 kcal still has 2 candidates. (content sprint)
 
 ---
 
