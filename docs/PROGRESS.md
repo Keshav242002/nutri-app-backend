@@ -6,7 +6,7 @@ Append one entry per completed module. Newest at the top.
 
 ## M4.5 — Heavy-Portion Seed Expansion
 - **Completed:** 2026-05-27
-- **Commit:** TBD
+- **Commit:** c1d1286
 - **Tests:** 282 passing; `test_engine_thin_cell_inventory` updated (vegan lunch no longer thin)
 - **Acceptance criteria:** all met
   - 15 heavy-portion composite-meal recipes merged from `heavy_batch_gemini.json` ✅
