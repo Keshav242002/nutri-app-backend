@@ -84,9 +84,9 @@ This is the loop. Every module follows it. No exceptions.
 
 > **Update this section at Step 5 of every module.**
 
-- **Active module:** `M5` — next sprint
-- **Last completed module:** `M4.5_seed_expansion` (2026-05-27, commit TBD) — 15 heavy-portion recipes added (151 total), 5 existing recipes quantity-fixed, all calorie targets verified
-- **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 ✅ → M4.5 ✅ → M5 → M6 → M7 → M8
+- **Active module:** `M5` — Tracker
+- **Last completed module:** `M4.6_weekly_grocery` (2026-05-27, commit TBD) — weekly batch plan generation + GroceryList model + grocery computation service + 3 new endpoints; 314 tests, 95% coverage
+- **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 ✅ → M4.5 ✅ → M4.6 ✅ → M5 → M6 → M7 → M8
 - **Repo path:** `nutri-app-backend/`
 - **Python version:** 3.12.13 (managed by `uv`, venv at `.venv/`)
 - **Package manager:** `uv` 0.11.2
@@ -604,6 +604,9 @@ feat(M<n>): <module name> — <one-line summary>
 - 2026-05-25 — M4 planning decisions (full plan: `docs/plans/M4_plan.md`): (1) Recipe gate lowered from ≥200 to ≥130 — 136 recipes pass; thin cells documented via `test_engine_thin_cell_inventory` regression guard; (2) MealPlan model uses 3 FKs per row (one row = one day) with `regeneration_count` JSONField for per-slot regen tracking + `full_plan_regenerations` PositiveSmallIntegerField for full-plan regen tracking; (3) Protein rotation penalty applies within same slot only (Q1) — cross-slot rotation deferred; (4) Slot lock deferred to v2 (Q2) — added to PROJECT_SPEC.json `future_addons_backlog`; (5) Lazy generation in M4, Celery beat wrapper in M6 (Q3); (6) Two rate limit counters: `regeneration_count[slot]` capped at 3/slot/week, `full_plan_regenerations` capped at 3/week via aggregate query — `django-ratelimit` hardening deferred to M8 (Q4); (7) Budget annotation uses `ExpressionWrapper` with explicit `DecimalField(max_digits=7, decimal_places=2)` to avoid silent precision loss (same pattern as M3 filters.py fix). (M4 plan)
 - 2026-05-25 — M4 (MealPlans + engine) complete. Per-slot calorie windows landed (breakfast 50-150%, lunch/dinner 75-125%). Engine produces correct outputs for normal profiles given adequate seed data. Seed gap discovered: lunch max 355 kcal, dinner thin at 1200 kcal floor — blocks production use. M4.5 seed expansion sprint to follow before M5. (module complete with known seed gap)
 - 2026-05-27 — M4.5 seed expansion: 15 heavy-portion composite-meal recipes added + 5 existing recipes quantity-recalibrated. target_calories=1600 dinner now serves 9 candidates (was 0). Lunch 400–650 kcal pool: 7 → 14. All new recipes 400–650 kcal/serving. Known thin cell: (vegan, dinner) at target=1000 kcal still has 2 candidates. (content sprint)
+- 2026-05-27 — M4.6 grocery cache pattern: `GroceryListRegenerateView` uses `GroceryList.objects.filter(...).delete()` before calling `get_or_compute_grocery_list` — safe no-op if no cached row exists (delete on empty queryset returns (0, {})). Never guard the delete with `.exists()` first. (M4.6)
+- 2026-05-27 — M4.6 `days_existing` counting: view counts pre-existing plans before calling `generate_weekly_plan` by duplicating the 5-line week-range arithmetic from the service. This keeps the service signature simple (returns `list[MealPlan]` only) and avoids adding a return-value field just for UI metadata. Accepted duplication is intentional. (M4.6)
+- 2026-05-27 — M4.6 grocery error code: `GET /week/<date>/grocery/` returns `MEAL_PLAN_NOT_FOUND` (not a new code) when no plans exist for the requested week. No new error codes introduced in M4.6. (M4.6)
 
 ---
 

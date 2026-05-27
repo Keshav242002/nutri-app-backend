@@ -17,6 +17,9 @@ MEALPLANS_WEEK_URL = "/api/v1/mealplans/week/"
 MEALPLANS_DAY_URL = "/api/v1/mealplans/day/{}/"
 MEALPLANS_REGEN_SLOT_URL = "/api/v1/mealplans/regenerate-slot/"
 MEALPLANS_REGEN_URL = "/api/v1/mealplans/regenerate/"
+MEALPLANS_WEEK_GENERATE_URL = "/api/v1/mealplans/week/generate/"
+MEALPLANS_GROCERY_URL = "/api/v1/mealplans/week/{}/grocery/"
+MEALPLANS_GROCERY_REGEN_URL = "/api/v1/mealplans/week/{}/grocery/regenerate/"
 
 # Frozen date: 2026-05-25 is a Monday — weekday=0, week=[2026-05-25, 2026-05-31]
 FROZEN_TODAY = "2026-05-25"

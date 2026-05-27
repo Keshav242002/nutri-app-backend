@@ -4,6 +4,29 @@ Append one entry per completed module. Newest at the top.
 
 ---
 
+## M4.6 — Weekly Batch Generation + Grocery List
+- **Completed:** 2026-05-27
+- **Commit:** TBD
+- **Tests:** 314 passing, 95% coverage on apps/ + core/
+- **Acceptance criteria:** all met
+  - `GroceryList` model + migration 0002_grocerylist ✅
+  - `generate_weekly_plan(user, ref_date)` with first-time vs. returning logic, atomic rollback, idempotency ✅
+  - `get_or_compute_grocery_list(user, week_monday)` cache-first service ✅
+  - Grocery list invalidation hook in `plan_service.py` (`_invalidate_grocery_list`) ✅
+  - 3 new endpoints: `POST week/generate/`, `GET week/<date>/grocery/`, `POST week/<date>/grocery/regenerate/` ✅
+  - 4 new serializers: `WeeklyPlanGenerateSerializer`, `GroceryItemSerializer`, `GroceryCategorySerializer`, `GroceryListSerializer` ✅
+  - 7 new endpoint tests + 13 service/model tests ✅
+  - Manual check 10/10 scenarios pass ✅
+  - `ruff + black --check + mypy --strict` all pass ✅
+- **Deviations from spec:** None
+- **New env vars:** None
+- **New external services touched:** None
+- **What the next module needs to know:**
+  - `GroceryList` rows are lazily created on first GET; regenerate endpoint force-recomputes by deleting the cached row
+  - `generate_weekly_plan` invalidates the grocery cache automatically after generating new plans
+  - `days_existing` is counted in the view before calling the service (avoids changing service signature)
+  - Grocery 404 reuses `MEAL_PLAN_NOT_FOUND` error code (no new code added for M4.6)
+
 ## M4.5 — Heavy-Portion Seed Expansion
 - **Completed:** 2026-05-27
 - **Commit:** c1d1286

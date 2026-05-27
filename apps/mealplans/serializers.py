@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from rest_framework import serializers
 
-from apps.mealplans.models import SLOT_CHOICES, MealPlan
+from apps.mealplans.models import SLOT_CHOICES, GroceryList, MealPlan
 from apps.recipes.models import Recipe
 from apps.recipes.serializers import RecipeListSerializer
 
@@ -68,3 +68,48 @@ class RegenerateSlotSerializer(serializers.Serializer[None]):
 
 class RegeneratePlanSerializer(serializers.Serializer[None]):
     date = serializers.DateField()
+
+
+class WeeklyPlanGenerateSerializer(serializers.Serializer[None]):
+    date = serializers.DateField(required=False)
+
+
+class GroceryItemSerializer(serializers.Serializer[None]):
+    ingredient_app_id = serializers.CharField()
+    ingredient_name = serializers.CharField()
+    total_grams = serializers.FloatField()
+    display_quantity = serializers.CharField()
+    display_quantity_value = serializers.FloatField()
+    display_unit = serializers.CharField()
+    estimated_cost_inr = serializers.FloatField(allow_null=True)
+    recipe_count = serializers.IntegerField()
+    pantry_staple = serializers.BooleanField()
+    notes = serializers.CharField()
+
+
+class GroceryCategorySerializer(serializers.Serializer[None]):
+    category = serializers.CharField()
+    category_display = serializers.CharField()
+    items = GroceryItemSerializer(many=True)
+
+
+class GroceryListSerializer(serializers.ModelSerializer[GroceryList]):
+    categories = serializers.SerializerMethodField()
+    summary = serializers.SerializerMethodField()
+
+    class Meta:
+        model = GroceryList
+        fields = [
+            "id",
+            "week_start_date",
+            "categories",
+            "summary",
+            "estimated_cost_inr",
+            "generated_at",
+        ]
+
+    def get_categories(self, obj: GroceryList) -> list[dict]:  # type: ignore[type-arg]
+        return obj.items.get("categories", [])  # type: ignore[no-any-return]
+
+    def get_summary(self, obj: GroceryList) -> dict:  # type: ignore[type-arg]
+        return obj.items.get("summary", {})  # type: ignore[no-any-return]

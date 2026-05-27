@@ -74,3 +74,73 @@ class MealPlan(TimestampedModel):
 
     def __str__(self) -> str:
         return f"MealPlan({self.user_id}, {self.plan_date})"
+
+
+# ---------------------------------------------------------------------------
+# Grocery list constants
+# ---------------------------------------------------------------------------
+
+CATEGORY_DISPLAY_NAMES: dict[str, str] = {
+    "grain": "Grains & Rice",
+    "pulse": "Pulses & Lentils",
+    "vegetable": "Vegetables",
+    "fruit": "Fruits",
+    "dairy": "Dairy",
+    "meat": "Meat",
+    "fish": "Fish & Seafood",
+    "egg": "Eggs",
+    "oil_fat": "Oils & Ghee",
+    "spice": "Spices & Masalas",
+    "nut_seed": "Nuts & Seeds",
+    "sweetener": "Sugar & Sweeteners",
+    "beverage": "Beverages",
+    "processed": "Processed Foods",
+}
+
+CATEGORY_DISPLAY_ORDER: list[str] = [
+    "vegetable",
+    "fruit",
+    "dairy",
+    "meat",
+    "fish",
+    "egg",
+    "grain",
+    "pulse",
+    "oil_fat",
+    "spice",
+    "nut_seed",
+    "sweetener",
+    "beverage",
+    "processed",
+]
+
+
+# ---------------------------------------------------------------------------
+# GroceryList model
+# ---------------------------------------------------------------------------
+
+
+class GroceryList(TimestampedModel):
+    """Pre-aggregated grocery shopping list for a user's ISO week meal plan."""
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="grocery_lists",
+    )
+    week_start_date = models.DateField()
+    items = models.JSONField(default=dict)
+    estimated_cost_inr = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
+    generated_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = [("user", "week_start_date")]
+        indexes = [
+            models.Index(
+                fields=["user", "week_start_date"],
+                name="grocerylist_user_week_idx",
+            ),
+        ]
+
+    def __str__(self) -> str:
+        return f"GroceryList({self.user_id}, w/o {self.week_start_date})"
