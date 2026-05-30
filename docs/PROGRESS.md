@@ -19,6 +19,7 @@ Append one entry per completed module. Newest at the top.
   - Manual check 10/10 scenarios pass ✅
   - `ruff + black --check + mypy --strict` all pass ✅
 - **Deviations from spec:** None
+- **Known limitation:** target_calories > 2200 may hit `NoSuitableRecipeError` on lunch slot due to seed library ceiling (highest veg lunch recipe is 615 kcal/serving; calorie window for 2200 kcal profile needs ≥660). M4.7 will add 800–1100 kcal full-thali recipes. M7 AI fallback handles edge cases long-term.
 - **New env vars:** None
 - **New external services touched:** None
 - **What the next module needs to know:**
