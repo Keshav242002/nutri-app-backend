@@ -4,6 +4,31 @@ Append one entry per completed module. Newest at the top.
 
 ---
 
+## M5 — Tracker + Nutrition
+- **Completed:** 2026-05-30
+- **Commit:** TBD
+- **Tests:** 363 passing, 95% overall coverage; `apps/tracker/services/tracker_service.py` 93%, `apps/tracker/services/nutrition_service.py` 93%
+- **Acceptance criteria:** all met
+  - `MealLog` model (user, log_date, slot, status, planned_recipe, actual_recipe, servings_eaten, custom_*) + unique_together + migration ✅
+  - `DailyNutritionSummary` model + unique_together + migration ✅
+  - `upsert_meal_log()` — idempotent by (user, log_date, slot), servings validation (0.25 increments, [0.25, 6.00]), custom field rules, auto-populate planned_recipe from MealPlan ✅
+  - `recompute_daily_summary()` — synchronous after every log write, idempotent, merges micronutrients ✅
+  - `POST /api/v1/tracker/log/` — upsert, 200 on success, 400 on validation failures ✅
+  - `GET /api/v1/tracker/?date=` — list logs for a date ✅
+  - `GET /api/v1/tracker/range?from=&to=` — list logs in date range (max 90 days) ✅
+  - `GET /api/v1/nutrition/daily?date=` — daily summary with targets + percentage_of_target ✅
+  - `GET /api/v1/nutrition/weekly?from=&to=` — weekly summaries with averages dict ✅
+  - All endpoints: auth required, standard envelope, typed exceptions ✅
+  - `ruff + black --check + mypy --strict` all pass ✅
+- **Deviations from spec:** None
+- **New env vars:** None
+- **New external services touched:** None
+- **What the next module needs to know:**
+  - `MealLog.logged_at` is `auto_now=True` (updates on every save) — not queryable for "originally logged at"; `created_at` from TimestampedModel is the canonical creation timestamp
+  - `recompute_daily_summary` is called synchronously after every `upsert_meal_log`; M6 Celery can wrap this in a beat task for nightly safety-net recompute without changing the service API
+  - `DailyNutritionSummary.get_or_create` in `DailyNutritionView` ensures a zero-calorie row exists even for dates with no logs — this is intentional (client always gets a response, even for empty days)
+  - Custom logs contribute calories/protein/carbs/fat to the summary but no fiber and no micronutrients — by design (no USDA data for free-text entries)
+
 ## M4.6 — Weekly Batch Generation + Grocery List
 - **Completed:** 2026-05-27
 - **Commit:** TBD

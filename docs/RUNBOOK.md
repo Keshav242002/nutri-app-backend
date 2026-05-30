@@ -110,6 +110,32 @@ make worker
 make beat
 ```
 
+### Log a meal and check daily nutrition (after M5)
+
+```bash
+# POST a meal log (dev bypass: use dev token or real Firebase token)
+curl -s -X POST http://localhost:8000/api/v1/tracker/log/ \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{"log_date": "2026-05-30", "slot": "lunch", "status": "ate_planned", "servings_eaten": "1.00"}'
+
+# Check daily nutrition for a date (requires profile to be set up first)
+curl -s "http://localhost:8000/api/v1/nutrition/daily/?date=2026-05-30" \
+  -H "Authorization: Bearer <token>"
+
+# List meal logs for a date
+curl -s "http://localhost:8000/api/v1/tracker/?date=2026-05-30" \
+  -H "Authorization: Bearer <token>"
+
+# List logs over a date range (max 90 days)
+curl -s "http://localhost:8000/api/v1/tracker/range/?from=2026-05-26&to=2026-05-30" \
+  -H "Authorization: Bearer <token>"
+
+# Weekly nutrition summary
+curl -s "http://localhost:8000/api/v1/nutrition/weekly/?from=2026-05-26&to=2026-05-30" \
+  -H "Authorization: Bearer <token>"
+```
+
 ### Trigger a one-off Celery task manually (after M6)
 
 ```bash
