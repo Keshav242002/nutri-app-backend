@@ -45,6 +45,7 @@ LOCAL_APPS: list[str] = [
     "apps.profiles",
     "apps.recipes",
     "apps.mealplans",
+    "apps.tracker",
 ]
 
 AUTH_USER_MODEL = "accounts.User"

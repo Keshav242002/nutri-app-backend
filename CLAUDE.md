@@ -84,9 +84,9 @@ This is the loop. Every module follows it. No exceptions.
 
 > **Update this section at Step 5 of every module.**
 
-- **Active module:** `M5` — Tracker
-- **Last completed module:** `M4.6_weekly_grocery` (2026-05-27, commit TBD) — weekly batch plan generation + GroceryList model + grocery computation service + 3 new endpoints; 314 tests, 95% coverage
-- **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 ✅ → M4.5 ✅ → M4.6 ✅ → M5 → M6 → M7 → M8
+- **Active module:** `M6` — Celery
+- **Last completed module:** `M5_tracker` (2026-05-30, commit TBD) — MealLog + DailyNutritionSummary models + upsert_meal_log + recompute_daily_summary + 5 endpoints; 363 tests, 95% coverage
+- **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 ✅ → M4.5 ✅ → M4.6 ✅ → M5 ✅ → M6 → M7 → M8
 - **Repo path:** `nutri-app-backend/`
 - **Python version:** 3.12.13 (managed by `uv`, venv at `.venv/`)
 - **Package manager:** `uv` 0.11.2
@@ -607,6 +607,11 @@ feat(M<n>): <module name> — <one-line summary>
 - 2026-05-27 — M4.6 grocery cache pattern: `GroceryListRegenerateView` uses `GroceryList.objects.filter(...).delete()` before calling `get_or_compute_grocery_list` — safe no-op if no cached row exists (delete on empty queryset returns (0, {})). Never guard the delete with `.exists()` first. (M4.6)
 - 2026-05-27 — M4.6 `days_existing` counting: view counts pre-existing plans before calling `generate_weekly_plan` by duplicating the 5-line week-range arithmetic from the service. This keeps the service signature simple (returns `list[MealPlan]` only) and avoids adding a return-value field just for UI metadata. Accepted duplication is intentional. (M4.6)
 - 2026-05-27 — M4.6 grocery error code: `GET /week/<date>/grocery/` returns `MEAL_PLAN_NOT_FOUND` (not a new code) when no plans exist for the requested week. No new error codes introduced in M4.6. (M4.6)
+- 2026-05-30 — M5 tracker: Two URL files in one app (`urls.py` + `nutrition_urls.py`) registered as separate prefixes in `api_router.py`. This keeps `/tracker/` and `/nutrition/` endpoints in the same Django app without creating a redundant second app. (M5)
+- 2026-05-30 — M5 tracker: `recompute_daily_summary` is called synchronously at the end of every `upsert_meal_log`. M6 Celery beat will add a nightly safety-net recompute; the service signature does not need to change. (M5)
+- 2026-05-30 — M5 tracker: `DailyNutritionView` uses `get_or_create` to always return a response, even for dates with no logs (zero-calorie summary). This avoids a 404 when the client polls for the current day before any meals are logged. (M5)
+- 2026-05-30 — M5 tracker: `WeeklyNutritionSerializer` takes `summaries` and `profile` in its `__init__` (not the standard DRF `instance` pattern) because weekly output is computed, not a single model instance. The `.data` property is overridden accordingly. (M5)
+- 2026-05-30 — M5 tracker: `_auto_populate_planned_recipe` in `tracker_service.py` silently swallows all exceptions (bare `except Exception`) deliberately — if the MealPlan lookup fails for any reason (no plan, deleted plan, DB error), the log still succeeds with `planned_recipe=null`. This is an intentional soft-dependency. (M5)
 
 ---
 
