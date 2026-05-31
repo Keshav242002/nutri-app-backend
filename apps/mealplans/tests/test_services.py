@@ -17,6 +17,7 @@ from apps.mealplans.services.engine import (
     _compute_macro_match,
     generate_week,
     select_recipe,
+    select_recipe_with_fallback,
 )
 from apps.profiles.tests.factories import DietaryProfileFactory
 from apps.recipes.tests.factories import RecipeFactory
@@ -776,8 +777,51 @@ class TestPlanService:
 
 
 # ---------------------------------------------------------------------------
-# Thin-cell inventory regression guard (1)
+# AI-generated recipe in engine pool (M7 test #20)
 # ---------------------------------------------------------------------------
+
+
+@pytest.mark.django_db
+class TestAiGeneratedRecipeInPool:
+    """M7 acceptance: AI-generated recipes are first-class — the engine selects them."""
+
+    def test_ai_recipe_appears_in_engine_candidate_pool(self) -> None:
+        """A recipe with source='ai_generated' is selectable by the engine."""
+        from apps.recipes.models import RECIPE_SOURCE_AI
+
+        profile = _profile()
+        # Only recipe in the pool is AI-generated
+        ai_recipe = _recipe(
+            slug="ai-generated-dal-rice",
+            source=RECIPE_SOURCE_AI,
+        )
+        result = select_recipe(profile, "lunch", PLAN_DATE, rng=_rng())
+        assert result == ai_recipe
+        assert result.source == RECIPE_SOURCE_AI
+
+
+# ---------------------------------------------------------------------------
+# select_recipe_with_fallback (M7 test #26)
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.django_db
+class TestSelectRecipeWithFallback:
+    """M7 acceptance: fallback hook returns None instead of raising."""
+
+    def test_returns_recipe_when_pool_has_candidates(self) -> None:
+        profile = _profile()
+        recipe = _recipe(slug="fallback-has-recipe")
+        result = select_recipe_with_fallback(profile, "lunch", PLAN_DATE, rng=_rng())
+        assert result == recipe
+
+    def test_returns_none_when_no_suitable_recipe(self) -> None:
+        """On NoSuitableRecipeError the fallback returns None (caller decides what to do)."""
+        profile = _profile(allergies=["dairy"])
+        _recipe(slug="dairy-only-fallback", allergen_tags=["dairy"])
+        result = select_recipe_with_fallback(profile, "lunch", PLAN_DATE, rng=_rng())
+        assert result is None
+
 
 # Cells with < 3 candidates after steps 1–4 that are explicitly accepted.
 # (diet_pattern, slot): human-readable reason

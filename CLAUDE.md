@@ -84,9 +84,9 @@ This is the loop. Every module follows it. No exceptions.
 
 > **Update this section at Step 5 of every module.**
 
-- **Active module:** `M7` — Chat + AI
-- **Last completed module:** `M6_celery` (2026-05-31, commit TBD) — timezone field on DietaryProfile + generate_plan_for_user + generate_plans_for_all_users + recompute_yesterday_summaries + beat schedule data migration; 376 tests, 95% coverage
-- **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 ✅ → M4.5 ✅ → M4.6 ✅ → M5 ✅ → M6 ✅ → M7 → M8
+- **Active module:** `M8` — Hardening
+- **Last completed module:** `M7_chat_ai` (2026-05-31, branch: feat/M7-chat-ai) — ChatSession + ChatMessage models + provider-agnostic LLM client (openrouter/openai/gemini_openai/gemini_native) + prompt builder + USDA client (Redis-cached) + ai_recipe_validator (8-step Layer 1 promotion pipeline) + chat_service (free-chat + ingredient modes + SSE streaming) + 4 endpoints; 466 tests, 94% coverage
+- **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 ✅ → M4.5 ✅ → M4.6 ✅ → M5 ✅ → M6 ✅ → M7 ✅ → M8
 - **Repo path:** `nutri-app-backend/`
 - **Python version:** 3.12.13 (managed by `uv`, venv at `.venv/`)
 - **Package manager:** `uv` 0.11.2
@@ -616,6 +616,13 @@ feat(M<n>): <module name> — <one-line summary>
 - 2026-05-31 — M6 Celery: Task tests call task functions directly (e.g. `generate_plan_for_user(user_id, date)`) instead of `.delay()` — direct call bypasses the broker entirely, no Redis needed in tests. `CELERY_TASK_ALWAYS_EAGER` is a Celery 4 setting; Celery 5 does not honor it via `override_settings`. (M6)
 - 2026-05-31 — M6 Celery: For `bind=True` tasks, use `patch.object(task_instance, "retry", return_value=exc)` to test retry behavior. Calling `.run(mock_self, ...)` fails because `.run` is a bound method (injects real self); calling `task(args)` injects real self automatically so retry is testable via patch.object. (M6)
 - 2026-05-31 — M6 Celery: `generate_plans_for_all_users` uses `datetime.now(tz=tz)` (not `date.today()`) so that `freezegun.freeze_time` correctly patches it in tests — freeze_time patches `datetime.now` but not `date.today()` in all contexts. (M6)
+- 2026-05-31 — M7 Chat: `success_response(data, message, status_code=N)` returns a `Response` object already — NEVER wrap it in `Response(success_response(...))`. Views must `return success_response(...)` directly or the JSON becomes non-serializable. (M7)
+- 2026-05-31 — M7 Chat: Module-level imports are required for test patchability. Lazy imports inside function bodies (e.g. `from .llm_config import get_provider_config` inside `send_message_chat`) can't be patched at the module level. Always import at module top and patch at `apps.chat.services.chat_service.get_provider_config`. (M7)
+- 2026-05-31 — M7 Chat: `TYPE_CHECKING` guard for User type annotation: `if TYPE_CHECKING: from apps.accounts.models import User`. Use this instead of `get_user_model()` (which confuses mypy strict mode — "Variable is not valid as a type"). Combined with `from __future__ import annotations`, all type annotations are lazy strings at runtime. (M7)
+- 2026-05-31 — M7 Chat: `# type: ignore[no-any-return]` (not `[return-value]`) is the correct suppression for `cache.get()` returns since `cache.get()` is typed as returning `Any`. (M7)
+- 2026-05-31 — M7 Chat: LLM client lazy imports (`from openai import OpenAI` inside `_get_openai_client`) allow the server to start without the package installed. Test patching must target the source package (`openai.OpenAI`), not the service module, because the name is bound at call time, not import time. Same pattern applies to `google.genai.Client`. (M7)
+- 2026-05-31 — M7 Chat: Provider-agnostic LLM: `AI_PROVIDER` env var selects openrouter / openai / gemini_openai / gemini_native. `get_provider_config()` resolves at request time — switching providers requires only an env var change, no restart. OpenRouter is the default (free tier, no billing required for dev). (M7)
+- 2026-05-31 — M7 Chat: USDA client caches ALL responses in Redis for 30 days (USDA data is effectively static). `macros_per_100g()` prefers `Foundation` → `SR Legacy` data types before falling back to the first result. `_serialize_for_cache` is a utility helper that exists but is not called by any current code path — left in for future use. (M7)
 
 ---
 

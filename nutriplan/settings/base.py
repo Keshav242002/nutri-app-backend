@@ -12,8 +12,11 @@ env = environ.Env(
     REGENERATE_RATE_LIMIT=(str, "3/d"),
     CHAT_RATE_LIMIT=(str, "30/h"),
     OPENAI_MODEL=(str, "gpt-4o"),
-    OPENAI_TIMEOUT_SECONDS=(int, 30),
+    LLM_TIMEOUT_SECONDS=(int, 30),
     USDA_BASE_URL=(str, "https://api.nal.usda.gov/fdc/v1"),
+    AI_PROVIDER=(str, "openrouter"),
+    OPENROUTER_MODEL=(str, "openrouter/free"),
+    GEMINI_MODEL=(str, "gemini-2.5-flash"),
 )
 
 environ.Env.read_env(BASE_DIR / ".env")
@@ -46,6 +49,7 @@ LOCAL_APPS: list[str] = [
     "apps.recipes",
     "apps.mealplans",
     "apps.tracker",
+    "apps.chat",
 ]
 
 AUTH_USER_MODEL = "accounts.User"
@@ -139,10 +143,22 @@ CELERY_RESULT_BACKEND: str = env("CELERY_RESULT_BACKEND", default="redis://local
 FIREBASE_CREDENTIALS_PATH: str = env("FIREBASE_CREDENTIALS_PATH", default="")
 FIREBASE_CREDENTIALS_JSON: str = env("FIREBASE_CREDENTIALS_JSON", default="")
 
-# OpenAI — populated in M7
+# ── LLM Provider (M7) ─────────────────────────────────────────────────────────
+# Switch providers by changing AI_PROVIDER env var only. No code changes needed.
+AI_PROVIDER: str = env("AI_PROVIDER")
+LLM_TIMEOUT_SECONDS: int = env("LLM_TIMEOUT_SECONDS")
+
+# OpenRouter (default — free models available at openrouter.ai/keys)
+OPENROUTER_API_KEY: str = env("OPENROUTER_API_KEY", default="")
+OPENROUTER_MODEL: str = env("OPENROUTER_MODEL")
+
+# OpenAI native (only needed if AI_PROVIDER=openai)
 OPENAI_API_KEY: str = env("OPENAI_API_KEY", default="")
 OPENAI_MODEL: str = env("OPENAI_MODEL")
-OPENAI_TIMEOUT_SECONDS: int = env("OPENAI_TIMEOUT_SECONDS")
+
+# Gemini (used for both gemini_openai and gemini_native; key from aistudio.google.com)
+GEMINI_API_KEY: str = env("GEMINI_API_KEY", default="")
+GEMINI_MODEL: str = env("GEMINI_MODEL")
 
 # USDA — populated in M7
 USDA_API_KEY: str = env("USDA_API_KEY", default="")
