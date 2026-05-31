@@ -56,6 +56,8 @@ class DietaryProfileSerializer(serializers.ModelSerializer[DietaryProfile]):
             "max_prep_time_min",
             "skill_level",
             "disclaimer_acknowledged",
+            # Timezone — optional, defaults to Asia/Kolkata
+            "timezone",
             # Computed (read-only)
             "target_calories",
             "target_protein_g",
@@ -84,6 +86,7 @@ class DietaryProfileSerializer(serializers.ModelSerializer[DietaryProfile]):
             "allergies": {"required": False, "default": list},
             "dislikes": {"required": False, "default": list},
             "no_onion_garlic": {"required": False},
+            "timezone": {"required": False},
         }
 
     def get_age(self, obj: DietaryProfile) -> int:
