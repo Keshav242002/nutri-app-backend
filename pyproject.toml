@@ -41,7 +41,7 @@ module = [
 ignore_missing_imports = true
 
 [[tool.mypy.overrides]]
-module = ["apps.*.tests.*", "tests.*", "apps.*.admin"]
+module = ["apps.*.tests.*", "tests.*", "apps.*.admin", "apps.*.migrations.*"]
 ignore_errors = true
 
 [tool.django-stubs]
