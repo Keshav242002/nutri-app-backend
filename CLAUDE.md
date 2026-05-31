@@ -84,9 +84,9 @@ This is the loop. Every module follows it. No exceptions.
 
 > **Update this section at Step 5 of every module.**
 
-- **Active module:** `M6` — Celery
-- **Last completed module:** `M5_tracker` (2026-05-30, commit TBD) — MealLog + DailyNutritionSummary models + upsert_meal_log + recompute_daily_summary + 5 endpoints; 363 tests, 95% coverage
-- **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 ✅ → M4.5 ✅ → M4.6 ✅ → M5 ✅ → M6 → M7 → M8
+- **Active module:** `M7` — Chat + AI
+- **Last completed module:** `M6_celery` (2026-05-31, commit TBD) — timezone field on DietaryProfile + generate_plan_for_user + generate_plans_for_all_users + recompute_yesterday_summaries + beat schedule data migration; 376 tests, 95% coverage
+- **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 ✅ → M4.5 ✅ → M4.6 ✅ → M5 ✅ → M6 ✅ → M7 → M8
 - **Repo path:** `nutri-app-backend/`
 - **Python version:** 3.12.13 (managed by `uv`, venv at `.venv/`)
 - **Package manager:** `uv` 0.11.2
@@ -612,6 +612,10 @@ feat(M<n>): <module name> — <one-line summary>
 - 2026-05-30 — M5 tracker: `DailyNutritionView` uses `get_or_create` to always return a response, even for dates with no logs (zero-calorie summary). This avoids a 404 when the client polls for the current day before any meals are logged. (M5)
 - 2026-05-30 — M5 tracker: `WeeklyNutritionSerializer` takes `summaries` and `profile` in its `__init__` (not the standard DRF `instance` pattern) because weekly output is computed, not a single model instance. The `.data` property is overridden accordingly. (M5)
 - 2026-05-30 — M5 tracker: `_auto_populate_planned_recipe` in `tracker_service.py` silently swallows all exceptions (bare `except Exception`) deliberately — if the MealPlan lookup fails for any reason (no plan, deleted plan, DB error), the log still succeeds with `planned_recipe=null`. This is an intentional soft-dependency. (M5)
+- 2026-05-31 — M6 Celery: `@shared_task` decorators require `# type: ignore[untyped-decorator]` (not `[misc]`) because celery stubs are missing. `apps.*.migrations.*` added to `ignore_errors = true` in `[[tool.mypy.overrides]]` — data migration functions typed as `object` otherwise fail mypy. (M6)
+- 2026-05-31 — M6 Celery: Task tests call task functions directly (e.g. `generate_plan_for_user(user_id, date)`) instead of `.delay()` — direct call bypasses the broker entirely, no Redis needed in tests. `CELERY_TASK_ALWAYS_EAGER` is a Celery 4 setting; Celery 5 does not honor it via `override_settings`. (M6)
+- 2026-05-31 — M6 Celery: For `bind=True` tasks, use `patch.object(task_instance, "retry", return_value=exc)` to test retry behavior. Calling `.run(mock_self, ...)` fails because `.run` is a bound method (injects real self); calling `task(args)` injects real self automatically so retry is testable via patch.object. (M6)
+- 2026-05-31 — M6 Celery: `generate_plans_for_all_users` uses `datetime.now(tz=tz)` (not `date.today()`) so that `freezegun.freeze_time` correctly patches it in tests — freeze_time patches `datetime.now` but not `date.today()` in all contexts. (M6)
 
 ---
 

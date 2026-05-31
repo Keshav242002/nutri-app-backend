@@ -1,8 +1,10 @@
+import zoneinfo
 from decimal import Decimal
 from typing import Any
 
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.postgres.indexes import GinIndex
+from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
@@ -221,6 +223,9 @@ class DietaryProfile(TimestampedModel):
     )
     skill_level = models.CharField(max_length=15, choices=SKILL_CHOICES)
 
+    # Timezone — used by M6 Celery tasks to schedule plan generation at local 4 AM
+    timezone = models.CharField(max_length=50, default="Asia/Kolkata")
+
     # Computed targets — populated by compute_targets() called in save()
     target_calories = models.PositiveIntegerField(null=True, blank=True)
     target_protein_g = models.DecimalField(max_digits=6, decimal_places=1, null=True, blank=True)
@@ -242,6 +247,10 @@ class DietaryProfile(TimestampedModel):
 
     def __str__(self) -> str:
         return f"DietaryProfile(user={self.user_id}, goal={self.goal})"
+
+    def clean(self) -> None:
+        if self.timezone not in zoneinfo.available_timezones():
+            raise ValidationError({"timezone": f"'{self.timezone}' is not a valid IANA timezone."})
 
     def save(self, *args: Any, **kwargs: Any) -> None:
         """Recompute macro targets on every save (no network calls — safe in save())."""
