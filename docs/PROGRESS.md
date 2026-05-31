@@ -4,6 +4,28 @@ Append one entry per completed module. Newest at the top.
 
 ---
 
+## M6 — Celery Background Jobs
+- **Completed:** 2026-05-31
+- **Commit:** TBD
+- **Tests:** 376 passing, 95% overall coverage; `apps/mealplans/tasks.py` 100%, `apps/tracker/tasks.py` 100%
+- **Acceptance criteria:** all met
+  - `timezone` CharField (default `"Asia/Kolkata"`) added to `DietaryProfile` with `clean()` validation via `zoneinfo.available_timezones()` ✅
+  - Migration `apps/profiles/migrations/0003_timezone_field.py` ✅
+  - `timezone` exposed in `DietaryProfileSerializer` (optional, PATCH-able) ✅
+  - `CELERY_BROKER_URL` + `CELERY_RESULT_BACKEND` read from env in `settings/base.py` ✅
+  - `apps/mealplans/tasks.py`: `generate_plan_for_user` (bind=True, max_retries=3, retries on OperationalError) + `generate_plans_for_all_users` (dispatches only for users at local 4 AM) ✅
+  - `apps/tracker/tasks.py`: `recompute_yesterday_summaries` safety-net task ✅
+  - Beat schedule data migration `apps/mealplans/migrations/0003_celery_beat_schedule.py` — idempotent (get_or_create), reversible, 3 PeriodicTask rows ✅
+  - 13 tests: 3 timezone model tests + 8 mealplan task tests + 2 tracker task tests ✅
+- **Deviations from spec:** None
+- **New env vars:** `CELERY_BROKER_URL`, `CELERY_RESULT_BACKEND` (already in `.env.example` from M6 gate setup; `REDIS_URL` was pre-existing)
+- **New external services touched:** Redis (already running; only used at runtime, not in tests)
+- **What the next module needs to know:**
+  - Tasks are thin wrappers: receive IDs, call service layer, log, retry. No business logic in tasks.
+  - `@shared_task` decorators require `# type: ignore[untyped-decorator]` and `apps.*.migrations.*` requires `ignore_errors = true` in mypy overrides — both added to `pyproject.toml`.
+  - Direct task calls (without `.delay()`) bypass the broker entirely — used in all task tests to avoid Redis dependency.
+  - `patch.object(task, "retry", return_value=exc)` is the correct way to test retry behavior for `bind=True` tasks.
+
 ## M5 — Tracker + Nutrition
 - **Completed:** 2026-05-30
 - **Commit:** TBD

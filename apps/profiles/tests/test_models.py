@@ -48,3 +48,23 @@ class TestDietaryProfileModel:
 
         assert profile.target_calories != original_calories
         assert profile.target_calories is not None
+
+    def test_timezone_field_default(self) -> None:
+        """New profiles default to Asia/Kolkata timezone."""
+        profile = DietaryProfileFactory()
+        assert profile.timezone == "Asia/Kolkata"  # type: ignore[union-attr]
+
+    def test_timezone_field_accepts_valid_tz(self) -> None:
+        """A valid IANA timezone passes full_clean()."""
+        profile = DietaryProfileFactory()
+        profile.timezone = "America/New_York"  # type: ignore[union-attr]
+        profile.full_clean()  # type: ignore[union-attr]
+
+    def test_timezone_field_rejects_invalid(self) -> None:
+        """An invalid timezone raises ValidationError on full_clean()."""
+        from django.core.exceptions import ValidationError
+
+        profile = DietaryProfileFactory()
+        profile.timezone = "Not/A/Timezone"  # type: ignore[union-attr]
+        with pytest.raises(ValidationError):
+            profile.full_clean()  # type: ignore[union-attr]
