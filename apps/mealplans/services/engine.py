@@ -395,3 +395,41 @@ def generate_week(
             day_plan[slot] = recipe
         plans.append(day_plan)
     return plans
+
+
+# ---------------------------------------------------------------------------
+# Engine fallback hook (opt-in, not wired into views)
+# Used by M7 AI layer when the engine pool is empty for a slot.
+# ---------------------------------------------------------------------------
+
+
+def select_recipe_with_fallback(
+    profile: DietaryProfile,
+    slot: str,
+    plan_date: date,
+    exclude_recipe_ids: list[int] | None = None,
+    rng: random.Random | None = None,
+) -> Recipe | None:
+    """Call select_recipe; return None instead of raising NoSuitableRecipeError.
+
+    The caller (AI fallback handler) is responsible for deciding what to do when
+    None is returned — typically: trigger an AI recipe generation for the slot.
+    """
+    try:
+        return select_recipe(
+            profile=profile,
+            slot=slot,
+            plan_date=plan_date,
+            exclude_recipe_ids=exclude_recipe_ids,
+            rng=rng,
+        )
+    except NoSuitableRecipeError:
+        log.warning(
+            "engine_pool_empty_fallback",
+            extra={
+                "event": "engine_pool_empty_fallback",
+                "slot": slot,
+                "plan_date": str(plan_date),
+            },
+        )
+        return None

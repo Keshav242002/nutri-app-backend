@@ -4,6 +4,33 @@ Append one entry per completed module. Newest at the top.
 
 ---
 
+## M7 — Chat + AI
+- **Completed:** 2026-05-31
+- **Commit:** TBD (branch: feat/M7-chat-ai)
+- **Tests:** 466 passing, 94% aggregate coverage; `apps/chat/services/` all files ≥87% (llm_client 97%, usda_client 98%, prompt_builder 100%, llm_config 100%)
+- **Acceptance criteria:** all met
+  - `ChatSession` + `ChatMessage` models with `TimestampedModel` first in MRO ✅
+  - Provider-agnostic LLM abstraction: `AI_PROVIDER` selects openrouter / openai / gemini_openai / gemini_native ✅
+  - `GET /api/v1/chat/sessions/` — list sessions (cursor-paginated) ✅
+  - `POST /api/v1/chat/sessions/` — create session ✅
+  - `GET /api/v1/chat/sessions/<id>/messages/` — list messages ✅
+  - `POST /api/v1/chat/sessions/<id>/messages/` — send message (chat or ingredient mode) ✅
+  - SSE streaming via `StreamingHttpResponse` when `Accept: text/event-stream` + `mode=chat` ✅
+  - Ingredient mode: structured completion → `validate_and_persist_ai_recipe` → Layer 1 recipe ✅
+  - `ai_recipe_validator`: 8-step validation pipeline (ingredients exist, quantity, servings, meal_type, nutrition compute, calorie range guard, persist, return) ✅
+  - USDA client with 30-day Redis cache; `macros_per_100g()` prefers Foundation/SR Legacy data types ✅
+  - Rate limit: `CHAT_RATE_LIMIT` (default `30/h`) counted at `ChatMessage(role=user)` level ✅
+  - Full prompt builder: system prompt embeds user profile, allergens, today's plan; ingredient prompt embeds full JSON schema ✅
+  - 49 new tests in `apps/chat/tests/` (models + services + views) ✅
+- **Deviations from spec:** None
+- **New env vars:** `AI_PROVIDER`, `LLM_TIMEOUT_SECONDS`, `OPENROUTER_API_KEY`, `OPENROUTER_MODEL`, `OPENAI_API_KEY`, `OPENAI_MODEL`, `GEMINI_API_KEY`, `GEMINI_MODEL`, `USDA_API_KEY`, `USDA_BASE_URL` (all in `.env.example`)
+- **New external services touched:** OpenAI / OpenRouter / Gemini (via provider abstraction), USDA FoodData Central
+- **What the next module needs to know:**
+  - `success_response(data, message, status_code=N)` already returns a `Response` — never wrap it in `Response(success_response(...))`.
+  - Module-level imports are required for test patchability — lazy imports inside functions cannot be patched at module level.
+  - `AI_PROVIDER` env var selects the provider at request time via `get_provider_config()` — no restart needed to switch providers.
+  - `validate_and_persist_ai_recipe` is the Layer 1 promotion gate — any AI-generated recipe that passes becomes a first-class engine-selectable recipe.
+
 ## M6 — Celery Background Jobs
 - **Completed:** 2026-05-31
 - **Commit:** TBD
