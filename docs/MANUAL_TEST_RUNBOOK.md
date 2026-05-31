@@ -1,7 +1,7 @@
 # NutriPlan Backend — Manual Test Runbook
 
-**Purpose:** Manually verify M0 (`/healthz`), M1 (auth), and M2 (profiles) endpoints against a live
-dev server before committing the M2 implementation.
+**Purpose:** Manually verify M0 (`/healthz`), M1 (auth), M2 (profiles), and M7 (chat + AI) endpoints against a live
+dev server before committing the implementation.
 
 **Response envelope (all endpoints):**
 - Success: `{"status": "success", "message": "...", "data": {...}}`
@@ -1107,3 +1107,153 @@ WHERE firebase_uid != 'dev-bypass-uid-001';
 The Firebase test user in the Firebase console persists after you delete the Django row. Delete it
 from Firebase console → Authentication → Users → hover the row → delete icon, if you want a clean
 slate in Firebase too.
+
+---
+
+## 8. M7 — Chat + AI Endpoints
+
+**Prerequisites:**
+- Server running via `make run-asgi` (ASGI is required for SSE streaming)
+- `.env` has valid `AI_PROVIDER`, `GEMINI_API_KEY` (or `OPENAI_API_KEY` / `OPENROUTER_API_KEY`)
+- A user profile exists (from Section 3 onboarding or seed data)
+
+**Setup variables (run once per terminal session):**
+
+```bash
+AUTH="Authorization: Bearer dev-bypass-token-do-not-ship"
+BASE="http://localhost:8000/api/v1"
+```
+
+### 8.1 Create a chat session
+
+```bash
+curl -s -X POST $BASE/chat/sessions/ \
+  -H "$AUTH" \
+  -H "Content-Type: application/json" \
+  -d '{"title": "Test Session"}' | python3 -m json.tool
+```
+
+**Expected:** `201` with session data including `id`, `title`, `created_at`.
+
+```bash
+SESSION_ID=<id from response>
+```
+
+### 8.2 List sessions
+
+```bash
+curl -s $BASE/chat/sessions/ -H "$AUTH" | python3 -m json.tool
+```
+
+**Expected:** `200` with paginated list containing the session you just created.
+
+### 8.3 Send a chat message (non-streaming)
+
+```bash
+curl -s -X POST $BASE/chat/sessions/$SESSION_ID/messages/ \
+  -H "$AUTH" \
+  -H "Content-Type: application/json" \
+  -d '{"content": "What should I eat for breakfast if I want to lose weight?", "mode": "chat"}' \
+  | python3 -m json.tool
+```
+
+**Expected:** `201` with assistant message containing AI-generated nutrition advice. Response metadata includes `provider` and `model`.
+
+### 8.4 Send a chat message (SSE streaming)
+
+```bash
+curl -N -X POST $BASE/chat/sessions/$SESSION_ID/messages/ \
+  -H "$AUTH" \
+  -H "Content-Type: application/json" \
+  -H "Accept: text/event-stream" \
+  -d '{"content": "Give me a quick healthy snack idea", "mode": "chat"}'
+```
+
+**Expected:** Server-sent events streaming in real-time:
+```
+data: {"chunk": "Here"}
+
+data: {"chunk": "'s a"}
+
+data: {"chunk": " quick"}
+
+...
+
+data: [DONE]
+```
+
+### 8.5 Send an ingredient mode message
+
+```bash
+curl -s -X POST $BASE/chat/sessions/$SESSION_ID/messages/ \
+  -H "$AUTH" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "content": "Make me recipes with these ingredients",
+    "mode": "ingredient",
+    "ingredients": ["Rice", "Tomato", "Onion"]
+  }' | python3 -m json.tool
+```
+
+**Expected:** `201` with assistant message. If AI-generated recipes pass validation:
+- `metadata.validated: true`
+- `metadata.recipes`: array of recipe objects with `id`, `name`, `meal_type`, `calories_per_serving`
+
+If validation fails (transient — retry the request):
+- `metadata.validated: false`
+- `metadata.recipes: []`
+- Check server logs for `ai_recipe_validation_failed` or `ai_ingredient_skipped` warnings
+
+### 8.6 List messages in a session
+
+```bash
+curl -s $BASE/chat/sessions/$SESSION_ID/messages/ -H "$AUTH" | python3 -m json.tool
+```
+
+**Expected:** `200` with paginated list of messages (both user and assistant) in chronological order.
+
+### 8.7 Verify AI-generated recipes (optional)
+
+```bash
+python3 manage.py shell -c "
+from apps.recipes.models import Recipe
+qs = Recipe.objects.filter(source='ai_generated').order_by('-created_at')[:5]
+for r in qs:
+    ri = r.recipe_ingredients.select_related('ingredient').all()
+    ings = ', '.join(f'{ri_row.ingredient.name} ({ri_row.quantity_grams}g)' for ri_row in ri)
+    print(f'  [{r.pk}] {r.name} | {r.cached_calories_per_serving} kcal | {ings}')
+print(f'Total AI recipes: {Recipe.objects.filter(source=\"ai_generated\").count()}')
+"
+```
+
+**Expected:** Any validated recipes from step 8.5 appear with correct ingredient data and computed calories.
+
+### 8.8 Error cases
+
+**Missing session:**
+```bash
+curl -s -X POST $BASE/chat/sessions/99999/messages/ \
+  -H "$AUTH" \
+  -H "Content-Type: application/json" \
+  -d '{"content": "Hello", "mode": "chat"}' | python3 -m json.tool
+```
+**Expected:** `404` with `CHAT_SESSION_NOT_FOUND` or `NOT_FOUND`.
+
+**Invalid mode:**
+```bash
+curl -s -X POST $BASE/chat/sessions/$SESSION_ID/messages/ \
+  -H "$AUTH" \
+  -H "Content-Type: application/json" \
+  -d '{"content": "Hello", "mode": "invalid_mode"}' | python3 -m json.tool
+```
+**Expected:** `400` validation error.
+
+### 8.9 Troubleshooting
+
+| Symptom | Cause | Fix |
+|---------|-------|-----|
+| `301 → WRONG_VERSION_NUMBER` | `asgi.py` loading production settings | Check `DJANGO_SETTINGS_MODULE` defaults to `development` |
+| `500 Invalid AI_PROVIDER` | Trailing whitespace in `.env` | Remove trailing spaces/comments from `AI_PROVIDER=` line |
+| `406 Not Acceptable` | DRF rejects `Accept: text/event-stream` | Ensure `EventStreamRenderer` is in `ChatMessageListCreateView.renderer_classes` |
+| `502 llm_json_parse_failure` | Gemini returned malformed JSON (transient) | Retry the request; check server logs for `raw_prefix` |
+| `validated: false, recipes: []` | AI used ingredient names not in DB | Check `ai_ingredient_skipped` warnings in logs; fuzzy matching handles most cases |

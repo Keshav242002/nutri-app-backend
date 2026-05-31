@@ -254,6 +254,68 @@ class TestSendMessageIngredient:
         assert msg.role == ChatMessage.Role.ASSISTANT
         assert msg.metadata["recipes"] == []
 
+    def test_partial_batch_when_one_recipe_rejected(self):
+        """3 recipes generated; 1 fails ingredient validation → 2 returned, 1 logged."""
+        profile = DietaryProfileFactory()
+        session = ChatSessionFactory(user=profile.user)
+        cfg = _make_provider_cfg()
+
+        fake_json = {
+            "recipes": [
+                {"name": "Recipe A"},
+                {"name": "Recipe B"},
+                {"name": "Recipe C"},
+            ]
+        }
+
+        mock_a = MagicMock()
+        mock_a.pk = 1
+        mock_a.name = "Recipe A"
+        mock_a.meal_type = "lunch"
+        mock_a.cached_calories_per_serving = 350
+        mock_a.servings = 2
+
+        mock_c = MagicMock()
+        mock_c.pk = 3
+        mock_c.name = "Recipe C"
+        mock_c.meal_type = "dinner"
+        mock_c.cached_calories_per_serving = 420
+        mock_c.servings = 2
+
+        side_effects = [
+            mock_a,
+            AppValidationError(code="VALIDATION_ERROR", message="bad ingredient"),
+            mock_c,
+        ]
+
+        with (
+            patch("apps.chat.services.chat_service.check_rate_limit"),
+            patch("apps.chat.services.chat_service._load_context", return_value=(profile, None)),
+            patch(
+                "apps.chat.services.chat_service.structured_completion",
+                return_value=fake_json,
+            ),
+            patch("apps.chat.services.chat_service.get_provider_config", return_value=cfg),
+            patch(
+                "apps.chat.services.chat_service.validate_and_persist_ai_recipe",
+                side_effect=side_effects,
+            ),
+        ):
+            msg = chat_service.send_message_ingredient(
+                session=session,
+                content="Make me recipes",
+                ingredients=["rice", "dal"],
+                user=profile.user,
+            )
+
+        assert msg.role == ChatMessage.Role.ASSISTANT
+        assert msg.metadata is not None
+        assert len(msg.metadata["recipes"]) == 2
+        names = [r["name"] for r in msg.metadata["recipes"]]
+        assert "Recipe A" in names
+        assert "Recipe C" in names
+        assert "Recipe B" not in names
+
 
 # ---------------------------------------------------------------------------
 # ai_recipe_validator
@@ -278,7 +340,7 @@ class TestAiRecipeValidator:
         IngredientFactory(name="Lentils", is_active=True)
         recipe_json = self._valid_recipe_json("Lentils")
 
-        mock_nutrition = {"calories_per_serving": 350}
+        mock_nutrition = {"calories": 350}
         with patch(
             "apps.chat.services.ai_recipe_validator.compute_recipe_nutrition",
             return_value=mock_nutrition,
@@ -310,7 +372,7 @@ class TestAiRecipeValidator:
         IngredientFactory(name="Sugar", is_active=True)
         recipe_json = self._valid_recipe_json("Sugar")
 
-        mock_nutrition = {"calories_per_serving": 5000}
+        mock_nutrition = {"calories": 5000}
         with patch(
             "apps.chat.services.ai_recipe_validator.compute_recipe_nutrition",
             return_value=mock_nutrition,
@@ -334,6 +396,128 @@ class TestAiRecipeValidator:
         recipe_json["servings"] = 50
         with pytest.raises(AppValidationError, match="servings"):
             validate_and_persist_ai_recipe(recipe_json, profile.user)
+
+    def test_strip_parenthetical_match(self):
+        """Tier 2: AI outputs 'basmati rice'; DB has 'Basmati rice (raw)' → resolved."""
+        from apps.recipes.models import Recipe
+
+        profile = DietaryProfileFactory()
+        IngredientFactory(name="Basmati rice (raw)", is_active=True)
+        recipe_json = self._valid_recipe_json("basmati rice")
+
+        mock_nutrition = {"calories": 350}
+        with patch(
+            "apps.chat.services.ai_recipe_validator.compute_recipe_nutrition",
+            return_value=mock_nutrition,
+        ):
+            recipe = validate_and_persist_ai_recipe(recipe_json, profile.user)
+
+        assert recipe.pk is not None
+        assert Recipe.objects.filter(pk=recipe.pk).exists()
+
+    def test_alias_map_resolves_known_drift(self):
+        """Tier 4: AI outputs 'arhar dal'; alias map resolves to 'Toor dal (raw)'."""
+        from apps.recipes.models import Recipe
+
+        profile = DietaryProfileFactory()
+        IngredientFactory(name="Toor dal (raw)", is_active=True)
+        recipe_json = self._valid_recipe_json("arhar dal")
+
+        mock_nutrition = {"calories": 350}
+        with patch(
+            "apps.chat.services.ai_recipe_validator.compute_recipe_nutrition",
+            return_value=mock_nutrition,
+        ):
+            recipe = validate_and_persist_ai_recipe(recipe_json, profile.user)
+
+        assert recipe.pk is not None
+        assert Recipe.objects.filter(pk=recipe.pk).exists()
+
+    def test_zero_prep_cook_time_is_valid(self):
+        """AI recipes with no prep/cook time default to 0 — model must accept it."""
+        profile = DietaryProfileFactory()
+        IngredientFactory(name="Paneer", is_active=True)
+        recipe_json = self._valid_recipe_json("Paneer")
+        # No prep_time_min / cook_time_min keys in the JSON — validator never reads them,
+        # Recipe model defaults both to 0.
+
+        mock_nutrition = {"calories": 280}
+        with patch(
+            "apps.chat.services.ai_recipe_validator.compute_recipe_nutrition",
+            return_value=mock_nutrition,
+        ):
+            recipe = validate_and_persist_ai_recipe(recipe_json, profile.user)
+
+        assert recipe.prep_time_min == 0
+        assert recipe.cook_time_min == 0
+
+    def test_calorie_check_failure_leaves_no_orphan_recipe(self):
+        """When computed calories fall outside the valid range, the Recipe row is deleted."""
+        from apps.recipes.models import Recipe
+
+        profile = DietaryProfileFactory()
+        IngredientFactory(name="Salt", is_active=True)
+        recipe_json = self._valid_recipe_json("Salt")
+
+        # Return calories below the minimum (50) so the guard fires.
+        mock_nutrition = {"calories": 5}
+        with patch(
+            "apps.chat.services.ai_recipe_validator.compute_recipe_nutrition",
+            return_value=mock_nutrition,
+        ):
+            before = Recipe.objects.count()
+            with pytest.raises(AppValidationError, match="calories"):
+                validate_and_persist_ai_recipe(recipe_json, profile.user)
+            assert Recipe.objects.count() == before
+
+    def test_duplicate_resolved_ingredient_raises_validation_error(self):
+        """Two AI names resolving to the same DB Ingredient must be rejected before any DB write."""
+        from apps.recipes.models import Recipe
+
+        profile = DietaryProfileFactory()
+        IngredientFactory(name="Basmati rice (raw)", is_active=True)
+        # "Basmati rice (raw)" matches tier 1; "basmati rice" matches tier 2 — same DB row.
+        recipe_json = {
+            "name": "Duplicate Ingredient Dish",
+            "meal_type": "lunch",
+            "servings": 2,
+            "diet_tags": [],
+            "allergen_tags": [],
+            "ingredients": [
+                {"ingredient_name": "Basmati rice (raw)", "quantity_grams": 200},
+                {"ingredient_name": "basmati rice", "quantity_grams": 50},
+            ],
+            "steps": ["Cook."],
+        }
+        before = Recipe.objects.count()
+        with pytest.raises(AppValidationError, match="appears more than once"):
+            validate_and_persist_ai_recipe(recipe_json, profile.user)
+        assert Recipe.objects.count() == before
+
+    def test_unknown_ingredient_rejects_whole_recipe_not_partial(self):
+        """Unknown ingredient rejects the recipe immediately; no Recipe row is created."""
+        from apps.recipes.models import Recipe
+
+        profile = DietaryProfileFactory()
+        IngredientFactory(name="Rice", is_active=True)
+        # Two ingredients: one known, one unknown.
+        recipe_json = {
+            "name": "Partial Dish",
+            "meal_type": "lunch",
+            "servings": 2,
+            "diet_tags": [],
+            "allergen_tags": [],
+            "ingredients": [
+                {"ingredient_name": "Rice", "quantity_grams": 200},
+                {"ingredient_name": "GhostIngredientXYZ", "quantity_grams": 50},
+            ],
+            "steps": ["Cook."],
+        }
+        with pytest.raises(AppValidationError, match="does not exist"):
+            validate_and_persist_ai_recipe(recipe_json, profile.user)
+
+        # Verify no Recipe was persisted (partial persist is forbidden)
+        assert Recipe.objects.filter(name="Partial Dish").count() == 0
 
 
 # ---------------------------------------------------------------------------
@@ -746,6 +930,35 @@ class TestStructuredCompletion:
         ):
             result = structured_completion([], schema={})
         assert result == {"recipes": []}
+
+    def test_retries_on_parse_failure_succeeds_on_second(self):
+        from apps.chat.services.llm_client import structured_completion
+
+        cfg = _make_provider_cfg()
+        # First call returns unparseable garbage; second returns valid JSON.
+        with (
+            patch("apps.chat.services.llm_client.get_provider_config", return_value=cfg),
+            patch(
+                "apps.chat.services.llm_client.chat_completion",
+                side_effect=["not valid json at all", '{"recipes": []}'],
+            ),
+        ):
+            result = structured_completion([], schema={})
+        assert result == {"recipes": []}
+
+    def test_raises_after_two_parse_failures(self):
+        from apps.chat.services.llm_client import structured_completion
+
+        cfg = _make_provider_cfg()
+        with (
+            patch("apps.chat.services.llm_client.get_provider_config", return_value=cfg),
+            patch(
+                "apps.chat.services.llm_client.chat_completion",
+                side_effect=["not json", "also not json"],
+            ),
+        ):
+            with pytest.raises(ExternalServiceError):
+                structured_completion([], schema={})
 
 
 # ---------------------------------------------------------------------------

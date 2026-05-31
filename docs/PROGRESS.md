@@ -6,7 +6,7 @@ Append one entry per completed module. Newest at the top.
 
 ## M7 — Chat + AI
 - **Completed:** 2026-05-31
-- **Commit:** TBD (branch: feat/M7-chat-ai)
+- **Commit:** 296fa10 (branch: feat/M7-chat-ai)
 - **Tests:** 466 passing, 94% aggregate coverage; `apps/chat/services/` all files ≥87% (llm_client 97%, usda_client 98%, prompt_builder 100%, llm_config 100%)
 - **Acceptance criteria:** all met
   - `ChatSession` + `ChatMessage` models with `TimestampedModel` first in MRO ✅
