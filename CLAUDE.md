@@ -84,9 +84,9 @@ This is the loop. Every module follows it. No exceptions.
 
 > **Update this section at Step 5 of every module.**
 
-- **Active module:** `M8` — Hardening
-- **Last completed module:** `M7_chat_ai` (2026-05-31, branch: feat/M7-chat-ai) — ChatSession + ChatMessage models + provider-agnostic LLM client (openrouter/openai/gemini_openai/gemini_native) + prompt builder + USDA client (Redis-cached) + ai_recipe_validator (8-step Layer 1 promotion pipeline) + chat_service (free-chat + ingredient modes + SSE streaming) + 4 endpoints; 466 tests, 94% coverage
-- **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 ✅ → M4.5 ✅ → M4.6 ✅ → M5 ✅ → M6 ✅ → M7 ✅ → M8
+- **Active module:** All modules complete ✅
+- **Last completed module:** `M8_hardening` (2026-06-01, branch: M8-production-tightening) — django-ratelimit + Redis CACHES + Sentry CeleryIntegration + core/audit.py @audit_log + Docker/CI/DEPLOY.md + @extend_schema all ~20 endpoints + spectacular 0-warning schema + POSTMAN_COLLECTION.json; 484 tests, 94% coverage
+- **Build order:** M0 ✅ → M1 ✅ → M2 ✅ → M3 ✅ → M4 ✅ → M4.5 ✅ → M4.6 ✅ → M5 ✅ → M6 ✅ → M7 ✅ → M8 ✅
 - **Repo path:** `nutri-app-backend/`
 - **Python version:** 3.12.13 (managed by `uv`, venv at `.venv/`)
 - **Package manager:** `uv` 0.11.2
@@ -623,6 +623,11 @@ feat(M<n>): <module name> — <one-line summary>
 - 2026-05-31 — M7 Chat: LLM client lazy imports (`from openai import OpenAI` inside `_get_openai_client`) allow the server to start without the package installed. Test patching must target the source package (`openai.OpenAI`), not the service module, because the name is bound at call time, not import time. Same pattern applies to `google.genai.Client`. (M7)
 - 2026-05-31 — M7 Chat: Provider-agnostic LLM: `AI_PROVIDER` env var selects openrouter / openai / gemini_openai / gemini_native. `get_provider_config()` resolves at request time — switching providers requires only an env var change, no restart. OpenRouter is the default (free tier, no billing required for dev). (M7)
 - 2026-05-31 — M7 Chat: USDA client caches ALL responses in Redis for 30 days (USDA data is effectively static). `macros_per_100g()` prefers `Foundation` → `SR Legacy` data types before falling back to the first result. `_serialize_for_cache` is a utility helper that exists but is not called by any current code path — left in for future use. (M7)
+- 2026-06-01 — M8 Hardening: `RATELIMIT_ENABLE = False` in `development.py` is required to prevent Redis-backed IP rate limits from bleeding between test runs. Do not remove; the rate limiter uses real Redis in tests otherwise. (M8)
+- 2026-06-01 — M8 Hardening: `core/schema.py` `inline_serializer` results are cached by name in `_inline_cache` dict. Calling `inline_serializer()` with the same name more than once creates distinct classes with identical `__name__`, causing drf-spectacular duplicate-name warnings. Always use the helpers (`envelope_response`, `envelope_list_response`, `error_response`) — never call `inline_serializer()` directly in views. (M8)
+- 2026-06-01 — M8 Hardening: `SPECTACULAR_SETTINGS["ENUM_NAME_OVERRIDES"]` must be updated whenever a new choices constant appears in more than one model field. The override key is the desired enum name; the value is the dotted path to the Python choices list. (M8)
+- 2026-06-01 — M8 Hardening: `E501` (line too long) added to ruff ignore list — black enforces line length; E501 incorrectly flags string literals inside `@extend_schema` decorator arguments that black cannot auto-wrap. This is the standard config when using black+ruff together. (M8)
+- 2026-06-01 — M8 Hardening: `docker-entrypoint.sh` is used ONLY by the `web` service. `worker` and `beat` services in `docker-compose.yml` MUST override both `entrypoint` and `command` to run their Celery process directly, bypassing the entrypoint entirely. Running migrations in all three services simultaneously causes race conditions. (M8)
 
 ---
 
