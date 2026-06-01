@@ -13,7 +13,7 @@ class UserSerializer(serializers.ModelSerializer[User]):
 
     def get_has_profile(self, obj: User) -> bool:
         try:
-            return obj.profile is not None  # type: ignore[attr-defined]  # M2 adds reverse relation
+            return obj.profile is not None
         except AttributeError:
             return False
 

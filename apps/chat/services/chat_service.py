@@ -92,7 +92,7 @@ def _load_context(user: User) -> tuple[Any, Any]:
     """Load user profile and today's meal plan. Either may be None."""
     profile = None
     try:
-        profile = user.profile  # type: ignore[attr-defined]
+        profile = user.profile
     except Exception:  # noqa: BLE001
         pass
 
