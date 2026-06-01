@@ -1,0 +1,2582 @@
+openapi: 3.0.3
+info:
+  title: NutriPlan API
+  version: 1.0.0
+  description: Personalized nutrition backend — meal planning, tracking, and AI chatbot.
+paths:
+  /api/v1/auth/me:
+    get:
+      operationId: v1_auth_me_retrieve
+      description: Return the authenticated user's profile stub (email, display_name,
+        has_profile).
+      summary: Get current user
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSerializerEnvelope'
+          description: User retrieved.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+  /api/v1/auth/register:
+    post:
+      operationId: v1_auth_register_create
+      description: Idempotent. Verifies the Firebase Bearer token and upserts the
+        Django User record. Returns `created=true` on first registration.
+      summary: Register / upsert user
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegisterResponseSerializerEnvelope'
+          description: User registered or already exists.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Invalid or missing Firebase token. (code: `INVALID_TOKEN`)'
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Too many registration attempts (10/min per IP). (code: `RATE_LIMITED`)'
+  /api/v1/chat/sessions/:
+    get:
+      operationId: v1_chat_sessions_retrieve
+      description: Returns cursor-paginated list of the user's chat sessions, newest
+        first.
+      summary: List chat sessions
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatSessionSerializerListEnvelope'
+          description: Chat sessions.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+    post:
+      operationId: v1_chat_sessions_create
+      description: Create a new chat session. `title` is optional — defaults to empty
+        string.
+      summary: Create chat session
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSession'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateSession'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateSession'
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatSessionSerializerEnvelope'
+          description: Session created.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Validation failed. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+  /api/v1/chat/sessions/{session_id}/messages/:
+    get:
+      operationId: v1_chat_sessions_messages_retrieve
+      description: Returns cursor-paginated messages for the session, ordered oldest-first.
+      summary: List messages in a session
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - event-stream
+          - json
+      - in: path
+        name: session_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessageSerializerListEnvelope'
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/ChatMessageSerializerListEnvelope'
+          description: Messages.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Session not found or belongs to another user. (code: `NOT_FOUND`)'
+    post:
+      operationId: v1_chat_sessions_messages_create
+      description: 'Send a message to the session. `mode=chat` (default) — free-form
+        conversation with the AI. `mode=ingredient` — AI generates an Indian recipe
+        from an ingredient list. For `mode=chat`, send `Accept: text/event-stream`
+        to get Server-Sent Events streaming. Rate-limited to CHAT_RATE_LIMIT (default
+        30/h) user messages per hour.'
+      summary: Send a message
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - event-stream
+          - json
+      - in: path
+        name: session_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendMessage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SendMessage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SendMessage'
+        required: true
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessageSerializerEnvelope'
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/ChatMessageSerializerEnvelope'
+          description: Assistant reply message.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Validation failed. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Session not found. (code: `NOT_FOUND`)'
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Chat rate limit exceeded (default 30/h). (code: `RATE_LIMITED`)'
+  /api/v1/mealplans/day/{plan_date}/:
+    get:
+      operationId: v1_mealplans_day_retrieve
+      description: Lazily generates a meal plan for the given date if one doesn't
+        exist yet.
+      summary: Get meal plan for a specific date
+      parameters:
+      - in: path
+        name: plan_date
+        schema:
+          type: string
+        description: ISO date (YYYY-MM-DD).
+        required: true
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MealPlanDayDetailSerializerEnvelope'
+          description: Meal plan for the requested date.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Invalid date format. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No dietary profile. (code: `PROFILE_NOT_FOUND`)'
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Not enough recipes. (code: `NO_SUITABLE_RECIPE`)'
+  /api/v1/mealplans/regenerate/:
+    post:
+      operationId: v1_mealplans_regenerate_create
+      description: Replace all three slots for a given day with new recipes. Rate-limited
+        to 3 full regenerations per week.
+      summary: Regenerate full day plan
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegeneratePlan'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RegeneratePlan'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RegeneratePlan'
+        required: true
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MealPlanDayDetailSerializerEnvelope'
+          description: Regenerated meal plan.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Invalid request body. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Not enough recipes. (code: `NO_SUITABLE_RECIPE`)'
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Full plan regeneration limit (3/week) reached. (code: `REGENERATE_LIMIT`)'
+  /api/v1/mealplans/regenerate-slot/:
+    post:
+      operationId: v1_mealplans_regenerate_slot_create
+      description: Pick a different recipe for one slot (breakfast/lunch/dinner) on
+        a given day. Rate-limited to 3 regenerations per slot per week.
+      summary: Regenerate a single meal slot
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegenerateSlot'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RegenerateSlot'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RegenerateSlot'
+        required: true
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MealPlanDayDetailSerializerEnvelope'
+          description: Updated meal plan with new slot.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Invalid request body. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Not enough recipes. (code: `NO_SUITABLE_RECIPE`)'
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Slot regeneration limit (3/week) reached. (code: `REGENERATE_LIMIT`)'
+  /api/v1/mealplans/today/:
+    get:
+      operationId: v1_mealplans_today_retrieve
+      description: Lazily generates today's meal plan if one doesn't exist yet. Returns
+        breakfast, lunch, and dinner.
+      summary: Get today's meal plan
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MealPlanDayDetailSerializerEnvelope'
+          description: Today's meal plan.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No dietary profile — complete onboarding first. (code: `PROFILE_NOT_FOUND`)'
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Not enough recipes to satisfy the user''s dietary constraints.
+            (code: `NO_SUITABLE_RECIPE`)'
+  /api/v1/mealplans/week/:
+    get:
+      operationId: v1_mealplans_week_retrieve
+      description: Returns existing meal plans for the ISO week. Use `?from=YYYY-MM-DD`
+        to specify a different week start.
+      summary: List meal plans for a week
+      parameters:
+      - in: query
+        name: from
+        schema:
+          type: string
+        description: Start date of the week (any day in that week; defaults to current
+          week Monday).
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MealPlanSerializerEnvelope'
+          description: Weekly meal plans (may be empty if not yet generated).
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Invalid date format. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+  /api/v1/mealplans/week/{plan_date}/grocery/:
+    get:
+      operationId: v1_mealplans_week_grocery_retrieve
+      description: Returns the aggregated grocery list for the ISO week containing
+        the given date. Computed on first request and cached.
+      summary: Get grocery list for a week
+      parameters:
+      - in: path
+        name: plan_date
+        schema:
+          type: string
+        description: Any date within the target week (YYYY-MM-DD).
+        required: true
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroceryListSerializerEnvelope'
+          description: Grocery list for the week.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Invalid date. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No meal plans exist for that week. (code: `MEAL_PLAN_NOT_FOUND`)'
+  /api/v1/mealplans/week/{plan_date}/grocery/regenerate/:
+    post:
+      operationId: v1_mealplans_week_grocery_regenerate_create
+      description: Force-recomputes the grocery list for the week (deletes cached
+        version and regenerates).
+      summary: Recompute grocery list
+      parameters:
+      - in: path
+        name: plan_date
+        schema:
+          type: string
+        description: Any date within the target week (YYYY-MM-DD).
+        required: true
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroceryListSerializerEnvelope'
+          description: Freshly computed grocery list.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Invalid date. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No meal plans exist for that week. (code: `MEAL_PLAN_NOT_FOUND`)'
+  /api/v1/mealplans/week/generate/:
+    post:
+      operationId: v1_mealplans_week_generate_create
+      description: Generate a full 7-day meal plan for the current or specified week.
+        Idempotent for days that already have plans. Returns count of newly generated
+        vs. pre-existing days.
+      summary: Generate weekly meal plan
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WeeklyPlanGenerate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WeeklyPlanGenerate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/WeeklyPlanGenerate'
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MealPlanSerializerEnvelope'
+          description: Weekly plan generated.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No dietary profile. (code: `PROFILE_NOT_FOUND`)'
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Not enough recipes. (code: `NO_SUITABLE_RECIPE`)'
+  /api/v1/nutrition/daily/:
+    get:
+      operationId: v1_nutrition_daily_retrieve
+      description: Returns calories, macros, and micronutrients for the given date
+        with target comparisons. Creates a zero-calorie summary row if no logs exist
+        yet (always returns 200).
+      summary: Get daily nutrition summary
+      parameters:
+      - in: query
+        name: date
+        schema:
+          type: string
+        description: Summary date (YYYY-MM-DD).
+        required: true
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DailyNutritionSerializerEnvelope'
+          description: Daily nutrition summary.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Missing or invalid date. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No dietary profile — complete onboarding. (code: `PROFILE_NOT_FOUND`)'
+  /api/v1/nutrition/weekly/:
+    get:
+      operationId: v1_nutrition_weekly_retrieve
+      description: Returns per-day nutrition summaries and weekly averages for the
+        specified date range.
+      summary: Get weekly nutrition summaries
+      parameters:
+      - in: query
+        name: from
+        schema:
+          type: string
+        description: Start date (YYYY-MM-DD).
+        required: true
+      - in: query
+        name: to
+        schema:
+          type: string
+        description: End date (YYYY-MM-DD).
+        required: true
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeeklyNutritionEnvelope'
+          description: Weekly nutrition summaries.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Missing or invalid dates. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No dietary profile. (code: `PROFILE_NOT_FOUND`)'
+  /api/v1/profiles/me:
+    get:
+      operationId: v1_profiles_me_retrieve
+      description: Return the authenticated user's full dietary profile including
+        computed macro targets.
+      summary: Get my profile
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DietaryProfileSerializerEnvelope'
+          description: Profile retrieved.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No profile exists yet. Complete onboarding first. (code: `PROFILE_NOT_FOUND`)'
+    patch:
+      operationId: v1_profiles_me_partial_update
+      description: Partial update — only fields present in the request body are changed.
+        Re-applies all normalisation rules and recomputes macro targets on save. No
+        disclaimer required for PATCH.
+      summary: Update my profile
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProfileUpdate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProfileUpdate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProfileUpdate'
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DietaryProfileSerializerEnvelope'
+          description: Profile updated with recomputed targets.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Validation failed. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Profile not found. (code: `PROFILE_NOT_FOUND`)'
+  /api/v1/profiles/onboarding:
+    post:
+      operationId: v1_profiles_onboarding_create
+      description: Idempotent. Creates or updates the user's DietaryProfile with all
+        onboarding fields. Returns the profile with computed calorie/macro targets.
+        `disclaimer_acknowledged` is write-only and not stored.
+      summary: Create / update dietary profile
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DietaryProfile'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DietaryProfile'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DietaryProfile'
+        required: true
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DietaryProfileSerializerEnvelope'
+              examples:
+                SuccessfulOnboarding:
+                  value:
+                    status: success
+                    message: Profile created successfully.
+                    data:
+                      goal: lose_weight
+                  summary: Successful onboarding
+          description: Profile created or updated with computed targets.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Validation failed. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+  /api/v1/profiles/onboarding/questions:
+    get:
+      operationId: v1_profiles_onboarding_questions_retrieve
+      description: Returns the 6-step onboarding questionnaire metadata (choices,
+        labels, defaults). No DB queries.
+      summary: Get onboarding questionnaire
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Questionnaire step definitions.
+          description: ''
+  /api/v1/recipes/:
+    get:
+      operationId: v1_recipes_list
+      description: 'Cursor-paginated recipe list with up to 10 filters: meal_type,
+        cuisine, diet_tags, allergen_exclude, difficulty, spice_level, calorie_min/max,
+        max_cost_inr, search (name + name_alt).'
+      summary: List recipes
+      parameters:
+      - in: query
+        name: allergen_exclude
+        schema:
+          type: string
+        description: Comma-separated allergens to exclude.
+      - in: query
+        name: calorie_max
+        schema:
+          type: integer
+        description: Maximum calories per serving.
+      - in: query
+        name: calorie_min
+        schema:
+          type: integer
+        description: Minimum calories per serving.
+      - in: query
+        name: cuisine
+        schema:
+          type: string
+        description: Filter by cuisine region.
+      - name: cursor
+        required: false
+        in: query
+        description: The pagination cursor value.
+        schema:
+          type: string
+      - in: query
+        name: diet_tags
+        schema:
+          type: string
+        description: Comma-separated diet tags (e.g. vegetarian,vegan).
+      - in: query
+        name: difficulty
+        schema:
+          type: string
+        description: beginner / intermediate / advanced
+      - in: query
+        name: estimated_difficulty
+        schema:
+          type: string
+      - in: query
+        name: exclude_allergens
+        schema:
+          type: string
+      - in: query
+        name: excludes_ingredients
+        schema:
+          type: string
+      - in: query
+        name: includes_ingredients
+        schema:
+          type: string
+      - in: query
+        name: max_cost_inr
+        schema:
+          type: number
+          format: double
+        description: Maximum cost in INR.
+      - in: query
+        name: max_cost_per_serving_inr
+        schema:
+          type: number
+          format: double
+      - in: query
+        name: max_prep_time
+        schema:
+          type: integer
+      - in: query
+        name: meal_type
+        schema:
+          type: string
+        description: Filter by meal type (breakfast/lunch/dinner).
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: protein_source
+        schema:
+          type: string
+      - in: query
+        name: search
+        schema:
+          type: string
+        description: Full-text search against name and alt name.
+      - in: query
+        name: spice_level
+        schema:
+          type: string
+        description: mild / medium / hot / very_hot
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRecipeListSerializerListEnvelopeList'
+          description: Paginated recipe list.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Invalid filter value. (code: `INVALID_FILTER_VALUE`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+  /api/v1/recipes/{slug}/:
+    get:
+      operationId: v1_recipes_retrieve
+      description: Full recipe detail including ingredient list, household units,
+        and cached nutrition per serving.
+      summary: Get recipe detail
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecipeDetailSerializerEnvelope'
+          description: Recipe detail.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Recipe not found or inactive. (code: `NOT_FOUND`)'
+  /api/v1/tracker/:
+    get:
+      operationId: v1_tracker_retrieve
+      description: Returns all meal logs for the authenticated user on the given date.
+      summary: List meal logs for a date
+      parameters:
+      - in: query
+        name: date
+        schema:
+          type: string
+        description: Log date (YYYY-MM-DD).
+        required: true
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MealLogResponseSerializerEnvelope'
+          description: Meal logs.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Missing or invalid date parameter. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+  /api/v1/tracker/log/:
+    get:
+      operationId: v1_tracker_log_retrieve
+      description: Returns all meal logs for the authenticated user on the given date.
+      summary: List meal logs for a date
+      parameters:
+      - in: query
+        name: date
+        schema:
+          type: string
+        description: Log date (YYYY-MM-DD).
+        required: true
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MealLogResponseSerializerEnvelope'
+          description: Meal logs for the date.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Missing or invalid date parameter. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+    post:
+      operationId: v1_tracker_log_create
+      description: 'Idempotent upsert by (user, log_date, slot). status must be one
+        of: planned / ate_planned / ate_substituted / ate_custom / skipped. For ate_custom,
+        custom_description and custom_calories are required. servings_eaten must be
+        in 0.25 increments between 0.25 and 6.00.'
+      summary: Log a meal
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MealLog'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MealLog'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MealLog'
+        required: true
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MealLogResponseSerializerEnvelope'
+          description: Meal logged.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Validation failed. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+  /api/v1/tracker/range/:
+    get:
+      operationId: v1_tracker_range_retrieve
+      description: Returns meal logs across a date range (max 90 days).
+      summary: List meal logs for a date range
+      parameters:
+      - in: query
+        name: from
+        schema:
+          type: string
+        description: Start date (YYYY-MM-DD).
+        required: true
+      - in: query
+        name: to
+        schema:
+          type: string
+        description: End date (YYYY-MM-DD).
+        required: true
+      tags:
+      - v1
+      security:
+      - FirebaseBearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MealLogResponseSerializerEnvelope'
+          description: Meal logs in range.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'Missing/invalid date or range exceeds 90 days. (code: `VALIDATION_ERROR`)'
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: 'No valid token. (code: `NOT_AUTHENTICATED`)'
+components:
+  schemas:
+    ActivityLevelEnum:
+      enum:
+      - sedentary
+      - light
+      - moderate
+      - very
+      - athlete
+      type: string
+      description: |-
+        * `sedentary` - Sedentary
+        * `light` - Light
+        * `moderate` - Moderate
+        * `very` - Very Active
+        * `athlete` - Athlete
+    ChatMessage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        role:
+          allOf:
+          - $ref: '#/components/schemas/RoleEnum'
+          readOnly: true
+        content:
+          type: string
+          readOnly: true
+        metadata:
+          readOnly: true
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - content
+      - created_at
+      - id
+      - metadata
+      - role
+    ChatMessageSerializerEnvelope:
+      type: object
+      properties:
+        status:
+          type: string
+          default: success
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/ChatMessage'
+      required:
+      - data
+      - message
+    ChatMessageSerializerListEnvelope:
+      type: object
+      properties:
+        status:
+          type: string
+          default: success
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/ChatMessageSerializerPage'
+      required:
+      - data
+      - message
+    ChatMessageSerializerPage:
+      type: object
+      properties:
+        next:
+          type: string
+          nullable: true
+        previous:
+          type: string
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatMessage'
+      required:
+      - next
+      - previous
+      - results
+    ChatSession:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 200
+        started_at:
+          type: string
+          format: date-time
+          readOnly: true
+        last_message_at:
+          type: string
+          format: date-time
+          readOnly: true
+        message_count:
+          type: integer
+          readOnly: true
+      required:
+      - id
+      - last_message_at
+      - message_count
+      - started_at
+    ChatSessionSerializerEnvelope:
+      type: object
+      properties:
+        status:
+          type: string
+          default: success
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/ChatSession'
+      required:
+      - data
+      - message
+    ChatSessionSerializerListEnvelope:
+      type: object
+      properties:
+        status:
+          type: string
+          default: success
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/ChatSessionSerializerPage'
+      required:
+      - data
+      - message
+    ChatSessionSerializerPage:
+      type: object
+      properties:
+        next:
+          type: string
+          nullable: true
+        previous:
+          type: string
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatSession'
+      required:
+      - next
+      - previous
+      - results
+    CookingFrequencyEnum:
+      enum:
+      - daily
+      - weekends_only
+      - rarely
+      type: string
+      description: |-
+        * `daily` - Daily
+        * `weekends_only` - Weekends Only
+        * `rarely` - Rarely
+    CreateSession:
+      type: object
+      properties:
+        title:
+          type: string
+          default: ''
+          maxLength: 200
+    CuisineEnum:
+      enum:
+      - north_indian
+      - south_indian
+      - east_indian
+      - west_indian
+      - punjabi
+      - gujarati
+      - maharashtrian
+      - bengali
+      - tamil
+      - kerala
+      - andhra
+      - rajasthani
+      - goan
+      - sindhi
+      - continental
+      - chinese_indo
+      - pan_asian
+      type: string
+      description: |-
+        * `north_indian` - North Indian
+        * `south_indian` - South Indian
+        * `east_indian` - East Indian
+        * `west_indian` - West Indian
+        * `punjabi` - Punjabi
+        * `gujarati` - Gujarati
+        * `maharashtrian` - Maharashtrian
+        * `bengali` - Bengali
+        * `tamil` - Tamil
+        * `kerala` - Kerala
+        * `andhra` - Andhra
+        * `rajasthani` - Rajasthani
+        * `goan` - Goan
+        * `sindhi` - Sindhi
+        * `continental` - Continental
+        * `chinese_indo` - Indo-Chinese
+        * `pan_asian` - Pan-Asian
+    DailyNutrition:
+      type: object
+      description: Output serializer with targets from profile and percentage_of_target
+        computed.
+      properties:
+        date:
+          type: string
+          format: date
+        totals:
+          type: object
+          additionalProperties: {}
+          readOnly: true
+        targets:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+        percentage_of_target:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+        meals_eaten:
+          type: integer
+          maximum: 32767
+          minimum: 0
+        meals_skipped:
+          type: integer
+          maximum: 32767
+          minimum: 0
+      required:
+      - date
+      - percentage_of_target
+      - targets
+      - totals
+    DailyNutritionSerializerEnvelope:
+      type: object
+      properties:
+        status:
+          type: string
+          default: success
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/DailyNutrition'
+      required:
+      - data
+      - message
+    DietPatternEnum:
+      enum:
+      - vegetarian
+      - eggetarian
+      - non_vegetarian
+      - pescatarian
+      - vegan
+      - jain
+      type: string
+      description: |-
+        * `vegetarian` - Vegetarian
+        * `eggetarian` - Eggetarian
+        * `non_vegetarian` - Non-Vegetarian
+        * `pescatarian` - Pescatarian
+        * `vegan` - Vegan
+        * `jain` - Jain
+    DietaryProfile:
+      type: object
+      properties:
+        date_of_birth:
+          type: string
+          format: date
+        sex:
+          $ref: '#/components/schemas/SexEnum'
+        height_cm:
+          type: integer
+          maximum: 250
+          minimum: 100
+        weight_kg:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,1})?$
+        activity_level:
+          $ref: '#/components/schemas/ActivityLevelEnum'
+        goal:
+          $ref: '#/components/schemas/GoalEnum'
+        primary_cuisine_region:
+          $ref: '#/components/schemas/PrimaryCuisineRegionEnum'
+        secondary_cuisine_preferences:
+          type: array
+          items:
+            type: string
+            maxLength: 64
+        spice_tolerance:
+          $ref: '#/components/schemas/SpiceLevelEnum'
+        diet_pattern:
+          $ref: '#/components/schemas/DietPatternEnum'
+        no_onion_garlic:
+          type: boolean
+        allergies:
+          type: array
+          items:
+            type: string
+            maxLength: 64
+        dislikes:
+          type: array
+          items:
+            type: string
+            maxLength: 64
+        daily_food_budget_inr:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,6}(?:\.\d{0,2})?$
+          nullable: true
+        weekly_food_budget_inr:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,6}(?:\.\d{0,2})?$
+          nullable: true
+        household_size:
+          type: integer
+          maximum: 12
+          minimum: 1
+        cooking_frequency:
+          $ref: '#/components/schemas/CookingFrequencyEnum'
+        max_prep_time_min:
+          type: integer
+          maximum: 90
+          minimum: 10
+        skill_level:
+          $ref: '#/components/schemas/EstimatedDifficultyEnum'
+        disclaimer_acknowledged:
+          type: boolean
+          writeOnly: true
+        timezone:
+          type: string
+          maxLength: 50
+        target_calories:
+          type: integer
+          readOnly: true
+          nullable: true
+        target_protein_g:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,5}(?:\.\d{0,1})?$
+          readOnly: true
+          nullable: true
+        target_carbs_g:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,5}(?:\.\d{0,1})?$
+          readOnly: true
+          nullable: true
+        target_fat_g:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,5}(?:\.\d{0,1})?$
+          readOnly: true
+          nullable: true
+        target_fiber_g:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,1})?$
+          readOnly: true
+          nullable: true
+        age:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - activity_level
+      - age
+      - cooking_frequency
+      - created_at
+      - date_of_birth
+      - diet_pattern
+      - disclaimer_acknowledged
+      - goal
+      - height_cm
+      - primary_cuisine_region
+      - sex
+      - skill_level
+      - spice_tolerance
+      - target_calories
+      - target_carbs_g
+      - target_fat_g
+      - target_fiber_g
+      - target_protein_g
+      - updated_at
+      - weight_kg
+    DietaryProfileSerializerEnvelope:
+      type: object
+      properties:
+        status:
+          type: string
+          default: success
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/DietaryProfile'
+      required:
+      - data
+      - message
+    ErrorDetail:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Machine-readable error code.
+        details:
+          type: object
+          additionalProperties: {}
+      required:
+      - code
+    ErrorEnvelope:
+      type: object
+      description: 'Canonical error response: {status, message, error: {code, details}}.'
+      properties:
+        status:
+          type: string
+          default: error
+        message:
+          type: string
+          description: Human-readable error description.
+        error:
+          $ref: '#/components/schemas/ErrorDetail'
+      required:
+      - error
+      - message
+    EstimatedDifficultyEnum:
+      enum:
+      - beginner
+      - intermediate
+      - advanced
+      type: string
+      description: |-
+        * `beginner` - Beginner
+        * `intermediate` - Intermediate
+        * `advanced` - Advanced
+    GeneratedByEnum:
+      enum:
+      - rules
+      - ai
+      type: string
+      description: |-
+        * `rules` - Rules
+        * `ai` - AI
+    GoalEnum:
+      enum:
+      - lose_weight
+      - maintain
+      - gain_muscle
+      - gain_weight_healthy
+      - eat_healthier
+      type: string
+      description: |-
+        * `lose_weight` - Lose Weight
+        * `maintain` - Maintain
+        * `gain_muscle` - Gain Muscle
+        * `gain_weight_healthy` - Gain Weight (Healthy)
+        * `eat_healthier` - Eat Healthier
+    GroceryList:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        week_start_date:
+          type: string
+          format: date
+        categories:
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+          readOnly: true
+        summary:
+          type: object
+          additionalProperties: {}
+          readOnly: true
+        estimated_cost_inr:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,6}(?:\.\d{0,2})?$
+          nullable: true
+        generated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - categories
+      - generated_at
+      - id
+      - summary
+      - week_start_date
+    GroceryListSerializerEnvelope:
+      type: object
+      properties:
+        status:
+          type: string
+          default: success
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/GroceryList'
+      required:
+      - data
+      - message
+    MealLog:
+      type: object
+      description: Input serializer for POST /api/v1/tracker/log/
+      properties:
+        log_date:
+          type: string
+          format: date
+        slot:
+          $ref: '#/components/schemas/MealTypeEnum'
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        planned_recipe_id:
+          type: integer
+          nullable: true
+        actual_recipe_id:
+          type: integer
+          nullable: true
+        servings_eaten:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,2}(?:\.\d{0,2})?$
+          nullable: true
+        custom_description:
+          type: string
+          nullable: true
+          maxLength: 200
+        custom_calories:
+          type: integer
+          minimum: 1
+          nullable: true
+        custom_protein_g:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,2})?$
+          nullable: true
+        custom_carbs_g:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,2})?$
+          nullable: true
+        custom_fat_g:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,2})?$
+          nullable: true
+        notes:
+          type: string
+          default: ''
+          maxLength: 500
+      required:
+      - log_date
+      - slot
+      - status
+    MealLogResponse:
+      type: object
+      description: Output serializer for MealLog with nested slim recipe info.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        log_date:
+          type: string
+          format: date
+        slot:
+          $ref: '#/components/schemas/MealTypeEnum'
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        planned_recipe:
+          allOf:
+          - $ref: '#/components/schemas/SlimRecipe'
+          readOnly: true
+        actual_recipe:
+          allOf:
+          - $ref: '#/components/schemas/SlimRecipe'
+          readOnly: true
+        servings_eaten:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,2}(?:\.\d{0,2})?$
+        custom_description:
+          type: string
+          nullable: true
+          maxLength: 200
+        custom_calories:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        custom_protein_g:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,2})?$
+          nullable: true
+        custom_carbs_g:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,2})?$
+          nullable: true
+        custom_fat_g:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,2})?$
+          nullable: true
+        notes:
+          type: string
+          maxLength: 500
+        logged_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - actual_recipe
+      - id
+      - log_date
+      - logged_at
+      - planned_recipe
+      - slot
+    MealLogResponseSerializerEnvelope:
+      type: object
+      properties:
+        status:
+          type: string
+          default: success
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/MealLogResponse'
+      required:
+      - data
+      - message
+    MealPlan:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        plan_date:
+          type: string
+          format: date
+        breakfast:
+          allOf:
+          - $ref: '#/components/schemas/MealPlanRecipeSlim'
+          readOnly: true
+        lunch:
+          allOf:
+          - $ref: '#/components/schemas/MealPlanRecipeSlim'
+          readOnly: true
+        dinner:
+          allOf:
+          - $ref: '#/components/schemas/MealPlanRecipeSlim'
+          readOnly: true
+        generated_by:
+          $ref: '#/components/schemas/GeneratedByEnum'
+        generated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        regeneration_count: {}
+      required:
+      - breakfast
+      - dinner
+      - generated_at
+      - id
+      - lunch
+      - plan_date
+    MealPlanDayDetail:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        plan_date:
+          type: string
+          format: date
+        breakfast:
+          allOf:
+          - $ref: '#/components/schemas/RecipeList'
+          readOnly: true
+        lunch:
+          allOf:
+          - $ref: '#/components/schemas/RecipeList'
+          readOnly: true
+        dinner:
+          allOf:
+          - $ref: '#/components/schemas/RecipeList'
+          readOnly: true
+        generated_by:
+          $ref: '#/components/schemas/GeneratedByEnum'
+        generated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        regeneration_count: {}
+      required:
+      - breakfast
+      - dinner
+      - generated_at
+      - id
+      - lunch
+      - plan_date
+    MealPlanDayDetailSerializerEnvelope:
+      type: object
+      properties:
+        status:
+          type: string
+          default: success
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/MealPlanDayDetail'
+      required:
+      - data
+      - message
+    MealPlanRecipeSlim:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        slug:
+          type: string
+          maxLength: 220
+          pattern: ^[-a-zA-Z0-9_]+$
+        meal_type:
+          $ref: '#/components/schemas/MealTypeEnum'
+        cuisine:
+          $ref: '#/components/schemas/CuisineEnum'
+        prep_time_min:
+          type: integer
+          maximum: 32767
+          minimum: 0
+        cached_calories_per_serving:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        image_url:
+          type: string
+          format: uri
+          maxLength: 200
+        protein_source:
+          $ref: '#/components/schemas/ProteinSourceEnum'
+      required:
+      - cuisine
+      - id
+      - meal_type
+      - name
+      - slug
+    MealPlanSerializerEnvelope:
+      type: object
+      properties:
+        status:
+          type: string
+          default: success
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/MealPlan'
+      required:
+      - data
+      - message
+    MealTypeEnum:
+      enum:
+      - breakfast
+      - lunch
+      - dinner
+      type: string
+      description: |-
+        * `breakfast` - Breakfast
+        * `lunch` - Lunch
+        * `dinner` - Dinner
+    ModeEnum:
+      enum:
+      - chat
+      - ingredient
+      type: string
+      description: |-
+        * `chat` - chat
+        * `ingredient` - ingredient
+    PaginatedRecipeListSerializerListEnvelopeList:
+      type: object
+      required:
+      - results
+      properties:
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?cursor=cD00ODY%3D"
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecipeListSerializerListEnvelope'
+    PatchedProfileUpdate:
+      type: object
+      description: Serializer for PATCH /profiles/me. Excludes disclaimer_acknowledged.
+      properties:
+        date_of_birth:
+          type: string
+          format: date
+        sex:
+          $ref: '#/components/schemas/SexEnum'
+        height_cm:
+          type: integer
+          maximum: 250
+          minimum: 100
+        weight_kg:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,1})?$
+        activity_level:
+          $ref: '#/components/schemas/ActivityLevelEnum'
+        goal:
+          $ref: '#/components/schemas/GoalEnum'
+        primary_cuisine_region:
+          $ref: '#/components/schemas/PrimaryCuisineRegionEnum'
+        secondary_cuisine_preferences:
+          type: array
+          items:
+            type: string
+            maxLength: 64
+        spice_tolerance:
+          $ref: '#/components/schemas/SpiceLevelEnum'
+        diet_pattern:
+          $ref: '#/components/schemas/DietPatternEnum'
+        no_onion_garlic:
+          type: boolean
+        allergies:
+          type: array
+          items:
+            type: string
+            maxLength: 64
+        dislikes:
+          type: array
+          items:
+            type: string
+            maxLength: 64
+        daily_food_budget_inr:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,6}(?:\.\d{0,2})?$
+          nullable: true
+        weekly_food_budget_inr:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,6}(?:\.\d{0,2})?$
+          nullable: true
+        household_size:
+          type: integer
+          maximum: 12
+          minimum: 1
+        cooking_frequency:
+          $ref: '#/components/schemas/CookingFrequencyEnum'
+        max_prep_time_min:
+          type: integer
+          maximum: 90
+          minimum: 10
+        skill_level:
+          $ref: '#/components/schemas/EstimatedDifficultyEnum'
+        timezone:
+          type: string
+          maxLength: 50
+        target_calories:
+          type: integer
+          readOnly: true
+          nullable: true
+        target_protein_g:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,5}(?:\.\d{0,1})?$
+          readOnly: true
+          nullable: true
+        target_carbs_g:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,5}(?:\.\d{0,1})?$
+          readOnly: true
+          nullable: true
+        target_fat_g:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,5}(?:\.\d{0,1})?$
+          readOnly: true
+          nullable: true
+        target_fiber_g:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,1})?$
+          readOnly: true
+          nullable: true
+        age:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PrimaryCuisineRegionEnum:
+      enum:
+      - north_indian
+      - south_indian
+      - east_indian
+      - west_indian
+      type: string
+      description: |-
+        * `north_indian` - North Indian
+        * `south_indian` - South Indian
+        * `east_indian` - East Indian
+        * `west_indian` - West Indian
+    ProteinSourceEnum:
+      enum:
+      - paneer
+      - dal_legume
+      - egg
+      - chicken
+      - mutton
+      - fish
+      - soy
+      - none
+      type: string
+      description: |-
+        * `paneer` - Paneer
+        * `dal_legume` - Dal / Legume
+        * `egg` - Egg
+        * `chicken` - Chicken
+        * `mutton` - Mutton
+        * `fish` - Fish / Seafood
+        * `soy` - Soy / Tofu
+        * `none` - None
+    RecipeDetail:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 200
+        name_alt:
+          type: string
+          maxLength: 200
+        slug:
+          type: string
+          maxLength: 220
+          pattern: ^[-a-zA-Z0-9_]+$
+        meal_type:
+          $ref: '#/components/schemas/MealTypeEnum'
+        cuisine:
+          $ref: '#/components/schemas/CuisineEnum'
+        diet_tags:
+          type: array
+          items:
+            type: string
+            maxLength: 30
+        allergen_tags:
+          type: array
+          items:
+            type: string
+            maxLength: 30
+        prep_time_min:
+          type: integer
+          maximum: 32767
+          minimum: 0
+        cook_time_min:
+          type: integer
+          maximum: 32767
+          minimum: 0
+        servings:
+          type: integer
+          maximum: 20
+          minimum: 1
+        estimated_difficulty:
+          $ref: '#/components/schemas/EstimatedDifficultyEnum'
+        spice_level:
+          $ref: '#/components/schemas/SpiceLevelEnum'
+        protein_source:
+          $ref: '#/components/schemas/ProteinSourceEnum'
+        image_url:
+          type: string
+          format: uri
+          maxLength: 200
+        source:
+          $ref: '#/components/schemas/SourceEnum'
+        cached_nutrition_summary:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+        cached_cost_per_serving_inr:
+          type: number
+          format: double
+          nullable: true
+          readOnly: true
+        cost_known:
+          type: boolean
+        ingredients:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecipeIngredient'
+          readOnly: true
+        instructions: {}
+        cached_nutrition:
+          nullable: true
+        cached_cost_inr:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,5}(?:\.\d{0,2})?$
+          nullable: true
+      required:
+      - cached_cost_per_serving_inr
+      - cached_nutrition_summary
+      - cuisine
+      - ingredients
+      - meal_type
+      - name
+      - slug
+    RecipeDetailSerializerEnvelope:
+      type: object
+      properties:
+        status:
+          type: string
+          default: success
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/RecipeDetail'
+      required:
+      - data
+      - message
+    RecipeIngredient:
+      type: object
+      properties:
+        ingredient_name:
+          type: string
+          readOnly: true
+        ingredient_app_id:
+          type: string
+          readOnly: true
+        quantity_grams:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,5}(?:\.\d{0,2})?$
+        display_quantity:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,2})?$
+          nullable: true
+        display_unit_name:
+          type: string
+          nullable: true
+          readOnly: true
+        display_unit_grams:
+          type: number
+          format: double
+          nullable: true
+          readOnly: true
+        notes:
+          type: string
+          maxLength: 200
+        order:
+          type: integer
+          maximum: 32767
+          minimum: 0
+      required:
+      - display_unit_grams
+      - display_unit_name
+      - ingredient_app_id
+      - ingredient_name
+      - quantity_grams
+    RecipeList:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 200
+        name_alt:
+          type: string
+          maxLength: 200
+        slug:
+          type: string
+          maxLength: 220
+          pattern: ^[-a-zA-Z0-9_]+$
+        meal_type:
+          $ref: '#/components/schemas/MealTypeEnum'
+        cuisine:
+          $ref: '#/components/schemas/CuisineEnum'
+        diet_tags:
+          type: array
+          items:
+            type: string
+            maxLength: 30
+        allergen_tags:
+          type: array
+          items:
+            type: string
+            maxLength: 30
+        prep_time_min:
+          type: integer
+          maximum: 32767
+          minimum: 0
+        cook_time_min:
+          type: integer
+          maximum: 32767
+          minimum: 0
+        servings:
+          type: integer
+          maximum: 20
+          minimum: 1
+        estimated_difficulty:
+          $ref: '#/components/schemas/EstimatedDifficultyEnum'
+        spice_level:
+          $ref: '#/components/schemas/SpiceLevelEnum'
+        protein_source:
+          $ref: '#/components/schemas/ProteinSourceEnum'
+        image_url:
+          type: string
+          format: uri
+          maxLength: 200
+        source:
+          $ref: '#/components/schemas/SourceEnum'
+        cached_nutrition_summary:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+        cached_cost_per_serving_inr:
+          type: number
+          format: double
+          nullable: true
+          readOnly: true
+        cost_known:
+          type: boolean
+      required:
+      - cached_cost_per_serving_inr
+      - cached_nutrition_summary
+      - cuisine
+      - meal_type
+      - name
+      - slug
+    RecipeListSerializerListEnvelope:
+      type: object
+      properties:
+        status:
+          type: string
+          default: success
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/RecipeListSerializerPage'
+      required:
+      - data
+      - message
+    RecipeListSerializerPage:
+      type: object
+      properties:
+        next:
+          type: string
+          nullable: true
+        previous:
+          type: string
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecipeList'
+      required:
+      - next
+      - previous
+      - results
+    RegeneratePlan:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+      required:
+      - date
+    RegenerateSlot:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        slot:
+          $ref: '#/components/schemas/MealTypeEnum'
+      required:
+      - date
+      - slot
+    RegisterResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        firebase_uid:
+          type: string
+          readOnly: true
+        email:
+          type: string
+          format: email
+          readOnly: true
+        display_name:
+          type: string
+          readOnly: true
+        has_profile:
+          type: boolean
+          readOnly: true
+        created:
+          type: boolean
+          readOnly: true
+      required:
+      - created
+      - display_name
+      - email
+      - firebase_uid
+      - has_profile
+      - id
+    RegisterResponseSerializerEnvelope:
+      type: object
+      properties:
+        status:
+          type: string
+          default: success
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/RegisterResponse'
+      required:
+      - data
+      - message
+    RoleEnum:
+      enum:
+      - user
+      - assistant
+      - system
+      type: string
+      description: |-
+        * `user` - User
+        * `assistant` - Assistant
+        * `system` - System
+    SendMessage:
+      type: object
+      properties:
+        content:
+          type: string
+          minLength: 1
+        mode:
+          allOf:
+          - $ref: '#/components/schemas/ModeEnum'
+          default: chat
+        ingredients:
+          type: array
+          items:
+            type: string
+            minLength: 1
+      required:
+      - content
+    SexEnum:
+      enum:
+      - male
+      - female
+      - other
+      - prefer_not_to_say
+      type: string
+      description: |-
+        * `male` - Male
+        * `female` - Female
+        * `other` - Other
+        * `prefer_not_to_say` - Prefer not to say
+    SlimRecipe:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        cached_calories_per_serving:
+          type: integer
+      required:
+      - cached_calories_per_serving
+      - id
+      - name
+      - slug
+    SourceEnum:
+      enum:
+      - seed
+      - ai_generated
+      - user_custom
+      type: string
+      description: |-
+        * `seed` - Seed
+        * `ai_generated` - AI Generated
+        * `user_custom` - User Custom
+    SpiceLevelEnum:
+      enum:
+      - mild
+      - medium
+      - hot
+      - very_hot
+      type: string
+      description: |-
+        * `mild` - Mild
+        * `medium` - Medium
+        * `hot` - Hot
+        * `very_hot` - Very Hot
+    StatusEnum:
+      enum:
+      - planned
+      - ate_planned
+      - ate_substituted
+      - ate_custom
+      - skipped
+      type: string
+      description: |-
+        * `planned` - Planned
+        * `ate_planned` - Ate Planned
+        * `ate_substituted` - Ate Substituted
+        * `ate_custom` - Ate Custom
+        * `skipped` - Skipped
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        firebase_uid:
+          type: string
+          readOnly: true
+        email:
+          type: string
+          format: email
+          readOnly: true
+        display_name:
+          type: string
+          readOnly: true
+        has_profile:
+          type: boolean
+          readOnly: true
+      required:
+      - display_name
+      - email
+      - firebase_uid
+      - has_profile
+      - id
+    UserSerializerEnvelope:
+      type: object
+      properties:
+        status:
+          type: string
+          default: success
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/User'
+      required:
+      - data
+      - message
+    WeeklyNutritionData:
+      type: object
+      properties:
+        days:
+          type: array
+          items:
+            $ref: '#/components/schemas/DailyNutrition'
+        averages:
+          type: object
+          additionalProperties: {}
+      required:
+      - averages
+      - days
+    WeeklyNutritionEnvelope:
+      type: object
+      properties:
+        status:
+          type: string
+          default: success
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/WeeklyNutritionData'
+      required:
+      - data
+      - message
+    WeeklyPlanGenerate:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+  securitySchemes:
+    FirebaseBearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Firebase ID token from the Firebase Auth SDK.

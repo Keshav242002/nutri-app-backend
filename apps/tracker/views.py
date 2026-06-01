@@ -4,6 +4,13 @@ import logging
 from datetime import date
 
 from django.utils.dateparse import parse_date
+from drf_spectacular.utils import (
+    OpenApiParameter,
+    OpenApiResponse,
+    extend_schema,
+    inline_serializer,
+)
+from rest_framework import serializers as drf_serializers
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -22,6 +29,7 @@ from apps.tracker.services.tracker_service import upsert_meal_log
 from core.error_codes import VALIDATION_ERROR
 from core.exceptions import AppValidationError
 from core.responses import success_response
+from core.schema import envelope_response, error_response
 
 log = logging.getLogger(__name__)
 
@@ -47,6 +55,21 @@ def _parse_date_param(raw: str | None, param_name: str) -> date:
 class MealLogView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        summary="Log a meal",
+        description=(
+            "Idempotent upsert by (user, log_date, slot). "
+            "status must be one of: planned / ate_planned / ate_substituted / ate_custom / skipped. "
+            "For ate_custom, custom_description and custom_calories are required. "
+            "servings_eaten must be in 0.25 increments between 0.25 and 6.00."
+        ),
+        request=MealLogSerializer,
+        responses={
+            200: envelope_response(MealLogResponseSerializer, "Meal logged."),
+            400: error_response("VALIDATION_ERROR", "Validation failed."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+        },
+    )
     def post(self, request: Request) -> Response:
         assert isinstance(request.user, User)
         ser = MealLogSerializer(data=request.data)
@@ -76,10 +99,46 @@ class MealLogView(APIView):
         out = MealLogResponseSerializer(meal_log)
         return success_response(out.data, "Meal logged successfully.")
 
+    @extend_schema(
+        summary="List meal logs for a date",
+        description="Returns all meal logs for the authenticated user on the given date.",
+        parameters=[
+            OpenApiParameter("date", str, description="Log date (YYYY-MM-DD).", required=True)
+        ],
+        responses={
+            200: envelope_response(MealLogResponseSerializer, "Meal logs for the date."),
+            400: error_response("VALIDATION_ERROR", "Missing or invalid date parameter."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+        },
+    )
+    def get(self, request: Request) -> Response:
+        assert isinstance(request.user, User)
+        log_date = _parse_date_param(request.query_params.get("date"), "date")
+
+        logs = (
+            MealLog.objects.filter(user=request.user, log_date=log_date)
+            .select_related("planned_recipe", "actual_recipe")
+            .order_by("slot")
+        )
+        out = MealLogResponseSerializer(logs, many=True)
+        return success_response(out.data, f"Meal logs for {log_date}.")
+
 
 class TrackerListView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        summary="List meal logs for a date",
+        description="Returns all meal logs for the authenticated user on the given date.",
+        parameters=[
+            OpenApiParameter("date", str, description="Log date (YYYY-MM-DD).", required=True)
+        ],
+        responses={
+            200: envelope_response(MealLogResponseSerializer, "Meal logs."),
+            400: error_response("VALIDATION_ERROR", "Missing or invalid date parameter."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+        },
+    )
     def get(self, request: Request) -> Response:
         assert isinstance(request.user, User)
         log_date = _parse_date_param(request.query_params.get("date"), "date")
@@ -96,6 +155,21 @@ class TrackerListView(APIView):
 class TrackerRangeView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        summary="List meal logs for a date range",
+        description="Returns meal logs across a date range (max 90 days).",
+        parameters=[
+            OpenApiParameter("from", str, description="Start date (YYYY-MM-DD).", required=True),
+            OpenApiParameter("to", str, description="End date (YYYY-MM-DD).", required=True),
+        ],
+        responses={
+            200: envelope_response(MealLogResponseSerializer, "Meal logs in range."),
+            400: error_response(
+                "VALIDATION_ERROR", "Missing/invalid date or range exceeds 90 days."
+            ),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+        },
+    )
     def get(self, request: Request) -> Response:
         assert isinstance(request.user, User)
         from_date = _parse_date_param(request.query_params.get("from"), "from")
@@ -124,6 +198,22 @@ class TrackerRangeView(APIView):
 class DailyNutritionView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        summary="Get daily nutrition summary",
+        description=(
+            "Returns calories, macros, and micronutrients for the given date with target comparisons. "
+            "Creates a zero-calorie summary row if no logs exist yet (always returns 200)."
+        ),
+        parameters=[
+            OpenApiParameter("date", str, description="Summary date (YYYY-MM-DD).", required=True)
+        ],
+        responses={
+            200: envelope_response(DailyNutritionSerializer, "Daily nutrition summary."),
+            400: error_response("VALIDATION_ERROR", "Missing or invalid date."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+            404: error_response("PROFILE_NOT_FOUND", "No dietary profile — complete onboarding."),
+        },
+    )
     def get(self, request: Request) -> Response:
         assert isinstance(request.user, User)
         summary_date = _parse_date_param(request.query_params.get("date"), "date")
@@ -142,6 +232,36 @@ class DailyNutritionView(APIView):
 class WeeklyNutritionView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        summary="Get weekly nutrition summaries",
+        description="Returns per-day nutrition summaries and weekly averages for the specified date range.",
+        parameters=[
+            OpenApiParameter("from", str, description="Start date (YYYY-MM-DD).", required=True),
+            OpenApiParameter("to", str, description="End date (YYYY-MM-DD).", required=True),
+        ],
+        responses={
+            200: OpenApiResponse(
+                description="Weekly nutrition summaries.",
+                response=inline_serializer(
+                    name="WeeklyNutritionEnvelope",
+                    fields={
+                        "status": drf_serializers.CharField(default="success"),
+                        "message": drf_serializers.CharField(),
+                        "data": inline_serializer(
+                            name="WeeklyNutritionData",
+                            fields={
+                                "days": DailyNutritionSerializer(many=True),
+                                "averages": drf_serializers.DictField(),
+                            },
+                        ),
+                    },
+                ),
+            ),
+            400: error_response("VALIDATION_ERROR", "Missing or invalid dates."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+            404: error_response("PROFILE_NOT_FOUND", "No dietary profile."),
+        },
+    )
     def get(self, request: Request) -> Response:
         assert isinstance(request.user, User)
         from_date = _parse_date_param(request.query_params.get("from"), "from")

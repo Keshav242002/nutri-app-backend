@@ -5,6 +5,7 @@ import logging
 from typing import Any
 
 from django.http import StreamingHttpResponse
+from drf_spectacular.utils import extend_schema
 from rest_framework.renderers import JSONRenderer
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -13,6 +14,7 @@ from rest_framework.views import APIView
 from core.exceptions import NotFoundError
 from core.pagination import StandardCursorPagination
 from core.responses import success_response
+from core.schema import envelope_list_response, envelope_response, error_response
 
 from .models import ChatSession
 from .serializers import (
@@ -46,6 +48,14 @@ def _sse_done() -> str:
 
 
 class ChatSessionListCreateView(APIView):
+    @extend_schema(
+        summary="List chat sessions",
+        description="Returns cursor-paginated list of the user's chat sessions, newest first.",
+        responses={
+            200: envelope_list_response(ChatSessionSerializer, "Chat sessions."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+        },
+    )
     def get(self, request: Request) -> Response:
         qs = chat_service.list_sessions(request.user)  # type: ignore[arg-type]
         paginator = StandardCursorPagination()
@@ -53,6 +63,16 @@ class ChatSessionListCreateView(APIView):
         serializer = ChatSessionSerializer(page, many=True)
         return paginator.get_paginated_response(serializer.data)
 
+    @extend_schema(
+        summary="Create chat session",
+        description="Create a new chat session. `title` is optional — defaults to empty string.",
+        request=CreateSessionSerializer,
+        responses={
+            201: envelope_response(ChatSessionSerializer, "Session created."),
+            400: error_response("VALIDATION_ERROR", "Validation failed."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+        },
+    )
     def post(self, request: Request) -> Response:
         serializer = CreateSessionSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -68,6 +88,15 @@ class ChatSessionListCreateView(APIView):
 class ChatMessageListCreateView(APIView):
     renderer_classes = [JSONRenderer, EventStreamRenderer]
 
+    @extend_schema(
+        summary="List messages in a session",
+        description="Returns cursor-paginated messages for the session, ordered oldest-first.",
+        responses={
+            200: envelope_list_response(ChatMessageSerializer, "Messages."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+            404: error_response("NOT_FOUND", "Session not found or belongs to another user."),
+        },
+    )
     def get(self, request: Request, session_id: int) -> Response:
         qs = chat_service.get_session_messages(session_id, request.user)  # type: ignore[arg-type]
         paginator = StandardCursorPagination()
@@ -76,6 +105,24 @@ class ChatMessageListCreateView(APIView):
         serializer = ChatMessageSerializer(page, many=True)
         return paginator.get_paginated_response(serializer.data)
 
+    @extend_schema(
+        summary="Send a message",
+        description=(
+            "Send a message to the session. "
+            "`mode=chat` (default) — free-form conversation with the AI. "
+            "`mode=ingredient` — AI generates an Indian recipe from an ingredient list. "
+            "For `mode=chat`, send `Accept: text/event-stream` to get Server-Sent Events streaming. "
+            "Rate-limited to CHAT_RATE_LIMIT (default 30/h) user messages per hour."
+        ),
+        request=SendMessageSerializer,
+        responses={
+            201: envelope_response(ChatMessageSerializer, "Assistant reply message."),
+            400: error_response("VALIDATION_ERROR", "Validation failed."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+            404: error_response("NOT_FOUND", "Session not found."),
+            429: error_response("RATE_LIMITED", "Chat rate limit exceeded (default 30/h)."),
+        },
+    )
     def post(self, request: Request, session_id: int) -> Response | StreamingHttpResponse:
         try:
             session = ChatSession.objects.get(pk=session_id, user_id=request.user.pk)  # type: ignore[misc]

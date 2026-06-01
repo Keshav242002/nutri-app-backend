@@ -127,6 +127,12 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "Personalized nutrition backend — meal planning, tracking, and AI chatbot.",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
+    # Resolve duplicate enum names arising from the same choices appearing on multiple models.
+    "ENUM_NAME_OVERRIDES": {
+        "MealTypeEnum": "apps.recipes.models.MEAL_TYPE_CHOICES",
+        "EstimatedDifficultyEnum": "apps.recipes.models.DIFFICULTY_CHOICES",
+        "SpiceLevelEnum": "apps.recipes.models.SPICE_LEVEL_CHOICES",
+    },
 }
 
 CORS_ALLOWED_ORIGINS = env("CORS_ALLOWED_ORIGINS")

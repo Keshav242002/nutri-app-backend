@@ -4,6 +4,7 @@ import logging
 from datetime import date, timedelta
 
 from django.utils.dateparse import parse_date
+from drf_spectacular.utils import OpenApiParameter, extend_schema
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -30,6 +31,7 @@ from apps.mealplans.services.weekly_service import generate_weekly_plan
 from core.error_codes import MEAL_PLAN_NOT_FOUND, NO_SUITABLE_RECIPE, VALIDATION_ERROR
 from core.exceptions import AppValidationError, NotFoundError
 from core.responses import success_response
+from core.schema import envelope_response, error_response
 
 log = logging.getLogger(__name__)
 
@@ -53,6 +55,21 @@ def _fetch_plan_with_related(pk: int) -> MealPlan:
 class TodayMealPlanView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        summary="Get today's meal plan",
+        description="Lazily generates today's meal plan if one doesn't exist yet. Returns breakfast, lunch, and dinner.",
+        responses={
+            200: envelope_response(MealPlanDayDetailSerializer, "Today's meal plan."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+            404: error_response(
+                "PROFILE_NOT_FOUND", "No dietary profile — complete onboarding first."
+            ),
+            422: error_response(
+                "NO_SUITABLE_RECIPE",
+                "Not enough recipes to satisfy the user's dietary constraints.",
+            ),
+        },
+    )
     def get(self, request: Request) -> Response:
         assert isinstance(request.user, User)
         try:
@@ -73,6 +90,24 @@ class TodayMealPlanView(APIView):
 class DayMealPlanView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        summary="Get meal plan for a specific date",
+        description="Lazily generates a meal plan for the given date if one doesn't exist yet.",
+        parameters=[
+            OpenApiParameter(
+                "plan_date", str, location="path", description="ISO date (YYYY-MM-DD)."
+            )
+        ],
+        responses={
+            200: envelope_response(
+                MealPlanDayDetailSerializer, "Meal plan for the requested date."
+            ),
+            400: error_response("VALIDATION_ERROR", "Invalid date format."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+            404: error_response("PROFILE_NOT_FOUND", "No dietary profile."),
+            422: error_response("NO_SUITABLE_RECIPE", "Not enough recipes."),
+        },
+    )
     def get(self, request: Request, plan_date: str) -> Response:
         assert isinstance(request.user, User)
         parsed = _parse_plan_date(plan_date)
@@ -94,6 +129,24 @@ class DayMealPlanView(APIView):
 class WeekMealPlanView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        summary="List meal plans for a week",
+        description="Returns existing meal plans for the ISO week. Use `?from=YYYY-MM-DD` to specify a different week start.",
+        parameters=[
+            OpenApiParameter(
+                "from",
+                str,
+                description="Start date of the week (any day in that week; defaults to current week Monday).",
+            )
+        ],
+        responses={
+            200: envelope_response(
+                MealPlanSerializer, "Weekly meal plans (may be empty if not yet generated)."
+            ),
+            400: error_response("VALIDATION_ERROR", "Invalid date format."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+        },
+    )
     def get(self, request: Request) -> Response:
         assert isinstance(request.user, User)
         from_param = request.query_params.get("from")
@@ -120,6 +173,18 @@ class WeekMealPlanView(APIView):
 class RegenerateSlotView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        summary="Regenerate a single meal slot",
+        description="Pick a different recipe for one slot (breakfast/lunch/dinner) on a given day. Rate-limited to 3 regenerations per slot per week.",
+        request=RegenerateSlotSerializer,
+        responses={
+            200: envelope_response(MealPlanDayDetailSerializer, "Updated meal plan with new slot."),
+            400: error_response("VALIDATION_ERROR", "Invalid request body."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+            422: error_response("NO_SUITABLE_RECIPE", "Not enough recipes."),
+            429: error_response("REGENERATE_LIMIT", "Slot regeneration limit (3/week) reached."),
+        },
+    )
     def post(self, request: Request) -> Response:
         assert isinstance(request.user, User)
         serializer = RegenerateSlotSerializer(data=request.data)
@@ -149,6 +214,20 @@ class RegenerateSlotView(APIView):
 class RegeneratePlanView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        summary="Regenerate full day plan",
+        description="Replace all three slots for a given day with new recipes. Rate-limited to 3 full regenerations per week.",
+        request=RegeneratePlanSerializer,
+        responses={
+            200: envelope_response(MealPlanDayDetailSerializer, "Regenerated meal plan."),
+            400: error_response("VALIDATION_ERROR", "Invalid request body."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+            422: error_response("NO_SUITABLE_RECIPE", "Not enough recipes."),
+            429: error_response(
+                "REGENERATE_LIMIT", "Full plan regeneration limit (3/week) reached."
+            ),
+        },
+    )
     def post(self, request: Request) -> Response:
         assert isinstance(request.user, User)
         serializer = RegeneratePlanSerializer(data=request.data)
@@ -181,6 +260,21 @@ def _resolve_week_monday(plan_date: date) -> date:
 class WeeklyPlanGenerateView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        summary="Generate weekly meal plan",
+        description=(
+            "Generate a full 7-day meal plan for the current or specified week. "
+            "Idempotent for days that already have plans. "
+            "Returns count of newly generated vs. pre-existing days."
+        ),
+        request=WeeklyPlanGenerateSerializer,
+        responses={
+            200: envelope_response(MealPlanSerializer, "Weekly plan generated."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+            404: error_response("PROFILE_NOT_FOUND", "No dietary profile."),
+            422: error_response("NO_SUITABLE_RECIPE", "Not enough recipes."),
+        },
+    )
     def post(self, request: Request) -> Response:
         assert isinstance(request.user, User)
         ser = WeeklyPlanGenerateSerializer(data=request.data)
@@ -242,6 +336,24 @@ class WeeklyPlanGenerateView(APIView):
 class GroceryListView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        summary="Get grocery list for a week",
+        description="Returns the aggregated grocery list for the ISO week containing the given date. Computed on first request and cached.",
+        parameters=[
+            OpenApiParameter(
+                "plan_date",
+                str,
+                location="path",
+                description="Any date within the target week (YYYY-MM-DD).",
+            )
+        ],
+        responses={
+            200: envelope_response(GroceryListSerializer, "Grocery list for the week."),
+            400: error_response("VALIDATION_ERROR", "Invalid date."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+            404: error_response("MEAL_PLAN_NOT_FOUND", "No meal plans exist for that week."),
+        },
+    )
     def get(self, request: Request, plan_date: str) -> Response:
         assert isinstance(request.user, User)
         parsed = _parse_plan_date(plan_date)
@@ -279,6 +391,25 @@ class GroceryListView(APIView):
 class GroceryListRegenerateView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        summary="Recompute grocery list",
+        description="Force-recomputes the grocery list for the week (deletes cached version and regenerates).",
+        request=None,
+        parameters=[
+            OpenApiParameter(
+                "plan_date",
+                str,
+                location="path",
+                description="Any date within the target week (YYYY-MM-DD).",
+            )
+        ],
+        responses={
+            200: envelope_response(GroceryListSerializer, "Freshly computed grocery list."),
+            400: error_response("VALIDATION_ERROR", "Invalid date."),
+            401: error_response("NOT_AUTHENTICATED", "No valid token."),
+            404: error_response("MEAL_PLAN_NOT_FOUND", "No meal plans exist for that week."),
+        },
+    )
     def post(self, request: Request, plan_date: str) -> Response:
         assert isinstance(request.user, User)
         parsed = _parse_plan_date(plan_date)
