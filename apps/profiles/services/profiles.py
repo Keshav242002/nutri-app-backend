@@ -20,6 +20,7 @@ from apps.profiles.models import (
     SECONDARY_CUISINE_VOCAB,
     DietaryProfile,
 )
+from core.audit import audit_log
 from core.error_codes import PROFILE_NOT_FOUND, VALIDATION_ERROR
 from core.exceptions import AppValidationError, NotFoundError
 
@@ -174,6 +175,7 @@ def _assign_fields(profile: DietaryProfile, data: dict[str, Any]) -> None:
 # ---------------------------------------------------------------------------
 
 
+@audit_log("profile.create")
 def upsert_profile(user: User, data: dict[str, Any]) -> tuple[DietaryProfile, bool]:
     """
     Idempotent — creates or updates the user's DietaryProfile.
@@ -236,6 +238,7 @@ def get_profile(user: User) -> DietaryProfile:
         ) from None
 
 
+@audit_log("profile.update")
 def update_profile(user: User, data: dict[str, Any]) -> DietaryProfile:
     """
     Partial update — only fields present in data are changed.

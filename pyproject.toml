@@ -33,6 +33,7 @@ module = [
     "celery.*",
     "django_celery_beat.*",
     "django_filters.*",
+    "django_ratelimit.*",
     "drf_spectacular.*",
     "factory.*",
     "corsheaders.*",

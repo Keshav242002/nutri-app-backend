@@ -10,6 +10,9 @@ class MealPlanAdmin(admin.ModelAdmin):
     search_fields = ["user__email"]
     raw_id_fields = ["user", "breakfast", "lunch", "dinner"]
     readonly_fields = ["generated_at", "regeneration_count"]
+    date_hierarchy = "plan_date"
+    list_per_page = 50
+    list_select_related = ["user", "breakfast", "lunch", "dinner"]
 
 
 @admin.register(GroceryList)

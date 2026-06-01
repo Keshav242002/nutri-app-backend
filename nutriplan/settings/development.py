@@ -11,3 +11,6 @@ CORS_ALLOW_ALL_ORIGINS = True
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 LOGGING = get_logging_config(debug=True)
+
+# Disable django-ratelimit in local dev/tests so Redis state doesn't bleed between test runs.
+RATELIMIT_ENABLE = False

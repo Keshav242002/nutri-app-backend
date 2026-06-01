@@ -38,6 +38,7 @@ def get_logging_config(*, debug: bool) -> dict[str, Any]:
         "loggers": {
             "django": {"handlers": ["console"], "level": level, "propagate": False},
             "nutriplan": {"handlers": ["console"], "level": "DEBUG", "propagate": False},
+            "nutriplan.audit": {"handlers": ["console"], "level": "INFO", "propagate": False},
             "apps": {"handlers": ["console"], "level": "DEBUG", "propagate": False},
             "core": {"handlers": ["console"], "level": "DEBUG", "propagate": False},
         },

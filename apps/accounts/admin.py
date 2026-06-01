@@ -22,3 +22,5 @@ class UserAdmin(BaseUserAdmin):  # type: ignore[type-arg]
     )
     add_fieldsets = ((None, {"fields": ("firebase_uid", "email", "display_name")}),)
     filter_horizontal = ["groups", "user_permissions"]
+    date_hierarchy = "created_at"
+    list_per_page = 50

@@ -18,6 +18,7 @@ from django.utils import timezone
 
 from apps.chat.models import ChatMessage, ChatSession
 from apps.recipes.models import Ingredient
+from core.audit import audit_log
 from core.error_codes import RATE_LIMITED
 from core.exceptions import NotFoundError, RateLimitError
 
@@ -125,6 +126,7 @@ def _update_session_timestamp(session: ChatSession) -> None:
     ChatSession.objects.filter(pk=session.pk).update(last_message_at=timezone.now())
 
 
+@audit_log("chat.message")
 def send_message_chat(
     session: ChatSession,
     content: str,

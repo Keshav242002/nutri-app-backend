@@ -18,14 +18,17 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 LOGGING = get_logging_config(debug=False)
 
+SECURE_REDIRECT_EXEMPT = [r"^healthz$"]
+
 _sentry_dsn: str = env("SENTRY_DSN", default="")
 if _sentry_dsn:
     import sentry_sdk
+    from sentry_sdk.integrations.celery import CeleryIntegration
     from sentry_sdk.integrations.django import DjangoIntegration
 
     sentry_sdk.init(
         dsn=_sentry_dsn,
-        integrations=[DjangoIntegration()],
+        integrations=[DjangoIntegration(), CeleryIntegration()],
         traces_sample_rate=0.1,
         send_default_pii=False,
     )

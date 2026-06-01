@@ -9,6 +9,7 @@ from django.db.models import Sum
 from apps.mealplans.models import MealPlan
 from apps.mealplans.services.engine import NoSuitableRecipeError, select_recipe  # noqa: F401
 from apps.profiles.services.profiles import get_profile
+from core.audit import audit_log
 from core.error_codes import MEAL_PLAN_NOT_FOUND, REGENERATE_LIMIT
 from core.exceptions import NotFoundError, RateLimitError
 
@@ -32,6 +33,7 @@ def _invalidate_grocery_list(user: User, plan_date: date) -> None:
         )
 
 
+@audit_log("mealplan.generate")
 def get_or_generate_plan(user: User, plan_date: date) -> MealPlan:
     """Return existing MealPlan for (user, plan_date) or generate and persist a new one."""
     try:
@@ -66,6 +68,7 @@ def get_or_generate_plan(user: User, plan_date: date) -> MealPlan:
     return plan
 
 
+@audit_log("mealplan.regenerate_slot")
 def regenerate_slot(user: User, plan_date: date, slot: str) -> MealPlan:
     """Swap one slot in an existing MealPlan. Rate limited to 3 regenerations per slot per week."""
     try:
@@ -109,6 +112,7 @@ def regenerate_slot(user: User, plan_date: date, slot: str) -> MealPlan:
     return plan
 
 
+@audit_log("mealplan.regenerate_plan")
 def regenerate_plan(user: User, plan_date: date) -> MealPlan:
     """Delete and regenerate a full MealPlan. Rate limited to 3 full regenerations per ISO week."""
     week_start = plan_date - timedelta(days=plan_date.weekday())

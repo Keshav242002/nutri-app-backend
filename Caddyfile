@@ -1,0 +1,5 @@
+# Replace your-domain.com with your actual domain.
+# Caddy handles TLS certificate issuance and renewal automatically via Let's Encrypt.
+your-domain.com {
+    reverse_proxy web:8000
+}

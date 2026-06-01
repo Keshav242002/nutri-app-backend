@@ -64,6 +64,9 @@ class RecipeAdmin(admin.ModelAdmin):
     )
     inlines = [RecipeIngredientInline]
     ordering = ("slug",)
+    date_hierarchy = "created_at"
+    list_per_page = 50
+    list_editable = ("is_active",)
 
 
 @admin.register(RecipeIngredient)

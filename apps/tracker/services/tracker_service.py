@@ -18,6 +18,7 @@ from apps.tracker.models import (
     MealLog,
 )
 from apps.tracker.services.nutrition_service import recompute_daily_summary
+from core.audit import audit_log
 from core.error_codes import VALIDATION_ERROR
 from core.exceptions import AppValidationError
 
@@ -113,6 +114,7 @@ def _auto_populate_planned_recipe(user: User, log_date: date, slot: str, meal_lo
         pass
 
 
+@audit_log("tracker.log")
 def upsert_meal_log(
     user: User,
     log_date: date,
