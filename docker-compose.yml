@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_DB: nutriplan
       POSTGRES_USER: nutriplan
-      POSTGRES_PASSWORD: nutriplan
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-nutriplan}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -42,6 +42,7 @@ services:
   worker:
     build: .
     restart: unless-stopped
+    entrypoint: []
     command: ["celery", "-A", "nutriplan", "worker", "-l", "info"]
     env_file: .env
     depends_on:
@@ -53,6 +54,7 @@ services:
   beat:
     build: .
     restart: unless-stopped
+    entrypoint: []
     # NEVER scale beat above 1 — duplicate scheduled tasks corrupt data.
     command: ["celery", "-A", "nutriplan", "beat", "-l", "info", "--scheduler", "django_celery_beat.schedulers:DatabaseScheduler"]
     env_file: .env
