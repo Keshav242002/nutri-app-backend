@@ -3,6 +3,10 @@ from rest_framework import serializers
 from apps.accounts.models import User
 
 
+class UpdateDisplayNameSerializer(serializers.Serializer[User]):
+    display_name = serializers.CharField(max_length=120, allow_blank=False)
+
+
 class UserSerializer(serializers.ModelSerializer[User]):
     has_profile = serializers.SerializerMethodField()
 

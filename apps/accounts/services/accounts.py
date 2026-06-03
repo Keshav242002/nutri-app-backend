@@ -5,6 +5,14 @@ from apps.accounts.models import User
 logger = logging.getLogger(__name__)
 
 
+def update_display_name(user: User, display_name: str) -> User:
+    """Persist a pre-validated display_name for the user."""
+    user.display_name = display_name.strip()
+    user.save(update_fields=["display_name", "updated_at"])
+    logger.info("display_name_updated", extra={"event": "display_name_updated", "user_id": user.pk})
+    return user
+
+
 def register_or_get_user(firebase_uid: str, email: str, display_name: str) -> tuple[User, bool]:
     """Get the User for the given firebase_uid, creating it if it does not exist."""
     user, created = User.objects.get_or_create(
