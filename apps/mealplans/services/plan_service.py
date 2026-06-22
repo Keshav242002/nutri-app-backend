@@ -9,6 +9,7 @@ from django.db.models import Sum
 from apps.mealplans.models import MealPlan
 from apps.mealplans.services.engine import NoSuitableRecipeError, select_recipe  # noqa: F401
 from apps.profiles.services.profiles import get_profile
+from apps.recipes.models import Recipe
 from core.audit import audit_log
 from core.error_codes import MEAL_PLAN_NOT_FOUND, REGENERATE_LIMIT
 from core.exceptions import NotFoundError, RateLimitError
@@ -69,8 +70,25 @@ def get_or_generate_plan(user: User, plan_date: date) -> MealPlan:
 
 
 @audit_log("mealplan.regenerate_slot")
-def regenerate_slot(user: User, plan_date: date, slot: str) -> MealPlan:
-    """Swap one slot in an existing MealPlan. Rate limited to 3 regenerations per slot per week."""
+def regenerate_slot(
+    user: User,
+    plan_date: date,
+    slot: str,
+    *,
+    preview: bool = False,
+    recipe_id: int | None = None,
+) -> MealPlan:
+    """Swap one slot in an existing MealPlan. Rate limited to 3 regenerations per slot per week.
+
+    Three modes, all gated by the same plan lookup and weekly rate-limit check:
+
+    - ``preview=True``: return a candidate recipe for the slot in memory WITHOUT
+      persisting it, bumping ``regeneration_count``, or invalidating the grocery
+      list. Lets the client show a swap candidate the user can still decline.
+    - ``recipe_id`` given (commit): persist exactly that recipe — the one the
+      client previewed — so the committed slot matches what the user saw.
+    - neither (legacy commit): re-roll a fresh recipe and persist it.
+    """
     try:
         plan = MealPlan.objects.get(user=user, plan_date=plan_date)
     except MealPlan.DoesNotExist:
@@ -86,16 +104,34 @@ def regenerate_slot(user: User, plan_date: date, slot: str) -> MealPlan:
             message=f"Slot '{slot}' has been regenerated 3 times this week",
         )
 
-    current_recipe_id: int | None = getattr(plan, f"{slot}_id")
-    exclude_ids = [current_recipe_id] if current_recipe_id is not None else []
+    if preview:
+        # Read-only candidate: no save, no counter bump, no grocery invalidation.
+        current_recipe_id: int | None = getattr(plan, f"{slot}_id")
+        exclude_ids = [current_recipe_id] if current_recipe_id is not None else []
+        profile = get_profile(user)
+        candidate = select_recipe(
+            profile=profile,
+            slot=slot,
+            plan_date=plan_date,
+            exclude_recipe_ids=exclude_ids,
+        )
+        setattr(plan, slot, candidate)
+        return plan
 
-    profile = get_profile(user)
-    new_recipe = select_recipe(
-        profile=profile,
-        slot=slot,
-        plan_date=plan_date,
-        exclude_recipe_ids=exclude_ids,
-    )
+    if recipe_id is not None:
+        # Commit the previously-previewed recipe.
+        new_recipe = _resolve_committable_recipe(recipe_id, slot, plan_date)
+    else:
+        # Legacy: re-roll a fresh recipe.
+        current_recipe_id = getattr(plan, f"{slot}_id")
+        exclude_ids = [current_recipe_id] if current_recipe_id is not None else []
+        profile = get_profile(user)
+        new_recipe = select_recipe(
+            profile=profile,
+            slot=slot,
+            plan_date=plan_date,
+            exclude_recipe_ids=exclude_ids,
+        )
 
     setattr(plan, slot, new_recipe)
     plan.regeneration_count[slot] = regen_count + 1
@@ -110,6 +146,22 @@ def regenerate_slot(user: User, plan_date: date, slot: str) -> MealPlan:
     )
     _invalidate_grocery_list(user, plan_date)
     return plan
+
+
+def _resolve_committable_recipe(recipe_id: int, slot: str, plan_date: date) -> Recipe:
+    """Fetch and validate a recipe the client asks to commit to ``slot``.
+
+    Raises NoSuitableRecipeError (→ 422) if the recipe is missing, inactive, or
+    not valid for this slot — same surfaced error as the engine, so no new code.
+    """
+    recipe = Recipe.objects.filter(pk=recipe_id, is_active=True, meal_type=slot).first()
+    if recipe is None:
+        raise NoSuitableRecipeError(
+            slot,
+            plan_date,
+            f"recipe {recipe_id} is not a valid choice for this slot",
+        )
+    return recipe
 
 
 @audit_log("mealplan.regenerate_plan")

@@ -64,6 +64,11 @@ class MealPlanDayDetailSerializer(serializers.ModelSerializer[MealPlan]):
 class RegenerateSlotSerializer(serializers.Serializer[None]):
     date = serializers.DateField()
     slot = serializers.ChoiceField(choices=SLOT_CHOICES)
+    # When True, return a candidate recipe for the slot WITHOUT persisting it.
+    preview = serializers.BooleanField(default=False)
+    # On a commit, the id of the previously-previewed recipe to persist. When
+    # omitted, the slot is re-rolled and persisted (legacy single-shot behavior).
+    recipe_id = serializers.IntegerField(required=False)
 
 
 class RegeneratePlanSerializer(serializers.Serializer[None]):
