@@ -62,3 +62,6 @@ coverage.xml
 *~
 *.orig
 docs/
+
+# CLAUDE
+CLAUDE.md
