@@ -88,8 +88,8 @@ def get_session_messages(session_id: int, user: User) -> QuerySet[ChatMessage]:
     return session.messages.order_by("created_at")
 
 
-def _load_context(user: User) -> tuple[Any, Any]:
-    """Load user profile and today's meal plan. Either may be None."""
+def _load_context(user: User) -> tuple[Any, Any, Any]:
+    """Load user profile, today's meal plan, and today's nutrition summary. Any may be None."""
     profile = None
     try:
         profile = user.profile
@@ -97,19 +97,30 @@ def _load_context(user: User) -> tuple[Any, Any]:
         pass
 
     today_plan = None
+    today_summary = None
     if profile is not None:
+        today = timezone.now().date()
         try:
             from apps.mealplans.models import MealPlan
 
             today_plan = (
-                MealPlan.objects.filter(user=user, plan_date=timezone.now().date())
+                MealPlan.objects.filter(user=user, plan_date=today)
                 .select_related("breakfast", "lunch", "dinner")
                 .first()
             )
         except Exception:  # noqa: BLE001
             pass
 
-    return profile, today_plan
+        try:
+            from apps.tracker.models import DailyNutritionSummary
+
+            today_summary = DailyNutritionSummary.objects.filter(
+                user=user, summary_date=today
+            ).first()
+        except Exception:  # noqa: BLE001
+            pass
+
+    return profile, today_plan, today_summary
 
 
 def _build_history(session: ChatSession, limit: int = 10) -> list[dict[str, str]]:
@@ -135,11 +146,13 @@ def send_message_chat(
     """Free-chat mode: build context → call LLM → save both messages → return assistant message."""
     check_rate_limit(user)
 
-    profile, today_plan = _load_context(user)
+    profile, today_plan, today_summary = _load_context(user)
 
     messages: list[dict[str, str]] = []
     if profile is not None:
-        messages.append({"role": "system", "content": build_system_prompt(profile, today_plan)})
+        messages.append(
+            {"role": "system", "content": build_system_prompt(profile, today_plan, today_summary)}
+        )
     messages.extend(_build_history(session))
     messages.append({"role": "user", "content": content})
 
@@ -183,11 +196,13 @@ def send_message_chat_stream(
     """Streaming chat mode. Yields SSE text chunks; saves full response after stream completes."""
     check_rate_limit(user)
 
-    profile, today_plan = _load_context(user)
+    profile, today_plan, today_summary = _load_context(user)
 
     messages: list[dict[str, str]] = []
     if profile is not None:
-        messages.append({"role": "system", "content": build_system_prompt(profile, today_plan)})
+        messages.append(
+            {"role": "system", "content": build_system_prompt(profile, today_plan, today_summary)}
+        )
     messages.extend(_build_history(session))
     messages.append({"role": "user", "content": content})
 
@@ -225,7 +240,7 @@ def send_message_ingredient(
     """Ingredient mode: generate recipes → validate → save message with metadata.recipes."""
     check_rate_limit(user)
 
-    profile, _ = _load_context(user)
+    profile, _, _ = _load_context(user)
 
     available_names = list(Ingredient.objects.filter(is_active=True).values_list("name", flat=True))
 

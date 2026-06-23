@@ -128,6 +128,41 @@ class TestCheckRateLimit:
 
 
 # ---------------------------------------------------------------------------
+# chat_service._load_context
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.django_db
+class TestLoadContext:
+    def test_returns_profile_plan_and_today_summary(self):
+        from apps.tracker.tests.factories import DailyNutritionSummaryFactory
+
+        profile = DietaryProfileFactory()
+        today = timezone.now().date()
+        summary = DailyNutritionSummaryFactory(user=profile.user, summary_date=today, calories=500)
+
+        loaded_profile, today_plan, today_summary = chat_service._load_context(profile.user)
+
+        assert loaded_profile == profile
+        assert today_plan is None  # no plan created
+        assert today_summary is not None
+        assert today_summary.pk == summary.pk
+
+    def test_summary_only_for_today(self):
+        from apps.tracker.tests.factories import DailyNutritionSummaryFactory
+
+        profile = DietaryProfileFactory()
+        DailyNutritionSummaryFactory(
+            user=profile.user,
+            summary_date=timezone.now().date() - timedelta(days=1),
+            calories=900,
+        )
+
+        _, _, today_summary = chat_service._load_context(profile.user)
+        assert today_summary is None
+
+
+# ---------------------------------------------------------------------------
 # chat_service.send_message_chat
 # ---------------------------------------------------------------------------
 
@@ -139,7 +174,7 @@ class TestSendMessageChat:
         cfg = _make_provider_cfg()
         with (
             patch("apps.chat.services.chat_service.check_rate_limit"),
-            patch("apps.chat.services.chat_service._load_context", return_value=(None, None)),
+            patch("apps.chat.services.chat_service._load_context", return_value=(None, None, None)),
             patch("apps.chat.services.chat_service.chat_completion", return_value="AI reply"),
             patch("apps.chat.services.chat_service.get_provider_config", return_value=cfg),
         ):
@@ -154,7 +189,7 @@ class TestSendMessageChat:
         cfg = _make_provider_cfg()
         with (
             patch("apps.chat.services.chat_service.check_rate_limit"),
-            patch("apps.chat.services.chat_service._load_context", return_value=(None, None)),
+            patch("apps.chat.services.chat_service._load_context", return_value=(None, None, None)),
             patch(
                 "apps.chat.services.chat_service.chat_completion",
                 side_effect=ExternalServiceError(code="LLM_FAILURE", message="fail"),
@@ -201,7 +236,9 @@ class TestSendMessageIngredient:
 
         with (
             patch("apps.chat.services.chat_service.check_rate_limit"),
-            patch("apps.chat.services.chat_service._load_context", return_value=(profile, None)),
+            patch(
+                "apps.chat.services.chat_service._load_context", return_value=(profile, None, None)
+            ),
             patch(
                 "apps.chat.services.chat_service.structured_completion",
                 return_value=fake_json,
@@ -233,7 +270,9 @@ class TestSendMessageIngredient:
 
         with (
             patch("apps.chat.services.chat_service.check_rate_limit"),
-            patch("apps.chat.services.chat_service._load_context", return_value=(profile, None)),
+            patch(
+                "apps.chat.services.chat_service._load_context", return_value=(profile, None, None)
+            ),
             patch(
                 "apps.chat.services.chat_service.structured_completion",
                 return_value=fake_json,
@@ -290,7 +329,9 @@ class TestSendMessageIngredient:
 
         with (
             patch("apps.chat.services.chat_service.check_rate_limit"),
-            patch("apps.chat.services.chat_service._load_context", return_value=(profile, None)),
+            patch(
+                "apps.chat.services.chat_service._load_context", return_value=(profile, None, None)
+            ),
             patch(
                 "apps.chat.services.chat_service.structured_completion",
                 return_value=fake_json,
@@ -984,7 +1025,7 @@ class TestSendMessageChatStream:
 
         with (
             patch("apps.chat.services.chat_service.check_rate_limit"),
-            patch("apps.chat.services.chat_service._load_context", return_value=(None, None)),
+            patch("apps.chat.services.chat_service._load_context", return_value=(None, None, None)),
             patch(
                 "apps.chat.services.chat_service.chat_completion",
                 return_value=iter(["Hello", " world"]),
@@ -1222,6 +1263,40 @@ class TestBuildSystemPrompt:
         profile = DietaryProfileFactory()
         result = build_system_prompt(profile, today_plan=None)
         assert "Today's Meal Plan" not in result
+
+    def test_no_summary_excludes_today_so_far_section(self):
+        from apps.chat.services.prompt_builder import build_system_prompt
+
+        profile = DietaryProfileFactory()
+        result = build_system_prompt(profile, today_plan=None, today_summary=None)
+        assert "Today So Far" not in result
+
+    def test_with_summary_includes_precomputed_remaining(self):
+        from apps.chat.services.prompt_builder import build_system_prompt
+        from apps.tracker.tests.factories import DailyNutritionSummaryFactory
+
+        profile = DietaryProfileFactory()
+        consumed = int(profile.target_calories) - 700
+        summary = DailyNutritionSummaryFactory(
+            user=profile.user, calories=consumed, meals_eaten=2, meals_skipped=0
+        )
+        result = build_system_prompt(profile, today_plan=None, today_summary=summary)
+
+        assert "Today So Far" in result
+        assert f"{consumed} kcal consumed" in result
+        assert "700 kcal remaining" in result
+        assert "Meals logged: 2 eaten, 0 skipped" in result
+
+    def test_with_summary_over_target_renders_over_by(self):
+        from apps.chat.services.prompt_builder import build_system_prompt
+        from apps.tracker.tests.factories import DailyNutritionSummaryFactory
+
+        profile = DietaryProfileFactory()
+        consumed = int(profile.target_calories) + 250
+        summary = DailyNutritionSummaryFactory(user=profile.user, calories=consumed)
+        result = build_system_prompt(profile, today_plan=None, today_summary=summary)
+
+        assert "over target by 250 kcal" in result
 
 
 @pytest.mark.django_db
