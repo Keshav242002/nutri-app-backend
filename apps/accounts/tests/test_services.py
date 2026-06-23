@@ -1,7 +1,7 @@
 import pytest
 
 from apps.accounts.models import User
-from apps.accounts.services.accounts import register_or_get_user
+from apps.accounts.services.accounts import register_or_get_user, update_display_name
 from apps.accounts.tests.factories import UserFactory
 
 
@@ -38,3 +38,23 @@ class TestRegisterOrGetUser:
         )
         assert created is False
         assert user.display_name == "New Name"
+
+
+@pytest.mark.django_db
+class TestUpdateDisplayName:
+    def test_sets_name_and_persists(self) -> None:
+        user = UserFactory(display_name="")
+        result = update_display_name(user, "Keshav")
+        assert result.display_name == "Keshav"
+        user.refresh_from_db()
+        assert user.display_name == "Keshav"
+
+    def test_strips_whitespace(self) -> None:
+        user = UserFactory(display_name="")
+        result = update_display_name(user, "  Keshav  ")
+        assert result.display_name == "Keshav"
+
+    def test_idempotent_same_name(self) -> None:
+        user = UserFactory(display_name="Keshav")
+        result = update_display_name(user, "Keshav")
+        assert result.display_name == "Keshav"

@@ -705,6 +705,76 @@ class TestPlanService:
         assert exc_info.value.code == REGENERATE_LIMIT
         assert r2.id is not None  # r2 exists in pool; rate limit fires before engine runs
 
+    def _two_lunch_plan(self):  # type: ignore[no-untyped-def]
+        """Build a profile + plan with two interchangeable lunch recipes."""
+        profile = _profile()
+        tc = profile.target_calories or 2000
+        cal = int(tc * 0.40)
+        r1 = _recipe(slug="pv-lunch-1", meal_type="lunch", cached_calories_per_serving=cal)
+        r2 = _recipe(slug="pv-lunch-2", meal_type="lunch", cached_calories_per_serving=cal)
+        _recipe(slug="pv-bf", meal_type="breakfast", cached_calories_per_serving=int(tc * 0.25))
+        _recipe(slug="pv-din", meal_type="dinner", cached_calories_per_serving=int(tc * 0.35))
+        return profile, r1, r2
+
+    def test_regenerate_slot_preview_does_not_persist(self) -> None:
+        from apps.mealplans.services.plan_service import get_or_generate_plan, regenerate_slot
+
+        profile, r1, r2 = self._two_lunch_plan()
+        plan = get_or_generate_plan(profile.user, PLAN_DATE)
+        original_lunch_id = plan.lunch_id
+
+        result = regenerate_slot(profile.user, PLAN_DATE, "lunch", preview=True)
+
+        # Returned (in-memory) plan shows a different candidate...
+        assert result.lunch_id != original_lunch_id
+        assert result.lunch_id in {r1.id, r2.id}
+        # ...but the DB row is untouched and the counter did not move.
+        plan.refresh_from_db()
+        assert plan.lunch_id == original_lunch_id
+        assert plan.regeneration_count.get("lunch", 0) == 0
+
+    def test_regenerate_slot_preview_twice_no_count_change(self) -> None:
+        from apps.mealplans.services.plan_service import get_or_generate_plan, regenerate_slot
+
+        profile, _, _ = self._two_lunch_plan()
+        plan = get_or_generate_plan(profile.user, PLAN_DATE)
+        original_lunch_id = plan.lunch_id
+
+        regenerate_slot(profile.user, PLAN_DATE, "lunch", preview=True)
+        regenerate_slot(profile.user, PLAN_DATE, "lunch", preview=True)
+
+        plan.refresh_from_db()
+        assert plan.lunch_id == original_lunch_id
+        assert plan.regeneration_count.get("lunch", 0) == 0
+
+    def test_regenerate_slot_commit_with_recipe_id_persists_that_recipe(self) -> None:
+        from apps.mealplans.services.plan_service import get_or_generate_plan, regenerate_slot
+
+        profile, r1, r2 = self._two_lunch_plan()
+        plan = get_or_generate_plan(profile.user, PLAN_DATE)
+        target_id = r2.id if plan.lunch_id == r1.id else r1.id
+
+        updated = regenerate_slot(profile.user, PLAN_DATE, "lunch", recipe_id=target_id)
+
+        assert updated.lunch_id == target_id
+        plan.refresh_from_db()
+        assert plan.lunch_id == target_id
+        assert plan.regeneration_count["lunch"] == 1
+
+    def test_regenerate_slot_commit_invalid_recipe_id_raises(self) -> None:
+        from apps.mealplans.services.engine import NoSuitableRecipeError
+        from apps.mealplans.services.plan_service import get_or_generate_plan, regenerate_slot
+
+        profile, _, _ = self._two_lunch_plan()
+        # A breakfast recipe is not a valid choice for the lunch slot.
+        wrong = _recipe(
+            slug="pv-wrong", meal_type="breakfast", cached_calories_per_serving=500
+        )
+        get_or_generate_plan(profile.user, PLAN_DATE)
+
+        with pytest.raises(NoSuitableRecipeError):
+            regenerate_slot(profile.user, PLAN_DATE, "lunch", recipe_id=wrong.id)
+
     def test_regenerate_plan_creates_fresh_plan(self) -> None:
         from apps.mealplans.services.plan_service import get_or_generate_plan, regenerate_plan
 

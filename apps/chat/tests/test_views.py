@@ -119,7 +119,7 @@ def test_send_chat_message_201(auth_client: tuple[Client, User]) -> None:
     cfg.model = "openrouter/free"
     with (
         patch("apps.chat.services.chat_service.check_rate_limit"),
-        patch("apps.chat.services.chat_service._load_context", return_value=(None, None)),
+        patch("apps.chat.services.chat_service._load_context", return_value=(None, None, None)),
         patch("apps.chat.services.chat_service.chat_completion", return_value="Hello!"),
         patch("apps.chat.services.chat_service.get_provider_config", return_value=cfg),
     ):
@@ -155,7 +155,7 @@ def test_send_ingredient_message_201(auth_client: tuple[Client, User]) -> None:
 
     with (
         patch("apps.chat.services.chat_service.check_rate_limit"),
-        patch("apps.chat.services.chat_service._load_context", return_value=(profile, None)),
+        patch("apps.chat.services.chat_service._load_context", return_value=(profile, None, None)),
         patch(
             "apps.chat.services.chat_service.structured_completion",
             return_value={"recipes": [{"name": "Rice Bowl"}]},

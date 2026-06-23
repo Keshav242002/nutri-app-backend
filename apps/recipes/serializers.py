@@ -38,6 +38,7 @@ class RecipeListSerializer(serializers.ModelSerializer[Recipe]):
     class Meta:
         model = Recipe
         fields = [
+            "id",
             "name",
             "name_alt",
             "slug",

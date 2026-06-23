@@ -286,6 +286,106 @@ def test_regenerate_slot_endpoint_returns_422_when_no_suitable_recipe(
     assert body["error"]["code"] == "NO_SUITABLE_RECIPE"
 
 
+@freeze_time(FROZEN_TODAY)
+def test_regenerate_slot_endpoint_preview_does_not_persist(
+    registered_user_with_profile: Any,
+) -> None:
+    client, user, profile, slot_recipes = registered_user_with_profile
+    b, l1, d = (
+        slot_recipes["breakfast"][0],
+        slot_recipes["lunch"][0],
+        slot_recipes["dinner"][0],
+    )
+    plan = MealPlanFactory(user=user, plan_date=date(2026, 5, 25), breakfast=b, lunch=l1, dinner=d)
+
+    response = _auth_post(
+        client,
+        MEALPLANS_REGEN_SLOT_URL,
+        {"date": FROZEN_TODAY, "slot": "lunch", "preview": True},
+    )
+    assert response.status_code == 200
+    body = response.json()
+    assert body["status"] == "success"
+    # Response shows a candidate different from the current lunch...
+    assert body["data"]["lunch"]["id"] != l1.id
+    # ...but nothing was persisted and the counter did not move.
+    plan.refresh_from_db()
+    assert plan.lunch_id == l1.id
+    assert plan.regeneration_count.get("lunch", 0) == 0
+
+
+@freeze_time(FROZEN_TODAY)
+def test_regenerate_slot_endpoint_commit_with_recipe_id_persists_that_recipe(
+    registered_user_with_profile: Any,
+) -> None:
+    client, user, profile, slot_recipes = registered_user_with_profile
+    b, l1, l2, d = (
+        slot_recipes["breakfast"][0],
+        slot_recipes["lunch"][0],
+        slot_recipes["lunch"][1],
+        slot_recipes["dinner"][0],
+    )
+    plan = MealPlanFactory(user=user, plan_date=date(2026, 5, 25), breakfast=b, lunch=l1, dinner=d)
+
+    response = _auth_post(
+        client,
+        MEALPLANS_REGEN_SLOT_URL,
+        {"date": FROZEN_TODAY, "slot": "lunch", "recipe_id": l2.id},
+    )
+    assert response.status_code == 200
+    plan.refresh_from_db()
+    assert plan.lunch_id == l2.id
+    assert plan.regeneration_count["lunch"] == 1
+
+
+@freeze_time(FROZEN_TODAY)
+def test_regenerate_slot_endpoint_commit_invalid_recipe_id_returns_422(
+    registered_user_with_profile: Any,
+) -> None:
+    client, user, profile, slot_recipes = registered_user_with_profile
+    b, l1, d = (
+        slot_recipes["breakfast"][0],
+        slot_recipes["lunch"][0],
+        slot_recipes["dinner"][0],
+    )
+    MealPlanFactory(user=user, plan_date=date(2026, 5, 25), breakfast=b, lunch=l1, dinner=d)
+
+    # A breakfast recipe is not a valid choice for the lunch slot.
+    response = _auth_post(
+        client,
+        MEALPLANS_REGEN_SLOT_URL,
+        {"date": FROZEN_TODAY, "slot": "lunch", "recipe_id": b.id},
+    )
+    assert response.status_code == 422
+    body = response.json()
+    assert body["status"] == "error"
+    assert body["error"]["code"] == "NO_SUITABLE_RECIPE"
+
+
+@freeze_time(FROZEN_TODAY)
+def test_regenerate_slot_endpoint_preview_returns_429_on_limit(
+    registered_user_with_profile: Any,
+) -> None:
+    client, user, profile, slot_recipes = registered_user_with_profile
+    b, ln, d = slot_recipes["breakfast"][0], slot_recipes["lunch"][0], slot_recipes["dinner"][0]
+    MealPlanFactory(
+        user=user,
+        plan_date=date(2026, 5, 25),
+        breakfast=b,
+        lunch=ln,
+        dinner=d,
+        regeneration_count={"breakfast": 0, "lunch": 3, "dinner": 0},
+    )
+    response = _auth_post(
+        client,
+        MEALPLANS_REGEN_SLOT_URL,
+        {"date": FROZEN_TODAY, "slot": "lunch", "preview": True},
+    )
+    assert response.status_code == 429
+    body = response.json()
+    assert body["error"]["code"] == "REGENERATE_LIMIT"
+
+
 def test_regenerate_slot_endpoint_requires_auth() -> None:
     anon = Client()
     response = anon.post(

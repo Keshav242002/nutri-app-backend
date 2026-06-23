@@ -192,9 +192,17 @@ class RegenerateSlotView(APIView):
 
         plan_date: date = serializer.validated_data["date"]
         slot: str = serializer.validated_data["slot"]
+        preview: bool = serializer.validated_data["preview"]
+        recipe_id: int | None = serializer.validated_data.get("recipe_id")
 
         try:
-            plan = regenerate_slot(request.user, plan_date, slot)
+            plan = regenerate_slot(
+                request.user,
+                plan_date,
+                slot,
+                preview=preview,
+                recipe_id=recipe_id,
+            )
         except NoSuitableRecipeError as exc:
             return Response(
                 {
@@ -204,6 +212,11 @@ class RegenerateSlotView(APIView):
                 },
                 status=422,
             )
+
+        if preview:
+            # Candidate lives only in memory — re-fetching would discard it.
+            out = MealPlanDayDetailSerializer(plan)
+            return success_response(out.data, f"Slot '{slot}' preview.")
 
         # Re-fetch with all related objects so serializer doesn't trigger extra queries
         plan = _fetch_plan_with_related(plan.pk)

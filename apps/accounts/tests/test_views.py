@@ -104,6 +104,62 @@ class TestMeEndpoint:
         assert response.json()["data"]["has_profile"] is False
 
 
+@pytest.mark.django_db
+class TestPatchMeEndpoint:
+    def test_sets_display_name_for_email_signup(self, client: Client) -> None:
+        """Email/OTP new users have empty display_name; PATCH /me fills it in."""
+        no_name_payload = {**FAKE_TOKEN_PAYLOAD, "name": ""}
+        with patch("firebase_admin.auth.verify_id_token", return_value=no_name_payload):
+            client.post(REGISTER_URL, **_auth_header())
+            response = client.patch(
+                ME_URL,
+                data={"display_name": "Keshav"},
+                content_type="application/json",
+                **_auth_header(),
+            )
+        assert response.status_code == 200
+        assert response.json()["data"]["display_name"] == "Keshav"
+
+    def test_patch_me_rejects_blank_name(self, client: Client) -> None:
+        with patch("firebase_admin.auth.verify_id_token", return_value=FAKE_TOKEN_PAYLOAD):
+            client.post(REGISTER_URL, **_auth_header())
+            response = client.patch(
+                ME_URL,
+                data={"display_name": "   "},
+                content_type="application/json",
+                **_auth_header(),
+            )
+        assert response.status_code == 400
+
+    def test_patch_me_rejects_missing_field(self, client: Client) -> None:
+        with patch("firebase_admin.auth.verify_id_token", return_value=FAKE_TOKEN_PAYLOAD):
+            client.post(REGISTER_URL, **_auth_header())
+            response = client.patch(
+                ME_URL,
+                data={},
+                content_type="application/json",
+                **_auth_header(),
+            )
+        assert response.status_code == 400
+
+    def test_patch_me_requires_auth(self, client: Client) -> None:
+        response = client.patch(ME_URL, data={"display_name": "X"}, content_type="application/json")
+        assert response.status_code == 401
+
+    def test_patch_me_preserves_existing_name_for_returning_user(self, client: Client) -> None:
+        """Returning Google users already have a name; PATCH is idempotent."""
+        with patch("firebase_admin.auth.verify_id_token", return_value=FAKE_TOKEN_PAYLOAD):
+            client.post(REGISTER_URL, **_auth_header())
+            response = client.patch(
+                ME_URL,
+                data={"display_name": "Test User"},
+                content_type="application/json",
+                **_auth_header(),
+            )
+        assert response.status_code == 200
+        assert response.json()["data"]["display_name"] == "Test User"
+
+
 _BYPASS_TOKEN = "test-bypass-token-abc123"
 _BYPASS_SETTINGS = {
     "DEBUG": True,

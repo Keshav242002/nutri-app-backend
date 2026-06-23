@@ -12,6 +12,7 @@ import json
 
 from apps.mealplans.models import MealPlan
 from apps.profiles.models import DietaryProfile
+from apps.tracker.models import DailyNutritionSummary
 
 _RECIPE_SCHEMA = {
     "type": "object",
@@ -55,14 +56,24 @@ _RECIPE_SCHEMA = {
 }
 
 
+def _format_remaining(target: float, consumed: float, unit: str) -> str:
+    """Render a pre-computed remaining/over-target line for one macro."""
+    remaining = target - consumed
+    if remaining < 0:
+        return f"over target by {abs(remaining):g} {unit}"
+    return f"{remaining:g} {unit} remaining"
+
+
 def build_system_prompt(
     profile: DietaryProfile,
     today_plan: MealPlan | None,
+    today_summary: DailyNutritionSummary | None = None,
 ) -> str:
     """Build the system prompt for free-chat mode.
 
     Embeds the user's nutrition targets, diet pattern, allergens (with explicit
-    'never recommend' instruction), and today's meal plan for context.
+    'never recommend' instruction), today's meal plan, and — when available —
+    today's consumed nutrition with pre-computed remaining macros for context.
     """
     lines: list[str] = [
         "You are a personalised nutrition assistant for NutriPlan, "
@@ -87,6 +98,38 @@ def build_system_prompt(
         lines.append(f"Carbs target: {profile.target_carbs_g} g")
     if profile.target_fat_g:
         lines.append(f"Fat target: {profile.target_fat_g} g")
+
+    if today_summary is not None:
+        lines.append("\n## Today So Far (consumed)")
+        lines.append(
+            f"Meals logged: {today_summary.meals_eaten} eaten, {today_summary.meals_skipped} skipped"
+        )
+        if profile.target_calories:
+            lines.append(
+                f"Calories: {today_summary.calories} kcal consumed — "
+                f"{_format_remaining(float(profile.target_calories), float(today_summary.calories), 'kcal')}"
+            )
+        if profile.target_protein_g:
+            lines.append(
+                f"Protein: {float(today_summary.protein_g):g} g consumed — "
+                f"{_format_remaining(float(profile.target_protein_g), float(today_summary.protein_g), 'g')}"
+            )
+        if profile.target_carbs_g:
+            lines.append(
+                f"Carbs: {float(today_summary.carbs_g):g} g consumed — "
+                f"{_format_remaining(float(profile.target_carbs_g), float(today_summary.carbs_g), 'g')}"
+            )
+        if profile.target_fat_g:
+            lines.append(
+                f"Fat: {float(today_summary.fat_g):g} g consumed — "
+                f"{_format_remaining(float(profile.target_fat_g), float(today_summary.fat_g), 'g')}"
+            )
+        lines.append(
+            "These consumed and remaining numbers are authoritative — use them as-is, "
+            "do not recompute. When the user asks how they're doing or how to improve, "
+            "use the remaining / over-target gaps to suggest concrete next foods that respect "
+            "their diet pattern, allergens, and dislikes."
+        )
 
     if profile.allergies:
         allergen_list = ", ".join(profile.allergies)
