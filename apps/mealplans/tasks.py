@@ -15,6 +15,22 @@ from apps.profiles.models import DietaryProfile
 log = logging.getLogger(__name__)
 
 
+def _notify_plan_ready(user: User, plan_date_iso: str) -> None:
+    """Dispatch a 'meal plan ready' notification. Soft dependency — never breaks the task."""
+    try:
+        from apps.notifications.models import CATEGORY_PLAN_READY
+        from apps.notifications.services.notification_service import dispatch
+
+        dispatch(
+            user,
+            CATEGORY_PLAN_READY,
+            dedup_key=f"plan-ready:{user.pk}:{plan_date_iso}",
+            context={"plan_date": plan_date_iso},
+        )
+    except Exception as exc:  # noqa: BLE001 — intentional soft dependency
+        log.warning("event=plan_ready_notify_failed user_id=%s error=%s", user.pk, exc)
+
+
 @shared_task(bind=True, max_retries=3, default_retry_delay=60)  # type: ignore[untyped-decorator]
 def generate_plan_for_user(self: Any, user_id: int, plan_date_iso: str) -> None:
     """Generate (or return existing) meal plan for one user on the given date."""
@@ -27,6 +43,7 @@ def generate_plan_for_user(self: Any, user_id: int, plan_date_iso: str) -> None:
             user_id,
             plan_date_iso,
         )
+        _notify_plan_ready(user, plan_date_iso)
     except User.DoesNotExist:
         log.error("event=task_generate_plan_user_not_found user_id=%s", user_id)
     except OperationalError as exc:

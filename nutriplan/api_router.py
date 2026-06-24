@@ -8,4 +8,5 @@ urlpatterns = [
     path("tracker/", include("apps.tracker.urls")),
     path("nutrition/", include("apps.tracker.nutrition_urls")),
     path("chat/", include("apps.chat.urls")),
+    path("notifications/", include("apps.notifications.urls")),
 ]
