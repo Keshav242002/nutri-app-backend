@@ -247,6 +247,7 @@ def update_profile(user: User, data: dict[str, Any]) -> DietaryProfile:
     # TODO(M2): invalidate today's MealPlan cache here when M4 is built
     """
     profile = get_profile(user)
+    old_target_calories = profile.target_calories
 
     _apply_normalisation(data, require_disclaimer=False, require_budget=False)
     _assign_fields(profile, data)
@@ -271,4 +272,29 @@ def update_profile(user: User, data: dict[str, Any]) -> DietaryProfile:
 
     logger.info("profile_updated", extra={"event": "profile_updated", "user_id": user.pk})
 
+    _maybe_notify_goal_updated(user, old_target_calories, profile.target_calories)
+
     return profile
+
+
+def _maybe_notify_goal_updated(
+    user: User, old_target_calories: int | None, new_target_calories: int | None
+) -> None:
+    """Notify when the calorie target changed. Soft dependency — never breaks the update."""
+    if new_target_calories is None or new_target_calories == old_target_calories:
+        return
+    try:
+        from apps.notifications.models import CATEGORY_GOAL_UPDATED
+        from apps.notifications.services.notification_service import dispatch
+
+        dispatch(
+            user,
+            CATEGORY_GOAL_UPDATED,
+            dedup_key=f"goal-updated:{user.pk}:{new_target_calories}",
+            context={"target_calories": new_target_calories},
+        )
+    except Exception as exc:  # noqa: BLE001 — intentional soft dependency
+        logger.warning(
+            "goal_updated_notify_failed",
+            extra={"event": "goal_updated_notify_failed", "user_id": user.pk, "error": str(exc)},
+        )

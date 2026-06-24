@@ -767,9 +767,7 @@ class TestPlanService:
 
         profile, _, _ = self._two_lunch_plan()
         # A breakfast recipe is not a valid choice for the lunch slot.
-        wrong = _recipe(
-            slug="pv-wrong", meal_type="breakfast", cached_calories_per_serving=500
-        )
+        wrong = _recipe(slug="pv-wrong", meal_type="breakfast", cached_calories_per_serving=500)
         get_or_generate_plan(profile.user, PLAN_DATE)
 
         with pytest.raises(NoSuitableRecipeError):

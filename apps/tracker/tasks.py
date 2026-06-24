@@ -12,6 +12,7 @@ log = logging.getLogger(__name__)
 def recompute_yesterday_summaries() -> None:
     """Safety-net: recompute all DailyNutritionSummary rows for yesterday (UTC)."""
     from apps.accounts.models import User
+    from apps.notifications.services.streak_service import evaluate_streak
     from apps.tracker.models import MealLog
     from apps.tracker.services.nutrition_service import recompute_daily_summary
 
@@ -24,6 +25,7 @@ def recompute_yesterday_summaries() -> None:
         try:
             user = User.objects.get(pk=user_id)
             recompute_daily_summary(user, yesterday)
+            evaluate_streak(user, yesterday)
             recomputed += 1
         except Exception as exc:
             log.error(
