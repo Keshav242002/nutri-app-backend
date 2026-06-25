@@ -79,6 +79,25 @@ def test_today_endpoint_creates_plan_lazily(registered_user_with_profile: Any) -
     assert MealPlan.objects.filter(user=user, plan_date=date(2026, 5, 25)).exists()
 
 
+# 2026-05-25 19:00 UTC is already 2026-05-26 00:30 in Asia/Kolkata (UTC+5:30),
+# so "today" for an IST user is the 26th, not the server-UTC 25th.
+@freeze_time("2026-05-25 19:00:00")
+def test_today_endpoint_uses_user_timezone_not_utc(
+    registered_user_with_profile: Any,
+) -> None:
+    client, user, profile, _ = registered_user_with_profile
+    profile.timezone = "Asia/Kolkata"
+    profile.save(update_fields=["timezone"])
+
+    response = _auth_get(client, MEALPLANS_TODAY_URL)
+
+    assert response.status_code == 200
+    assert response.json()["data"]["plan_date"] == "2026-05-26"
+    assert MealPlan.objects.filter(user=user, plan_date=date(2026, 5, 26)).exists()
+    # The server-UTC date (the 25th) must NOT be used.
+    assert not MealPlan.objects.filter(user=user, plan_date=date(2026, 5, 25)).exists()
+
+
 @freeze_time(FROZEN_TODAY)
 def test_today_endpoint_returns_profile_not_found_without_profile(
     registered_user: Any,
@@ -165,6 +184,29 @@ def test_week_endpoint_defaults_to_current_week_monday(
     assert "2026-05-25" in plan_dates
     assert "2026-05-26" in plan_dates
     assert "2026-05-27" in plan_dates
+    assert "2026-05-24" not in plan_dates
+
+
+# 2026-05-24 19:00 UTC is Sunday, but 2026-05-25 00:30 in Asia/Kolkata — a
+# Monday in a different ISO week. The default window must follow the user's
+# local week (starting Mon 2026-05-25), not the server-UTC week (Mon 05-18).
+@freeze_time("2026-05-24 19:00:00")
+def test_week_endpoint_default_window_uses_user_timezone(
+    registered_user_with_profile: Any,
+) -> None:
+    client, user, profile, slot_recipes = registered_user_with_profile
+    profile.timezone = "Asia/Kolkata"
+    profile.save(update_fields=["timezone"])
+    b, ln, d = slot_recipes["breakfast"][0], slot_recipes["lunch"][0], slot_recipes["dinner"][0]
+    # In the user-local week (Mon 05-25 → Sun 05-31).
+    MealPlanFactory(user=user, plan_date=date(2026, 5, 25), breakfast=b, lunch=ln, dinner=d)
+    # In the server-UTC week (Mon 05-18 → Sun 05-24) — must NOT be returned.
+    MealPlanFactory(user=user, plan_date=date(2026, 5, 24), breakfast=b, lunch=ln, dinner=d)
+
+    response = _auth_get(client, MEALPLANS_WEEK_URL)
+    assert response.status_code == 200
+    plan_dates = [p["plan_date"] for p in response.json()["data"]]
+    assert "2026-05-25" in plan_dates
     assert "2026-05-24" not in plan_dates
 
 
@@ -508,6 +550,27 @@ def test_weekly_generate_endpoint_returns_200(registered_user_with_profile: Any)
     assert data["days_generated"] == 7
     assert data["days_existing"] == 0
     assert len(data["plans"]) == 7
+
+
+# 2026-05-24 19:00 UTC (Sunday) is 2026-05-25 00:30 in Asia/Kolkata (Monday).
+# With no `date` in the body, the generated week must follow the user's local
+# week (starting Mon 2026-05-25), not the server-UTC week (Mon 2026-05-18).
+@freeze_time("2026-05-24 19:00:00")
+def test_weekly_generate_endpoint_default_uses_user_timezone(
+    registered_user_with_profile: Any,
+) -> None:
+    client, user, profile, _ = registered_user_with_profile
+    profile.timezone = "Asia/Kolkata"
+    profile.save(update_fields=["timezone"])
+    # Far-away plan makes this a returning user (full Mon–Sun week).
+    MealPlanFactory(user=user, plan_date=date(2026, 5, 10))
+
+    response = _auth_post(client, MEALPLANS_WEEK_GENERATE_URL, {})
+
+    assert response.status_code == 200
+    data = response.json()["data"]
+    assert data["week_start"] == "2026-05-25"
+    assert data["week_end"] == "2026-05-31"
 
 
 def test_weekly_generate_endpoint_requires_auth() -> None:

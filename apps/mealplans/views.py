@@ -28,6 +28,10 @@ from apps.mealplans.services.plan_service import (
     regenerate_slot,
 )
 from apps.mealplans.services.weekly_service import generate_weekly_plan
+from apps.profiles.services.profiles import (
+    get_user_local_today,
+    get_user_local_today_or_default,
+)
 from core.error_codes import MEAL_PLAN_NOT_FOUND, NO_SUITABLE_RECIPE, VALIDATION_ERROR
 from core.exceptions import AppValidationError, NotFoundError
 from core.responses import success_response
@@ -73,7 +77,11 @@ class TodayMealPlanView(APIView):
     def get(self, request: Request) -> Response:
         assert isinstance(request.user, User)
         try:
-            plan = get_or_generate_plan(request.user, date.today())
+            # "Today" in the user's timezone, not the server's UTC — otherwise
+            # users east of UTC see yesterday's plan past local midnight while
+            # the nutrition/tracker tabs (which send the device-local date)
+            # already show the new day.
+            plan = get_or_generate_plan(request.user, get_user_local_today(request.user))
         except NoSuitableRecipeError as exc:
             return Response(
                 {
@@ -153,7 +161,9 @@ class WeekMealPlanView(APIView):
         if from_param:
             from_date = _parse_plan_date(from_param)
         else:
-            today = date.today()
+            # User-local "today" (not server UTC) so the default week window
+            # matches the day the user is actually on. No profile → default tz.
+            today = get_user_local_today_or_default(request.user)
             from_date = today - timedelta(days=today.weekday())  # Monday
 
         to_date = from_date + timedelta(days=6)
@@ -293,10 +303,15 @@ class WeeklyPlanGenerateView(APIView):
         ser = WeeklyPlanGenerateSerializer(data=request.data)
         ser.is_valid(raise_exception=True)
 
-        ref_date: date | None = ser.validated_data.get("date")
+        # Default to the user's local "today" (not server UTC) so an omitted
+        # date generates the week the user is actually on. Resolved here and
+        # passed explicitly so generate_weekly_plan never falls back to UTC.
+        ref_date: date = ser.validated_data.get("date") or get_user_local_today(
+            request.user
+        )
 
         # Compute week range to derive days_existing before generating.
-        today = ref_date or date.today()
+        today = ref_date
         has_any = MealPlan.objects.filter(user=request.user).exists()
         if not has_any:
             start_date = today

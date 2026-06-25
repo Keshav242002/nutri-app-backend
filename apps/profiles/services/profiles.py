@@ -9,8 +9,10 @@ all live here — NOT in the serializer or model.
 from __future__ import annotations
 
 import logging
+from datetime import date, datetime
 from decimal import Decimal
 from typing import Any
+from zoneinfo import ZoneInfo
 
 from django.core.exceptions import ValidationError as DjangoValidationError
 
@@ -25,6 +27,10 @@ from core.error_codes import PROFILE_NOT_FOUND, VALIDATION_ERROR
 from core.exceptions import AppValidationError, NotFoundError
 
 logger = logging.getLogger(__name__)
+
+# Fallback timezone for users without a profile. Mirrors the default of
+# DietaryProfile.timezone — keep the two in sync.
+DEFAULT_USER_TIMEZONE = "Asia/Kolkata"
 
 
 # ---------------------------------------------------------------------------
@@ -236,6 +242,33 @@ def get_profile(user: User) -> DietaryProfile:
             message="Profile not found.",
             code=PROFILE_NOT_FOUND,
         ) from None
+
+
+def get_user_local_today(user: User) -> date:
+    """
+    Return the current calendar date in the user's configured timezone.
+
+    "Today" must be computed in the user's timezone, not the server's UTC,
+    so endpoints like the today meal plan agree with the client (which sends
+    its local date to the nutrition/tracker endpoints). Raises
+    NotFoundError(PROFILE_NOT_FOUND) if the user has no profile.
+    """
+    profile = get_profile(user)
+    return datetime.now(tz=ZoneInfo(profile.timezone)).date()
+
+
+def get_user_local_today_or_default(user: User) -> date:
+    """
+    Like [get_user_local_today] but for callers that must not 404 when the
+    user has no profile (e.g. the week-list endpoint, which returns an empty
+    list rather than requiring onboarding). Falls back to the default user
+    timezone so "today" is still local rather than server-UTC.
+    """
+    try:
+        tz_name = get_profile(user).timezone
+    except NotFoundError:
+        tz_name = DEFAULT_USER_TIMEZONE
+    return datetime.now(tz=ZoneInfo(tz_name)).date()
 
 
 @audit_log("profile.update")
