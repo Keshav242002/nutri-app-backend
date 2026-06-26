@@ -9,7 +9,7 @@ from typing import TYPE_CHECKING
 from django.db.models import DecimalField, ExpressionWrapper, F, Q
 
 from apps.profiles.models import DietaryProfile
-from apps.recipes.models import Recipe
+from apps.recipes.models import RECIPE_SOURCE_AI, Recipe
 
 if TYPE_CHECKING:
     from apps.accounts.models import User
@@ -211,11 +211,13 @@ def select_recipe(
     # ------------------------------------------------------------------
     # Step 1: Base pool — meal type, active, prep time
     # ------------------------------------------------------------------
+    # AI-generated recipes are "save but don't reuse": persisted for the user who
+    # generated them but never selectable by the meal-plan engine for anyone.
     pool = Recipe.objects.filter(
         meal_type=slot,
         is_active=True,
         prep_time_min__lte=profile.max_prep_time_min,
-    )
+    ).exclude(source=RECIPE_SOURCE_AI)
 
     # ------------------------------------------------------------------
     # Step 2: Diet filter

@@ -10,6 +10,7 @@ from django.test import Client
 
 from apps.accounts.models import User
 from apps.profiles.tests.factories import DietaryProfileFactory
+from apps.recipes.tests.factories import IngredientFactory
 
 from .factories import ChatMessageFactory, ChatSessionFactory
 
@@ -142,6 +143,8 @@ def test_send_ingredient_message_201(auth_client: tuple[Client, User]) -> None:
     client, user = auth_client
     session = ChatSessionFactory(user=user)
     profile = DietaryProfileFactory(user=user)
+    # "Rice" is in the DB → grounded path (persist + loggable card with slug).
+    IngredientFactory(name="Rice", is_active=True)
     cfg = MagicMock()
     cfg.provider.value = "openrouter"
     cfg.model = "openrouter/free"
@@ -149,6 +152,7 @@ def test_send_ingredient_message_201(auth_client: tuple[Client, User]) -> None:
     mock_recipe = MagicMock()
     mock_recipe.pk = 42
     mock_recipe.name = "Rice Bowl"
+    mock_recipe.slug = "rice-bowl"
     mock_recipe.meal_type = "lunch"
     mock_recipe.cached_calories_per_serving = 400
     mock_recipe.servings = 2
@@ -174,7 +178,12 @@ def test_send_ingredient_message_201(auth_client: tuple[Client, User]) -> None:
             {"content": "Make a recipe with rice", "mode": "ingredient", "ingredients": ["Rice"]},
         )
     assert r.status_code == 201
-    assert r.json()["status"] == "success"
+    body = r.json()
+    assert body["status"] == "success"
+    recipes = body["data"]["metadata"]["recipes"]
+    assert len(recipes) == 1
+    assert recipes[0]["slug"] == "rice-bowl"
+    assert "description" in recipes[0]
 
 
 def test_ingredient_mode_requires_ingredients(auth_client: tuple[Client, User]) -> None:

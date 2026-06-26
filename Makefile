@@ -29,7 +29,7 @@ superuser:
 ## Dev loop
 
 run:
-	$(MANAGE) runserver
+	$(MANAGE) runserver 0.0.0.0:8000
 
 run-asgi:
 	.venv/bin/uvicorn nutriplan.asgi:application --reload

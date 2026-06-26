@@ -135,10 +135,14 @@ class TestCheckRateLimit:
 @pytest.mark.django_db
 class TestLoadContext:
     def test_returns_profile_plan_and_today_summary(self):
+        from apps.profiles.services.profiles import get_user_local_today_or_default
         from apps.tracker.tests.factories import DailyNutritionSummaryFactory
 
         profile = DietaryProfileFactory()
-        today = timezone.now().date()
+        # "Today" must match _load_context, which resolves it in the user's
+        # local timezone — using the server's UTC date here makes the test fail
+        # during the IST/UTC date-boundary window.
+        today = get_user_local_today_or_default(profile.user)
         summary = DailyNutritionSummaryFactory(
             user=profile.user, summary_date=today, calories=500, meals_eaten=2
         )
@@ -153,12 +157,13 @@ class TestLoadContext:
         assert summary.pk in {s.pk for s in recent}
 
     def test_summary_only_for_today(self):
+        from apps.profiles.services.profiles import get_user_local_today_or_default
         from apps.tracker.tests.factories import DailyNutritionSummaryFactory
 
         profile = DietaryProfileFactory()
         DailyNutritionSummaryFactory(
             user=profile.user,
-            summary_date=timezone.now().date() - timedelta(days=1),
+            summary_date=get_user_local_today_or_default(profile.user) - timedelta(days=1),
             calories=900,
         )
 
@@ -166,10 +171,11 @@ class TestLoadContext:
         assert today_summary is None
 
     def test_recent_history_includes_prior_days_with_meals_eaten(self):
+        from apps.profiles.services.profiles import get_user_local_today_or_default
         from apps.tracker.tests.factories import DailyNutritionSummaryFactory
 
         profile = DietaryProfileFactory()
-        today = timezone.now().date()
+        today = get_user_local_today_or_default(profile.user)
         # Three prior days with meals eaten, plus an empty day that must be excluded.
         for offset in (2, 3, 4):
             DailyNutritionSummaryFactory(
@@ -285,6 +291,7 @@ class TestSendMessageIngredient:
         mock_recipe = MagicMock()
         mock_recipe.pk = 99
         mock_recipe.name = "AI Rice Bowl"
+        mock_recipe.slug = "ai-rice-bowl"
         mock_recipe.meal_type = "lunch"
         mock_recipe.cached_calories_per_serving = 350
         mock_recipe.servings = 2
@@ -316,10 +323,89 @@ class TestSendMessageIngredient:
         assert msg.metadata is not None
         assert len(msg.metadata["recipes"]) == 1
         assert msg.metadata["recipes"][0]["name"] == "AI Rice Bowl"
+        assert msg.metadata["recipes"][0]["slug"] == "ai-rice-bowl"
+        # description key is always present (empty when the payload omits it)
+        assert msg.metadata["recipes"][0]["description"] == ""
+
+    def test_single_recipe_with_slug_and_description(self):
+        """Ingredient mode requests exactly 1 recipe; the summary carries slug + description."""
+        profile = DietaryProfileFactory()
+        session = ChatSessionFactory(user=profile.user)
+        IngredientFactory(name="Rice", is_active=True)
+        cfg = _make_provider_cfg()
+
+        fake_json = {
+            "recipes": [
+                {
+                    "name": "AI Khichdi",
+                    "description": "A comforting one-pot rice and lentil dish.",
+                    "meal_type": "dinner",
+                    "servings": 2,
+                    "diet_tags": ["vegetarian"],
+                    "allergen_tags": [],
+                    "ingredients": [{"ingredient_name": "Rice", "quantity_grams": 200}],
+                    "steps": ["Cook rice and dal together."],
+                }
+            ]
+        }
+
+        mock_recipe = MagicMock()
+        mock_recipe.pk = 101
+        mock_recipe.name = "AI Khichdi"
+        mock_recipe.slug = "ai-khichdi"
+        mock_recipe.meal_type = "dinner"
+        mock_recipe.cached_calories_per_serving = 400
+        mock_recipe.servings = 2
+
+        captured: dict[str, object] = {}
+
+        def _spy_prompt(**kwargs):
+            captured.update(kwargs)
+            return [{"role": "system", "content": "x"}, {"role": "user", "content": "y"}]
+
+        with (
+            patch("apps.chat.services.chat_service.check_rate_limit"),
+            patch(
+                "apps.chat.services.chat_service._load_context",
+                return_value=(profile, None, None, []),
+            ),
+            patch(
+                "apps.chat.services.chat_service.build_ingredient_prompt",
+                side_effect=_spy_prompt,
+            ),
+            patch(
+                "apps.chat.services.chat_service.structured_completion",
+                return_value=fake_json,
+            ),
+            patch("apps.chat.services.chat_service.get_provider_config", return_value=cfg),
+            patch(
+                "apps.chat.services.chat_service.validate_and_persist_ai_recipe",
+                return_value=mock_recipe,
+            ),
+        ):
+            msg = chat_service.send_message_ingredient(
+                session=session,
+                content="Make me a recipe with Rice",
+                ingredients=["Rice"],
+                user=profile.user,
+            )
+
+        # exactly one recipe was requested from the model
+        assert captured["count"] == 1
+
+        assert msg.metadata is not None
+        recipes = msg.metadata["recipes"]
+        assert len(recipes) == 1
+        card = recipes[0]
+        assert card["slug"] == "ai-khichdi"  # non-null slug
+        assert card["description"] == "A comforting one-pot rice and lentil dish."
 
     def test_failed_validation_logged_not_aborted(self):
         profile = DietaryProfileFactory()
         session = ChatSessionFactory(user=profile.user)
+        # Known ingredient → grounded path, so a validation failure is exercised
+        # (rather than the free-form path which never validates).
+        IngredientFactory(name="Rice", is_active=True)
         cfg = _make_provider_cfg()
 
         fake_json = {"recipes": [{"name": "Bad Recipe"}]}
@@ -343,7 +429,7 @@ class TestSendMessageIngredient:
             msg = chat_service.send_message_ingredient(
                 session=session,
                 content="Make me something",
-                ingredients=["Nonexistent"],
+                ingredients=["Rice"],
                 user=profile.user,
             )
 
@@ -354,6 +440,9 @@ class TestSendMessageIngredient:
         """3 recipes generated; 1 fails ingredient validation → 2 returned, 1 logged."""
         profile = DietaryProfileFactory()
         session = ChatSessionFactory(user=profile.user)
+        # Known ingredients → grounded path (validation runs).
+        IngredientFactory(name="Rice", is_active=True)
+        IngredientFactory(name="Dal", is_active=True)
         cfg = _make_provider_cfg()
 
         fake_json = {
@@ -367,6 +456,7 @@ class TestSendMessageIngredient:
         mock_a = MagicMock()
         mock_a.pk = 1
         mock_a.name = "Recipe A"
+        mock_a.slug = "recipe-a"
         mock_a.meal_type = "lunch"
         mock_a.cached_calories_per_serving = 350
         mock_a.servings = 2
@@ -374,6 +464,7 @@ class TestSendMessageIngredient:
         mock_c = MagicMock()
         mock_c.pk = 3
         mock_c.name = "Recipe C"
+        mock_c.slug = "recipe-c"
         mock_c.meal_type = "dinner"
         mock_c.cached_calories_per_serving = 420
         mock_c.servings = 2
@@ -414,6 +505,133 @@ class TestSendMessageIngredient:
         assert "Recipe A" in names
         assert "Recipe C" in names
         assert "Recipe B" not in names
+
+    def test_unknown_ingredient_takes_freeform_path_display_only(self):
+        """An ingredient not in the DB → free-form: not persisted, display-only card."""
+        profile = DietaryProfileFactory()
+        session = ChatSessionFactory(user=profile.user)
+        # Only "Milk" exists; "makhana" is unknown → free-form path.
+        IngredientFactory(name="Milk", is_active=True)
+        cfg = _make_provider_cfg()
+
+        fake_json = {
+            "recipes": [
+                {
+                    "name": "Makhana Kheer",
+                    "description": "Creamy fox-nut pudding simmered in milk.",
+                    "meal_type": "dinner",
+                    "servings": 2,
+                    "ingredients": [
+                        {"ingredient_name": "makhana", "quantity_grams": 50},
+                        {"ingredient_name": "milk", "quantity_grams": 500},
+                    ],
+                    "steps": ["Roast makhana.", "Simmer in milk.", "Add sugar and cardamom."],
+                }
+            ]
+        }
+
+        captured: dict[str, object] = {}
+
+        def _spy_freeform(**kwargs):
+            captured.update(kwargs)
+            return [{"role": "system", "content": "x"}, {"role": "user", "content": "y"}]
+
+        with (
+            patch("apps.chat.services.chat_service.check_rate_limit"),
+            patch(
+                "apps.chat.services.chat_service._load_context",
+                return_value=(profile, None, None, []),
+            ),
+            patch(
+                "apps.chat.services.chat_service.build_freeform_recipe_prompt",
+                side_effect=_spy_freeform,
+            ),
+            patch(
+                "apps.chat.services.chat_service.structured_completion",
+                return_value=fake_json,
+            ),
+            patch("apps.chat.services.chat_service.get_provider_config", return_value=cfg),
+            patch(
+                "apps.chat.services.chat_service.validate_and_persist_ai_recipe",
+            ) as mock_validate,
+        ):
+            msg = chat_service.send_message_ingredient(
+                session=session,
+                content="Make something with makhana and milk",
+                ingredients=["makhana", "milk"],
+                user=profile.user,
+            )
+
+        # The free-form builder was used and validation/persistence was NOT called.
+        assert captured  # build_freeform_recipe_prompt was invoked
+        mock_validate.assert_not_called()
+
+        assert msg.metadata is not None
+        assert msg.metadata["freeform"] is True
+        assert msg.metadata["validated"] is False
+        recipes = msg.metadata["recipes"]
+        assert len(recipes) == 1
+        card = recipes[0]
+        assert card["name"] == "Makhana Kheer"
+        assert card["loggable"] is False
+        assert card["source"] == "ai_freeform"
+        # Inline dish carried for display (no DB row to link to).
+        assert card["steps"][0] == "Roast makhana."
+        assert len(card["ingredients"]) == 2
+        # No persisted-recipe fields on a free-form card.
+        assert "id" not in card
+        assert "slug" not in card
+
+    def test_freeform_no_recipes_returns_fallback_message(self):
+        """Free-form path with an empty model response → no recipes, fallback text."""
+        profile = DietaryProfileFactory()
+        session = ChatSessionFactory(user=profile.user)
+        cfg = _make_provider_cfg()  # no Ingredient rows → unknown ingredient → free-form
+
+        with (
+            patch("apps.chat.services.chat_service.check_rate_limit"),
+            patch(
+                "apps.chat.services.chat_service._load_context",
+                return_value=(profile, None, None, []),
+            ),
+            patch(
+                "apps.chat.services.chat_service.structured_completion",
+                return_value={"recipes": []},
+            ),
+            patch("apps.chat.services.chat_service.get_provider_config", return_value=cfg),
+        ):
+            msg = chat_service.send_message_ingredient(
+                session=session,
+                content="Make something with dragonfruit",
+                ingredients=["dragonfruit"],
+                user=profile.user,
+            )
+
+        assert msg.metadata is not None
+        assert msg.metadata["recipes"] == []
+        assert msg.metadata["freeform"] is True
+        assert "couldn't generate" in msg.content
+
+
+# ---------------------------------------------------------------------------
+# chat_service._all_ingredients_known
+# ---------------------------------------------------------------------------
+
+
+class TestAllIngredientsKnown:
+    def test_all_known_loose_match(self):
+        # casual "rice" matches specific DB name
+        assert chat_service._all_ingredients_known(
+            ["rice", "paneer"], ["Basmati rice (raw)", "Paneer (raw)"]
+        )
+
+    def test_any_unknown_returns_false(self):
+        assert not chat_service._all_ingredients_known(
+            ["rice", "makhana"], ["Basmati rice (raw)", "Paneer (raw)"]
+        )
+
+    def test_blank_terms_ignored(self):
+        assert chat_service._all_ingredients_known(["  ", "rice"], ["Basmati rice (raw)"])
 
 
 # ---------------------------------------------------------------------------
@@ -1425,3 +1643,56 @@ class TestBuildIngredientPrompt:
         )
         assert "JSON Schema" in messages[0]["content"]
         assert "ingredient_name" in messages[0]["content"]
+
+    def test_hero_ingredients_must_be_featured(self):
+        """Provided ingredients (e.g. makhana) are framed as heroes the model must feature."""
+        from apps.chat.services.prompt_builder import build_ingredient_prompt
+
+        profile = DietaryProfileFactory()
+        messages = build_ingredient_prompt(
+            ingredients=["makhana", "milk", "sugar"],
+            profile=profile,
+            available_ingredient_names=["Makhana (raw)", "Milk", "Sugar"],
+            count=1,
+        )
+        system = messages[0]["content"]
+        user = messages[1]["content"]
+
+        # The hero ingredient is surfaced to the model in the user message.
+        assert "makhana" in user.lower()
+        # The user message frames the provided ingredients as heroes to feature.
+        assert "hero" in user.lower()
+        # Quality rules instruct the model to center on heroes and avoid trivial recipes.
+        assert "HERO" in system
+        assert "never silently dropped" in system
+        assert "at least 3" in system  # multi-step requirement
+        # Must not introduce a major new protein/vegetable the user didn't list.
+        assert "MUST NOT" in system
+
+
+@pytest.mark.django_db
+class TestBuildFreeformRecipePrompt:
+    def test_no_approved_list_but_keeps_quality_rules(self):
+        """Free-form prompt drops the approved-list constraint but keeps hero/quality rules."""
+        from apps.chat.services.prompt_builder import build_freeform_recipe_prompt
+
+        profile = DietaryProfileFactory()
+        messages = build_freeform_recipe_prompt(
+            ingredients=["makhana", "milk", "sugar"],
+            profile=profile,
+            count=1,
+        )
+        assert len(messages) == 2
+        system = messages[0]["content"]
+        user = messages[1]["content"]
+
+        # No approved-list / exact-name constraint in the free-form prompt: it explicitly
+        # tells the model it is NOT restricted to any list (the grounded prompt's
+        # "Approved ingredient list (use ONLY these names...)" block is absent).
+        assert "use ONLY these names" not in system
+        assert "NOT restricted to any approved list" in system
+        # Hero + quality rules still apply.
+        assert "makhana" in user.lower()
+        assert "HERO" in system
+        assert "at least 3" in system
+        assert "JSON Schema" in system

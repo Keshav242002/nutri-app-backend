@@ -33,6 +33,7 @@ _RECIPE_SCHEMA = {
                 ],
                 "properties": {
                     "name": {"type": "string"},
+                    "description": {"type": "string"},
                     "meal_type": {"type": "string", "enum": ["breakfast", "lunch", "dinner"]},
                     "servings": {"type": "integer", "minimum": 1, "maximum": 12},
                     "diet_tags": {"type": "array", "items": {"type": "string"}},
@@ -224,6 +225,23 @@ def build_ingredient_prompt(
         f"No markdown, no prose, no code fences.\n"
         f"6. quantity_grams must be between 1 and 5000.\n"
         f"7. Servings must be between 1 and 12.\n"
+        f"8. Include a short 'description': one appetizing sentence (max 140 chars) "
+        f"summarising the dish for a recipe card.\n"
+        f"\n"
+        f"RECIPE QUALITY RULES (CRITICAL — a trivial or off-topic recipe is a failure):\n"
+        f"9. The user's provided ingredients are the HERO of the dish and MUST be "
+        f"meaningfully featured — never silently dropped. If a hero ingredient is given "
+        f"(e.g. makhana, paneer, besan), the recipe must be built around it and the dish "
+        f"name should reflect it (e.g. makhana kheer, paneer bhurji) — do NOT omit it or "
+        f"reduce it to a garnish.\n"
+        f"10. Produce a REAL, recognisable Indian dish with a proper dish name and a "
+        f"sensible cooking method. Do NOT return a trivial 1-2 step preparation "
+        f"(e.g. 'warm milk with sugar'). The 'steps' array MUST contain at least 3 "
+        f"genuine cooking steps.\n"
+        f"11. You MAY add common pantry staples (spices, salt, ghee, oil, water, "
+        f"sugar or jaggery, common dals/flour for binding) as needed, but you MUST NOT "
+        f"introduce a major new protein or vegetable the user did not list "
+        f"(do not add chicken, paneer, potato, etc. unless the user listed it).\n"
         f"\n"
         f"JSON Schema (return EXACTLY this shape):\n"
         f"{schema_str}"
@@ -231,6 +249,74 @@ def build_ingredient_prompt(
 
     user_content = (
         f"I have these ingredients: {', '.join(ingredients)}.\n"
+        f"These are the hero ingredients — build the dish around them and feature them "
+        f"prominently; do not drop any of them. "
+        f"Please generate {count} recipe(s) I can make with them."
+    )
+
+    return [
+        {"role": "system", "content": system_content},
+        {"role": "user", "content": user_content},
+    ]
+
+
+def build_freeform_recipe_prompt(
+    ingredients: list[str],
+    profile: DietaryProfile,
+    count: int = 1,
+) -> list[dict[str, str]]:
+    """Build messages for free-form (display-only) ingredient-to-recipe completion.
+
+    Used when one or more user ingredients are NOT in the curated ingredient DB. The
+    resulting recipe is shown to the user but never persisted, so ingredient names are
+    free text (no approved-list constraint and no exact-name matching). The same JSON
+    schema and quality rules apply; nutrition is not computed for these recipes.
+    """
+    schema_str = json.dumps(_RECIPE_SCHEMA, indent=2)
+
+    system_content = (
+        f"You are a recipe generation engine for NutriPlan, an Indian-first nutrition app.\n"
+        f"Generate exactly {count} recipe(s) using the ingredients the user provides.\n"
+        f"\n"
+        f"User profile:\n"
+        f"  Diet pattern: {profile.diet_pattern}\n"
+        f"  Goal: {profile.goal}\n"
+        f"  Allergens (NEVER use): {', '.join(profile.allergies) or 'none'}\n"
+        f"  No onion/garlic: {profile.no_onion_garlic}\n"
+        f"\n"
+        f"OUTPUT RULES:\n"
+        f"1. Return ONLY valid JSON matching the schema below. "
+        f"No markdown, no prose, no code fences.\n"
+        f"2. Use natural, everyday ingredient names (e.g. 'makhana', 'paneer', 'rice'). "
+        f"You are NOT restricted to any approved list — name ingredients as a home cook would.\n"
+        f"3. quantity_grams must be between 1 and 5000.\n"
+        f"4. Servings must be between 1 and 12.\n"
+        f"5. Include a short 'description': one appetizing sentence (max 140 chars) "
+        f"summarising the dish for a recipe card.\n"
+        f"\n"
+        f"RECIPE QUALITY RULES (CRITICAL — a trivial or off-topic recipe is a failure):\n"
+        f"6. The user's provided ingredients are the HERO of the dish and MUST be "
+        f"meaningfully featured — never silently dropped. If a hero ingredient is given "
+        f"(e.g. makhana, paneer, besan), the recipe must be built around it and the dish "
+        f"name should reflect it (e.g. makhana kheer, paneer bhurji) — do NOT omit it or "
+        f"reduce it to a garnish.\n"
+        f"7. Produce a REAL, recognisable Indian dish with a proper dish name and a "
+        f"sensible cooking method. Do NOT return a trivial 1-2 step preparation "
+        f"(e.g. 'warm milk with sugar'). The 'steps' array MUST contain at least 3 "
+        f"genuine cooking steps.\n"
+        f"8. You MAY add common pantry staples (spices, salt, ghee, oil, water, "
+        f"sugar or jaggery, common dals/flour for binding) as needed, but you MUST NOT "
+        f"introduce a major new protein or vegetable the user did not list "
+        f"(do not add chicken, paneer, potato, etc. unless the user listed it).\n"
+        f"\n"
+        f"JSON Schema (return EXACTLY this shape):\n"
+        f"{schema_str}"
+    )
+
+    user_content = (
+        f"I have these ingredients: {', '.join(ingredients)}.\n"
+        f"These are the hero ingredients — build the dish around them and feature them "
+        f"prominently; do not drop any of them. "
         f"Please generate {count} recipe(s) I can make with them."
     )
 

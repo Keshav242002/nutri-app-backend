@@ -14,3 +14,8 @@ openai==1.82.0
 httpx==0.28.1
 google-genai==1.20.0
 uvicorn[standard]==0.48.0
+# IANA timezone DB for Python's stdlib zoneinfo. The slim Docker base image
+# (python:3.12-slim) ships no system tzdata, so ZoneInfo(profile.timezone) in
+# get_user_local_today() raises ZoneInfoNotFoundError without this package —
+# crashing /mealplans/today/ and /week/ in containerized/prod environments.
+tzdata==2026.2

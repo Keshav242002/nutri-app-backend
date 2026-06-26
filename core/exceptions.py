@@ -1,3 +1,4 @@
+import logging
 from typing import Any
 
 from django.http import Http404
@@ -32,6 +33,8 @@ from core.error_codes import (  # noqa: F401  # re-exported for backwards compat
     USDA_FAILURE,
     VALIDATION_ERROR,
 )
+
+_logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
 # Exception hierarchy
@@ -145,5 +148,20 @@ def app_exception_handler(exc: Exception, context: dict[str, Any]) -> Response |
             str(data.get("detail", "An error occurred.")) if isinstance(data, dict) else str(data)
         )
         response.data = _error_envelope(INTERNAL_ERROR, message)
+        return response
 
-    return response
+    # DRF returned None -> a genuinely unexpected exception (not an APIException
+    # subclass), e.g. ZoneInfoNotFoundError, KeyError, etc. Without this branch
+    # Django emits its default HTML 500 page, which breaks JSON-only clients
+    # (their response decoder throws on the HTML body). Always return the
+    # canonical JSON envelope instead. The full traceback is logged here so the
+    # actual defect is still recoverable from the server logs; the client never
+    # sees a stack trace.
+    _logger.exception(
+        "unhandled_exception",
+        extra={"event": "unhandled_exception", "error_code": INTERNAL_ERROR},
+    )
+    return Response(
+        _error_envelope(INTERNAL_ERROR, "An unexpected error occurred. Please try again."),
+        status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+    )

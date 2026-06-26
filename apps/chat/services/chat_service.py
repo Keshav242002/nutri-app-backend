@@ -25,7 +25,11 @@ from core.exceptions import NotFoundError, RateLimitError
 from .ai_recipe_validator import validate_and_persist_ai_recipe
 from .llm_client import chat_completion, structured_completion
 from .llm_config import get_provider_config
-from .prompt_builder import build_ingredient_prompt, build_system_prompt
+from .prompt_builder import (
+    build_freeform_recipe_prompt,
+    build_ingredient_prompt,
+    build_system_prompt,
+)
 
 if TYPE_CHECKING:
     from apps.accounts.models import User
@@ -264,25 +268,88 @@ def send_message_chat_stream(
     _update_session_timestamp(session)
 
 
+def _all_ingredients_known(ingredients: list[str], available_names: list[str]) -> bool:
+    """Loose check: does every user-typed ingredient match an active DB ingredient?
+
+    Users type casual terms ('rice', 'paneer'); DB names are specific ('Basmati rice
+    (raw)'). A user ingredient is "known" if it is a substring of some active ingredient
+    name, or a sufficiently-specific ingredient name is a substring of the user term.
+    This is intentionally looser than the validator's resolver — it only decides which
+    generation path to take (grounded vs free-form), not what gets persisted.
+    """
+    lowered = [n.lower() for n in available_names]
+    for raw in ingredients:
+        term = raw.strip().lower()
+        if not term:
+            continue
+        matched = any(term in name or (len(name) >= 4 and name in term) for name in lowered)
+        if not matched:
+            return False
+    return True
+
+
+def _freeform_summary(recipe_json: dict[str, Any]) -> dict[str, Any]:
+    """Build a display-only recipe card from a free-form (non-persisted) recipe payload.
+
+    Carries the dish inline (ingredients + steps) since there is no DB row to link to.
+    `loggable: False` signals the client not to offer logging — the user logs via the
+    home-page "log something else" path if they actually cook it.
+    """
+    raw_ings = recipe_json.get("ingredients", []) or []
+    inline_ings = [
+        {
+            "ingredient_name": (i.get("ingredient_name") or "").strip(),
+            "quantity_grams": i.get("quantity_grams"),
+        }
+        for i in raw_ings
+        if isinstance(i, dict)
+    ]
+    return {
+        "name": (recipe_json.get("name") or "").strip(),
+        "description": (recipe_json.get("description") or "").strip()[:140],
+        "meal_type": (recipe_json.get("meal_type") or "").strip(),
+        "servings": recipe_json.get("servings"),
+        "ingredients": inline_ings,
+        "steps": [s for s in (recipe_json.get("steps") or []) if isinstance(s, str)],
+        "loggable": False,
+        "source": "ai_freeform",
+    }
+
+
 def send_message_ingredient(
     session: ChatSession,
     content: str,
     ingredients: list[str],
     user: User,
 ) -> ChatMessage:
-    """Ingredient mode: generate recipes → validate → save message with metadata.recipes."""
+    """Ingredient mode: two-tier generation → save message with metadata.recipes.
+
+    If every provided ingredient matches the curated DB (loose match), take the
+    *grounded* path: generate against the approved ingredient list, validate, persist a
+    Recipe, and return a loggable card with id/slug/nutrition. If ANY ingredient is
+    unknown, take the *free-form* path: generate freely, do NOT persist, and return a
+    display-only card (inline ingredients/steps, no nutrition, ``loggable: False``).
+    """
     check_rate_limit(user)
 
     profile, _, _, _ = _load_context(user)
 
     available_names = list(Ingredient.objects.filter(is_active=True).values_list("name", flat=True))
+    grounded = _all_ingredients_known(ingredients, available_names)
 
-    messages = build_ingredient_prompt(
-        ingredients=ingredients,
-        profile=profile,
-        available_ingredient_names=available_names,
-        count=3,
-    )
+    if grounded:
+        messages = build_ingredient_prompt(
+            ingredients=ingredients,
+            profile=profile,
+            available_ingredient_names=available_names,
+            count=1,
+        )
+    else:
+        messages = build_freeform_recipe_prompt(
+            ingredients=ingredients,
+            profile=profile,
+            count=1,
+        )
 
     ChatMessage.objects.create(
         session=session,
@@ -298,6 +365,7 @@ def send_message_ingredient(
         "ai_ingredient_raw_response",
         extra={
             "event": "ai_ingredient_raw_response",
+            "grounded": grounded,
             "recipe_count": len(recipes_data),
             "ingredient_names": [
                 ing.get("ingredient_name", "?")
@@ -307,47 +375,63 @@ def send_message_ingredient(
         },
     )
 
-    validated_recipe_ids: list[int] = []
     recipe_summaries: list[dict[str, Any]] = []
-    for recipe_json in recipes_data:
-        try:
-            recipe = validate_and_persist_ai_recipe(recipe_json, user)
-            validated_recipe_ids.append(recipe.pk)
-            recipe_summaries.append(
-                {
-                    "id": recipe.pk,
-                    "name": recipe.name,
-                    "meal_type": recipe.meal_type,
-                    "calories_per_serving": recipe.cached_calories_per_serving,
-                    "servings": recipe.servings,
-                }
-            )
-        except Exception as exc:  # noqa: BLE001
-            recipe_name = recipe_json.get("name", "unknown")
-            exc_type = type(exc).__name__
-            exc_msg = str(exc)
-            msg_dict = getattr(exc, "message_dict", None)
-            logger.warning(
-                "ai_recipe_validation_failed [recipe=%s] [%s: %s] [message_dict=%s]",
-                recipe_name,
-                exc_type,
-                exc_msg,
-                msg_dict,
-                exc_info=True,
-                extra={
-                    "event": "ai_recipe_validation_failed",
-                    "recipe_name": recipe_name,
-                    "exc_type": exc_type,
-                    "error": exc_msg,
-                    "message_dict": msg_dict,
-                },
-            )
+    if grounded:
+        for recipe_json in recipes_data:
+            try:
+                recipe = validate_and_persist_ai_recipe(recipe_json, user)
+                recipe_summaries.append(
+                    {
+                        "id": recipe.pk,
+                        "name": recipe.name,
+                        "slug": recipe.slug,  # for opening recipe detail on the client
+                        # Recipe has no description column; carry the LLM-supplied
+                        # one-liner through from the payload (truncated, "" when absent).
+                        "description": (recipe_json.get("description") or "").strip()[:140],
+                        "meal_type": recipe.meal_type,
+                        "calories_per_serving": recipe.cached_calories_per_serving,
+                        "servings": recipe.servings,
+                        "loggable": True,
+                        "source": "grounded",
+                    }
+                )
+            except Exception as exc:  # noqa: BLE001
+                recipe_name = recipe_json.get("name", "unknown")
+                exc_type = type(exc).__name__
+                exc_msg = str(exc)
+                msg_dict = getattr(exc, "message_dict", None)
+                logger.warning(
+                    "ai_recipe_validation_failed [recipe=%s] [%s: %s] [message_dict=%s]",
+                    recipe_name,
+                    exc_type,
+                    exc_msg,
+                    msg_dict,
+                    exc_info=True,
+                    extra={
+                        "event": "ai_recipe_validation_failed",
+                        "recipe_name": recipe_name,
+                        "exc_type": exc_type,
+                        "error": exc_msg,
+                        "message_dict": msg_dict,
+                    },
+                )
+    else:
+        # Free-form path: display-only, never persisted.
+        recipe_summaries = [_freeform_summary(r) for r in recipes_data if r.get("name")]
 
-    response_text = (
-        f"Here are {len(recipe_summaries)} recipe(s) I generated from your ingredients."
-        if recipe_summaries
-        else "I couldn't generate valid recipes from those ingredients. Please try different ones."
-    )
+    if recipe_summaries and grounded:
+        response_text = (
+            f"Here are {len(recipe_summaries)} recipe(s) I generated from your ingredients."
+        )
+    elif recipe_summaries:
+        response_text = (
+            "Here's a recipe idea using your ingredients. Some aren't in our library yet, "
+            "so I couldn't calculate nutrition — but here's how to make it."
+        )
+    else:
+        response_text = (
+            "I couldn't generate valid recipes from those ingredients. Please try different ones."
+        )
 
     assistant_msg = ChatMessage.objects.create(
         session=session,
@@ -357,7 +441,8 @@ def send_message_ingredient(
             "provider": cfg.provider.value,
             "model": cfg.model,
             "recipes": recipe_summaries,
-            "validated": len(recipe_summaries) > 0,
+            "validated": grounded and len(recipe_summaries) > 0,
+            "freeform": not grounded,
         },
     )
 
@@ -369,6 +454,7 @@ def send_message_ingredient(
             "event": "ingredient_mode_completed",
             "user_id": user.pk,
             "session_id": session.pk,
+            "grounded": grounded,
             "recipes_generated": len(recipe_summaries),
         },
     )

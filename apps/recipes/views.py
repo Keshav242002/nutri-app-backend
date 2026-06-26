@@ -7,7 +7,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 
 from apps.recipes.filters import RecipeFilter
-from apps.recipes.models import Recipe
+from apps.recipes.models import RECIPE_SOURCE_AI, Recipe
 from apps.recipes.serializers import RecipeDetailSerializer, RecipeListSerializer
 from core.pagination import StandardCursorPagination
 from core.responses import success_response
@@ -53,7 +53,10 @@ class RecipeListView(ListAPIView[Recipe]):
     filterset_class = RecipeFilter
 
     def get_queryset(self) -> QuerySet[Recipe]:
-        return Recipe.objects.filter(is_active=True)
+        # AI-generated recipes are "save but don't reuse": they are persisted for the
+        # user who generated them (reachable via detail by slug) but never surfaced in
+        # the shared browse list.
+        return Recipe.objects.filter(is_active=True).exclude(source=RECIPE_SOURCE_AI)
 
     def list(self, request: Request, *args: object, **kwargs: object) -> Response:
         queryset = self.filter_queryset(self.get_queryset())
