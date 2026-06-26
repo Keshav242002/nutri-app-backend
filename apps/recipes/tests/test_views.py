@@ -82,6 +82,21 @@ def test_recipe_list_returns_200_with_recipes(registered_user: Any) -> None:
     assert len(data["data"]["results"]) >= 1
 
 
+def test_recipe_list_excludes_ai_generated(registered_user: Any) -> None:
+    """AI-generated recipes are "save but don't reuse": never shown in the browse list."""
+    from apps.recipes.models import RECIPE_SOURCE_AI
+
+    client, _ = registered_user
+    _make_recipe(slug="curated-one")
+    _make_recipe(slug="ai-one", source=RECIPE_SOURCE_AI)
+    with patch("firebase_admin.auth.verify_id_token", return_value=FAKE_TOKEN_PAYLOAD):
+        response = client.get(RECIPE_LIST_URL)
+    assert response.status_code == 200
+    slugs = [r["slug"] for r in response.json()["data"]["results"]]
+    assert "curated-one" in slugs
+    assert "ai-one" not in slugs
+
+
 def test_recipe_list_requires_authentication() -> None:
     from django.test import Client
 

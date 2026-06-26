@@ -1,3 +1,5 @@
+from zoneinfo import ZoneInfoNotFoundError
+
 from rest_framework import status
 from rest_framework.exceptions import NotAuthenticated
 from rest_framework.exceptions import ValidationError as DRFValidationError
@@ -71,3 +73,19 @@ def test_drf_validation_error_returns_400_with_fields() -> None:
     assert response.status_code == status.HTTP_400_BAD_REQUEST
     assert response.data["error"]["code"] == "VALIDATION_ERROR"
     assert "fields" in response.data["error"]["details"]
+
+
+def test_unexpected_exception_returns_json_500_envelope() -> None:
+    # A genuinely unexpected exception (not an APIException subclass) must still
+    # produce the canonical JSON envelope — never a bare HTML 500, which would
+    # break JSON-only clients (their decoder throws on the HTML body). This is
+    # the class of failure that crashed GET /mealplans/today/ in prod, where
+    # ZoneInfo(profile.timezone) raised ZoneInfoNotFoundError.
+    exc = ZoneInfoNotFoundError("No time zone found with key Asia/Kolkata")
+    response = app_exception_handler(exc, _ctx())
+    assert response is not None
+    assert response.status_code == status.HTTP_500_INTERNAL_SERVER_ERROR
+    assert response.data["status"] == "error"
+    assert response.data["error"]["code"] == "INTERNAL_ERROR"
+    # The raw exception message is NOT leaked to the client.
+    assert "Asia/Kolkata" not in response.data["message"]

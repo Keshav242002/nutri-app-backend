@@ -851,21 +851,27 @@ class TestPlanService:
 
 @pytest.mark.django_db
 class TestAiGeneratedRecipeInPool:
-    """M7 acceptance: AI-generated recipes are first-class — the engine selects them."""
+    """Policy: AI-generated recipes are "save but don't reuse" — the engine excludes them."""
 
-    def test_ai_recipe_appears_in_engine_candidate_pool(self) -> None:
-        """A recipe with source='ai_generated' is selectable by the engine."""
+    def test_ai_recipe_excluded_from_engine_candidate_pool(self) -> None:
+        """A recipe with source='ai_generated' is NOT selectable by the engine."""
         from apps.recipes.models import RECIPE_SOURCE_AI
 
         profile = _profile()
-        # Only recipe in the pool is AI-generated
-        ai_recipe = _recipe(
+        # Only recipe in the pool is AI-generated → no eligible candidate.
+        _recipe(
             slug="ai-generated-dal-rice",
             source=RECIPE_SOURCE_AI,
         )
+        with pytest.raises(NoSuitableRecipeError):
+            select_recipe(profile, "lunch", PLAN_DATE, rng=_rng())
+
+    def test_non_ai_recipe_still_selectable(self) -> None:
+        """A normal (non-AI) recipe in the same conditions is still selected."""
+        profile = _profile()
+        normal = _recipe(slug="curated-dal-rice")
         result = select_recipe(profile, "lunch", PLAN_DATE, rng=_rng())
-        assert result == ai_recipe
-        assert result.source == RECIPE_SOURCE_AI
+        assert result == normal
 
 
 # ---------------------------------------------------------------------------
