@@ -68,12 +68,14 @@ def build_system_prompt(
     profile: DietaryProfile,
     today_plan: MealPlan | None,
     today_summary: DailyNutritionSummary | None = None,
+    recent_summaries: list[DailyNutritionSummary] | None = None,
 ) -> str:
     """Build the system prompt for free-chat mode.
 
     Embeds the user's nutrition targets, diet pattern, allergens (with explicit
-    'never recommend' instruction), today's meal plan, and — when available —
-    today's consumed nutrition with pre-computed remaining macros for context.
+    'never recommend' instruction), today's meal plan, today's consumed nutrition with
+    pre-computed remaining macros, and — when available — a short log of recent days so
+    the assistant can answer "how have my meals been this week?" from real history.
     """
     lines: list[str] = [
         "You are a personalised nutrition assistant for NutriPlan, "
@@ -129,6 +131,20 @@ def build_system_prompt(
             "do not recompute. When the user asks how they're doing or how to improve, "
             "use the remaining / over-target gaps to suggest concrete next foods that respect "
             "their diet pattern, allergens, and dislikes."
+        )
+
+    if recent_summaries:
+        lines.append("\n## Recent Days (logged)")
+        for s in recent_summaries:
+            lines.append(
+                f"{s.summary_date.isoformat()}: {s.meals_eaten} meals, "
+                f"{s.calories} kcal, {float(s.protein_g):g} g protein"
+            )
+        lines.append(
+            "These recent-days numbers are the user's actual logged history — authoritative, "
+            "use them as-is, do not recompute. They are context for questions about past days "
+            "or the week so far. Today's live targets are the 'Today So Far' remaining / "
+            "over-target gaps above, not these historical totals."
         )
 
     if profile.allergies:

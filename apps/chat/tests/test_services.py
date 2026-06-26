@@ -139,14 +139,18 @@ class TestLoadContext:
 
         profile = DietaryProfileFactory()
         today = timezone.now().date()
-        summary = DailyNutritionSummaryFactory(user=profile.user, summary_date=today, calories=500)
+        summary = DailyNutritionSummaryFactory(
+            user=profile.user, summary_date=today, calories=500, meals_eaten=2
+        )
 
-        loaded_profile, today_plan, today_summary = chat_service._load_context(profile.user)
+        loaded_profile, today_plan, today_summary, recent = chat_service._load_context(profile.user)
 
         assert loaded_profile == profile
         assert today_plan is None  # no plan created
         assert today_summary is not None
         assert today_summary.pk == summary.pk
+        # today has meals eaten, so it is included in recent history
+        assert summary.pk in {s.pk for s in recent}
 
     def test_summary_only_for_today(self):
         from apps.tracker.tests.factories import DailyNutritionSummaryFactory
@@ -158,8 +162,55 @@ class TestLoadContext:
             calories=900,
         )
 
-        _, _, today_summary = chat_service._load_context(profile.user)
+        _, _, today_summary, _ = chat_service._load_context(profile.user)
         assert today_summary is None
+
+    def test_recent_history_includes_prior_days_with_meals_eaten(self):
+        from apps.tracker.tests.factories import DailyNutritionSummaryFactory
+
+        profile = DietaryProfileFactory()
+        today = timezone.now().date()
+        # Three prior days with meals eaten, plus an empty day that must be excluded.
+        for offset in (2, 3, 4):
+            DailyNutritionSummaryFactory(
+                user=profile.user,
+                summary_date=today - timedelta(days=offset),
+                calories=2000,
+                meals_eaten=3,
+            )
+        DailyNutritionSummaryFactory(
+            user=profile.user,
+            summary_date=today - timedelta(days=1),
+            calories=0,
+            meals_eaten=0,
+        )
+        # Outside the 7-day window — excluded.
+        DailyNutritionSummaryFactory(
+            user=profile.user,
+            summary_date=today - timedelta(days=10),
+            calories=2000,
+            meals_eaten=3,
+        )
+
+        _, _, _, recent = chat_service._load_context(profile.user)
+
+        dates = [s.summary_date for s in recent]
+        assert dates == sorted(dates)  # oldest first
+        assert today - timedelta(days=1) not in dates  # no meals eaten -> excluded
+        assert today - timedelta(days=10) not in dates  # out of window
+        assert today - timedelta(days=2) in dates
+
+    def test_uses_user_local_today(self):
+        """_load_context resolves 'today' via the user's local timezone, not server UTC."""
+        from datetime import date
+
+        profile = DietaryProfileFactory()
+        with patch(
+            "apps.profiles.services.profiles.get_user_local_today_or_default",
+            return_value=date(2026, 6, 26),
+        ) as mock_today:
+            chat_service._load_context(profile.user)
+        mock_today.assert_called_once_with(profile.user)
 
 
 # ---------------------------------------------------------------------------
@@ -174,7 +225,9 @@ class TestSendMessageChat:
         cfg = _make_provider_cfg()
         with (
             patch("apps.chat.services.chat_service.check_rate_limit"),
-            patch("apps.chat.services.chat_service._load_context", return_value=(None, None, None)),
+            patch(
+                "apps.chat.services.chat_service._load_context", return_value=(None, None, None, [])
+            ),
             patch("apps.chat.services.chat_service.chat_completion", return_value="AI reply"),
             patch("apps.chat.services.chat_service.get_provider_config", return_value=cfg),
         ):
@@ -189,7 +242,9 @@ class TestSendMessageChat:
         cfg = _make_provider_cfg()
         with (
             patch("apps.chat.services.chat_service.check_rate_limit"),
-            patch("apps.chat.services.chat_service._load_context", return_value=(None, None, None)),
+            patch(
+                "apps.chat.services.chat_service._load_context", return_value=(None, None, None, [])
+            ),
             patch(
                 "apps.chat.services.chat_service.chat_completion",
                 side_effect=ExternalServiceError(code="LLM_FAILURE", message="fail"),
@@ -237,7 +292,8 @@ class TestSendMessageIngredient:
         with (
             patch("apps.chat.services.chat_service.check_rate_limit"),
             patch(
-                "apps.chat.services.chat_service._load_context", return_value=(profile, None, None)
+                "apps.chat.services.chat_service._load_context",
+                return_value=(profile, None, None, []),
             ),
             patch(
                 "apps.chat.services.chat_service.structured_completion",
@@ -271,7 +327,8 @@ class TestSendMessageIngredient:
         with (
             patch("apps.chat.services.chat_service.check_rate_limit"),
             patch(
-                "apps.chat.services.chat_service._load_context", return_value=(profile, None, None)
+                "apps.chat.services.chat_service._load_context",
+                return_value=(profile, None, None, []),
             ),
             patch(
                 "apps.chat.services.chat_service.structured_completion",
@@ -330,7 +387,8 @@ class TestSendMessageIngredient:
         with (
             patch("apps.chat.services.chat_service.check_rate_limit"),
             patch(
-                "apps.chat.services.chat_service._load_context", return_value=(profile, None, None)
+                "apps.chat.services.chat_service._load_context",
+                return_value=(profile, None, None, []),
             ),
             patch(
                 "apps.chat.services.chat_service.structured_completion",
@@ -1025,7 +1083,9 @@ class TestSendMessageChatStream:
 
         with (
             patch("apps.chat.services.chat_service.check_rate_limit"),
-            patch("apps.chat.services.chat_service._load_context", return_value=(None, None, None)),
+            patch(
+                "apps.chat.services.chat_service._load_context", return_value=(None, None, None, [])
+            ),
             patch(
                 "apps.chat.services.chat_service.chat_completion",
                 return_value=iter(["Hello", " world"]),
@@ -1297,6 +1357,42 @@ class TestBuildSystemPrompt:
         result = build_system_prompt(profile, today_plan=None, today_summary=summary)
 
         assert "over target by 250 kcal" in result
+
+    def test_no_recent_summaries_excludes_recent_days_section(self):
+        from apps.chat.services.prompt_builder import build_system_prompt
+
+        profile = DietaryProfileFactory()
+        result = build_system_prompt(profile, today_plan=None, recent_summaries=None)
+        assert "Recent Days" not in result
+
+    def test_with_recent_summaries_renders_history_lines(self):
+        from datetime import date
+
+        from apps.chat.services.prompt_builder import build_system_prompt
+        from apps.tracker.tests.factories import DailyNutritionSummaryFactory
+
+        profile = DietaryProfileFactory()
+        s1 = DailyNutritionSummaryFactory(
+            user=profile.user,
+            summary_date=date(2026, 6, 24),
+            calories=2131,
+            protein_g=68,
+            meals_eaten=3,
+        )
+        s2 = DailyNutritionSummaryFactory(
+            user=profile.user,
+            summary_date=date(2026, 6, 25),
+            calories=1800,
+            protein_g=72,
+            meals_eaten=2,
+        )
+        result = build_system_prompt(
+            profile, today_plan=None, today_summary=None, recent_summaries=[s1, s2]
+        )
+
+        assert "Recent Days (logged)" in result
+        assert "2026-06-24: 3 meals, 2131 kcal, 68 g protein" in result
+        assert "2026-06-25: 2 meals, 1800 kcal, 72 g protein" in result
 
 
 @pytest.mark.django_db

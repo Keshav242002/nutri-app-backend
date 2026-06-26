@@ -88,8 +88,16 @@ def get_session_messages(session_id: int, user: User) -> QuerySet[ChatMessage]:
     return session.messages.order_by("created_at")
 
 
-def _load_context(user: User) -> tuple[Any, Any, Any]:
-    """Load user profile, today's meal plan, and today's nutrition summary. Any may be None."""
+def _load_context(user: User) -> tuple[Any, Any, Any, list[Any]]:
+    """Load user profile, today's meal plan, today's nutrition summary, and recent history.
+
+    "Today" is resolved in the user's local timezone (not server UTC) via
+    [get_user_local_today_or_default], matching the home/week endpoints. Recent history is
+    the last 7 local days (``[today - 6, today]``) of DailyNutritionSummary rows that have at
+    least one meal eaten, oldest first. Profile/plan/summary may be None; recent may be empty.
+    """
+    from apps.profiles.services.profiles import get_user_local_today_or_default
+
     profile = None
     try:
         profile = user.profile
@@ -98,8 +106,9 @@ def _load_context(user: User) -> tuple[Any, Any, Any]:
 
     today_plan = None
     today_summary = None
+    recent_summaries: list[Any] = []
     if profile is not None:
-        today = timezone.now().date()
+        today = get_user_local_today_or_default(user)
         try:
             from apps.mealplans.models import MealPlan
 
@@ -120,7 +129,21 @@ def _load_context(user: User) -> tuple[Any, Any, Any]:
         except Exception:  # noqa: BLE001
             pass
 
-    return profile, today_plan, today_summary
+        try:
+            from apps.tracker.models import DailyNutritionSummary
+
+            recent_summaries = list(
+                DailyNutritionSummary.objects.filter(
+                    user=user,
+                    summary_date__gte=today - timedelta(days=6),
+                    summary_date__lte=today,
+                    meals_eaten__gt=0,
+                ).order_by("summary_date")
+            )
+        except Exception:  # noqa: BLE001
+            pass
+
+    return profile, today_plan, today_summary, recent_summaries
 
 
 def _build_history(session: ChatSession, limit: int = 10) -> list[dict[str, str]]:
@@ -146,12 +169,17 @@ def send_message_chat(
     """Free-chat mode: build context → call LLM → save both messages → return assistant message."""
     check_rate_limit(user)
 
-    profile, today_plan, today_summary = _load_context(user)
+    profile, today_plan, today_summary, recent_summaries = _load_context(user)
 
     messages: list[dict[str, str]] = []
     if profile is not None:
         messages.append(
-            {"role": "system", "content": build_system_prompt(profile, today_plan, today_summary)}
+            {
+                "role": "system",
+                "content": build_system_prompt(
+                    profile, today_plan, today_summary, recent_summaries
+                ),
+            }
         )
     messages.extend(_build_history(session))
     messages.append({"role": "user", "content": content})
@@ -196,12 +224,17 @@ def send_message_chat_stream(
     """Streaming chat mode. Yields SSE text chunks; saves full response after stream completes."""
     check_rate_limit(user)
 
-    profile, today_plan, today_summary = _load_context(user)
+    profile, today_plan, today_summary, recent_summaries = _load_context(user)
 
     messages: list[dict[str, str]] = []
     if profile is not None:
         messages.append(
-            {"role": "system", "content": build_system_prompt(profile, today_plan, today_summary)}
+            {
+                "role": "system",
+                "content": build_system_prompt(
+                    profile, today_plan, today_summary, recent_summaries
+                ),
+            }
         )
     messages.extend(_build_history(session))
     messages.append({"role": "user", "content": content})
@@ -240,7 +273,7 @@ def send_message_ingredient(
     """Ingredient mode: generate recipes → validate → save message with metadata.recipes."""
     check_rate_limit(user)
 
-    profile, _, _ = _load_context(user)
+    profile, _, _, _ = _load_context(user)
 
     available_names = list(Ingredient.objects.filter(is_active=True).values_list("name", flat=True))
 
