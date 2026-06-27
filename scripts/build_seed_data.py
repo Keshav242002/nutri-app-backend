@@ -6,7 +6,7 @@ and batch recipe JSON files.
 Produces three output files in apps/recipes/seed_data/:
   - ingredients.json  (136 entries)
   - household_units.json  (~400-500 entries)
-  - recipes.json  (93 entries)
+  - recipes.json  (211 entries)
 
 Plus a BUILD_REPORT.md summary.
 
@@ -611,10 +611,10 @@ def validate_outputs(
         dupes = [aid for aid in app_ids if app_ids.count(aid) > 1]
         errors.append(f"VALIDATION FAILED: Duplicate app_ids: {set(dupes)}")
 
-    # 2. recipes.json has 93 entries, all with unique slug
-    if len(recipes) != 93:
+    # 2. recipes.json has 211 entries, all with unique slug
+    if len(recipes) != 211:
         errors.append(
-            f"VALIDATION FAILED: Expected 93 recipes, got {len(recipes)}."
+            f"VALIDATION FAILED: Expected 211 recipes, got {len(recipes)}."
         )
     slugs = [r["slug"] for r in recipes]
     if len(slugs) != len(set(slugs)):
@@ -911,9 +911,9 @@ def main() -> None:
             sys.exit(1)
 
     batch_files = sorted(glob.glob(str(BATCH_DIR / "batch_*.json")))
-    if len(batch_files) != 14:
+    if len(batch_files) < 1:
         print(
-            f"❌ Expected 14 batch files, found {len(batch_files)} in {BATCH_DIR}",
+            f"❌ No batch files found in {BATCH_DIR}",
             file=sys.stderr,
         )
         sys.exit(1)

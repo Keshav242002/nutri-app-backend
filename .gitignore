@@ -31,6 +31,11 @@ db.sqlite3
 db.sqlite3-journal
 staticfiles/
 mediafiles/
+media/
+recipe_images/
+
+# Recipe images — stored in Firebase Storage, not in the repo
+apps/recipes/seed_data/images/
 
 # Coverage
 .coverage
