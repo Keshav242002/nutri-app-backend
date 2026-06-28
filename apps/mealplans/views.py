@@ -306,9 +306,7 @@ class WeeklyPlanGenerateView(APIView):
         # Default to the user's local "today" (not server UTC) so an omitted
         # date generates the week the user is actually on. Resolved here and
         # passed explicitly so generate_weekly_plan never falls back to UTC.
-        ref_date: date = ser.validated_data.get("date") or get_user_local_today(
-            request.user
-        )
+        ref_date: date = ser.validated_data.get("date") or get_user_local_today(request.user)
 
         # Compute week range to derive days_existing before generating.
         today = ref_date
