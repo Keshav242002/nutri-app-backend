@@ -31,6 +31,19 @@ db.sqlite3
 db.sqlite3-journal
 staticfiles/
 mediafiles/
+media/
+recipe_images/
+
+# Recipe images — stored in Firebase Storage, not in the repo
+apps/recipes/seed_data/images/
+
+# Seed data intermediate artifacts — not needed in repo
+apps/recipes/seed_data/recipes_gap_fill.json
+apps/recipes/seed_data/sources/
+
+# One-off utility scripts
+scripts/generate_recipe_images.py
+scripts/validate_against_anuvaad.py
 
 # Coverage
 .coverage
