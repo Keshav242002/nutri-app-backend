@@ -204,6 +204,7 @@ def upsert_profile(user: User, data: dict[str, Any]) -> tuple[DietaryProfile, bo
         profile = DietaryProfile(user=user)
         created = True
 
+    old_target_calories: int | None = None if created else profile.target_calories
     _assign_fields(profile, data)
 
     try:
@@ -226,6 +227,30 @@ def upsert_profile(user: User, data: dict[str, Any]) -> tuple[DietaryProfile, bo
 
     event = "profile_created" if created else "profile_updated"
     logger.info(event, extra={"event": event, "user_id": user.pk})
+
+    # Dispatch goal-updated notification (covers first creation and subsequent changes).
+    _maybe_notify_goal_updated(user, old_target_calories, profile.target_calories)
+
+    # On first profile creation, kick off today's meal plan generation immediately.
+    if created:
+        try:
+            from apps.mealplans.tasks import generate_plan_for_user
+
+            today = get_user_local_today(user).isoformat()
+            generate_plan_for_user.delay(user_id=user.pk, plan_date_iso=today)
+            logger.info(
+                "meal_plan_generation_triggered",
+                extra={
+                    "event": "meal_plan_generation_triggered",
+                    "user_id": user.pk,
+                    "date": today,
+                },
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.warning(
+                "meal_plan_trigger_failed",
+                extra={"event": "meal_plan_trigger_failed", "user_id": user.pk, "error": str(exc)},
+            )
 
     return profile, created
 
